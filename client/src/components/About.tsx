@@ -67,10 +67,9 @@ const About = () => {
                 <img 
                   src={logoPng} 
                   alt="Lynx Agency Vision" 
-                  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
+                  className="w-full h-full object-cover opacity-100 transition-opacity duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
               </div>
               
               {/* Floating elements */}
