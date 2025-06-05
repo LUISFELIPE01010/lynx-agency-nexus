@@ -3,7 +3,13 @@ import logoPng from '@/logop.png';
 
 const About = () => {
   return (
-    <section id="about" className="py-32 px-6 bg-black relative overflow-hidden">
+    <section id="about" className="py-32 px-6 relative overflow-hidden">
+      {/* Background image with dark overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/banner1.png')" }}
+      ></div>
+      <div className="absolute inset-0 bg-black/96"></div>
       {/* Background texture */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>

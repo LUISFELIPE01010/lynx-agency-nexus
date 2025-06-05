@@ -127,9 +127,7 @@ img {
   will-change: transform;
 }
 
-.carousel-container:hover .carousel-track {
-  animation-play-state: paused;
-}
+
 
 @keyframes scroll {
   0% {
