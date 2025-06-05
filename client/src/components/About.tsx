@@ -60,15 +60,15 @@ const About = () => {
           
           <div className="relative slide-in-right">
             <div className="relative aspect-square">
-              {/* Main image container */}
-              <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10">
-                <div className="absolute inset-8 bg-gradient-to-br from-white/5 to-transparent rounded-xl flex items-center justify-center">
-                  <img 
-                    src="/lovable-uploads/7bf006aa-ba99-43f4-9a20-8d2fc7535f41.png" 
-                    alt="Lynx Agency Vision" 
-                    className="w-40 h-40 object-contain opacity-80 hover:opacity-100 transition-opacity duration-500"
-                  />
-                </div>
+              {/* Main image container with full coverage */}
+              <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10 overflow-hidden">
+                <img 
+                  src="/logop.png" 
+                  alt="Lynx Agency Vision" 
+                  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
               </div>
               
               {/* Floating elements */}

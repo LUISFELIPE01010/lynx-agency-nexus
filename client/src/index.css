@@ -2,6 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: optimizeQuality;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+  .text-6xl { font-size: 3rem; }
+  .text-8xl { font-size: 4rem; }
+  .text-\[10rem\] { font-size: 5rem; }
+  .text-5xl { font-size: 2.5rem; }
+  .text-7xl { font-size: 3.5rem; }
+  
+  /* Improve mobile scrolling */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+  }
+}
+
+/* Reduce animations on mobile for better performance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

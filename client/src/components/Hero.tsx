@@ -67,7 +67,7 @@ const Hero = () => {
       <div className="absolute top-8 left-8 z-20">
         <img 
           ref={logoRef}
-          src="/client/src/logop.png" 
+          src="/logop.png" 
           alt="Lynx Agency Logo" 
           className="w-12 h-12 md:w-16 md:h-16 object-contain opacity-90"
         />

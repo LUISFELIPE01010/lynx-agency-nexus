@@ -1,4 +1,6 @@
 
+import { Instagram, MessageCircle } from 'lucide-react';
+
 const Footer = () => {
   return (
     <footer className="py-16 px-6 bg-black border-t border-lynx-gray/10 relative overflow-hidden">
@@ -27,19 +29,19 @@ const Footer = () => {
                 href="https://instagram.com/lynx.com.br"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-10 h-10 bg-lynx-gray/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                className="group w-10 h-10 bg-lynx-gray/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 border border-white/20"
                 aria-label="Instagram"
               >
-                <span className="text-lynx-gray group-hover:text-black transition-colors duration-300 text-sm">•</span>
+                <Instagram className="w-4 h-4 text-lynx-gray group-hover:text-black transition-colors duration-300" style={{ filter: 'drop-shadow(0 0 1px white)' }} />
               </a>
               <a 
                 href="https://wa.me/17329276563"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-10 h-10 bg-lynx-gray/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                className="group w-10 h-10 bg-lynx-gray/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 border border-white/20"
                 aria-label="WhatsApp"
               >
-                <span className="text-lynx-gray group-hover:text-black transition-colors duration-300 text-sm">•</span>
+                <MessageCircle className="w-4 h-4 text-lynx-gray group-hover:text-black transition-colors duration-300" style={{ filter: 'drop-shadow(0 0 1px white)' }} />
               </a>
             </div>
           </div>
