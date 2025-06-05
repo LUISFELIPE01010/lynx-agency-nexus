@@ -1,24 +1,78 @@
 
 const Contact = () => {
   return (
-    <section className="py-24 px-6 bg-black">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl md:text-6xl font-space font-bold text-white mb-8">
-          Let's Talk
-        </h2>
-        <p className="text-xl text-lynx-gray mb-12 font-inter max-w-2xl mx-auto leading-relaxed">
-          Ready to elevate your brand? Let's start a conversation about your vision and how we can bring it to life.
-        </p>
+    <section className="py-32 px-6 bg-black relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-lynx-gray/5 to-transparent"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-lynx-gray/10 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-l from-white/10 to-transparent rounded-full blur-2xl"></div>
+
+      <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="fade-in">
+          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Contact</span>
+          <h2 className="text-5xl md:text-8xl font-space font-bold text-white mb-8 leading-tight">
+            Let's Create
+            <span className="block text-lynx-gray">Something</span>
+            <span className="block">Extraordinary</span>
+          </h2>
+          
+          <p className="text-xl md:text-2xl text-lynx-gray mb-16 font-inter max-w-3xl mx-auto leading-relaxed">
+            Ready to transform your brand? Let's start a conversation about your vision and how we can bring it to life through strategic design and innovation.
+          </p>
+        </div>
         
-        <a 
-          href="https://wa.me/17329276563"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-lg font-space font-semibold hover:bg-lynx-gray transition-all duration-300 hover:scale-105"
-        >
-          <span>💬</span>
-          Start a Conversation
-        </a>
+        <div className="space-y-8 scale-in">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <a 
+              href="https://wa.me/17329276563"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                <span>💬</span>
+                Start a Conversation
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </a>
+            
+            <a 
+              href="mailto:hello@lynxagency.com"
+              className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105"
+            >
+              <span className="relative z-10 flex items-center gap-3">
+                <span>✉️</span>
+                Send an Email
+              </span>
+            </a>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 pt-16">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-lynx-gray">📧</span>
+              </div>
+              <h3 className="font-space font-semibold text-white mb-2">Email</h3>
+              <p className="text-lynx-gray font-inter text-sm">hello@lynxagency.com</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-lynx-gray">💬</span>
+              </div>
+              <h3 className="font-space font-semibold text-white mb-2">WhatsApp</h3>
+              <p className="text-lynx-gray font-inter text-sm">+1 (732) 927-6563</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-lynx-gray">📍</span>
+              </div>
+              <h3 className="font-space font-semibold text-white mb-2">Location</h3>
+              <p className="text-lynx-gray font-inter text-sm">Global Remote</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

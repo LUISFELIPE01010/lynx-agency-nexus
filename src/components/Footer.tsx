@@ -1,43 +1,102 @@
 
 const Footer = () => {
   return (
-    <footer className="py-12 px-6 bg-black border-t border-lynx-gray/10">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <div className="flex items-center">
-          <img 
-            src="/lovable-uploads/c49b6884-7702-4b51-bbd3-43e415faffff.png" 
-            alt="Lynx Agency" 
-            className="w-8 h-8 mr-3 opacity-80"
-          />
-          <span className="font-space font-semibold text-white">LYNX</span>
+    <footer className="py-16 px-6 bg-black border-t border-lynx-gray/10 relative overflow-hidden">
+      {/* Background texture */}
+      <div className="absolute inset-0 bg-gradient-to-t from-lynx-gray/5 to-transparent"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
+          {/* Logo and Description */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <img 
+                src="/lovable-uploads/c49b6884-7702-4b51-bbd3-43e415faffff.png" 
+                alt="Lynx Agency" 
+                className="w-10 h-10 opacity-80"
+              />
+              <span className="font-space font-bold text-2xl text-white">LYNX</span>
+            </div>
+            
+            <p className="text-lynx-gray font-inter leading-relaxed max-w-xs">
+              Redefining brand excellence through strategic innovation and design mastery.
+            </p>
+            
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://instagram.com/lynx.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-10 h-10 bg-lynx-gray/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                aria-label="Instagram"
+              >
+                <span className="text-lynx-gray group-hover:text-black transition-colors duration-300">📷</span>
+              </a>
+              <a 
+                href="https://wa.me/17329276563"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-10 h-10 bg-lynx-gray/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                aria-label="WhatsApp"
+              >
+                <span className="text-lynx-gray group-hover:text-black transition-colors duration-300">💬</span>
+              </a>
+            </div>
+          </div>
+          
+          {/* Services */}
+          <div>
+            <h3 className="font-space font-semibold text-white mb-6">Services</h3>
+            <ul className="space-y-3">
+              {['Brand Strategy', 'Visual Identity', 'Digital Experience', 'Creative Direction'].map((service) => (
+                <li key={service}>
+                  <a href="#" className="text-lynx-gray hover:text-white transition-colors duration-300 font-inter text-sm">
+                    {service}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Contact */}
+          <div>
+            <h3 className="font-space font-semibold text-white mb-6">Contact</h3>
+            <div className="space-y-3">
+              <div>
+                <p className="text-lynx-gray font-inter text-sm">
+                  hello@lynxagency.com
+                </p>
+              </div>
+              <div>
+                <p className="text-lynx-gray font-inter text-sm">
+                  +1 (732) 927-6563
+                </p>
+              </div>
+              <div>
+                <p className="text-lynx-gray font-inter text-sm">
+                  Global Remote
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div className="flex items-center gap-6">
-          <a 
-            href="https://instagram.com/lynx.com.br"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lynx-gray hover:text-white transition-colors duration-300"
-            aria-label="Instagram"
-          >
-            📷
-          </a>
-          <a 
-            href="https://wa.me/17329276563"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lynx-gray hover:text-white transition-colors duration-300"
-            aria-label="WhatsApp"
-          >
-            💬
-          </a>
+        <div className="pt-8 border-t border-lynx-gray/10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-lynx-gray text-sm font-inter">
+              © 2024 Lynx Agency. All rights reserved.
+            </p>
+            
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-lynx-gray hover:text-white transition-colors duration-300 font-inter text-sm">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-lynx-gray hover:text-white transition-colors duration-300 font-inter text-sm">
+                Terms of Service
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      <div className="text-center mt-8 pt-8 border-t border-lynx-gray/10">
-        <p className="text-lynx-gray text-sm font-inter">
-          © 2024 Lynx Agency. Redefining brand excellence.
-        </p>
       </div>
     </footer>
   );

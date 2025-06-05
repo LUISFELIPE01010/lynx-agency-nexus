@@ -1,27 +1,71 @@
 
 const About = () => {
   return (
-    <section className="py-24 px-6 bg-black">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-        <div className="space-y-6">
-          <h2 className="text-4xl md:text-5xl font-space font-bold text-white mb-8">
-            Redefining Brand Excellence
-          </h2>
-          <p className="text-lg text-lynx-gray leading-relaxed font-inter">
-            At Lynx, we craft exceptional brand experiences that resonate with your audience and drive meaningful connections. Our approach combines strategic thinking with cutting-edge design to create brands that stand the test of time.
-          </p>
-          <p className="text-lg text-lynx-gray leading-relaxed font-inter">
-            We believe in the power of minimalism, where every element serves a purpose and every detail matters. Your brand deserves nothing less than perfection.
-          </p>
-        </div>
-        
-        <div className="relative">
-          <div className="aspect-square bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-lg backdrop-blur-sm border border-lynx-gray/10 flex items-center justify-center">
-            <img 
-              src="/lovable-uploads/c49b6884-7702-4b51-bbd3-43e415faffff.png" 
-              alt="Lynx Agency Logo" 
-              className="w-32 h-32 object-contain opacity-80"
-            />
+    <section id="about" className="py-32 px-6 bg-black relative overflow-hidden">
+      {/* Background texture */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="space-y-8 slide-in-left">
+            <div className="space-y-4">
+              <span className="text-lynx-gray font-space text-sm tracking-widest uppercase">About Lynx</span>
+              <h2 className="text-5xl md:text-7xl font-space font-bold text-white leading-tight">
+                Crafting
+                <span className="block text-lynx-gray">Tomorrow's</span>
+                <span className="block">Brands</span>
+              </h2>
+            </div>
+            
+            <div className="w-24 h-px bg-gradient-to-r from-lynx-gray to-transparent"></div>
+            
+            <div className="space-y-6 text-lg leading-relaxed">
+              <p className="text-lynx-gray font-inter">
+                We are a collective of strategists, designers, and visionaries who believe that great brands are born from the intersection of purpose and possibility.
+              </p>
+              <p className="text-lynx-gray font-inter">
+                Our approach transcends traditional boundaries, combining data-driven insights with intuitive creativity to forge brands that don't just exist in the market—they define it.
+              </p>
+              <p className="text-white font-inter font-medium">
+                Every project is a journey toward excellence, where your vision meets our expertise to create something extraordinary.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-8 pt-8">
+              <div>
+                <div className="text-3xl font-space font-bold text-white">50+</div>
+                <div className="text-lynx-gray text-sm font-inter">Brands Transformed</div>
+              </div>
+              <div>
+                <div className="text-3xl font-space font-bold text-white">8+</div>
+                <div className="text-lynx-gray text-sm font-inter">Years of Excellence</div>
+              </div>
+              <div>
+                <div className="text-3xl font-space font-bold text-white">25+</div>
+                <div className="text-lynx-gray text-sm font-inter">Countries Reached</div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="relative slide-in-right">
+            <div className="relative aspect-square">
+              {/* Main image container */}
+              <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10">
+                <div className="absolute inset-8 bg-gradient-to-br from-white/5 to-transparent rounded-xl flex items-center justify-center">
+                  <img 
+                    src="/lovable-uploads/c49b6884-7702-4b51-bbd3-43e415faffff.png" 
+                    alt="Lynx Agency Vision" 
+                    className="w-40 h-40 object-contain opacity-80 hover:opacity-100 transition-opacity duration-500"
+                  />
+                </div>
+              </div>
+              
+              {/* Floating elements */}
+              <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-full blur-xl animate-pulse"></div>
+              <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-gradient-to-tl from-white/10 to-transparent rounded-full blur-lg animate-pulse delay-1000"></div>
+            </div>
           </div>
         </div>
       </div>
