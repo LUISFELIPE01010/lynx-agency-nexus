@@ -44,13 +44,19 @@ const Services = () => {
 
   return (
     <section className="py-32 px-6 relative overflow-hidden">
-      {/* Background image with dark overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/banner1.png')" }}
-      ></div>
-      <div className="absolute inset-0 bg-black/95"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lynx-gray/5 via-transparent to-transparent"></div>
+      {/* Solid black background with sophisticated overlays */}
+      <div className="absolute inset-0 bg-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/40 via-transparent to-gray-800/30"></div>
+      {/* Hexagonal pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='52' viewBox='0 0 60 52' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M30 0l25.98 15v22L30 52 4.02 37V15z'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '60px 52px'
+        }}></div>
+      </div>
+      {/* Dynamic light spots */}
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-gradient-radial from-lynx-gray/8 to-transparent rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/3 left-1/5 w-48 h-48 bg-gradient-radial from-white/6 to-transparent rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">

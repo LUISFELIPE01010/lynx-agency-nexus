@@ -136,6 +136,11 @@ img {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
+/* Custom gradient utilities */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
 @keyframes fadeIn {
   to {
     opacity: 1;
