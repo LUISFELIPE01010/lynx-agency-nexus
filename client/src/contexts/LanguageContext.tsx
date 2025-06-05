@@ -244,7 +244,7 @@ const translations = {
 };
 
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-  const [language, setLanguage] = useState<'en' | 'pt'>('pt');
+  const [language, setLanguage] = useState<'en' | 'pt'>('en');
 
   const t = (key: string) => translations[language][key as keyof typeof translations.en] || key;
 
