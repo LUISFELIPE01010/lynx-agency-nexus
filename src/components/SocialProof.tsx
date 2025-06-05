@@ -82,14 +82,6 @@ const SocialProof = () => {
                 <blockquote className="text-lg font-inter text-lynx-gray leading-relaxed group-hover:text-white transition-colors duration-300">
                   "{testimonial.quote}"
                 </blockquote>
-                
-                <div className="flex gap-1 mt-6">
-                  {[...Array(5)].map((_, i) => (
-                    <div key={i} className="w-4 h-4 text-lynx-gray">
-                      ⭐
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           ))}

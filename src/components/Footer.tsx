@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <img 
-                src="/lovable-uploads/c49b6884-7702-4b51-bbd3-43e415faffff.png" 
+                src="/lovable-uploads/e8ef5616-4c7b-4625-a88a-5d6ebc5c9153.png" 
                 alt="Lynx Agency" 
                 className="w-10 h-10 opacity-80"
               />
@@ -30,7 +30,7 @@ const Footer = () => {
                 className="group w-10 h-10 bg-lynx-gray/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
                 aria-label="Instagram"
               >
-                <span className="text-lynx-gray group-hover:text-black transition-colors duration-300">📷</span>
+                <span className="text-lynx-gray group-hover:text-black transition-colors duration-300 text-sm">•</span>
               </a>
               <a 
                 href="https://wa.me/17329276563"
@@ -39,7 +39,7 @@ const Footer = () => {
                 className="group w-10 h-10 bg-lynx-gray/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
                 aria-label="WhatsApp"
               >
-                <span className="text-lynx-gray group-hover:text-black transition-colors duration-300">💬</span>
+                <span className="text-lynx-gray group-hover:text-black transition-colors duration-300 text-sm">•</span>
               </a>
             </div>
           </div>

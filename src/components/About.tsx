@@ -55,7 +55,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10">
                 <div className="absolute inset-8 bg-gradient-to-br from-white/5 to-transparent rounded-xl flex items-center justify-center">
                   <img 
-                    src="/lovable-uploads/c49b6884-7702-4b51-bbd3-43e415faffff.png" 
+                    src="/lovable-uploads/e8ef5616-4c7b-4625-a88a-5d6ebc5c9153.png" 
                     alt="Lynx Agency Vision" 
                     className="w-40 h-40 object-contain opacity-80 hover:opacity-100 transition-opacity duration-500"
                   />

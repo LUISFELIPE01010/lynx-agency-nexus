@@ -6,20 +6,20 @@ import { ArrowDown } from 'lucide-react';
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const logoRef = useRef<HTMLImageElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const tl = gsap.timeline({ delay: 0.5 });
     
-    tl.fromTo(titleRef.current, 
-      { opacity: 0, y: 100, scale: 0.8 },
-      { opacity: 1, y: 0, scale: 1, duration: 1.5, ease: 'power4.out' }
-    )
-    .fromTo(subtitleRef.current,
+    // Remove fade-in from title, just show it immediately
+    gsap.set(titleRef.current, { opacity: 1 });
+    gsap.set(logoRef.current, { opacity: 1 });
+    
+    tl.fromTo(subtitleRef.current,
       { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' },
-      '-=0.8'
+      { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }
     )
     .fromTo(arrowRef.current,
       { opacity: 0, y: 30 },
@@ -63,37 +63,49 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
 
-      <div className="relative z-10 text-center max-w-6xl mx-auto">
-        <h1 
-          ref={titleRef}
-          className="text-7xl md:text-9xl lg:text-[12rem] font-space font-bold text-white mb-8 tracking-tighter leading-none"
-        >
-          LYNX
-        </h1>
-        
-        <p 
-          ref={subtitleRef}
-          className="text-2xl md:text-4xl lg:text-5xl font-inter text-lynx-gray mb-4 max-w-4xl mx-auto leading-tight font-light"
-        >
-          Redefining brand excellence through
-        </p>
-        
-        <p 
-          ref={subtitleRef}
-          className="text-2xl md:text-4xl lg:text-5xl font-inter text-white mb-16 max-w-4xl mx-auto leading-tight font-light"
-        >
-          strategic innovation & design mastery
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <button className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-            <span className="relative z-10">Explore Our Work</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </button>
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
+        {/* Title and Logo Layout */}
+        <div className="flex items-center justify-between mb-16">
+          <h1 
+            ref={titleRef}
+            className="text-7xl md:text-9xl lg:text-[12rem] font-space font-bold text-white tracking-tighter leading-none"
+          >
+            LYNX
+          </h1>
           
-          <button className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105">
-            Start a Project
-          </button>
+          <img 
+            ref={logoRef}
+            src="/lovable-uploads/e8ef5616-4c7b-4625-a88a-5d6ebc5c9153.png" 
+            alt="Lynx Agency Logo" 
+            className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 object-contain opacity-90"
+          />
+        </div>
+        
+        <div className="text-center">
+          <p 
+            ref={subtitleRef}
+            className="text-2xl md:text-4xl lg:text-5xl font-inter text-lynx-gray mb-4 max-w-4xl mx-auto leading-tight font-light"
+          >
+            Redefining brand excellence through
+          </p>
+          
+          <p 
+            ref={subtitleRef}
+            className="text-2xl md:text-4xl lg:text-5xl font-inter text-white mb-16 max-w-4xl mx-auto leading-tight font-light"
+          >
+            strategic innovation & design mastery
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <button className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+              <span className="relative z-10">Explore Our Work</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </button>
+            
+            <button className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105">
+              Start a Project
+            </button>
+          </div>
         </div>
       </div>
       
