@@ -7,51 +7,51 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Urban Fashion Collective",
+      title: "Elite Business Services",
       category: t('techStartupBranding'),
-      description: "Modern streetwear brand identity with bold typography and contemporary visual elements that resonate with urban culture.",
-      image: "/brand/b1.jpg",
-      tags: ["Branding", "Fashion", "Urban"]
+      description: "Professional corporate identity featuring clean lines and sophisticated branding for premium business consultancy.",
+      image: "/bb1.jpg",
+      tags: ["Corporate", "Business", "Professional"]
     },
     {
       id: 2,
-      title: "Artisan Coffee House",
+      title: "Luxury Automotive Brand",
       category: t('luxuryBrandIdentity'),
-      description: "Sophisticated coffee brand with premium packaging design and warm color palette reflecting artisanal quality.",
-      image: "/brand/b2.jpg",
-      tags: ["Luxury", "F&B", "Packaging"]
+      description: "High-end automotive branding with sleek design elements and premium visual identity for luxury vehicle dealership.",
+      image: "/bb2.jpg",
+      tags: ["Automotive", "Luxury", "Premium"]
     },
     {
       id: 3,
-      title: "Tech Innovation Hub",
+      title: "Modern Fashion Label",
       category: t('digitalExperienceProject'),
-      description: "Cutting-edge technology company branding with minimalist design and futuristic visual identity system.",
-      image: "/brand/b3.jpg",
-      tags: ["Digital", "Tech", "Innovation"]
+      description: "Contemporary fashion brand identity with minimalist aesthetics and modern typography for trendy clothing line.",
+      image: "/bb3.jpg",
+      tags: ["Fashion", "Modern", "Trendy"]
     },
     {
       id: 4,
-      title: "Wellness Retreat Center",
+      title: "Artisan Food & Beverage",
       category: t('corporateRebrand'),
-      description: "Holistic wellness brand with natural elements and calming aesthetics promoting health and mindfulness.",
-      image: "/brand/b4.jpg",
-      tags: ["Wellness", "Health", "Lifestyle"]
+      description: "Authentic artisanal brand featuring warm colors and handcrafted elements for gourmet food products.",
+      image: "/bb4.jpg",
+      tags: ["Food", "Artisan", "Gourmet"]
     },
     {
       id: 5,
-      title: "Creative Studio Agency",
+      title: "Tech Innovation Company",
       category: t('healthcareInnovation'),
-      description: "Dynamic creative agency branding featuring vibrant colors and experimental typography for artistic expression.",
-      image: "/brand/b5.jpg",
-      tags: ["Creative", "Agency", "Design"]
+      description: "Cutting-edge technology brand with futuristic design elements and bold visual identity for innovation leader.",
+      image: "/bb5.jpg",
+      tags: ["Technology", "Innovation", "Future"]
     },
     {
       id: 6,
-      title: "Sustainable Living Co.",
+      title: "Creative Design Studio",
       category: t('sustainabilityPlatform'),
-      description: "Eco-conscious brand identity with organic shapes and earth tones promoting sustainable lifestyle choices.",
-      image: "/brand/b6.jpg",
-      tags: ["Sustainability", "Eco", "Lifestyle"]
+      description: "Dynamic creative studio branding with vibrant colors and artistic elements showcasing design excellence.",
+      image: "/bb6.jpg",
+      tags: ["Creative", "Design", "Studio"]
     }
   ];
 
