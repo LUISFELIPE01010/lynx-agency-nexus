@@ -69,13 +69,13 @@ const Projects = () => {
 
       <div className="max-w-7xl mx-auto">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">
-          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Portfolio</span>
+          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('portfolioLabel')}</span>
           <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
-            Selected
-            <span className="block text-lynx-gray">Works</span>
+            {t('portfolioTitle')}
+            <span className="block text-lynx-gray">{t('portfolioTitle2')}</span>
           </h2>
           <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
-            Discover how we've helped visionary brands transform their presence and accelerate their growth through strategic design.
+            {t('portfolioSubtitle')}
           </p>
         </AnimatedSection>
 

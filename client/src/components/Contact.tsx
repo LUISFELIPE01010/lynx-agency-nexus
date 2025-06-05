@@ -1,8 +1,11 @@
 
 import { MessageCircle, Mail, Instagram } from 'lucide-react';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-[#95A0A2]/5 via-black to-black">
       {/* Background image with overlay */}
@@ -18,15 +21,15 @@ const Contact = () => {
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <AnimatedSection animationType="fade-in">
-          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Contact</span>
+          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('contactLabel')}</span>
           <h2 className="text-5xl md:text-8xl font-space font-bold text-white mb-8 leading-tight">
-            Let's Create
-            <span className="block text-lynx-gray">Something</span>
-            <span className="block">Extraordinary</span>
+            {t('contactTitle')}
+            <span className="block text-lynx-gray">{t('contactTitle2')}</span>
+            <span className="block">{t('contactTitle3')}</span>
           </h2>
           
           <p className="text-xl md:text-2xl text-lynx-gray mb-16 font-inter max-w-3xl mx-auto leading-relaxed">
-            Ready to transform your brand? Let's start a conversation about your vision and how we can bring it to life through strategic design and innovation.
+            {t('contactSubtitle')}
           </p>
         </AnimatedSection>
         
@@ -41,7 +44,7 @@ const Contact = () => {
             >
               <span className="relative z-10 flex items-center gap-3">
                 <MessageCircle className="w-5 h-5" />
-                Start a Conversation
+                {t('startConversation')}
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </a>
@@ -54,7 +57,7 @@ const Contact = () => {
             >
               <span className="relative z-10 flex items-center gap-3">
                 <Instagram className="w-5 h-5" />
-                Follow on Instagram
+                {t('followInstagram')}
               </span>
             </a>
           </div>
@@ -67,7 +70,7 @@ const Contact = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:border-white/40 transition-all duration-300">
                 <Mail className="w-5 h-5 text-white" />
               </div>
-              <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">Email</h3>
+              <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">{t('email')}</h3>
               <p className="text-lynx-gray font-inter text-sm">hello@lynxagency.com</p>
             </a>
             
@@ -80,7 +83,7 @@ const Contact = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:border-white/40 transition-all duration-300">
                 <MessageCircle className="w-5 h-5 text-white" />
               </div>
-              <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">WhatsApp</h3>
+              <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">{t('whatsapp')}</h3>
               <p className="text-lynx-gray font-inter text-sm">+1 (732) 927-6563</p>
             </a>
             
@@ -93,7 +96,7 @@ const Contact = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:border-white/40 transition-all duration-300">
                 <Instagram className="w-5 h-5 text-white" />
               </div>
-              <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">Instagram</h3>
+              <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">{t('instagram')}</h3>
               <p className="text-lynx-gray font-inter text-sm">@lynx.com.br</p>
             </a>
             </div>

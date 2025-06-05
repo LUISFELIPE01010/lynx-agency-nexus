@@ -2,8 +2,11 @@
 import { Instagram, MessageCircle } from 'lucide-react';
 import logoPng from '@/logop.png';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="py-16 px-6 bg-black border-t border-lynx-gray/10 relative overflow-hidden">
       {/* Background texture */}
@@ -23,7 +26,7 @@ const Footer = () => {
             </div>
             
             <p className="text-lynx-gray font-inter leading-relaxed max-w-xs">
-              Redefining brand excellence through strategic innovation and design mastery.
+              {t('footerDescription')}
             </p>
             
             <div className="flex items-center gap-4">
