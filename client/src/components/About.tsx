@@ -1,6 +1,52 @@
 import logoPng from '@/logop.png';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useState, useEffect, useRef } from 'react';
+
+const CountUp = ({ target, duration = 2000, suffix = "" }: { target: number; duration?: number; suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+          
+          const startTime = Date.now();
+          const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function for smooth animation
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            setCount(Math.floor(target * easeOutQuart));
+            
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            }
+          };
+          
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [target, duration, hasStarted]);
+
+  return (
+    <div ref={elementRef} className="text-3xl font-space font-bold text-white">
+      {count}{suffix}
+    </div>
+  );
+};
 
 const About = () => {
   const { t } = useLanguage();
@@ -55,21 +101,21 @@ const About = () => {
                 <div className="flex items-center gap-2 hover-scale">
                   <span className="text-lynx-gray text-xs">•</span>
                   <div>
-                    <div className="text-3xl font-space font-bold text-white">50+</div>
+                    <CountUp target={50} suffix="+" />
                     <div className="text-lynx-gray text-sm font-inter">Brands Transformed</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 hover-scale">
                   <span className="text-lynx-gray text-xs">•</span>
                   <div>
-                    <div className="text-3xl font-space font-bold text-white">8+</div>
+                    <CountUp target={8} suffix="+" />
                     <div className="text-lynx-gray text-sm font-inter">Years of Excellence</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 hover-scale">
                   <span className="text-lynx-gray text-xs">•</span>
                   <div>
-                    <div className="text-3xl font-space font-bold text-white">25+</div>
+                    <CountUp target={25} suffix="+" />
                     <div className="text-lynx-gray text-sm font-inter">Countries Reached</div>
                   </div>
                 </div>

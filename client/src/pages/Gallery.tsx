@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { Home } from 'lucide-react';
+import Navbar from '../components/Navbar';
 import logo1 from '@/fotos slide/1.png';
 import logo2 from '@/fotos slide/2.png';
 import logo3 from '@/fotos slide/3.png';
@@ -19,19 +18,8 @@ const Gallery = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-2xl font-space font-bold text-white">Gallery</h1>
-          <Link 
-            to="/"
-            className="flex items-center gap-2 px-6 py-2 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-300 hover:scale-105"
-          >
-            <Home className="w-4 h-4" />
-            Home
-          </Link>
-        </div>
-      </nav>
+      {/* Use original navbar */}
+      <Navbar />
 
       {/* Gallery Content */}
       <div className="pt-20 px-6 py-12">

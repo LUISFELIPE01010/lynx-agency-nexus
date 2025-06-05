@@ -106,13 +106,7 @@ const Services = () => {
                     ))}
                   </div>
 
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-8 h-8 border border-lynx-gray rounded-full flex items-center justify-center">
-                      <svg className="w-4 h-4 text-lynx-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </AnimatedSection>
