@@ -22,6 +22,13 @@ const SocialProof = () => {
       position: "CMO",
       company: "Global Innovations",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+    },
+    {
+      quote: "From concept to execution, Lynx delivered exceptional results. Their attention to detail and commitment to excellence set them apart in the industry.",
+      author: "David Park",
+      position: "Creative Director",
+      company: "Digital Ventures",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
     }
   ];
 
@@ -31,7 +38,7 @@ const SocialProof = () => {
   ];
 
   return (
-    <section className="pt-16 pb-32 px-6 relative overflow-hidden bg-black">
+    <section className="pt-16 pb-16 px-6 relative overflow-hidden bg-black">
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -54,7 +61,7 @@ const SocialProof = () => {
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-20">
-          {testimonials.slice(0, 3).map((testimonial, index) => (
+          {testimonials.map((testimonial, index) => (
             <div 
               key={index}
               className="group relative p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-300 scale-in backdrop-blur-sm"

@@ -22,7 +22,7 @@ const Contact = () => {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <AnimatedSection animationType="fade-in">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('contactLabel')}</span>
-          <h2 className="text-5xl md:text-8xl font-space font-bold text-white mb-8 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-space font-bold text-white mb-8 leading-tight">
             {t('contactTitle')}
             <span className="block text-lynx-gray">{t('contactTitle2')}</span>
             <span className="block">{t('contactTitle3')}</span>
