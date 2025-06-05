@@ -6,15 +6,11 @@ import logoPng from '@/logop.png';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const logoRef = useRef<HTMLImageElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Fast, lightweight animations
-    gsap.set([titleRef.current, logoRef.current], { opacity: 1 });
-    
     gsap.fromTo(subtitleRef.current,
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.2 }
