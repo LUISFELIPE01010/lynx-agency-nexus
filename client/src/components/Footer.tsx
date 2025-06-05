@@ -1,6 +1,7 @@
 
 import { Instagram, MessageCircle } from 'lucide-react';
 import logoPng from '@/logop.png';
+import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 
 const Footer = () => {
   return (

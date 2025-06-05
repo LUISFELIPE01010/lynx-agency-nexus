@@ -1,4 +1,6 @@
 
+import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+
 const SocialProof = () => {
   const testimonials = [
     {

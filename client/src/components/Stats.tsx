@@ -1,3 +1,5 @@
+import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+
 const Stats = () => {
   const stats = [
     {

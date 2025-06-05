@@ -1,5 +1,6 @@
 
 import { MessageCircle, Mail, Instagram } from 'lucide-react';
+import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 
 const Contact = () => {
   return (

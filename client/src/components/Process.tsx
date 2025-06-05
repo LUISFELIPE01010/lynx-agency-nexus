@@ -1,4 +1,6 @@
 
+import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+
 const Process = () => {
   const steps = [
     {
