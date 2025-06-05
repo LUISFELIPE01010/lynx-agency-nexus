@@ -3,6 +3,8 @@ import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="about" className="py-32 px-6 relative overflow-hidden">
       {/* Background image with dark overlay */}
@@ -21,11 +23,11 @@ const About = () => {
           <div className="space-y-8">
             <AnimatedSection animationType="slide-in-left">
               <div className="space-y-4">
-                <span className="text-lynx-gray font-space text-sm tracking-widest uppercase">About Lynx</span>
+                <span className="text-lynx-gray font-space text-sm tracking-widest uppercase">{t('aboutLabel')}</span>
                 <h2 className="text-5xl md:text-7xl font-space font-bold text-white leading-tight">
-                  Crafting
-                  <span className="block text-lynx-gray">Tomorrow's</span>
-                  <span className="block">Brands</span>
+                  {t('aboutTitle')}
+                  <span className="block text-lynx-gray">{t('aboutTitle2')}</span>
+                  <span className="block">{t('aboutTitle3')}</span>
                 </h2>
               </div>
             </AnimatedSection>
@@ -37,13 +39,13 @@ const About = () => {
             <AnimatedSection animationType="fade-in" delay={2}>
               <div className="space-y-6 text-lg leading-relaxed">
                 <p className="text-lynx-gray font-inter">
-                  We are a collective of strategists, designers, and visionaries who believe that great brands are born from the intersection of purpose and possibility.
+                  {t('aboutParagraph1')}
                 </p>
                 <p className="text-lynx-gray font-inter">
-                  Our approach transcends traditional boundaries, combining data-driven insights with intuitive creativity to forge brands that don't just exist in the market—they define it.
+                  {t('aboutParagraph2')}
                 </p>
                 <p className="text-white font-inter font-medium">
-                  Every project is a journey toward excellence, where your vision meets our expertise to create something extraordinary.
+                  {t('aboutParagraph3')}
                 </p>
               </div>
             </AnimatedSection>

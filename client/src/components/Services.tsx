@@ -1,44 +1,47 @@
 
 import { Target, Sparkles, Monitor, Palette, Play, Lightbulb } from 'lucide-react';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Services = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
-      title: "Brand Strategy",
-      description: "Comprehensive market analysis, positioning, and strategic roadmaps that establish your brand's foundation for long-term success.",
+      title: t('brandStrategy'),
+      description: t('brandStrategyDesc'),
       icon: "target",
-      features: ["Market Research", "Brand Positioning", "Competitive Analysis", "Strategic Planning"]
+      features: [t('brandStrategyFeature1'), t('brandStrategyFeature2'), t('brandStrategyFeature3'), t('brandStrategyFeature4')]
     },
     {
-      title: "Visual Identity",
-      description: "Distinctive visual systems that capture your essence through logos, typography, color palettes, and comprehensive brand guidelines.",
+      title: t('visualIdentity'),
+      description: t('visualIdentityDesc'),
       icon: "sparkles",
-      features: ["Logo Design", "Typography", "Color Systems", "Brand Guidelines"]
+      features: [t('visualIdentityFeature1'), t('visualIdentityFeature2'), t('visualIdentityFeature3'), t('visualIdentityFeature4')]
     },
     {
-      title: "Digital Experience",
-      description: "User-centered web platforms and digital experiences that engage audiences and drive meaningful interactions with your brand.",
+      title: t('digitalExperience'),
+      description: t('digitalExperienceDesc'),
       icon: "monitor",
-      features: ["Web Design", "UI/UX Design", "Interactive Prototypes", "Digital Platforms"]
+      features: [t('digitalExperienceFeature1'), t('digitalExperienceFeature2'), t('digitalExperienceFeature3'), t('digitalExperienceFeature4')]
     },
     {
-      title: "Creative Direction",
-      description: "End-to-end creative oversight ensuring consistency and excellence across all brand touchpoints and communications.",
+      title: t('creativeDirection'),
+      description: t('creativeDirectionDesc'),
       icon: "palette",
-      features: ["Art Direction", "Campaign Development", "Content Strategy", "Brand Consistency"]
+      features: [t('creativeDirectionFeature1'), t('creativeDirectionFeature2'), t('creativeDirectionFeature3'), t('creativeDirectionFeature4')]
     },
     {
-      title: "Motion Graphics",
-      description: "Dynamic visual storytelling through animation, bringing your brand to life across digital and traditional media channels.",
+      title: t('motionGraphics'),
+      description: t('motionGraphicsDesc'),
       icon: "play",
-      features: ["Brand Animation", "Video Content", "Motion Design", "Interactive Media"]
+      features: [t('motionGraphicsFeature1'), t('motionGraphicsFeature2'), t('motionGraphicsFeature3'), t('motionGraphicsFeature4')]
     },
     {
-      title: "Brand Consulting",
-      description: "Strategic guidance and expert consultation to navigate complex brand challenges and maximize market opportunities.",
+      title: t('brandConsulting'),
+      description: t('brandConsultingDesc'),
       icon: "lightbulb",
-      features: ["Brand Audits", "Growth Strategy", "Market Expansion", "Brand Evolution"]
+      features: [t('brandConsultingFeature1'), t('brandConsultingFeature2'), t('brandConsultingFeature3'), t('brandConsultingFeature4')]
     }
   ];
 
@@ -54,13 +57,13 @@ const Services = () => {
       
       <div className="max-w-7xl mx-auto relative z-10">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">
-          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Our Expertise</span>
+          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('servicesLabel')}</span>
           <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
-            Services That
-            <span className="block text-lynx-gray">Drive Impact</span>
+            {t('servicesTitle')}
+            <span className="block text-lynx-gray">{t('servicesTitle2')}</span>
           </h2>
           <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
-            From strategic foundation to creative execution, we offer comprehensive solutions that transform brands and accelerate growth.
+            {t('servicesSubtitle')}
           </p>
         </AnimatedSection>
         

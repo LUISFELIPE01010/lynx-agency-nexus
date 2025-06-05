@@ -1,52 +1,55 @@
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Projects = () => {
+  const { t } = useLanguage();
+  
   const projects = [
     {
       id: 1,
       title: "Quantum Dynamics",
-      category: "Tech Startup Branding",
-      description: "Complete brand identity and digital platform for a cutting-edge quantum computing company.",
+      category: t('techStartupBranding'),
+      description: t('quantumDynamicsDesc'),
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=800&fit=crop",
       tags: ["Branding", "Web Design", "Tech"]
     },
     {
       id: 2,
       title: "Meridian Luxury",
-      category: "Luxury Brand Identity",
-      description: "Sophisticated brand ecosystem for a premium lifestyle and hospitality group.",
+      category: t('luxuryBrandIdentity'),
+      description: t('meridianLuxuryDesc'),
       image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=800&fit=crop",
       tags: ["Luxury", "Identity", "Hospitality"]
     },
     {
       id: 3,
       title: "Neural Networks Co.",
-      category: "Digital Experience",
-      description: "Immersive web platform showcasing AI capabilities through interactive storytelling.",
+      category: t('digitalExperienceProject'),
+      description: t('neuralNetworksDesc'),
       image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=800&fit=crop",
       tags: ["Digital", "AI", "Interactive"]
     },
     {
       id: 4,
       title: "Atlas Ventures",
-      category: "Corporate Rebrand",
-      description: "Strategic repositioning and visual transformation for a global investment firm.",
+      category: t('corporateRebrand'),
+      description: t('atlasVenturesDesc'),
       image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=800&fit=crop",
       tags: ["Strategy", "Finance", "Corporate"]
     },
     {
       id: 5,
       title: "Synapse Health",
-      category: "Healthcare Innovation",
-      description: "Brand identity and digital ecosystem for next-generation healthcare solutions.",
+      category: t('healthcareInnovation'),
+      description: t('synapseHealthDesc'),
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=800&fit=crop",
       tags: ["Healthcare", "Innovation", "Digital"]
     },
     {
       id: 6,
       title: "Carbon Zero",
-      category: "Sustainability Platform",
-      description: "Comprehensive brand strategy for a leading carbon offset technology platform.",
+      category: t('sustainabilityPlatform'),
+      description: t('carbonZeroDesc'),
       image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=800&h=800&fit=crop",
       tags: ["Sustainability", "Platform", "Tech"]
     }
