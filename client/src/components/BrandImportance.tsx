@@ -45,7 +45,7 @@ const BrandImportance = () => {
   useEffect(() => {
     const section = sectionRef.current;
     const content = contentRef.current;
-    
+
     if (!section || !content) return;
 
     // Set initial state for all slides except the first one
@@ -75,11 +75,11 @@ const BrandImportance = () => {
       if (index > 0) {
         const currentSlide = content.querySelector(`[data-slide="${index}"]`);
         const previousSlide = content.querySelector(`[data-slide="${index - 1}"]`);
-        
+
         if (currentSlide && previousSlide) {
           const startTime = (index - 1) * 0.8;
           const transitionDuration = 0.6;
-          
+
           tl.to(previousSlide, {
             opacity: 0,
             y: -30,
@@ -87,7 +87,7 @@ const BrandImportance = () => {
             duration: transitionDuration,
             ease: "power2.inOut"
           }, startTime)
-          
+
           .to(currentSlide, {
             opacity: 1,
             y: 0,
@@ -108,7 +108,7 @@ const BrandImportance = () => {
     <section 
       ref={sectionRef}
       className="relative w-full bg-gradient-to-b from-black via-[#95A0A2]/10 to-black overflow-hidden"
-      style={{ height: `250vh` }}
+      style={{ height: `150vh` }}
     >
       {/* Background image with overlay */}
       <div 
@@ -116,7 +116,7 @@ const BrandImportance = () => {
         style={{ backgroundImage: "url('/banner1.png')" }}
       ></div>
       <div className="absolute inset-0 bg-black/95"></div>
-      
+
       {/* Subtle gradient overlay with lynx-gray */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#95A0A2]/5 to-black/80"></div>
 
@@ -163,14 +163,14 @@ const BrandImportance = () => {
                           {point.number}
                         </div>
                       </div>
-                      
+
                       {/* Title */}
                       <h2 className={`text-3xl md:text-4xl lg:text-5xl font-space font-bold text-white leading-tight ${
                         isLeft ? 'lg:text-left' : 'lg:text-right'
                       } text-center`}>
                         {point.title}
                       </h2>
-                      
+
                       {/* Description */}
                       <p className={`text-lg md:text-xl text-[#95A0A2] leading-relaxed font-inter max-w-md ${
                         isLeft ? 'lg:text-left lg:ml-0 lg:mr-auto' : 'lg:text-right lg:mr-0 lg:ml-auto'
@@ -226,3 +226,4 @@ const BrandImportance = () => {
 };
 
 export default BrandImportance;
+```
