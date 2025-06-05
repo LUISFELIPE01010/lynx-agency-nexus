@@ -49,15 +49,7 @@ const Hero = () => {
       ></div>
       <div className="absolute inset-0 bg-black/80"></div>
       
-      {/* Logo positioned in top left */}
-      <div className="absolute top-12 left-12 z-20">
-        <img 
-          ref={logoRef}
-          src={logoPng} 
-          alt="Lynx Agency Logo" 
-          className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-90"
-        />
-      </div>
+      
       
       {/* Animated background elements */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
