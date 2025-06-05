@@ -3,8 +3,10 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ArrowDown } from 'lucide-react';
 import logoPng from '@/logop.png';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
   const heroRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -80,14 +82,14 @@ const Hero = () => {
               ref={subtitleRef}
               className="text-2xl md:text-4xl lg:text-5xl font-inter text-lynx-gray mb-4 leading-tight font-light"
             >
-              Redefining brand excellence through
+              {t('heroSubtitle1')}
             </p>
             
             <p 
               ref={subtitleRef}
               className="text-2xl md:text-4xl lg:text-5xl font-inter text-white mb-16 leading-tight font-light"
             >
-              strategic innovation & design mastery
+              {t('heroSubtitle2')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 items-start">
@@ -95,7 +97,7 @@ const Hero = () => {
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
                 className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl"
               >
-                <span className="relative z-10">Explore Our Work</span>
+                <span className="relative z-10">{t('exploreWork')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </button>
               
@@ -105,7 +107,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105"
               >
-                Start a Project
+                {t('startProject')}
               </a>
             </div>
           </div>

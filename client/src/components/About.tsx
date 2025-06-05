@@ -1,5 +1,6 @@
 import logoPng from '@/logop.png';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const About = () => {
   return (
