@@ -64,7 +64,7 @@ const BrandImportance = () => {
         trigger: section,
         start: "top top",
         end: "bottom bottom",
-        scrub: 1.2,
+        scrub: 2.5,
         pin: true,
         anticipatePin: 1,
       }
@@ -82,7 +82,7 @@ const BrandImportance = () => {
 
         if (currentSlide && previousSlide) {
           const startTime = (index - 1) * slideInterval;
-          const transitionDuration = 0.4;
+          const transitionDuration = 0.8;
 
           tl.to(previousSlide, {
             opacity: 0,
