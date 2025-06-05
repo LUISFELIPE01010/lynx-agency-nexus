@@ -34,7 +34,6 @@ const Process = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#95A0A2]/10 via-transparent to-transparent"></div>
       
       {/* Visual elements to break up text */}
-      <div className="absolute top-20 right-10 w-32 h-32 border border-[#95A0A2]/20 rounded-full"></div>
       <div className="absolute bottom-20 left-10 w-24 h-24 bg-[#95A0A2]/5 rounded-full blur-xl"></div>
       <div className="absolute top-1/2 right-1/4 w-2 h-40 bg-gradient-to-b from-[#95A0A2]/30 to-transparent"></div>
       
