@@ -2,25 +2,6 @@ import logoPng from '@/logop.png';
 
 const About = () => {
   return (
-    <section 
-      id="about" 
-      className="py-20 relative overflow-hidden"
-      style={{
-        backgroundImage: 'url(/banner1.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      {/* Dark overlay */}
-      <div 
-        className="absolute inset-0 bg-black"
-        style={{ opacity: 0.96 }}
-      />
-import logoPng from '@/logop.png';
-
-const About = () => {
-  return (
     <section id="about" className="py-32 px-6 relative overflow-hidden">
       {/* Background image with dark overlay */}
       <div 
