@@ -10,7 +10,6 @@ const BrandImportance = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRefs = useRef<HTMLDivElement[]>([]);
   const progressRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLDivElement>(null);
 
   const brandPoints = [
     {
@@ -34,19 +33,17 @@ const BrandImportance = () => {
     const section = sectionRef.current;
     const contents = contentRefs.current;
     const progress = progressRef.current;
-    const title = titleRef.current;
 
-    if (!section || !contents.length || !progress || !title) return;
+    if (!section || !contents.length || !progress) return;
 
     // Set initial states
-    gsap.set(title, { opacity: 1, y: 0 });
     gsap.set(progress, { scaleX: 0 });
 
     contents.forEach((content, index) => {
       if (index === 0) {
         gsap.set(content, { opacity: 1, y: 0, scale: 1 });
       } else {
-        gsap.set(content, { opacity: 0, y: 40, scale: 0.95 });
+        gsap.set(content, { opacity: 0, y: 50, scale: 0.9 });
       }
     });
 
@@ -55,7 +52,7 @@ const BrandImportance = () => {
       trigger: section,
       start: "top top",
       end: `+=${window.innerHeight * (brandPoints.length + 1)}`,
-      scrub: 0.5,
+      scrub: 0.8,
       pin: true,
       pinSpacing: true,
       anticipatePin: 1,
@@ -68,31 +65,31 @@ const BrandImportance = () => {
         // Smooth progress bar animation
         gsap.to(progressRef.current, {
           scaleX: progress,
-          duration: 0.1,
-          ease: "none"
+          duration: 0.2,
+          ease: "power2.out"
         });
 
         // Smooth content transitions
         contents.forEach((content, index) => {
           let opacity = 0;
-          let y = 40;
-          let scale = 0.95;
+          let y = 50;
+          let scale = 0.9;
 
           if (index === currentIndex) {
-            opacity = 1 - slideProgress * 0.3;
-            y = slideProgress * -20;
-            scale = 1 - slideProgress * 0.02;
+            opacity = 1 - slideProgress * 0.4;
+            y = slideProgress * -30;
+            scale = 1 - slideProgress * 0.05;
           } else if (index === currentIndex + 1 && slideProgress > 0) {
             opacity = slideProgress;
-            y = 40 - slideProgress * 40;
-            scale = 0.95 + slideProgress * 0.05;
+            y = 50 - slideProgress * 50;
+            scale = 0.9 + slideProgress * 0.1;
           }
 
           gsap.to(content, {
             opacity: Math.max(0, opacity),
             y: y,
             scale: scale,
-            duration: 0.3,
+            duration: 0.4,
             ease: "power2.out"
           });
         });
@@ -107,89 +104,84 @@ const BrandImportance = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full h-screen bg-black overflow-hidden"
+      className="relative w-full h-screen bg-black overflow-hidden flex items-center justify-center"
     >
-      {/* Background with subtle gradient */}
+      {/* Background with proper overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/banner1.png')" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/97 to-black/95" />
+      <div className="absolute inset-0 bg-black/90" />
 
-      {/* Smooth progress indicator */}
-      <div className="absolute top-0 left-0 w-full h-0.5 bg-white/5 z-20">
+      {/* Progress indicator */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-white/10 z-20">
         <div 
           ref={progressRef}
           className="h-full bg-gradient-to-r from-[#95A0A2] to-white origin-left transform scale-x-0"
         />
       </div>
 
-      {/* Subtle grid overlay */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="w-full h-full bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
-      </div>
-
-      <div className="relative z-10 h-full flex items-center justify-center px-12">
-        <div className="max-w-6xl mx-auto w-full">
-          
-          {/* Header Section - Always visible with improved spacing */}
-          <div ref={titleRef} className="text-center mb-24">
-            <div className="inline-flex items-center gap-4 mb-8">
-              <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#95A0A2] to-transparent" />
-              <span className="text-[#95A0A2] font-inter text-xs tracking-[0.3em] uppercase font-light">
-                Why Your Brand Matters
-              </span>
-              <div className="w-16 h-px bg-gradient-to-r from-[#95A0A2] via-transparent to-transparent" />
-            </div>
-            
-            <h2 className="text-6xl md:text-8xl font-space font-extralight text-white mb-6 leading-[0.85] tracking-tight">
-              The Power of
-              <span className="block text-[#95A0A2] font-light mt-4">Brand Identity</span>
-            </h2>
+      {/* Main content container */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-8">
+        
+        {/* Fixed header section */}
+        <div className="text-center mb-20">
+          <div className="flex items-center justify-center gap-6 mb-8">
+            <div className="w-20 h-px bg-[#95A0A2]/50" />
+            <span className="text-[#95A0A2] font-inter text-xs tracking-[0.4em] uppercase font-light">
+              Why Your Brand Matters
+            </span>
+            <div className="w-20 h-px bg-[#95A0A2]/50" />
           </div>
+          
+          <h2 className="text-5xl md:text-7xl font-space font-extralight text-white leading-[0.9] tracking-tight mb-4">
+            The Power of
+          </h2>
+          <h3 className="text-4xl md:text-6xl font-space font-light text-[#95A0A2] leading-[0.9] tracking-tight">
+            Brand Identity
+          </h3>
+        </div>
 
-          {/* Content slides container with improved spacing */}
-          <div className="relative h-96 flex items-center justify-center">
-            {brandPoints.map((point, index) => (
-              <div
-                key={index}
-                ref={(el) => {
-                  if (el) contentRefs.current[index] = el;
-                }}
-                className="absolute inset-0 flex flex-col items-center text-center justify-center space-y-12"
-              >
-                {/* Icon with improved spacing and design */}
-                <div className="relative mb-4">
-                  <div className="w-24 h-24 rounded-full border border-[#95A0A2]/15 bg-[#95A0A2]/3 backdrop-blur-sm flex items-center justify-center">
-                    <point.icon size={40} className="text-[#95A0A2]" strokeWidth={1.2} />
-                  </div>
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-t from-[#95A0A2]/8 to-transparent" />
-                </div>
-
-                {/* Title with refined typography and better spacing */}
-                <h3 className="text-5xl md:text-6xl font-space font-extralight text-white leading-[1.1] tracking-tight max-w-4xl mb-8">
-                  {point.title}
-                </h3>
-
-                {/* Description with improved spacing and typography */}
-                <p className="text-xl md:text-2xl text-[#95A0A2] leading-[1.6] font-inter font-light max-w-5xl tracking-wide px-8">
-                  {point.description}
-                </p>
-
-                {/* Elegant counter with better spacing */}
-                <div className="flex items-center space-x-8 text-[#95A0A2]/40 mt-12">
-                  <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#95A0A2]/20" />
-                  <span className="text-4xl font-space font-extralight tabular-nums">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span className="text-sm font-inter tracking-[0.2em] opacity-50 font-light">
-                    OF {String(brandPoints.length).padStart(2, '0')}
-                  </span>
-                  <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#95A0A2]/20" />
+        {/* Dynamic content slides */}
+        <div className="relative">
+          {brandPoints.map((point, index) => (
+            <div
+              key={index}
+              ref={(el) => {
+                if (el) contentRefs.current[index] = el;
+              }}
+              className="absolute inset-0 flex flex-col items-center text-center"
+            >
+              {/* Icon container */}
+              <div className="mb-12">
+                <div className="w-20 h-20 rounded-full border border-[#95A0A2]/20 bg-[#95A0A2]/5 backdrop-blur-sm flex items-center justify-center">
+                  <point.icon size={32} className="text-[#95A0A2]" strokeWidth={1} />
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* Title */}
+              <h3 className="text-4xl md:text-5xl font-space font-extralight text-white leading-[1.1] tracking-tight mb-8 max-w-4xl">
+                {point.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-lg md:text-xl text-[#95A0A2] leading-[1.7] font-inter font-light max-w-4xl mb-12 px-4">
+                {point.description}
+              </p>
+
+              {/* Counter */}
+              <div className="flex items-center justify-center gap-6 text-[#95A0A2]/30">
+                <div className="w-8 h-px bg-[#95A0A2]/20" />
+                <span className="text-2xl font-space font-extralight tabular-nums">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="text-xs font-inter tracking-[0.3em] uppercase opacity-60">
+                  OF {String(brandPoints.length).padStart(2, '0')}
+                </span>
+                <div className="w-8 h-px bg-[#95A0A2]/20" />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
