@@ -34,7 +34,7 @@ const Process = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-lynx-gray/5 via-transparent to-transparent"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20 fade-in">
+        <AnimatedSection animationType="fade-in" className="text-center mb-20">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Our Process</span>
           <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
             From Vision
@@ -43,15 +43,17 @@ const Process = () => {
           <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
             Our proven methodology ensures every project delivers exceptional results through strategic thinking and meticulous execution.
           </p>
-        </div>
+        </AnimatedSection>
 
         <div className="space-y-16">
           {steps.map((step, index) => (
-            <div 
+            <AnimatedSection
               key={index}
+              animationType={index % 2 === 0 ? "slide-in-left" : "slide-in-right"}
+              delay={Math.min(index + 1, 6)}
               className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}
             >
-              <div className={`slide-in-${index % 2 === 0 ? 'left' : 'right'}`}>
+              <div>
                 <div className="space-y-6">
                   <div className="flex items-center gap-6">
                     <div className="text-6xl font-space font-bold text-lynx-gray/30">
@@ -92,11 +94,11 @@ const Process = () => {
                   </div>
                   
                   {/* Floating animation elements */}
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-full blur-xl animate-pulse"></div>
-                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tl from-white/10 to-transparent rounded-full blur-lg animate-pulse delay-1000"></div>
+                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-full blur-xl animate-float"></div>
+                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tl from-white/10 to-transparent rounded-full blur-lg animate-float" style={{animationDelay: '1.5s'}}></div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

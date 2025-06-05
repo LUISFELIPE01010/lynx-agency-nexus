@@ -17,7 +17,7 @@ const Contact = () => {
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-l from-white/10 to-transparent rounded-full blur-2xl"></div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <div className="fade-in">
+        <AnimatedSection animationType="fade-in">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Contact</span>
           <h2 className="text-5xl md:text-8xl font-space font-bold text-white mb-8 leading-tight">
             Let's Create
@@ -28,10 +28,11 @@ const Contact = () => {
           <p className="text-xl md:text-2xl text-lynx-gray mb-16 font-inter max-w-3xl mx-auto leading-relaxed">
             Ready to transform your brand? Let's start a conversation about your vision and how we can bring it to life through strategic design and innovation.
           </p>
-        </div>
+        </AnimatedSection>
         
-        <div className="space-y-8 scale-in">
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <AnimatedSection animationType="scale-in" delay={1}>
+          <div className="space-y-8">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <a 
               href="https://wa.me/17329276563"
               target="_blank"
@@ -95,8 +96,9 @@ const Contact = () => {
               <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">Instagram</h3>
               <p className="text-lynx-gray font-inter text-sm">@lynx.com.br</p>
             </a>
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
