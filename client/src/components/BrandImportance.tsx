@@ -12,27 +12,27 @@ const BrandImportance = () => {
     {
       title: "Reconhecimento Instantâneo",
       description: "Uma marca forte cria identificação imediata no mercado, permitindo que os consumidores reconheçam seus produtos ou serviços em segundos.",
-      icon: "👁️"
+      number: "01"
     },
     {
       title: "Confiança e Credibilidade",
       description: "Marcas bem estabelecidas transmitem segurança e profissionalismo, aumentando a confiança dos clientes em fazer negócios com você.",
-      icon: "🛡️"
+      number: "02"
     },
     {
       title: "Diferenciação Competitiva",
       description: "Em mercados saturados, uma marca única e memorável é o que separa sua empresa da concorrência e atrai clientes específicos.",
-      icon: "⭐"
+      number: "03"
     },
     {
       title: "Valor Percebido Superior",
       description: "Marcas fortes podem cobrar preços premium porque os consumidores associam qualidade e valor ao nome da empresa.",
-      icon: "💎"
+      number: "04"
     },
     {
       title: "Fidelização de Clientes",
       description: "Uma marca consistente e envolvente cria conexões emocionais duradouras, transformando clientes em defensores da marca.",
-      icon: "❤️"
+      number: "05"
     }
   ];
 
@@ -104,19 +104,25 @@ const BrandImportance = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 overflow-hidden"
+      className="relative w-full bg-black overflow-hidden"
       style={{ height: `${brandPoints.length * 100}vh` }}
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-300 rounded-full blur-3xl"></div>
+      {/* Background image with dark overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/banner1.png')" }}
+      ></div>
+      <div className="absolute inset-0 bg-black/98"></div>
+      
+      {/* Background texture */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>
       </div>
 
       {/* Content container */}
       <div 
         ref={contentRef}
-        className="relative z-10 flex items-center justify-center h-screen px-4 md:px-8"
+        className="relative z-10 flex items-center justify-center h-screen px-6"
       >
         {brandPoints.map((point, index) => (
           <div
@@ -126,31 +132,39 @@ const BrandImportance = () => {
               index === 0 ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <div className="max-w-4xl mx-auto text-center">
-              {/* Icon */}
-              <div className="text-6xl md:text-8xl lg:text-9xl mb-6 md:mb-8">
-                {point.icon}
+            <div className="max-w-6xl mx-auto text-center">
+              {/* Header */}
+              <div className="space-y-4 mb-12">
+                <span className="text-lynx-gray font-space text-sm tracking-widest uppercase">
+                  {index === 0 ? 'Por que sua marca' : 'Importância da marca'}
+                </span>
+                <div className="w-24 h-px bg-gradient-to-r from-lynx-gray to-transparent mx-auto"></div>
+              </div>
+
+              {/* Number */}
+              <div className="text-8xl md:text-9xl font-space font-bold text-lynx-gray/20 mb-8">
+                {point.number}
               </div>
               
               {/* Title */}
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight px-4">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-space font-bold text-white mb-8 leading-tight">
                 {point.title}
               </h2>
               
               {/* Description */}
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-200 max-w-2xl md:max-w-3xl mx-auto leading-relaxed px-4">
+              <p className="text-xl md:text-2xl text-lynx-gray max-w-4xl mx-auto leading-relaxed font-inter">
                 {point.description}
               </p>
               
               {/* Progress indicator */}
-              <div className="flex justify-center mt-12 space-x-3">
+              <div className="flex justify-center mt-16 space-x-4">
                 {brandPoints.map((_, dotIndex) => (
                   <div
                     key={dotIndex}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`h-px transition-all duration-500 ${
                       dotIndex === index 
-                        ? 'bg-white scale-125' 
-                        : 'bg-white/30'
+                        ? 'w-12 bg-lynx-gray' 
+                        : 'w-6 bg-lynx-gray/30'
                     }`}
                   />
                 ))}
@@ -161,10 +175,10 @@ const BrandImportance = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-lynx-gray/60">
         <div className="flex flex-col items-center space-y-2">
-          <span className="text-sm font-medium">Role para descobrir</span>
-          <div className="w-px h-12 bg-white/30 animate-pulse"></div>
+          <span className="text-sm font-space tracking-widest uppercase">Scroll</span>
+          <div className="w-px h-12 bg-lynx-gray/30"></div>
         </div>
       </div>
     </section>
