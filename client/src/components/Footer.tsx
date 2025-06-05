@@ -53,9 +53,9 @@ const Footer = () => {
           
           {/* Services */}
           <div>
-            <h3 className="font-space font-semibold text-white mb-6">Services</h3>
+            <h3 className="font-space font-semibold text-white mb-6">{t('services')}</h3>
             <ul className="space-y-3">
-              {['Brand Strategy', 'Visual Identity', 'Digital Experience', 'Creative Direction'].map((service) => (
+              {[t('brandStrategy'), t('visualIdentity'), t('digitalExperience'), t('creativeDirection')].map((service) => (
                 <li key={service} className="flex items-center gap-2">
                   <span className="text-lynx-gray text-xs">•</span>
                   <a href="#" className="text-lynx-gray hover:text-white transition-colors duration-300 font-inter text-sm">
@@ -68,7 +68,7 @@ const Footer = () => {
           
           {/* Contact */}
           <div>
-            <h3 className="font-space font-semibold text-white mb-6">Contact</h3>
+            <h3 className="font-space font-semibold text-white mb-6">{t('contact')}</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <span className="text-lynx-gray text-xs">•</span>
@@ -95,7 +95,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-lynx-gray/10">
           <div className="flex justify-center items-center">
             <p className="text-lynx-gray text-sm font-inter">
-              © 2025 Lynx Agency. All rights reserved.
+              © 2025 Lynx Agency. {t('allRightsReserved')}
             </p>
           </div>
         </div>
