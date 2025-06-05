@@ -41,13 +41,16 @@ const Stats = () => {
       <div className="absolute bottom-0 right-1/4 w-56 h-56 bg-gradient-radial from-white/6 to-transparent rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20 fade-in">
+        <AnimatedSection animationType="fade-in" className="text-center mb-16">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Impact</span>
           <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
             Numbers That
             <span className="block text-lynx-gray">Speak</span>
           </h2>
-        </div>
+          <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
+            Every project is a testament to our commitment to excellence and the transformative power of strategic design.
+          </p>
+        </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (

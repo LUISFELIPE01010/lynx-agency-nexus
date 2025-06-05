@@ -40,13 +40,19 @@ const SocialProof = () => {
 
   return (
     <section className="py-32 px-6 relative overflow-hidden">
-      {/* Background image with dark overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/banner2.jpg')" }}
-      ></div>
-      <div className="absolute inset-0 bg-black/95"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lynx-gray/5 via-transparent to-transparent"></div>
+      {/* Pure black with subtle variations */}
+      <div className="absolute inset-0 bg-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-bl from-gray-900/25 via-black to-gray-800/15"></div>
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-[0.015]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M0 0h25v25H0zM25 25h25v25H25z'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '50px 50px'
+        }}></div>
+      </div>
+      {/* Subtle accent lighting */}
+      <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-gradient-radial from-lynx-gray/6 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/5 w-60 h-60 bg-gradient-radial from-white/4 to-transparent rounded-full blur-2xl"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20 fade-in">
