@@ -70,6 +70,10 @@ const BrandImportance = () => {
       }
     });
 
+    // Calculate total animation time (85% of timeline to leave smooth exit space)
+    const totalAnimationTime = 0.85;
+    const slideInterval = totalAnimationTime / (brandPoints.length - 1);
+
     // Animate each slide transition
     brandPoints.forEach((_, index) => {
       if (index > 0) {
@@ -77,8 +81,8 @@ const BrandImportance = () => {
         const previousSlide = content.querySelector(`[data-slide="${index - 1}"]`);
 
         if (currentSlide && previousSlide) {
-          const startTime = (index - 1) * 0.8;
-          const transitionDuration = 0.6;
+          const startTime = (index - 1) * slideInterval;
+          const transitionDuration = 0.4;
 
           tl.to(previousSlide, {
             opacity: 0,
@@ -99,6 +103,17 @@ const BrandImportance = () => {
       }
     });
 
+    // Add smooth exit transition for the last slide
+    const lastSlide = content.querySelector(`[data-slide="${brandPoints.length - 1}"]`);
+    if (lastSlide) {
+      tl.to(lastSlide, {
+        opacity: 0.8,
+        scale: 0.95,
+        duration: 0.15,
+        ease: "power1.out"
+      }, totalAnimationTime);
+    }
+
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
@@ -108,7 +123,10 @@ const BrandImportance = () => {
     <section 
       ref={sectionRef}
       className="relative w-full bg-gradient-to-b from-black via-[#95A0A2]/10 to-black overflow-hidden"
-      style={{ height: `150vh` }}
+      style={{ 
+        height: `120vh`,
+        scrollMarginBottom: '-20vh'
+      }}
     >
       {/* Background image with overlay */}
       <div 
