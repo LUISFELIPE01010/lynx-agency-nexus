@@ -1,4 +1,6 @@
 
+import logoPng from '@/logop.png';
+
 const About = () => {
   return (
     <section id="about" className="py-32 px-6 bg-black relative overflow-hidden">
@@ -63,7 +65,7 @@ const About = () => {
               {/* Main image container with full coverage */}
               <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10 overflow-hidden">
                 <img 
-                  src="client/src/logop.png" 
+                  src={logoPng} 
                   alt="Lynx Agency Vision" 
                   className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500"
                   loading="lazy"

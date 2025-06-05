@@ -23,25 +23,45 @@ img {
 /* Fast and lightweight animations */
 .fade-in {
   opacity: 0;
-  animation: fadeIn 0.3s ease-out forwards;
+  transition: opacity 0.3s ease-out;
 }
 
 .scale-in {
   opacity: 0;
   transform: scale(0.95);
-  animation: scaleIn 0.2s ease-out forwards;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
 }
 
 .slide-in-left {
   opacity: 0;
   transform: translateX(-20px);
-  animation: slideInLeft 0.4s ease-out forwards;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .slide-in-right {
   opacity: 0;
   transform: translateX(20px);
-  animation: slideInRight 0.4s ease-out forwards;
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+/* Trigger animations when visible */
+.animate-visible.fade-in {
+  opacity: 1;
+}
+
+.animate-visible.scale-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animate-visible.slide-in-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-visible.slide-in-right {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 @keyframes fadeIn {

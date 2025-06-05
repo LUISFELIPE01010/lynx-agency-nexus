@@ -1,5 +1,6 @@
 
 import { Instagram, MessageCircle } from 'lucide-react';
+import logoPng from '@/logop.png';
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <img 
-                src="client/src/logop.png" 
+                src={logoPng} 
                 alt="Lynx Agency" 
                 className="w-10 h-10 opacity-80"
               />

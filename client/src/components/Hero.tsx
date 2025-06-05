@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ArrowDown } from 'lucide-react';
+import logoPng from '@/logop.png';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -52,7 +53,7 @@ const Hero = () => {
       <div className="absolute top-8 left-8 z-20">
         <img 
           ref={logoRef}
-          src="client/src/logop.png" 
+          src={logoPng} 
           alt="Lynx Agency Logo" 
           className="w-12 h-12 md:w-16 md:h-16 object-contain opacity-90"
         />
