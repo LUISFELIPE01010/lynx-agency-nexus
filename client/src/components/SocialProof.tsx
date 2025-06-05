@@ -97,23 +97,7 @@ const SocialProof = () => {
           ))}
         </div>
 
-        {/* Client Logos */}
-        <div className="fade-in">
-          <div className="text-center mb-12">
-            <span className="text-lynx-gray font-space text-sm tracking-widest uppercase">Trusted by industry leaders</span>
-          </div>
-          
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-50">
-            {clients.map((client, index) => (
-              <div 
-                key={index}
-                className="text-2xl font-space font-bold text-lynx-gray hover:text-white transition-colors duration-300 cursor-pointer"
-              >
-                {client}
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   );

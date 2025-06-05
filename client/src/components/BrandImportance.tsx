@@ -108,7 +108,7 @@ const BrandImportance = () => {
     <section 
       ref={sectionRef}
       className="relative w-full bg-gradient-to-b from-black via-[#95A0A2]/10 to-black overflow-hidden"
-      style={{ height: `300vh` }}
+      style={{ height: `250vh` }}
     >
       {/* Background image with overlay */}
       <div 

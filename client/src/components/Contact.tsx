@@ -65,7 +65,7 @@ const Contact = () => {
               className="text-center group cursor-pointer"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:border-white/40 transition-all duration-300">
-                <Mail className="w-5 h-5 text-black" style={{ filter: 'drop-shadow(0 0 2px white)' }} />
+                <Mail className="w-5 h-5 text-white" />
               </div>
               <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">Email</h3>
               <p className="text-lynx-gray font-inter text-sm">hello@lynxagency.com</p>
@@ -78,7 +78,7 @@ const Contact = () => {
               className="text-center group cursor-pointer"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:border-white/40 transition-all duration-300">
-                <MessageCircle className="w-5 h-5 text-black" style={{ filter: 'drop-shadow(0 0 2px white)' }} />
+                <MessageCircle className="w-5 h-5 text-white" />
               </div>
               <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">WhatsApp</h3>
               <p className="text-lynx-gray font-inter text-sm">+1 (732) 927-6563</p>
@@ -91,7 +91,7 @@ const Contact = () => {
               className="text-center group cursor-pointer"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:border-white/40 transition-all duration-300">
-                <Instagram className="w-5 h-5 text-black" style={{ filter: 'drop-shadow(0 0 2px white)' }} />
+                <Instagram className="w-5 h-5 text-white" />
               </div>
               <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">Instagram</h3>
               <p className="text-lynx-gray font-inter text-sm">@lynx.com.br</p>
