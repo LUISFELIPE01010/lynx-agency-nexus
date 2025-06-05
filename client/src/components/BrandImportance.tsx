@@ -10,28 +10,28 @@ const BrandImportance = () => {
 
   const brandPoints = [
     {
-      title: "Reconhecimento Instantâneo",
-      description: "Uma marca forte cria identificação imediata no mercado, permitindo que os consumidores reconheçam seus produtos ou serviços em segundos.",
+      title: "Instant Recognition",
+      description: "A strong brand creates immediate market identification, allowing consumers to recognize your products or services in seconds.",
       number: "01"
     },
     {
-      title: "Confiança e Credibilidade",
-      description: "Marcas bem estabelecidas transmitem segurança e profissionalismo, aumentando a confiança dos clientes em fazer negócios com você.",
+      title: "Trust & Credibility",
+      description: "Well-established brands convey security and professionalism, increasing customer confidence in doing business with you.",
       number: "02"
     },
     {
-      title: "Diferenciação Competitiva",
-      description: "Em mercados saturados, uma marca única e memorável é o que separa sua empresa da concorrência e atrai clientes específicos.",
+      title: "Competitive Differentiation",
+      description: "In saturated markets, a unique and memorable brand is what separates your company from competition and attracts specific customers.",
       number: "03"
     },
     {
-      title: "Valor Percebido Superior",
-      description: "Marcas fortes podem cobrar preços premium porque os consumidores associam qualidade e valor ao nome da empresa.",
+      title: "Superior Perceived Value",
+      description: "Strong brands can charge premium prices because consumers associate quality and value with the company name.",
       number: "04"
     },
     {
-      title: "Fidelização de Clientes",
-      description: "Uma marca consistente e envolvente cria conexões emocionais duradouras, transformando clientes em defensores da marca.",
+      title: "Customer Loyalty",
+      description: "A consistent and engaging brand creates lasting emotional connections, transforming customers into brand advocates.",
       number: "05"
     }
   ];
@@ -124,54 +124,91 @@ const BrandImportance = () => {
         ref={contentRef}
         className="relative z-10 flex items-center justify-center h-screen px-6"
       >
-        {brandPoints.map((point, index) => (
-          <div
-            key={index}
-            data-slide={index}
-            className={`absolute inset-0 flex items-center justify-center ${
-              index === 0 ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <div className="max-w-6xl mx-auto text-center">
-              {/* Header */}
-              <div className="space-y-4 mb-12">
-                <span className="text-lynx-gray font-space text-sm tracking-widest uppercase">
-                  {index === 0 ? 'Por que sua marca' : 'Importância da marca'}
-                </span>
-                <div className="w-24 h-px bg-gradient-to-r from-lynx-gray to-transparent mx-auto"></div>
-              </div>
+        {brandPoints.map((point, index) => {
+          const isLeft = index % 2 === 0;
+          return (
+            <div
+              key={index}
+              data-slide={index}
+              className={`absolute inset-0 flex items-center justify-center ${
+                index === 0 ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <div className="max-w-7xl w-full mx-auto">
+                {/* Header - only show on first slide */}
+                {index === 0 && (
+                  <div className="text-center space-y-4 mb-20">
+                    <span className="text-lynx-gray font-space text-sm tracking-widest uppercase">
+                      Why Your Brand Matters
+                    </span>
+                    <div className="w-24 h-px bg-gradient-to-r from-lynx-gray to-transparent mx-auto"></div>
+                  </div>
+                )}
 
-              {/* Number */}
-              <div className="text-8xl md:text-9xl font-space font-bold text-lynx-gray/20 mb-8">
-                {point.number}
-              </div>
-              
-              {/* Title */}
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-space font-bold text-white mb-8 leading-tight">
-                {point.title}
-              </h2>
-              
-              {/* Description */}
-              <p className="text-xl md:text-2xl text-lynx-gray max-w-4xl mx-auto leading-relaxed font-inter">
-                {point.description}
-              </p>
-              
-              {/* Progress indicator */}
-              <div className="flex justify-center mt-16 space-x-4">
-                {brandPoints.map((_, dotIndex) => (
-                  <div
-                    key={dotIndex}
-                    className={`h-px transition-all duration-500 ${
-                      dotIndex === index 
-                        ? 'w-12 bg-lynx-gray' 
-                        : 'w-6 bg-lynx-gray/30'
-                    }`}
-                  />
-                ))}
+                <div className="grid grid-cols-12 gap-8 items-center">
+                  {/* Left side content */}
+                  <div className={`col-span-12 lg:col-span-5 ${
+                    isLeft ? 'lg:order-1' : 'lg:order-3'
+                  }`}>
+                    <div className={`space-y-6 ${isLeft ? 'lg:text-left' : 'lg:text-right'}`}>
+                      {/* Number */}
+                      <div className={`text-6xl md:text-7xl font-space font-bold text-lynx-gray/30 ${
+                        isLeft ? 'lg:text-left' : 'lg:text-right'
+                      } text-center`}>
+                        {point.number}
+                      </div>
+                      
+                      {/* Title */}
+                      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-space font-bold text-white leading-tight ${
+                        isLeft ? 'lg:text-left' : 'lg:text-right'
+                      } text-center`}>
+                        {point.title}
+                      </h2>
+                      
+                      {/* Description */}
+                      <p className={`text-lg md:text-xl text-lynx-gray leading-relaxed font-inter max-w-md ${
+                        isLeft ? 'lg:text-left lg:ml-0 lg:mr-auto' : 'lg:text-right lg:mr-0 lg:ml-auto'
+                      } text-center mx-auto`}>
+                        {point.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Center line - only visible on larger screens */}
+                  <div className="hidden lg:flex lg:col-span-2 lg:order-2 justify-center">
+                    <div className="relative">
+                      {/* Vertical line */}
+                      <div className="w-px h-64 bg-gradient-to-b from-transparent via-lynx-gray/40 to-transparent"></div>
+                      {/* Center dot */}
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-lynx-gray rounded-full"></div>
+                    </div>
+                  </div>
+
+                  {/* Right side - empty when content is on left, vice versa */}
+                  <div className={`col-span-12 lg:col-span-5 ${
+                    isLeft ? 'lg:order-3' : 'lg:order-1'
+                  } hidden lg:block`}>
+                    {/* Empty space for alternating layout */}
+                  </div>
+                </div>
+
+                {/* Progress indicator */}
+                <div className="flex justify-center mt-16 space-x-4">
+                  {brandPoints.map((_, dotIndex) => (
+                    <div
+                      key={dotIndex}
+                      className={`h-px transition-all duration-500 ${
+                        dotIndex === index 
+                          ? 'w-12 bg-lynx-gray' 
+                          : 'w-6 bg-lynx-gray/30'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Scroll indicator */}
