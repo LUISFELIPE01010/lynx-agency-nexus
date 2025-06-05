@@ -1,12 +1,16 @@
+
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Eye, Shield, Star, Gem, Heart } from 'lucide-react';
-import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BrandImportance = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const contentRefs = useRef<HTMLDivElement[]>([]);
+  const progressRef = useRef<HTMLDivElement>(null);
+
   const brandPoints = [
     {
       title: "Instant Recognition",
@@ -35,8 +39,74 @@ const BrandImportance = () => {
     }
   ];
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const contents = contentRefs.current;
+    const progress = progressRef.current;
+
+    if (!section || !contents.length || !progress) return;
+
+    // Set initial states
+    contents.forEach((content, index) => {
+      if (index === 0) {
+        gsap.set(content, { opacity: 1, y: 0 });
+      } else {
+        gsap.set(content, { opacity: 0, y: 50 });
+      }
+    });
+
+    // Create ScrollTrigger for the section
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: `+=${window.innerHeight * brandPoints.length}`,
+        scrub: 1,
+        pin: true,
+        pinSpacing: true,
+        onUpdate: (self) => {
+          const currentIndex = Math.floor(self.progress * brandPoints.length);
+          const clampedIndex = Math.min(currentIndex, brandPoints.length - 1);
+          
+          // Update progress bar
+          gsap.to(progress, {
+            scaleX: self.progress,
+            duration: 0.1,
+            ease: "none"
+          });
+
+          // Show/hide content based on scroll position
+          contents.forEach((content, index) => {
+            if (index === clampedIndex) {
+              gsap.to(content, {
+                opacity: 1,
+                y: 0,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+            } else {
+              gsap.to(content, {
+                opacity: 0,
+                y: index < clampedIndex ? -50 : 50,
+                duration: 0.3,
+                ease: "power2.out"
+              });
+            }
+          });
+        }
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, [brandPoints.length]);
+
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
+    <section 
+      ref={sectionRef}
+      className="relative w-full h-screen bg-black overflow-hidden"
+    >
       {/* Background image with dark overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -44,125 +114,79 @@ const BrandImportance = () => {
       ></div>
       <div className="absolute inset-0 bg-black/96"></div>
 
+      {/* Progress bar */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-white/10 z-20">
+        <div 
+          ref={progressRef}
+          className="h-full bg-lynx-gray origin-left transform scale-x-0"
+        ></div>
+      </div>
+
       {/* Background texture */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
-        <AnimatedSection animationType="fade-in" className="text-center mb-20">
-          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">
-            Why Your Brand Matters
-          </span>
-          <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
-            The Power of
-            <span className="block text-lynx-gray">Brand Identity</span>
-          </h2>
-          <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
-            Understanding why a strong brand is essential for sustainable business growth and market positioning.
-          </p>
-          <div className="w-24 h-px bg-gradient-to-r from-lynx-gray to-transparent mx-auto mt-8"></div>
-        </AnimatedSection>
-
-        {/* Brand points with connecting line */}
-        <div className="relative max-w-6xl mx-auto">
-          {/* Central connecting line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-lynx-gray/40 to-transparent hidden lg:block"></div>
-
-          {/* Brand points */}
-          <div className="space-y-24">
-            {brandPoints.map((point, index) => {
-              const isLeft = index % 2 === 0;
-              return (
-                <AnimatedSection 
-                  key={index}
-                  animationType="slide-in-up"
-                  delay={index + 1}
-                  className="relative"
-                >
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    {/* Left content */}
-                    <div className={`lg:col-span-5 ${
-                      isLeft ? 'lg:order-1' : 'lg:order-3'
-                    }`}>
-                      <div className={`space-y-6 ${
-                        isLeft ? 'lg:text-right lg:pr-8' : 'lg:text-left lg:pl-8'
-                      } text-center lg:text-left`}>
-                        {/* Icon */}
-                        <div className={`flex items-center gap-4 ${
-                          isLeft ? 'lg:justify-end' : 'lg:justify-start'
-                        } justify-center`}>
-                          <div className="p-4 rounded-full border border-lynx-gray/30 bg-lynx-gray/10 backdrop-blur-sm">
-                            <point.icon size={28} className="text-lynx-gray" />
-                          </div>
-                        </div>
-
-                        {/* Title */}
-                        <h3 className="text-3xl md:text-4xl font-space font-bold text-white leading-tight">
-                          {point.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-lg text-lynx-gray leading-relaxed font-inter">
-                          {point.description}
-                        </p>
-
-                        {/* Decorative line */}
-                        <div className={`w-16 h-px bg-gradient-to-r from-lynx-gray to-transparent ${
-                          isLeft ? 'lg:ml-auto lg:mr-0' : 'lg:mr-auto lg:ml-0'
-                        } mx-auto`}></div>
-                      </div>
-                    </div>
-
-                    {/* Center connector - only visible on larger screens */}
-                    <div className="hidden lg:flex lg:col-span-2 lg:order-2 justify-center items-center">
-                      <div className="relative">
-                        {/* Connection dot */}
-                        <div className="w-4 h-4 bg-lynx-gray rounded-full border-4 border-black relative z-10"></div>
-                        {/* Horizontal line to content */}
-                        <div className={`absolute top-1/2 transform -translate-y-1/2 h-px bg-gradient-to-r from-lynx-gray/60 to-transparent ${
-                          isLeft ? 'right-4 w-12' : 'left-4 w-12'
-                        }`}></div>
-                      </div>
-                    </div>
-
-                    {/* Right content (empty space for alternating layout) */}
-                    <div className={`lg:col-span-5 ${
-                      isLeft ? 'lg:order-3' : 'lg:order-1'
-                    } hidden lg:block`}>
-                      {/* Empty space for alternating layout */}
-                    </div>
-                  </div>
-
-                  {/* Mobile connector line */}
-                  <div className="lg:hidden flex justify-center mt-12 mb-12">
-                    {index < brandPoints.length - 1 && (
-                      <div className="w-px h-16 bg-gradient-to-b from-lynx-gray/60 to-transparent"></div>
-                    )}
-                  </div>
-                </AnimatedSection>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Bottom section */}
-        <AnimatedSection 
-          animationType="fade-in" 
-          delay={brandPoints.length + 1}
-          className="text-center mt-32"
-        >
-          <div className="max-w-3xl mx-auto space-y-6">
-            <h3 className="text-2xl md:text-3xl font-space font-bold text-white">
-              Ready to Build Your Brand?
-            </h3>
-            <p className="text-lg text-lynx-gray font-inter leading-relaxed">
-              Let's create a brand identity that not only stands out but drives real business results.
-            </p>
+      <div className="relative z-10 h-full flex items-center justify-center px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Header - always visible */}
+          <div className="mb-16">
+            <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">
+              Why Your Brand Matters
+            </span>
+            <h2 className="text-4xl md:text-6xl font-space font-bold text-white mb-6 leading-tight">
+              The Power of
+              <span className="block text-lynx-gray">Brand Identity</span>
+            </h2>
             <div className="w-24 h-px bg-gradient-to-r from-lynx-gray to-transparent mx-auto"></div>
           </div>
-        </AnimatedSection>
+
+          {/* Content slides */}
+          <div className="relative">
+            {brandPoints.map((point, index) => (
+              <div
+                key={index}
+                ref={(el) => {
+                  if (el) contentRefs.current[index] = el;
+                }}
+                className="absolute inset-0 flex flex-col items-center text-center space-y-8"
+              >
+                {/* Icon */}
+                <div className="p-6 rounded-full border border-lynx-gray/30 bg-lynx-gray/10 backdrop-blur-sm">
+                  <point.icon size={48} className="text-lynx-gray" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-3xl md:text-5xl font-space font-bold text-white leading-tight">
+                  {point.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-xl md:text-2xl text-lynx-gray leading-relaxed font-inter max-w-3xl">
+                  {point.description}
+                </p>
+
+                {/* Counter */}
+                <div className="flex items-center space-x-4 text-lynx-gray/60">
+                  <span className="text-4xl font-space font-bold">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div className="w-16 h-px bg-lynx-gray/40"></div>
+                  <span className="text-sm font-space tracking-wider">
+                    {String(brandPoints.length).padStart(2, '0')}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom CTA - always visible */}
+          <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+            <p className="text-lynx-gray/80 font-inter text-sm">
+              Scroll to explore each benefit
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
