@@ -1,5 +1,6 @@
 
 import { Target, Sparkles, Monitor, Palette, Play, Lightbulb } from 'lucide-react';
+import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 
 const Services = () => {
   const services = [
@@ -52,7 +53,7 @@ const Services = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lynx-gray/5 via-transparent to-transparent"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20 fade-in">
+        <AnimatedSection animationType="fade-in" className="text-center mb-20">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Our Expertise</span>
           <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
             Services That
@@ -61,55 +62,57 @@ const Services = () => {
           <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
             From strategic foundation to creative execution, we offer comprehensive solutions that transform brands and accelerate growth.
           </p>
-        </div>
+        </AnimatedSection>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div 
+            <AnimatedSection 
               key={index}
-              className="group relative p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-700 hover:transform hover:scale-105 scale-in backdrop-blur-sm"
-              style={{ animationDelay: `${index * 100}ms` }}
+              animationType="scale-in"
+              delay={Math.min(index + 1, 6)}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10">
-                <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon === 'target' && <Target className="w-8 h-8 text-lynx-gray" />}
-                  {service.icon === 'sparkles' && <Sparkles className="w-8 h-8 text-lynx-gray" />}
-                  {service.icon === 'monitor' && <Monitor className="w-8 h-8 text-lynx-gray" />}
-                  {service.icon === 'palette' && <Palette className="w-8 h-8 text-lynx-gray" />}
-                  {service.icon === 'play' && <Play className="w-8 h-8 text-lynx-gray" />}
-                  {service.icon === 'lightbulb' && <Lightbulb className="w-8 h-8 text-lynx-gray" />}
-                </div>
+              <div className="group relative p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-700 hover-lift backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <h3 className="text-2xl font-space font-semibold text-white mb-4 group-hover:text-lynx-gray transition-colors duration-300">
-                  {service.title}
-                </h3>
-                
-                <p className="text-lynx-gray font-inter leading-relaxed mb-6">
-                  {service.description}
-                </p>
-                
-                <div className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 bg-lynx-gray rounded-full group-hover:bg-white transition-colors duration-300"></div>
-                      <span className="text-sm text-lynx-gray font-inter group-hover:text-white transition-colors duration-300">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                <div className="relative z-10">
+                  <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
+                    {service.icon === 'target' && <Target className="w-8 h-8 text-lynx-gray" />}
+                    {service.icon === 'sparkles' && <Sparkles className="w-8 h-8 text-lynx-gray" />}
+                    {service.icon === 'monitor' && <Monitor className="w-8 h-8 text-lynx-gray" />}
+                    {service.icon === 'palette' && <Palette className="w-8 h-8 text-lynx-gray" />}
+                    {service.icon === 'play' && <Play className="w-8 h-8 text-lynx-gray" />}
+                    {service.icon === 'lightbulb' && <Lightbulb className="w-8 h-8 text-lynx-gray" />}
+                  </div>
+                  
+                  <h3 className="text-2xl font-space font-semibold text-white mb-4 group-hover:text-lynx-gray transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-lynx-gray font-inter leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                  
+                  <div className="space-y-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center gap-3">
+                        <div className="w-1.5 h-1.5 bg-lynx-gray rounded-full group-hover:bg-white transition-colors duration-300"></div>
+                        <span className="text-sm text-lynx-gray font-inter group-hover:text-white transition-colors duration-300">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
 
-                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-8 h-8 border border-lynx-gray rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-lynx-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-8 h-8 border border-lynx-gray rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4 text-lynx-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>
