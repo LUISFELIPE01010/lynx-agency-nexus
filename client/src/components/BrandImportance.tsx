@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Eye, Shield, Star, Gem, Heart } from 'lucide-react';
+import { Eye, Shield, Heart } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,16 +22,6 @@ const BrandImportance = () => {
       title: "Trust & Credibility",
       description: "Well-established brands convey security and professionalism, increasing customer confidence in doing business with you.",
       icon: Shield
-    },
-    {
-      title: "Competitive Differentiation",
-      description: "In saturated markets, a unique and memorable brand is what separates your company from competition and attracts specific customers.",
-      icon: Star
-    },
-    {
-      title: "Superior Perceived Value",
-      description: "Strong brands can charge premium prices because consumers associate quality and value with the company name.",
-      icon: Gem
     },
     {
       title: "Customer Loyalty",
@@ -56,7 +46,7 @@ const BrandImportance = () => {
       if (index === 0) {
         gsap.set(content, { opacity: 1, y: 0, scale: 1 });
       } else {
-        gsap.set(content, { opacity: 0, y: 30, scale: 0.95 });
+        gsap.set(content, { opacity: 0, y: 40, scale: 0.95 });
       }
     });
 
@@ -85,16 +75,16 @@ const BrandImportance = () => {
         // Smooth content transitions
         contents.forEach((content, index) => {
           let opacity = 0;
-          let y = 30;
+          let y = 40;
           let scale = 0.95;
 
           if (index === currentIndex) {
             opacity = 1 - slideProgress * 0.3;
-            y = slideProgress * -15;
+            y = slideProgress * -20;
             scale = 1 - slideProgress * 0.02;
           } else if (index === currentIndex + 1 && slideProgress > 0) {
             opacity = slideProgress;
-            y = 30 - slideProgress * 30;
+            y = 40 - slideProgress * 40;
             scale = 0.95 + slideProgress * 0.05;
           }
 
@@ -139,73 +129,66 @@ const BrandImportance = () => {
         <div className="w-full h-full bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
-      <div className="relative z-10 h-full flex items-center justify-center px-8">
-        <div className="max-w-5xl mx-auto w-full">
+      <div className="relative z-10 h-full flex items-center justify-center px-12">
+        <div className="max-w-6xl mx-auto w-full">
           
-          {/* Header Section - Always visible */}
-          <div ref={titleRef} className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#95A0A2] to-transparent" />
-              <span className="text-[#95A0A2] font-inter text-xs tracking-[0.2em] uppercase font-light">
+          {/* Header Section - Always visible with improved spacing */}
+          <div ref={titleRef} className="text-center mb-24">
+            <div className="inline-flex items-center gap-4 mb-8">
+              <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#95A0A2] to-transparent" />
+              <span className="text-[#95A0A2] font-inter text-xs tracking-[0.3em] uppercase font-light">
                 Why Your Brand Matters
               </span>
-              <div className="w-12 h-px bg-gradient-to-r from-[#95A0A2] via-transparent to-transparent" />
+              <div className="w-16 h-px bg-gradient-to-r from-[#95A0A2] via-transparent to-transparent" />
             </div>
             
-            <h2 className="text-5xl md:text-7xl font-space font-light text-white mb-4 leading-[0.9] tracking-tight">
+            <h2 className="text-6xl md:text-8xl font-space font-extralight text-white mb-6 leading-[0.85] tracking-tight">
               The Power of
-              <span className="block text-[#95A0A2] font-normal">Brand Identity</span>
+              <span className="block text-[#95A0A2] font-light mt-4">Brand Identity</span>
             </h2>
           </div>
 
-          {/* Content slides container */}
-          <div className="relative h-80 flex items-center justify-center">
+          {/* Content slides container with improved spacing */}
+          <div className="relative h-96 flex items-center justify-center">
             {brandPoints.map((point, index) => (
               <div
                 key={index}
                 ref={(el) => {
                   if (el) contentRefs.current[index] = el;
                 }}
-                className="absolute inset-0 flex flex-col items-center text-center justify-center space-y-8"
+                className="absolute inset-0 flex flex-col items-center text-center justify-center space-y-12"
               >
-                {/* Icon with smooth entrance */}
-                <div className="relative">
-                  <div className="w-20 h-20 rounded-full border border-[#95A0A2]/20 bg-[#95A0A2]/5 backdrop-blur-sm flex items-center justify-center">
-                    <point.icon size={36} className="text-[#95A0A2]" strokeWidth={1.5} />
+                {/* Icon with improved spacing and design */}
+                <div className="relative mb-4">
+                  <div className="w-24 h-24 rounded-full border border-[#95A0A2]/15 bg-[#95A0A2]/3 backdrop-blur-sm flex items-center justify-center">
+                    <point.icon size={40} className="text-[#95A0A2]" strokeWidth={1.2} />
                   </div>
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-t from-[#95A0A2]/10 to-transparent" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-t from-[#95A0A2]/8 to-transparent" />
                 </div>
 
-                {/* Title with refined typography */}
-                <h3 className="text-4xl md:text-5xl font-space font-light text-white leading-tight tracking-tight max-w-3xl">
+                {/* Title with refined typography and better spacing */}
+                <h3 className="text-5xl md:text-6xl font-space font-extralight text-white leading-[1.1] tracking-tight max-w-4xl mb-8">
                   {point.title}
                 </h3>
 
-                {/* Description with better spacing */}
-                <p className="text-xl md:text-2xl text-[#95A0A2] leading-relaxed font-inter font-light max-w-4xl tracking-wide">
+                {/* Description with improved spacing and typography */}
+                <p className="text-xl md:text-2xl text-[#95A0A2] leading-[1.6] font-inter font-light max-w-5xl tracking-wide px-8">
                   {point.description}
                 </p>
 
-                {/* Elegant counter */}
-                <div className="flex items-center space-x-6 text-[#95A0A2]/50">
-                  <div className="w-8 h-px bg-gradient-to-r from-transparent to-[#95A0A2]/30" />
-                  <span className="text-3xl font-space font-light tabular-nums">
+                {/* Elegant counter with better spacing */}
+                <div className="flex items-center space-x-8 text-[#95A0A2]/40 mt-12">
+                  <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#95A0A2]/20" />
+                  <span className="text-4xl font-space font-extralight tabular-nums">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <span className="text-sm font-inter tracking-widest opacity-60">
+                  <span className="text-sm font-inter tracking-[0.2em] opacity-50 font-light">
                     OF {String(brandPoints.length).padStart(2, '0')}
                   </span>
-                  <div className="w-8 h-px bg-gradient-to-l from-transparent to-[#95A0A2]/30" />
+                  <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#95A0A2]/20" />
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Bottom indicator */}
-          <div className="text-center mt-16">
-            <p className="text-[#95A0A2]/60 font-inter text-sm font-light tracking-wide">
-              Continue scrolling to explore
-            </p>
           </div>
         </div>
       </div>
