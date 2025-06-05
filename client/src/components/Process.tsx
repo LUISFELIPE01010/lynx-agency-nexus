@@ -30,20 +30,8 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
-      {/* Deep gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-gray-900/40"></div>
-      {/* Circuit-like pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M25 25h50v50H25z'/%3E%3Cpath d='M35 5v20M65 5v20M35 75v20M65 75v20M5 35h20M75 35h20M5 65h20M75 65h20'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '100px 100px'
-        }}></div>
-      </div>
-      {/* Floating light orbs */}
-      <div className="absolute top-1/3 right-1/6 w-40 h-40 bg-gradient-radial from-lynx-gray/12 to-transparent rounded-full blur-2xl animate-float"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-gradient-radial from-white/8 to-transparent rounded-full blur-xl animate-float" style={{animationDelay: '2s'}}></div>
+    <section className="py-32 px-6 bg-gradient-to-b from-gray-900/20 to-black relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-lynx-gray/5 via-transparent to-transparent"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">

@@ -4,19 +4,16 @@ import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 const About = () => {
   return (
     <section id="about" className="py-32 px-6 relative overflow-hidden">
-      {/* Rich gradient background with texture */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30"></div>
-      {/* Geometric pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M20 20c0 11.046-8.954 20-20 20v20h40V20H20z'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '40px 40px'
-        }}></div>
+      {/* Background image with dark overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/banner1.png')" }}
+      ></div>
+      <div className="absolute inset-0 bg-black/96"></div>
+      {/* Background texture */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>
       </div>
-      {/* Subtle light accents */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-radial from-lynx-gray/10 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-gradient-radial from-white/5 to-transparent rounded-full blur-2xl"></div>
 
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-20 items-center">

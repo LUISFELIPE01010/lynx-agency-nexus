@@ -5,20 +5,16 @@ import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 const Contact = () => {
   return (
     <section className="py-32 px-6 relative overflow-hidden">
-      {/* Rich textured background */}
-      <div className="absolute inset-0 bg-gradient-to-bl from-gray-800 via-gray-900 to-black"></div>
-      <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-transparent to-gray-800/50"></div>
-      {/* Wave pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.025]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M0 40c20-20 60-20 80 0v40H0z'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '80px 80px'
-        }}></div>
-      </div>
-      {/* Dramatic lighting */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-radial from-lynx-gray/15 to-transparent rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-radial from-white/10 to-transparent rounded-full blur-2xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
-      <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-radial from-lynx-gray/8 to-transparent rounded-full blur-xl"></div>
+      {/* Background image with dark overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/banner3.png')" }}
+      ></div>
+      <div className="absolute inset-0 bg-black/95"></div>
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-lynx-gray/5 to-transparent"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-lynx-gray/10 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-l from-white/10 to-transparent rounded-full blur-2xl"></div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <AnimatedSection animationType="fade-in">

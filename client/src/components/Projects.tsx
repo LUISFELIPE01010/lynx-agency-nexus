@@ -53,23 +53,16 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 px-6 relative overflow-hidden">
-      {/* Dark textured background with image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/banner2.jpg')" }}
-      ></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/90 to-black/95"></div>
-      {/* Diagonal pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.04]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M0 0l20 20H0z'/%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '20px 20px'
-        }}></div>
-      </div>
-      {/* Ambient lighting */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-lynx-gray/10 to-transparent"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-gradient-radial from-lynx-gray/8 to-transparent rounded-full blur-3xl"></div>
+    <section 
+      id="projects" 
+      className="py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/banner2.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
 
       <div className="max-w-7xl mx-auto">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">
