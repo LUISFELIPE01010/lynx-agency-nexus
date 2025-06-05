@@ -27,7 +27,7 @@ const ClientCarousel = () => {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <section className="py-8 px-6 bg-black relative overflow-hidden">
+    <section className="py-8 px-6 mb-16 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="relative overflow-hidden">
           <div className="carousel-container">
@@ -35,7 +35,7 @@ const ClientCarousel = () => {
               {duplicatedLogos.map((logo, index) => (
                 <div
                   key={index}
-                  className="carousel-item flex-shrink-0 w-40 h-28 md:w-48 md:h-32 mx-8 flex items-center justify-center"
+                  className="carousel-item flex-shrink-0 w-52 h-36 md:w-64 md:h-44 mx-8 flex items-center justify-center"
                 >
                   <img
                     src={logo}
