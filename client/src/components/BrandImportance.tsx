@@ -1,195 +1,225 @@
-
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Eye, Shield, Heart } from 'lucide-react';
+import { Eye, Shield, Star, Gem, Heart } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BrandImportance = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const contentRefs = useRef<HTMLDivElement[]>([]);
-  const progressRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const brandPoints = [
     {
       title: "Instant Recognition",
       description: "A strong brand creates immediate market identification, allowing consumers to recognize your products or services in seconds.",
+      number: "01",
       icon: Eye
     },
     {
       title: "Trust & Credibility",
       description: "Well-established brands convey security and professionalism, increasing customer confidence in doing business with you.",
+      number: "02",
       icon: Shield
+    },
+    {
+      title: "Competitive Differentiation",
+      description: "In saturated markets, a unique and memorable brand is what separates your company from competition and attracts specific customers.",
+      number: "03",
+      icon: Star
+    },
+    {
+      title: "Superior Perceived Value",
+      description: "Strong brands can charge premium prices because consumers associate quality and value with the company name.",
+      number: "04",
+      icon: Gem
     },
     {
       title: "Customer Loyalty",
       description: "A consistent and engaging brand creates lasting emotional connections, transforming customers into brand advocates.",
+      number: "05",
       icon: Heart
     }
   ];
 
   useEffect(() => {
     const section = sectionRef.current;
-    const contents = contentRefs.current;
-    const progress = progressRef.current;
+    const content = contentRef.current;
+    
+    if (!section || !content) return;
 
-    if (!section || !contents.length || !progress) return;
-
-    // Set initial states
-    gsap.set(progress, { scaleX: 0 });
-
-    contents.forEach((content, index) => {
-      if (index === 0) {
-        gsap.set(content, { opacity: 1, y: 0, scale: 1 });
-      } else {
-        gsap.set(content, { opacity: 0, y: 50, scale: 0.9 });
+    // Set initial state for all slides except the first one
+    brandPoints.forEach((_, index) => {
+      if (index > 0) {
+        const slideElement = content.querySelector(`[data-slide="${index}"]`);
+        if (slideElement) {
+          gsap.set(slideElement, { opacity: 0, y: 50, scale: 0.9 });
+        }
       }
     });
 
-    // Create smooth ScrollTrigger animation with slower transitions
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top top",
-      end: `+=${window.innerHeight * (brandPoints.length * 2)}`, // Doubled for slower scroll
-      scrub: 1.2, // Slower scrub for smoother transitions
-      pin: true,
-      pinSpacing: true,
-      anticipatePin: 1,
-      onUpdate: (self) => {
-        const totalSlides = brandPoints.length;
-        const progress = self.progress;
-        const currentIndex = Math.floor(progress * totalSlides);
-        const slideProgress = (progress * totalSlides) % 1;
+    // Create timeline for the scroll animation
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.2,
+        pin: true,
+        anticipatePin: 1,
+      }
+    });
+
+    // Animate each slide transition
+    brandPoints.forEach((_, index) => {
+      if (index > 0) {
+        const currentSlide = content.querySelector(`[data-slide="${index}"]`);
+        const previousSlide = content.querySelector(`[data-slide="${index - 1}"]`);
         
-        // Smooth progress bar animation
-        gsap.to(progressRef.current, {
-          scaleX: progress,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-
-        // Smoother content transitions with better timing
-        contents.forEach((content, index) => {
-          let opacity = 0;
-          let y = 60;
-          let scale = 0.95;
-
-          if (index === currentIndex) {
-            // Current slide stays longer and fades out slower
-            opacity = Math.max(0.2, 1 - slideProgress * 0.8);
-            y = slideProgress * -20;
-            scale = 1 - slideProgress * 0.03;
-          } else if (index === currentIndex + 1 && slideProgress > 0.3) {
-            // Next slide appears only after 30% of transition
-            const adjustedProgress = (slideProgress - 0.3) / 0.7;
-            opacity = adjustedProgress;
-            y = 60 - adjustedProgress * 60;
-            scale = 0.95 + adjustedProgress * 0.05;
-          }
-
-          gsap.to(content, {
-            opacity: Math.max(0, opacity),
-            y: y,
-            scale: scale,
-            duration: 0.6,
-            ease: "power2.out"
-          });
-        });
+        if (currentSlide && previousSlide) {
+          const startTime = (index - 1) * 0.8;
+          const transitionDuration = 0.6;
+          
+          tl.to(previousSlide, {
+            opacity: 0,
+            y: -30,
+            scale: 0.9,
+            duration: transitionDuration,
+            ease: "power2.inOut"
+          }, startTime)
+          
+          .to(currentSlide, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: transitionDuration,
+            ease: "power2.inOut"
+          }, startTime + 0.1);
+        }
       }
     });
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [brandPoints.length]);
+  }, []);
 
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full h-screen bg-black overflow-hidden flex items-center justify-center"
+      className="relative w-full bg-gradient-to-b from-black via-[#95A0A2]/10 to-black overflow-hidden"
+      style={{ height: `300vh` }}
     >
-      {/* Background with proper overlay */}
+      {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/banner1.png')" }}
-      />
-      <div className="absolute inset-0 bg-black/90" />
+      ></div>
+      <div className="absolute inset-0 bg-black/95"></div>
+      
+      {/* Subtle gradient overlay with lynx-gray */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#95A0A2]/5 to-black/80"></div>
 
-      {/* Progress indicator */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-white/10 z-20">
-        <div 
-          ref={progressRef}
-          className="h-full bg-gradient-to-r from-[#95A0A2] to-white origin-left transform scale-x-0"
-        />
-      </div>
+      {/* Content container */}
+      <div 
+        ref={contentRef}
+        className="relative z-10 flex items-center justify-center h-screen px-6"
+      >
+        {brandPoints.map((point, index) => {
+          const isLeft = index % 2 === 0;
+          return (
+            <div
+              key={index}
+              data-slide={index}
+              className={`absolute inset-0 flex items-center justify-center ${
+                index === 0 ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <div className="max-w-7xl w-full mx-auto">
+                {/* Header - only show on first slide */}
+                {index === 0 && (
+                  <div className="text-center space-y-4 mb-20">
+                    <span className="text-[#95A0A2] font-space text-sm tracking-widest uppercase">
+                      Why Your Brand Matters
+                    </span>
+                    <div className="w-24 h-px bg-gradient-to-r from-[#95A0A2] to-transparent mx-auto"></div>
+                  </div>
+                )}
 
-      {/* Main content container - perfectly centered */}
-      <div className="relative z-10 w-full h-full flex items-center justify-center px-8">
-        
-        {/* Content wrapper with proper vertical centering */}
-        <div className="w-full max-w-5xl text-center">
-          
-          {/* Fixed header section */}
-          <div className="mb-20">
-            <div className="flex items-center justify-center gap-6 mb-10">
-              <div className="w-20 h-px bg-[#95A0A2]/50" />
-              <span className="text-[#95A0A2] font-inter text-xs tracking-[0.4em] uppercase font-light">
-                Why Your Brand Matters
-              </span>
-              <div className="w-20 h-px bg-[#95A0A2]/50" />
-            </div>
-            
-            <h2 className="text-4xl md:text-6xl font-space font-extralight text-white leading-[0.9] tracking-tight mb-6">
-              The Power of
-            </h2>
-            <h3 className="text-3xl md:text-5xl font-space font-light text-[#95A0A2] leading-[0.9] tracking-tight">
-              Brand Identity
-            </h3>
-          </div>
+                <div className="grid grid-cols-12 gap-8 items-center">
+                  {/* Content side */}
+                  <div className={`col-span-12 lg:col-span-5 ${
+                    isLeft ? 'lg:order-1' : 'lg:order-3'
+                  }`}>
+                    <div className={`space-y-6 ${isLeft ? 'lg:text-left' : 'lg:text-right'}`}>
+                      {/* Icon and Number */}
+                      <div className={`flex items-center gap-4 ${
+                        isLeft ? 'lg:justify-start' : 'lg:justify-end'
+                      } justify-center`}>
+                        <div className="p-4 rounded-full border border-[#95A0A2]/30 bg-[#95A0A2]/5">
+                          <point.icon size={32} className="text-[#95A0A2]" />
+                        </div>
+                        <div className="text-5xl md:text-6xl font-space font-bold text-[#95A0A2]/40">
+                          {point.number}
+                        </div>
+                      </div>
+                      
+                      {/* Title */}
+                      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-space font-bold text-white leading-tight ${
+                        isLeft ? 'lg:text-left' : 'lg:text-right'
+                      } text-center`}>
+                        {point.title}
+                      </h2>
+                      
+                      {/* Description */}
+                      <p className={`text-lg md:text-xl text-[#95A0A2] leading-relaxed font-inter max-w-md ${
+                        isLeft ? 'lg:text-left lg:ml-0 lg:mr-auto' : 'lg:text-right lg:mr-0 lg:ml-auto'
+                      } text-center mx-auto`}>
+                        {point.description}
+                      </p>
 
-          {/* Dynamic content slides - properly centered */}
-          <div className="relative w-full min-h-[400px] flex items-center justify-center">
-            {brandPoints.map((point, index) => (
-              <div
-                key={index}
-                ref={(el) => {
-                  if (el) contentRefs.current[index] = el;
-                }}
-                className="absolute inset-0 flex flex-col items-center justify-center"
-              >
-                {/* Icon container */}
-                <div className="mb-12">
-                  <div className="w-20 h-20 rounded-full border border-[#95A0A2]/20 bg-[#95A0A2]/5 backdrop-blur-sm flex items-center justify-center">
-                    <point.icon size={32} className="text-[#95A0A2]" strokeWidth={1} />
+                      {/* Decorative line */}
+                      <div className={`w-16 h-px bg-gradient-to-r from-[#95A0A2] to-transparent ${
+                        isLeft ? 'lg:ml-0 lg:mr-auto' : 'lg:mr-0 lg:ml-auto'
+                      } mx-auto`}></div>
+                    </div>
+                  </div>
+
+                  {/* Center line - only visible on larger screens */}
+                  <div className="hidden lg:flex lg:col-span-2 lg:order-2 justify-center">
+                    <div className="relative">
+                      {/* Vertical line */}
+                      <div className="w-px h-64 bg-gradient-to-b from-transparent via-[#95A0A2]/40 to-transparent"></div>
+                      {/* Center dot */}
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-[#95A0A2] rounded-full"></div>
+                    </div>
+                  </div>
+
+                  {/* Empty side for alternating layout */}
+                  <div className={`col-span-12 lg:col-span-5 ${
+                    isLeft ? 'lg:order-3' : 'lg:order-1'
+                  } hidden lg:block`}>
+                    {/* Empty space for alternating layout */}
                   </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-3xl md:text-4xl font-space font-extralight text-white leading-[1.1] tracking-tight mb-10 max-w-4xl">
-                  {point.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-base md:text-lg text-[#95A0A2] leading-[1.6] font-inter font-light max-w-3xl mb-12 px-4">
-                  {point.description}
-                </p>
-
-                {/* Counter */}
-                <div className="flex items-center justify-center gap-6 text-[#95A0A2]/40">
-                  <div className="w-8 h-px bg-[#95A0A2]/20" />
-                  <span className="text-xl font-space font-extralight tabular-nums">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span className="text-xs font-inter tracking-[0.3em] uppercase opacity-60">
-                    OF {String(brandPoints.length).padStart(2, '0')}
-                  </span>
-                  <div className="w-8 h-px bg-[#95A0A2]/20" />
+                {/* Progress indicator */}
+                <div className="flex justify-center mt-16 space-x-4">
+                  {brandPoints.map((_, dotIndex) => (
+                    <div
+                      key={dotIndex}
+                      className={`h-px transition-all duration-500 ${
+                        dotIndex === index 
+                          ? 'w-12 bg-[#95A0A2]' 
+                          : 'w-6 bg-[#95A0A2]/30'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

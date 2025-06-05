@@ -25,14 +25,14 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
-      {/* Background image with dark overlay */}
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-black via-[#95A0A2]/8 to-black">
+      {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/banner3.png')" }}
       ></div>
-      <div className="absolute inset-0 bg-black/96"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-lynx-gray/5 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-[#95A0A2]/15 to-black/85"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#95A0A2]/10 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20 fade-in">

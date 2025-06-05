@@ -4,17 +4,17 @@ import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 
 const Contact = () => {
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
-      {/* Background image with dark overlay */}
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-[#95A0A2]/5 via-black to-black">
+      {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/banner3.png')" }}
       ></div>
-      <div className="absolute inset-0 bg-black/95"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-lynx-gray/5 to-transparent"></div>
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-lynx-gray/10 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-l from-white/10 to-transparent rounded-full blur-2xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#95A0A2]/8 to-transparent"></div>
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#95A0A2]/15 to-transparent rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-l from-[#95A0A2]/10 to-transparent rounded-full blur-2xl"></div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <AnimatedSection animationType="fade-in">
