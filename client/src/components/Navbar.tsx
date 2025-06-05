@@ -25,7 +25,7 @@ const Navbar = () => {
           <img 
             src="/logop.png" 
             alt="Lynx Agency" 
-            className="w-12 h-12 opacity-90 hover:opacity-100 transition-opacity duration-300"
+            className="w-16 h-16 opacity-90 hover:opacity-100 transition-opacity duration-300"
           />
         </Link>
         
