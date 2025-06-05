@@ -11,41 +11,26 @@ const Hero = () => {
   const arrowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({ delay: 0.5 });
+    // Fast, lightweight animations
+    gsap.set([titleRef.current, logoRef.current], { opacity: 1 });
     
-    // Remove fade-in from title, just show it immediately
-    gsap.set(titleRef.current, { opacity: 1 });
-    gsap.set(logoRef.current, { opacity: 1 });
+    gsap.fromTo(subtitleRef.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.2 }
+    );
     
-    tl.fromTo(subtitleRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }
-    )
-    .fromTo(arrowRef.current,
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 1, ease: 'power2.out' },
-      '-=0.5'
+    gsap.fromTo(arrowRef.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', delay: 0.4 }
     );
 
-    // Floating animation for arrow
+    // Subtle floating animation for arrow
     gsap.to(arrowRef.current, {
-      y: -15,
-      duration: 2,
+      y: -8,
+      duration: 1.5,
       ease: 'power2.inOut',
       yoyo: true,
       repeat: -1,
-    });
-
-    // Parallax effect for hero content
-    gsap.to(heroRef.current, {
-      yPercent: -30,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-      },
     });
   }, []);
 
@@ -67,7 +52,7 @@ const Hero = () => {
       <div className="absolute top-8 left-8 z-20">
         <img 
           ref={logoRef}
-          src="/logop.png" 
+          src="client/src/logop.png" 
           alt="Lynx Agency Logo" 
           className="w-12 h-12 md:w-16 md:h-16 object-contain opacity-90"
         />

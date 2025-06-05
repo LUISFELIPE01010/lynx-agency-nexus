@@ -57,8 +57,7 @@ const SocialProof = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="group relative p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-700 scale-in backdrop-blur-sm"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group relative p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-300 scale-in backdrop-blur-sm"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               

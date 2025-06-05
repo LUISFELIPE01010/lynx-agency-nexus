@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <img 
-                src="/lovable-uploads/7bf006aa-ba99-43f4-9a20-8d2fc7535f41.png" 
+                src="client/src/logop.png" 
                 alt="Lynx Agency" 
                 className="w-10 h-10 opacity-80"
               />

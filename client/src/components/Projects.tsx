@@ -69,8 +69,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={project.id}
-              className="group relative cursor-pointer overflow-hidden rounded-2xl bg-lynx-gray/5 border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-700 scale-in"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="group relative cursor-pointer overflow-hidden rounded-2xl bg-lynx-gray/5 border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-300 scale-in"
             >
               <div className="aspect-square overflow-hidden">
                 <img 
