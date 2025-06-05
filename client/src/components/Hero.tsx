@@ -58,12 +58,6 @@ const Hero = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         {/* Title aligned to left */}
         <div className="text-left mb-16">
-          <h1 
-            ref={titleRef}
-            className="text-6xl md:text-8xl lg:text-[10rem] font-space font-bold text-white tracking-tighter leading-none mb-8"
-          >
-            LYNX
-          </h1>
           
           <div className="text-left max-w-4xl">
             <p 
