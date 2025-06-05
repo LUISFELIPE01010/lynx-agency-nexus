@@ -7,51 +7,51 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Quantum Dynamics",
+      title: "Urban Fashion Collective",
       category: t('techStartupBranding'),
-      description: t('quantumDynamicsDesc'),
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=800&fit=crop",
-      tags: ["Branding", "Web Design", "Tech"]
+      description: "Modern streetwear brand identity with bold typography and contemporary visual elements that resonate with urban culture.",
+      image: "/brand/b1.jpg",
+      tags: ["Branding", "Fashion", "Urban"]
     },
     {
       id: 2,
-      title: "Meridian Luxury",
+      title: "Artisan Coffee House",
       category: t('luxuryBrandIdentity'),
-      description: t('meridianLuxuryDesc'),
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=800&fit=crop",
-      tags: ["Luxury", "Identity", "Hospitality"]
+      description: "Sophisticated coffee brand with premium packaging design and warm color palette reflecting artisanal quality.",
+      image: "/brand/b2.jpg",
+      tags: ["Luxury", "F&B", "Packaging"]
     },
     {
       id: 3,
-      title: "Neural Networks Co.",
+      title: "Tech Innovation Hub",
       category: t('digitalExperienceProject'),
-      description: t('neuralNetworksDesc'),
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=800&fit=crop",
-      tags: ["Digital", "AI", "Interactive"]
+      description: "Cutting-edge technology company branding with minimalist design and futuristic visual identity system.",
+      image: "/brand/b3.jpg",
+      tags: ["Digital", "Tech", "Innovation"]
     },
     {
       id: 4,
-      title: "Atlas Ventures",
+      title: "Wellness Retreat Center",
       category: t('corporateRebrand'),
-      description: t('atlasVenturesDesc'),
-      image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=800&fit=crop",
-      tags: ["Strategy", "Finance", "Corporate"]
+      description: "Holistic wellness brand with natural elements and calming aesthetics promoting health and mindfulness.",
+      image: "/brand/b4.jpg",
+      tags: ["Wellness", "Health", "Lifestyle"]
     },
     {
       id: 5,
-      title: "Synapse Health",
+      title: "Creative Studio Agency",
       category: t('healthcareInnovation'),
-      description: t('synapseHealthDesc'),
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=800&fit=crop",
-      tags: ["Healthcare", "Innovation", "Digital"]
+      description: "Dynamic creative agency branding featuring vibrant colors and experimental typography for artistic expression.",
+      image: "/brand/b5.jpg",
+      tags: ["Creative", "Agency", "Design"]
     },
     {
       id: 6,
-      title: "Carbon Zero",
+      title: "Sustainable Living Co.",
       category: t('sustainabilityPlatform'),
-      description: t('carbonZeroDesc'),
-      image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=800&h=800&fit=crop",
-      tags: ["Sustainability", "Platform", "Tech"]
+      description: "Eco-conscious brand identity with organic shapes and earth tones promoting sustainable lifestyle choices.",
+      image: "/brand/b6.jpg",
+      tags: ["Sustainability", "Eco", "Lifestyle"]
     }
   ];
 
@@ -91,7 +91,8 @@ const Projects = () => {
                 <img 
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
                 />
               </div>
 
