@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <img 
-                src="/lovable-uploads/e8ef5616-4c7b-4625-a88a-5d6ebc5c9153.png" 
+                src="/lovable-uploads/0027b985-2546-4aa4-8fcd-215f7e6d9ee8.png" 
                 alt="Lynx Agency" 
                 className="w-10 h-10 opacity-80"
               />
@@ -49,7 +49,8 @@ const Footer = () => {
             <h3 className="font-space font-semibold text-white mb-6">Services</h3>
             <ul className="space-y-3">
               {['Brand Strategy', 'Visual Identity', 'Digital Experience', 'Creative Direction'].map((service) => (
-                <li key={service}>
+                <li key={service} className="flex items-center gap-2">
+                  <span className="text-lynx-gray text-xs">•</span>
                   <a href="#" className="text-lynx-gray hover:text-white transition-colors duration-300 font-inter text-sm">
                     {service}
                   </a>
@@ -62,17 +63,20 @@ const Footer = () => {
           <div>
             <h3 className="font-space font-semibold text-white mb-6">Contact</h3>
             <div className="space-y-3">
-              <div>
+              <div className="flex items-center gap-2">
+                <span className="text-lynx-gray text-xs">•</span>
                 <p className="text-lynx-gray font-inter text-sm">
                   hello@lynxagency.com
                 </p>
               </div>
-              <div>
+              <div className="flex items-center gap-2">
+                <span className="text-lynx-gray text-xs">•</span>
                 <p className="text-lynx-gray font-inter text-sm">
                   +1 (732) 927-6563
                 </p>
               </div>
-              <div>
+              <div className="flex items-center gap-2">
+                <span className="text-lynx-gray text-xs">•</span>
                 <p className="text-lynx-gray font-inter text-sm">
                   Global Remote
                 </p>

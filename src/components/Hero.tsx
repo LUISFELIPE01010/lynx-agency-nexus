@@ -56,8 +56,12 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-900/20"></div>
+      {/* Background image with dark overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/lovable-uploads/167201f2-2e02-42f4-ba72-ed031527a0e6.png')" }}
+      ></div>
+      <div className="absolute inset-0 bg-black/80"></div>
       
       {/* Animated background elements */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
@@ -65,19 +69,19 @@ const Hero = () => {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         {/* Title and Logo Layout */}
-        <div className="flex items-center justify-between mb-16">
+        <div className="flex items-center justify-between mb-16 gap-8">
           <h1 
             ref={titleRef}
-            className="text-7xl md:text-9xl lg:text-[12rem] font-space font-bold text-white tracking-tighter leading-none"
+            className="text-6xl md:text-8xl lg:text-[10rem] font-space font-bold text-white tracking-tighter leading-none"
           >
             LYNX
           </h1>
           
           <img 
             ref={logoRef}
-            src="/lovable-uploads/e8ef5616-4c7b-4625-a88a-5d6ebc5c9153.png" 
+            src="/lovable-uploads/0027b985-2546-4aa4-8fcd-215f7e6d9ee8.png" 
             alt="Lynx Agency Logo" 
-            className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 object-contain opacity-90"
+            className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain opacity-90"
           />
         </div>
         

@@ -69,9 +69,12 @@ const SocialProof = () => {
                     alt={testimonial.author}
                     className="w-12 h-12 rounded-full object-cover"
                   />
-                  <div>
-                    <div className="font-space font-semibold text-white text-lg">
-                      {testimonial.author}
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-lynx-gray text-xs">•</span>
+                      <div className="font-space font-semibold text-white text-lg">
+                        {testimonial.author}
+                      </div>
                     </div>
                     <div className="text-lynx-gray font-inter text-sm">
                       {testimonial.position} at {testimonial.company}

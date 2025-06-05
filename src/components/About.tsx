@@ -34,17 +34,26 @@ const About = () => {
             </div>
 
             <div className="flex flex-wrap gap-8 pt-8">
-              <div>
-                <div className="text-3xl font-space font-bold text-white">50+</div>
-                <div className="text-lynx-gray text-sm font-inter">Brands Transformed</div>
+              <div className="flex items-center gap-2">
+                <span className="text-lynx-gray text-xs">•</span>
+                <div>
+                  <div className="text-3xl font-space font-bold text-white">50+</div>
+                  <div className="text-lynx-gray text-sm font-inter">Brands Transformed</div>
+                </div>
               </div>
-              <div>
-                <div className="text-3xl font-space font-bold text-white">8+</div>
-                <div className="text-lynx-gray text-sm font-inter">Years of Excellence</div>
+              <div className="flex items-center gap-2">
+                <span className="text-lynx-gray text-xs">•</span>
+                <div>
+                  <div className="text-3xl font-space font-bold text-white">8+</div>
+                  <div className="text-lynx-gray text-sm font-inter">Years of Excellence</div>
+                </div>
               </div>
-              <div>
-                <div className="text-3xl font-space font-bold text-white">25+</div>
-                <div className="text-lynx-gray text-sm font-inter">Countries Reached</div>
+              <div className="flex items-center gap-2">
+                <span className="text-lynx-gray text-xs">•</span>
+                <div>
+                  <div className="text-3xl font-space font-bold text-white">25+</div>
+                  <div className="text-lynx-gray text-sm font-inter">Countries Reached</div>
+                </div>
               </div>
             </div>
           </div>
@@ -55,7 +64,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10">
                 <div className="absolute inset-8 bg-gradient-to-br from-white/5 to-transparent rounded-xl flex items-center justify-center">
                   <img 
-                    src="/lovable-uploads/e8ef5616-4c7b-4625-a88a-5d6ebc5c9153.png" 
+                    src="/lovable-uploads/0027b985-2546-4aa4-8fcd-215f7e6d9ee8.png" 
                     alt="Lynx Agency Vision" 
                     className="w-40 h-40 object-contain opacity-80 hover:opacity-100 transition-opacity duration-500"
                   />
