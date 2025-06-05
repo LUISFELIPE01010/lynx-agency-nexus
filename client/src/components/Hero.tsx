@@ -10,25 +10,29 @@ const Hero = () => {
   const arrowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Fast, lightweight animations
-    gsap.fromTo(subtitleRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.2 }
-    );
+    // Fast, lightweight animations with null checks
+    if (subtitleRef.current) {
+      gsap.fromTo(subtitleRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.2 }
+      );
+    }
     
-    gsap.fromTo(arrowRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', delay: 0.4 }
-    );
+    if (arrowRef.current) {
+      gsap.fromTo(arrowRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', delay: 0.4 }
+      );
 
-    // Subtle floating animation for arrow
-    gsap.to(arrowRef.current, {
-      y: -8,
-      duration: 1.5,
-      ease: 'power2.inOut',
-      yoyo: true,
-      repeat: -1,
-    });
+      // Subtle floating animation for arrow
+      gsap.to(arrowRef.current, {
+        y: -8,
+        duration: 1.5,
+        ease: 'power2.inOut',
+        yoyo: true,
+        repeat: -1,
+      });
+    }
   }, []);
 
   const scrollToNext = () => {
