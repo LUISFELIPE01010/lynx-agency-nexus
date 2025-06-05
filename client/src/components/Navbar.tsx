@@ -20,7 +20,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between text-[14px] font-normal">
         <div></div>
         
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-8 text-center">
           <Link 
             to="/"
             className="text-white hover:text-lynx-gray transition-colors duration-300 font-space text-sm"
