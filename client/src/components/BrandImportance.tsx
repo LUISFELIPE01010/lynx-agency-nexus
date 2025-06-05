@@ -226,4 +226,3 @@ const BrandImportance = () => {
 };
 
 export default BrandImportance;
-```
