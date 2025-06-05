@@ -22,11 +22,7 @@ const Navbar = () => {
           to="/"
           className="flex items-center"
         >
-          <img 
-            src="/LYNXx.png" 
-            alt="Lynx Agency" 
-            className="w-12 h-12 object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
-          />
+          <span className="text-white font-bold text-xl">LYNX</span>
         </Link>
         
         <div className="flex items-center gap-8">

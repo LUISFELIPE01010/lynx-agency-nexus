@@ -6,11 +6,19 @@ import logoPng from '@/logop.png';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Fast, lightweight animations with null checks
+    if (logoRef.current) {
+      gsap.fromTo(logoRef.current,
+        { opacity: 0, scale: 0.8, y: 30 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+      );
+    }
+    
     if (subtitleRef.current) {
       gsap.fromTo(subtitleRef.current,
         { opacity: 0, y: 20 },
@@ -56,8 +64,16 @@ const Hero = () => {
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
-        {/* Title aligned to left */}
+        {/* Logo and Title aligned to left */}
         <div className="text-left mb-16">
+          {/* Main Logo */}
+          <div ref={logoRef} className="mb-12">
+            <img 
+              src="/LYNXx.png" 
+              alt="Lynx Agency" 
+              className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain opacity-90"
+            />
+          </div>
           
           <div className="text-left max-w-4xl">
             <p 
