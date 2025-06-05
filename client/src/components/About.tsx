@@ -101,21 +101,21 @@ const About = () => {
                 <div className="flex items-center gap-2 hover-scale">
                   <span className="text-lynx-gray text-xs">•</span>
                   <div>
-                    <CountUp target={50} suffix="+" />
+                    <CountUp target={50} suffix="+" duration={2500} />
                     <div className="text-lynx-gray text-sm font-inter">Brands Transformed</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 hover-scale">
                   <span className="text-lynx-gray text-xs">•</span>
                   <div>
-                    <CountUp target={8} suffix="+" />
+                    <CountUp target={8} suffix="+" duration={2000} />
                     <div className="text-lynx-gray text-sm font-inter">Years of Excellence</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 hover-scale">
                   <span className="text-lynx-gray text-xs">•</span>
                   <div>
-                    <CountUp target={25} suffix="+" />
+                    <CountUp target={25} suffix="+" duration={2200} />
                     <div className="text-lynx-gray text-sm font-inter">Countries Reached</div>
                   </div>
                 </div>
