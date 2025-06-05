@@ -1,5 +1,5 @@
 
-import { MessageCircle, Mail, MapPin } from 'lucide-react';
+import { MessageCircle, Mail, Instagram } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -39,40 +39,55 @@ const Contact = () => {
             </a>
             
             <a 
-              href="mailto:hello@lynxagency.com"
+              href="https://instagram.com/lynx.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105"
             >
               <span className="relative z-10 flex items-center gap-3">
-                <Mail className="w-5 h-5" />
-                Send an Email
+                <Instagram className="w-5 h-5" />
+                Follow on Instagram
               </span>
             </a>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 pt-16">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
+            <a 
+              href="mailto:hello@lynxagency.com"
+              className="text-center group cursor-pointer"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:border-white/40 transition-all duration-300">
                 <Mail className="w-5 h-5 text-black" style={{ filter: 'drop-shadow(0 0 2px white)' }} />
               </div>
-              <h3 className="font-space font-semibold text-white mb-2">Email</h3>
+              <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">Email</h3>
               <p className="text-lynx-gray font-inter text-sm">hello@lynxagency.com</p>
-            </div>
+            </a>
             
-            <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
+            <a 
+              href="https://wa.me/17329276563"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-center group cursor-pointer"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:border-white/40 transition-all duration-300">
                 <MessageCircle className="w-5 h-5 text-black" style={{ filter: 'drop-shadow(0 0 2px white)' }} />
               </div>
-              <h3 className="font-space font-semibold text-white mb-2">WhatsApp</h3>
+              <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">WhatsApp</h3>
               <p className="text-lynx-gray font-inter text-sm">+1 (732) 927-6563</p>
-            </div>
+            </a>
             
-            <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
-                <MapPin className="w-5 h-5 text-black" style={{ filter: 'drop-shadow(0 0 2px white)' }} />
+            <a 
+              href="https://instagram.com/lynx.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-center group cursor-pointer"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 group-hover:border-white/40 transition-all duration-300">
+                <Instagram className="w-5 h-5 text-black" style={{ filter: 'drop-shadow(0 0 2px white)' }} />
               </div>
-              <h3 className="font-space font-semibold text-white mb-2">Location</h3>
-              <p className="text-lynx-gray font-inter text-sm">Global Remote</p>
-            </div>
+              <h3 className="font-space font-semibold text-white mb-2 group-hover:text-lynx-gray transition-colors duration-300">Instagram</h3>
+              <p className="text-lynx-gray font-inter text-sm">@lynx.com.br</p>
+            </a>
           </div>
         </div>
       </div>

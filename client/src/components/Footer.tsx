@@ -89,19 +89,10 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-lynx-gray/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex justify-center items-center">
             <p className="text-lynx-gray text-sm font-inter">
-              © 2024 Lynx Agency. All rights reserved.
+              © 2025 Lynx Agency. All rights reserved.
             </p>
-            
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-lynx-gray hover:text-white transition-colors duration-300 font-inter text-sm">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-lynx-gray hover:text-white transition-colors duration-300 font-inter text-sm">
-                Terms of Service
-              </a>
-            </div>
           </div>
         </div>
       </div>

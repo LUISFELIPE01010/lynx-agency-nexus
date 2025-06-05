@@ -52,7 +52,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="py-32 px-6 bg-black relative overflow-hidden">
+    <section id="projects" className="py-32 px-6 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20 fade-in">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Portfolio</span>
