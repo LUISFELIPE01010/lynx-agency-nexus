@@ -17,24 +17,28 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
         <Link 
           to="/"
-          className="text-2xl font-space font-bold text-white hover:text-lynx-gray transition-colors duration-300"
+          className="flex items-center"
         >
-          LYNX
+          <img 
+            src="/logop.png" 
+            alt="Lynx Agency" 
+            className="w-10 h-10 opacity-90 hover:opacity-100 transition-opacity duration-300"
+          />
         </Link>
         
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-12">
           <Link 
             to="/"
-            className="text-white hover:text-lynx-gray transition-colors duration-300 font-space"
+            className="text-white hover:text-lynx-gray transition-colors duration-300 font-space text-lg"
           >
             Home
           </Link>
           <Link 
             to="/gallery"
-            className="text-white hover:text-lynx-gray transition-colors duration-300 font-space"
+            className="text-white hover:text-lynx-gray transition-colors duration-300 font-space text-lg"
           >
             Gallery
           </Link>
