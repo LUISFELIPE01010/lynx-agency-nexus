@@ -53,14 +53,14 @@ const Projects = () => {
   return (
     <section 
       id="projects" 
-      className="py-32 px-6 relative overflow-hidden"
+      className="py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/banner2.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
-      {/* Background image with dark overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/banner2.png')" }}
-      ></div>
-      <div className="absolute inset-0 bg-black/90"></div>
 
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20 fade-in">
