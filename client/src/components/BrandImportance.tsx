@@ -52,54 +52,58 @@ const BrandImportance = () => {
         trigger: section,
         start: "top top",
         end: "bottom bottom",
-        scrub: 1.8,
+        scrub: 3,
         pin: true,
         anticipatePin: 1,
       }
     });
 
-    // Calculate total animation time with better spacing
-    const totalAnimationTime = 0.8;
-    const slideInterval = totalAnimationTime / (brandPoints.length - 1);
-
-    // Animate each slide transition
+    // Calculate timing with proper intervals for readability
+    const totalAnimationTime = 1;
+    const pauseBetweenSlides = 0.15; // Pause to read each slide
+    const transitionTime = 0.25; // Smooth transition duration
+    
+    // Create staggered timeline
     brandPoints.forEach((_, index) => {
       if (index > 0) {
         const currentSlide = content.querySelector(`[data-slide="${index}"]`);
         const previousSlide = content.querySelector(`[data-slide="${index - 1}"]`);
 
         if (currentSlide && previousSlide) {
-          const startTime = (index - 1) * slideInterval;
-          const transitionDuration = 0.6;
-
+          // Calculate timing: pause + transition for each slide
+          const slideStartTime = (index - 1) * (pauseBetweenSlides + transitionTime);
+          
+          // Fade out previous slide
           tl.to(previousSlide, {
             opacity: 0,
-            y: -30,
-            scale: 0.9,
-            duration: transitionDuration,
-            ease: "power1.inOut"
-          }, startTime)
+            y: -20,
+            scale: 0.95,
+            duration: transitionTime,
+            ease: "power2.inOut"
+          }, slideStartTime + pauseBetweenSlides)
 
+          // Fade in current slide with slight delay for smoother transition
           .to(currentSlide, {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: transitionDuration,
-            ease: "power1.inOut"
-          }, startTime + 0.2);
+            duration: transitionTime,
+            ease: "power2.inOut"
+          }, slideStartTime + pauseBetweenSlides + 0.05);
         }
       }
     });
 
-    // Add smooth exit transition for the last slide
+    // Smooth exit for the last slide
     const lastSlide = content.querySelector(`[data-slide="${brandPoints.length - 1}"]`);
     if (lastSlide) {
+      const finalTime = (brandPoints.length - 1) * (pauseBetweenSlides + transitionTime) + 0.2;
       tl.to(lastSlide, {
-        opacity: 0.8,
-        scale: 0.95,
-        duration: 0.15,
+        opacity: 0.9,
+        scale: 0.98,
+        duration: 0.2,
         ease: "power1.out"
-      }, totalAnimationTime);
+      }, finalTime);
     }
 
     return () => {
