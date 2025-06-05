@@ -114,12 +114,53 @@ img {
   }
 }
 
+/* Client Carousel Animations */
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+}
+
+.carousel-track {
+  display: flex;
+  animation: scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.carousel-container:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.carousel-item {
+  flex-shrink: 0;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .carousel-track {
+    animation-duration: 25s;
+  }
+}
+
 /* Reduce animations on mobile for better performance */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  
+  .carousel-track {
+    animation: none !important;
   }
 }
 
