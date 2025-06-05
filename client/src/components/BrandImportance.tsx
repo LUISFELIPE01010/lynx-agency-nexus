@@ -23,21 +23,9 @@ const BrandImportance = () => {
       icon: Shield
     },
     {
-      title: "Competitive Differentiation",
-      description: "In saturated markets, a unique and memorable brand is what separates your company from competition and attracts specific customers.",
-      number: "03",
-      icon: Star
-    },
-    {
-      title: "Superior Perceived Value",
-      description: "Strong brands can charge premium prices because consumers associate quality and value with the company name.",
-      number: "04",
-      icon: Gem
-    },
-    {
       title: "Customer Loyalty",
       description: "A consistent and engaging brand creates lasting emotional connections, transforming customers into brand advocates.",
-      number: "05",
+      number: "03",
       icon: Heart
     }
   ];
@@ -64,14 +52,14 @@ const BrandImportance = () => {
         trigger: section,
         start: "top top",
         end: "bottom bottom",
-        scrub: 2.5,
+        scrub: 1.8,
         pin: true,
         anticipatePin: 1,
       }
     });
 
-    // Calculate total animation time (85% of timeline to leave smooth exit space)
-    const totalAnimationTime = 0.85;
+    // Calculate total animation time with better spacing
+    const totalAnimationTime = 0.8;
     const slideInterval = totalAnimationTime / (brandPoints.length - 1);
 
     // Animate each slide transition
@@ -82,14 +70,14 @@ const BrandImportance = () => {
 
         if (currentSlide && previousSlide) {
           const startTime = (index - 1) * slideInterval;
-          const transitionDuration = 0.8;
+          const transitionDuration = 0.6;
 
           tl.to(previousSlide, {
             opacity: 0,
             y: -30,
             scale: 0.9,
             duration: transitionDuration,
-            ease: "power2.inOut"
+            ease: "power1.inOut"
           }, startTime)
 
           .to(currentSlide, {
@@ -97,8 +85,8 @@ const BrandImportance = () => {
             y: 0,
             scale: 1,
             duration: transitionDuration,
-            ease: "power2.inOut"
-          }, startTime + 0.1);
+            ease: "power1.inOut"
+          }, startTime + 0.2);
         }
       }
     });

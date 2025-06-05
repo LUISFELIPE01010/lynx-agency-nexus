@@ -1,4 +1,3 @@
-
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 
 const SocialProof = () => {
@@ -23,13 +22,6 @@ const SocialProof = () => {
       position: "CMO",
       company: "Global Innovations",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      quote: "The attention to detail and commitment to excellence is unmatched. Lynx delivered beyond what we thought was possible.",
-      author: "David Park",
-      position: "Creative Director",
-      company: "Urban Studios",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
     }
   ];
 
@@ -39,15 +31,15 @@ const SocialProof = () => {
   ];
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-[#95A0A2]/5">
+    <section className="py-32 px-6 relative overflow-hidden bg-black">
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/banner2.jpg')" }}
       ></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-[#95A0A2]/10 to-black/90"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#95A0A2]/8 via-transparent to-transparent"></div>
-      
+      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/10 to-black/90"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black/8 via-transparent to-transparent"></div>
+
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20 fade-in">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Testimonials</span>
@@ -62,13 +54,13 @@ const SocialProof = () => {
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-20">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.slice(0, 3).map((testimonial, index) => (
             <div 
               key={index}
               className="group relative p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-300 scale-in backdrop-blur-sm"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
+
               <div className="relative z-10">
                 <div className="flex items-start gap-4 mb-6">
                   <img 
@@ -88,7 +80,7 @@ const SocialProof = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <blockquote className="text-lg font-inter text-lynx-gray leading-relaxed group-hover:text-white transition-colors duration-300">
                   "{testimonial.quote}"
                 </blockquote>
