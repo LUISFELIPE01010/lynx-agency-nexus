@@ -1,4 +1,6 @@
 
+import { MessageCircle, Mail, MapPin } from 'lucide-react';
+
 const Contact = () => {
   return (
     <section className="py-32 px-6 bg-black relative overflow-hidden">
@@ -30,7 +32,7 @@ const Contact = () => {
               className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-3">
-                <span>💬</span>
+                <MessageCircle className="w-5 h-5" />
                 Start a Conversation
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -41,7 +43,7 @@ const Contact = () => {
               className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105"
             >
               <span className="relative z-10 flex items-center gap-3">
-                <span>✉️</span>
+                <Mail className="w-5 h-5" />
                 Send an Email
               </span>
             </a>
@@ -49,24 +51,24 @@ const Contact = () => {
           
           <div className="grid md:grid-cols-3 gap-8 pt-16">
             <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-lynx-gray">📧</span>
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
+                <Mail className="w-5 h-5 text-black" style={{ filter: 'drop-shadow(0 0 2px white)' }} />
               </div>
               <h3 className="font-space font-semibold text-white mb-2">Email</h3>
               <p className="text-lynx-gray font-inter text-sm">hello@lynxagency.com</p>
             </div>
             
             <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-lynx-gray">💬</span>
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
+                <MessageCircle className="w-5 h-5 text-black" style={{ filter: 'drop-shadow(0 0 2px white)' }} />
               </div>
               <h3 className="font-space font-semibold text-white mb-2">WhatsApp</h3>
               <p className="text-lynx-gray font-inter text-sm">+1 (732) 927-6563</p>
             </div>
             
             <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-lynx-gray">📍</span>
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
+                <MapPin className="w-5 h-5 text-black" style={{ filter: 'drop-shadow(0 0 2px white)' }} />
               </div>
               <h3 className="font-space font-semibold text-white mb-2">Location</h3>
               <p className="text-lynx-gray font-inter text-sm">Global Remote</p>

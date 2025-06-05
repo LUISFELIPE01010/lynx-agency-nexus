@@ -55,7 +55,7 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center px-6 overflow-hidden">
       {/* Background image with dark overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -63,52 +63,55 @@ const Hero = () => {
       ></div>
       <div className="absolute inset-0 bg-black/80"></div>
       
+      {/* Logo positioned in top left */}
+      <div className="absolute top-8 left-8 z-20">
+        <img 
+          ref={logoRef}
+          src="/client/src/logop.png" 
+          alt="Lynx Agency Logo" 
+          className="w-12 h-12 md:w-16 md:h-16 object-contain opacity-90"
+        />
+      </div>
+      
       {/* Animated background elements */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
-        {/* Title and Logo Layout with better spacing */}
-        <div className="flex items-center justify-between mb-16 gap-12">
+        {/* Title aligned to left */}
+        <div className="text-left mb-16">
           <h1 
             ref={titleRef}
-            className="text-6xl md:text-8xl lg:text-[10rem] font-space font-bold text-white tracking-tighter leading-none flex-shrink-0"
+            className="text-6xl md:text-8xl lg:text-[10rem] font-space font-bold text-white tracking-tighter leading-none mb-8"
           >
             LYNX
           </h1>
           
-          <img 
-            ref={logoRef}
-            src="/lovable-uploads/7bf006aa-ba99-43f4-9a20-8d2fc7535f41.png" 
-            alt="Lynx Agency Logo" 
-            className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain opacity-90 flex-shrink-0"
-          />
-        </div>
-        
-        <div className="text-center">
-          <p 
-            ref={subtitleRef}
-            className="text-2xl md:text-4xl lg:text-5xl font-inter text-lynx-gray mb-4 max-w-4xl mx-auto leading-tight font-light"
-          >
-            Redefining brand excellence through
-          </p>
-          
-          <p 
-            ref={subtitleRef}
-            className="text-2xl md:text-4xl lg:text-5xl font-inter text-white mb-16 max-w-4xl mx-auto leading-tight font-light"
-          >
-            strategic innovation & design mastery
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl">
-              <span className="relative z-10">Explore Our Work</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </button>
+          <div className="text-left max-w-4xl">
+            <p 
+              ref={subtitleRef}
+              className="text-2xl md:text-4xl lg:text-5xl font-inter text-lynx-gray mb-4 leading-tight font-light"
+            >
+              Redefining brand excellence through
+            </p>
             
-            <button className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105">
-              Start a Project
-            </button>
+            <p 
+              ref={subtitleRef}
+              className="text-2xl md:text-4xl lg:text-5xl font-inter text-white mb-16 leading-tight font-light"
+            >
+              strategic innovation & design mastery
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 items-start">
+              <button className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                <span className="relative z-10">Explore Our Work</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </button>
+              
+              <button className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105">
+                Start a Project
+              </button>
+            </div>
           </div>
         </div>
       </div>

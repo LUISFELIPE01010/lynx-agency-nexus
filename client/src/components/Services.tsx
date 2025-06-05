@@ -1,40 +1,42 @@
 
+import { Target, Sparkles, Monitor, Palette, Play, Lightbulb } from 'lucide-react';
+
 const Services = () => {
   const services = [
     {
       title: "Brand Strategy",
       description: "Comprehensive market analysis, positioning, and strategic roadmaps that establish your brand's foundation for long-term success.",
-      icon: "🎯",
+      icon: "target",
       features: ["Market Research", "Brand Positioning", "Competitive Analysis", "Strategic Planning"]
     },
     {
       title: "Visual Identity",
       description: "Distinctive visual systems that capture your essence through logos, typography, color palettes, and comprehensive brand guidelines.",
-      icon: "✨",
+      icon: "sparkles",
       features: ["Logo Design", "Typography", "Color Systems", "Brand Guidelines"]
     },
     {
       title: "Digital Experience",
       description: "User-centered web platforms and digital experiences that engage audiences and drive meaningful interactions with your brand.",
-      icon: "💻",
+      icon: "monitor",
       features: ["Web Design", "UI/UX Design", "Interactive Prototypes", "Digital Platforms"]
     },
     {
       title: "Creative Direction",
       description: "End-to-end creative oversight ensuring consistency and excellence across all brand touchpoints and communications.",
-      icon: "🎨",
+      icon: "palette",
       features: ["Art Direction", "Campaign Development", "Content Strategy", "Brand Consistency"]
     },
     {
       title: "Motion Graphics",
       description: "Dynamic visual storytelling through animation, bringing your brand to life across digital and traditional media channels.",
-      icon: "🎬",
+      icon: "play",
       features: ["Brand Animation", "Video Content", "Motion Design", "Interactive Media"]
     },
     {
       title: "Brand Consulting",
       description: "Strategic guidance and expert consultation to navigate complex brand challenges and maximize market opportunities.",
-      icon: "💡",
+      icon: "lightbulb",
       features: ["Brand Audits", "Growth Strategy", "Market Expansion", "Brand Evolution"]
     }
   ];
@@ -65,8 +67,13 @@ const Services = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="relative z-10">
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+                <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
+                  {service.icon === 'target' && <Target className="w-8 h-8 text-lynx-gray" />}
+                  {service.icon === 'sparkles' && <Sparkles className="w-8 h-8 text-lynx-gray" />}
+                  {service.icon === 'monitor' && <Monitor className="w-8 h-8 text-lynx-gray" />}
+                  {service.icon === 'palette' && <Palette className="w-8 h-8 text-lynx-gray" />}
+                  {service.icon === 'play' && <Play className="w-8 h-8 text-lynx-gray" />}
+                  {service.icon === 'lightbulb' && <Lightbulb className="w-8 h-8 text-lynx-gray" />}
                 </div>
                 
                 <h3 className="text-2xl font-space font-semibold text-white mb-4 group-hover:text-lynx-gray transition-colors duration-300">
