@@ -25,7 +25,7 @@ const Navbar = () => {
           <img 
             src="/LYNXx.png" 
             alt="Lynx Agency" 
-            className="w-16 h-16 object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+            className="w-20 h-20 object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
           />
         </Link>
         
