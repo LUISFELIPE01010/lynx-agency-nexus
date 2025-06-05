@@ -1,4 +1,3 @@
-
 const Projects = () => {
   const projects = [
     {
@@ -52,13 +51,21 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 px-6 relative overflow-hidden">
-      {/* Background image with dark overlay */}
+    <section 
+      id="projects" 
+      className="py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/banner2.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Dark overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/banner2.jpg')" }}
-      ></div>
-      <div className="absolute inset-0 bg-black/96"></div>
+        className="absolute inset-0 bg-black"
+        style={{ opacity: 0.96 }}
+      />
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20 fade-in">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Portfolio</span>
@@ -70,7 +77,7 @@ const Projects = () => {
             Discover how we've helped visionary brands transform their presence and accelerate their growth through strategic design.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div 
@@ -84,7 +91,7 @@ const Projects = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              
+
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -97,19 +104,19 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                  
+
                   <h3 className="text-2xl font-space font-bold text-white mb-2">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-lynx-gray font-inter text-sm mb-1">
                     {project.category}
                   </p>
-                  
+
                   <p className="text-lynx-gray font-inter text-sm leading-relaxed">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex items-center gap-2 mt-4 text-white">
                     <span className="text-sm font-space">View Project</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,7 +125,7 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Hover effect overlay */}
               <div className="absolute top-4 right-4 w-8 h-8 border border-white/30 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,7 +135,7 @@ const Projects = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-16 fade-in">
           <button className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105">
             <span className="relative z-10">View All Projects</span>

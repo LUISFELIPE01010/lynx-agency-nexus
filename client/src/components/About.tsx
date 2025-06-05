@@ -1,4 +1,22 @@
+import logoPng from '@/logop.png';
 
+const About = () => {
+  return (
+    <section 
+      id="about" 
+      className="py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/banner1.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Dark overlay */}
+      <div 
+        className="absolute inset-0 bg-black"
+        style={{ opacity: 0.96 }}
+      />
 import logoPng from '@/logop.png';
 
 const About = () => {
@@ -26,9 +44,9 @@ const About = () => {
                 <span className="block">Brands</span>
               </h2>
             </div>
-            
+
             <div className="w-24 h-px bg-gradient-to-r from-lynx-gray to-transparent"></div>
-            
+
             <div className="space-y-6 text-lg leading-relaxed">
               <p className="text-lynx-gray font-inter">
                 We are a collective of strategists, designers, and visionaries who believe that great brands are born from the intersection of purpose and possibility.
@@ -65,7 +83,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="relative slide-in-right">
             <div className="relative aspect-square">
               {/* Main image container with full coverage */}
@@ -77,7 +95,7 @@ const About = () => {
                   loading="lazy"
                 />
               </div>
-              
+
               {/* Floating elements */}
               <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-full blur-xl animate-pulse"></div>
               <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-gradient-to-tl from-white/10 to-transparent rounded-full blur-lg animate-pulse delay-1000"></div>
