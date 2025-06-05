@@ -1,29 +1,34 @@
-import { useEffect } from 'react';
+import logo1 from '@/fotos slide/1.png';
+import logo2 from '@/fotos slide/2.png';
+import logo3 from '@/fotos slide/3.png';
+import logo4 from '@/fotos slide/4.png';
+import logo5 from '@/fotos slide/5.png';
+import logo6 from '@/fotos slide/6.png';
+import logo7 from '@/fotos slide/7.png';
+import logo8 from '@/fotos slide/8.png';
+import logo9 from '@/fotos slide/9.png';
+import logo10 from '@/fotos slide/10.png';
 
 const ClientCarousel = () => {
   const logos = [
-    '/fotos-slide/1.png',
-    '/fotos-slide/2.png',
-    '/fotos-slide/3.png',
-    '/fotos-slide/4.png',
-    '/fotos-slide/5.png',
-    '/fotos-slide/6.png',
-    '/fotos-slide/7.png',
-    '/fotos-slide/8.png',
-    '/fotos-slide/9.png',
-    '/fotos-slide/10.png'
+    logo1,
+    logo2,
+    logo3,
+    logo4,
+    logo5,
+    logo6,
+    logo7,
+    logo8,
+    logo9,
+    logo10
   ];
 
   // Duplicate logos for seamless infinite scroll
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <section className="py-16 px-6 bg-black relative overflow-hidden">
+    <section className="py-8 px-6 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase">Trusted Partners</span>
-        </div>
-        
         <div className="relative overflow-hidden">
           <div className="carousel-container">
             <div className="carousel-track">
