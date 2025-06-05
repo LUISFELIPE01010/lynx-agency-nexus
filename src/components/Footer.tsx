@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-3">
               <img 
-                src="/lovable-uploads/0027b985-2546-4aa4-8fcd-215f7e6d9ee8.png" 
+                src="/lovable-uploads/7bf006aa-ba99-43f4-9a20-8d2fc7535f41.png" 
                 alt="Lynx Agency" 
                 className="w-10 h-10 opacity-80"
               />
