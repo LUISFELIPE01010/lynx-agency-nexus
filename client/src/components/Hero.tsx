@@ -50,12 +50,12 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/80"></div>
       
       {/* Logo positioned in top left */}
-      <div className="absolute top-8 left-8 z-20">
+      <div className="absolute top-12 left-12 z-20">
         <img 
           ref={logoRef}
           src={logoPng} 
           alt="Lynx Agency Logo" 
-          className="w-12 h-12 md:w-16 md:h-16 object-contain opacity-90"
+          className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-90"
         />
       </div>
       
