@@ -28,8 +28,13 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-gray-900/20 to-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-lynx-gray/5 via-transparent to-transparent"></div>
+    <section className="py-32 px-6 relative overflow-hidden">
+      {/* Background image with dark overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/banner3.png')" }}
+      ></div>
+      <div className="absolute inset-0 bg-black/90"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20 fade-in">

@@ -45,9 +45,9 @@ const Hero = () => {
       {/* Background image with dark overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/lovable-uploads/0d403c09-120c-4221-af4a-d5006bd4513e.png')" }}
+        style={{ backgroundImage: "url('/banner1.png')" }}
       ></div>
-      <div className="absolute inset-0 bg-black/80"></div>
+      <div className="absolute inset-0 bg-black/90"></div>
       
       {/* Logo positioned in top left */}
       <div className="absolute top-12 left-12 z-20">
