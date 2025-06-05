@@ -110,8 +110,8 @@ const BrandImportance = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full bg-black overflow-hidden py-20"
-      style={{ minHeight: `120vh` }}
+      className="relative w-full bg-black overflow-hidden py-16"
+      style={{ minHeight: `80vh` }}
     >
       {/* Background image with dark overlay */}
       <div 
