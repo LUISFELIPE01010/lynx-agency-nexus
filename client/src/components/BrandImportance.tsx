@@ -52,7 +52,7 @@ const BrandImportance = () => {
         trigger: section,
         start: "top top",
         end: "bottom bottom",
-        scrub: 3,
+        scrub: 6,
         pin: true,
         anticipatePin: 1,
       }
@@ -60,8 +60,8 @@ const BrandImportance = () => {
 
     // Calculate timing with proper intervals for readability
     const totalAnimationTime = 1;
-    const pauseBetweenSlides = 0.15; // Pause to read each slide
-    const transitionTime = 0.25; // Smooth transition duration
+    const pauseBetweenSlides = 0.35; // Longer pause to read each slide
+    const transitionTime = 0.6; // Much slower transition duration
     
     // Create staggered timeline
     brandPoints.forEach((_, index) => {
@@ -117,7 +117,9 @@ const BrandImportance = () => {
       className="relative w-full bg-gradient-to-b from-black via-[#95A0A2]/10 to-black overflow-hidden"
       style={{ 
         height: `120vh`,
-        scrollMarginBottom: '-20vh'
+        scrollMarginBottom: '-20vh',
+        paddingTop: '8vh',
+        paddingBottom: '2vh'
       }}
     >
       {/* Background image with overlay */}
