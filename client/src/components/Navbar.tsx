@@ -18,12 +18,7 @@ const Navbar = () => {
       isScrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between text-[14px] font-normal">
-        <Link 
-          to="/"
-          className="flex items-center"
-        >
-          <span className="text-white font-bold text-xl">LYNX</span>
-        </Link>
+        <div></div>
         
         <div className="flex items-center gap-8">
           <Link 
