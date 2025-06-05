@@ -125,66 +125,70 @@ const BrandImportance = () => {
       </div>
 
       {/* Main content container - perfectly centered */}
-      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center px-8">
+      <div className="relative z-10 w-full h-full flex items-center justify-center px-8">
         
-        {/* Fixed header section */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-6 mb-8">
-            <div className="w-20 h-px bg-[#95A0A2]/50" />
-            <span className="text-[#95A0A2] font-inter text-xs tracking-[0.4em] uppercase font-light">
-              Why Your Brand Matters
-            </span>
-            <div className="w-20 h-px bg-[#95A0A2]/50" />
-          </div>
+        {/* Content wrapper with proper vertical centering */}
+        <div className="w-full max-w-5xl text-center">
           
-          <h2 className="text-4xl md:text-6xl font-space font-extralight text-white leading-[0.9] tracking-tight mb-4">
-            The Power of
-          </h2>
-          <h3 className="text-3xl md:text-5xl font-space font-light text-[#95A0A2] leading-[0.9] tracking-tight">
-            Brand Identity
-          </h3>
-        </div>
+          {/* Fixed header section */}
+          <div className="mb-20">
+            <div className="flex items-center justify-center gap-6 mb-10">
+              <div className="w-20 h-px bg-[#95A0A2]/50" />
+              <span className="text-[#95A0A2] font-inter text-xs tracking-[0.4em] uppercase font-light">
+                Why Your Brand Matters
+              </span>
+              <div className="w-20 h-px bg-[#95A0A2]/50" />
+            </div>
+            
+            <h2 className="text-4xl md:text-6xl font-space font-extralight text-white leading-[0.9] tracking-tight mb-6">
+              The Power of
+            </h2>
+            <h3 className="text-3xl md:text-5xl font-space font-light text-[#95A0A2] leading-[0.9] tracking-tight">
+              Brand Identity
+            </h3>
+          </div>
 
-        {/* Dynamic content slides - centered container */}
-        <div className="relative w-full max-w-4xl flex-1 flex items-center justify-center">
-          {brandPoints.map((point, index) => (
-            <div
-              key={index}
-              ref={(el) => {
-                if (el) contentRefs.current[index] = el;
-              }}
-              className="absolute inset-0 flex flex-col items-center justify-center text-center"
-            >
-              {/* Icon container */}
-              <div className="mb-10">
-                <div className="w-20 h-20 rounded-full border border-[#95A0A2]/20 bg-[#95A0A2]/5 backdrop-blur-sm flex items-center justify-center">
-                  <point.icon size={32} className="text-[#95A0A2]" strokeWidth={1} />
+          {/* Dynamic content slides - properly centered */}
+          <div className="relative w-full min-h-[400px] flex items-center justify-center">
+            {brandPoints.map((point, index) => (
+              <div
+                key={index}
+                ref={(el) => {
+                  if (el) contentRefs.current[index] = el;
+                }}
+                className="absolute inset-0 flex flex-col items-center justify-center"
+              >
+                {/* Icon container */}
+                <div className="mb-12">
+                  <div className="w-20 h-20 rounded-full border border-[#95A0A2]/20 bg-[#95A0A2]/5 backdrop-blur-sm flex items-center justify-center">
+                    <point.icon size={32} className="text-[#95A0A2]" strokeWidth={1} />
+                  </div>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-3xl md:text-4xl font-space font-extralight text-white leading-[1.1] tracking-tight mb-10 max-w-4xl">
+                  {point.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-base md:text-lg text-[#95A0A2] leading-[1.6] font-inter font-light max-w-3xl mb-12 px-4">
+                  {point.description}
+                </p>
+
+                {/* Counter */}
+                <div className="flex items-center justify-center gap-6 text-[#95A0A2]/40">
+                  <div className="w-8 h-px bg-[#95A0A2]/20" />
+                  <span className="text-xl font-space font-extralight tabular-nums">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-xs font-inter tracking-[0.3em] uppercase opacity-60">
+                    OF {String(brandPoints.length).padStart(2, '0')}
+                  </span>
+                  <div className="w-8 h-px bg-[#95A0A2]/20" />
                 </div>
               </div>
-
-              {/* Title */}
-              <h3 className="text-3xl md:text-4xl font-space font-extralight text-white leading-[1.1] tracking-tight mb-8 max-w-3xl px-4">
-                {point.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-base md:text-lg text-[#95A0A2] leading-[1.6] font-inter font-light max-w-3xl mb-10 px-6">
-                {point.description}
-              </p>
-
-              {/* Counter */}
-              <div className="flex items-center justify-center gap-6 text-[#95A0A2]/40">
-                <div className="w-8 h-px bg-[#95A0A2]/20" />
-                <span className="text-xl font-space font-extralight tabular-nums">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className="text-xs font-inter tracking-[0.3em] uppercase opacity-60">
-                  OF {String(brandPoints.length).padStart(2, '0')}
-                </span>
-                <div className="w-8 h-px bg-[#95A0A2]/20" />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
