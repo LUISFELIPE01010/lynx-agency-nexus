@@ -47,12 +47,12 @@ const BrandImportance = () => {
       }
     });
 
-    // Create smooth ScrollTrigger animation
+    // Create smooth ScrollTrigger animation with slower transitions
     ScrollTrigger.create({
       trigger: section,
       start: "top top",
-      end: `+=${window.innerHeight * (brandPoints.length + 1)}`,
-      scrub: 0.8,
+      end: `+=${window.innerHeight * (brandPoints.length * 2)}`, // Doubled for slower scroll
+      scrub: 1.2, // Slower scrub for smoother transitions
       pin: true,
       pinSpacing: true,
       anticipatePin: 1,
@@ -65,31 +65,34 @@ const BrandImportance = () => {
         // Smooth progress bar animation
         gsap.to(progressRef.current, {
           scaleX: progress,
-          duration: 0.2,
+          duration: 0.3,
           ease: "power2.out"
         });
 
-        // Smooth content transitions
+        // Smoother content transitions with better timing
         contents.forEach((content, index) => {
           let opacity = 0;
-          let y = 50;
-          let scale = 0.9;
+          let y = 60;
+          let scale = 0.95;
 
           if (index === currentIndex) {
-            opacity = 1 - slideProgress * 0.4;
-            y = slideProgress * -30;
-            scale = 1 - slideProgress * 0.05;
-          } else if (index === currentIndex + 1 && slideProgress > 0) {
-            opacity = slideProgress;
-            y = 50 - slideProgress * 50;
-            scale = 0.9 + slideProgress * 0.1;
+            // Current slide stays longer and fades out slower
+            opacity = Math.max(0.2, 1 - slideProgress * 0.8);
+            y = slideProgress * -20;
+            scale = 1 - slideProgress * 0.03;
+          } else if (index === currentIndex + 1 && slideProgress > 0.3) {
+            // Next slide appears only after 30% of transition
+            const adjustedProgress = (slideProgress - 0.3) / 0.7;
+            opacity = adjustedProgress;
+            y = 60 - adjustedProgress * 60;
+            scale = 0.95 + adjustedProgress * 0.05;
           }
 
           gsap.to(content, {
             opacity: Math.max(0, opacity),
             y: y,
             scale: scale,
-            duration: 0.4,
+            duration: 0.6,
             ease: "power2.out"
           });
         });
@@ -121,11 +124,11 @@ const BrandImportance = () => {
         />
       </div>
 
-      {/* Main content container */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-8">
+      {/* Main content container - perfectly centered */}
+      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center px-8">
         
         {/* Fixed header section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-6 mb-8">
             <div className="w-20 h-px bg-[#95A0A2]/50" />
             <span className="text-[#95A0A2] font-inter text-xs tracking-[0.4em] uppercase font-light">
@@ -134,45 +137,45 @@ const BrandImportance = () => {
             <div className="w-20 h-px bg-[#95A0A2]/50" />
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-space font-extralight text-white leading-[0.9] tracking-tight mb-4">
+          <h2 className="text-4xl md:text-6xl font-space font-extralight text-white leading-[0.9] tracking-tight mb-4">
             The Power of
           </h2>
-          <h3 className="text-4xl md:text-6xl font-space font-light text-[#95A0A2] leading-[0.9] tracking-tight">
+          <h3 className="text-3xl md:text-5xl font-space font-light text-[#95A0A2] leading-[0.9] tracking-tight">
             Brand Identity
           </h3>
         </div>
 
-        {/* Dynamic content slides */}
-        <div className="relative">
+        {/* Dynamic content slides - centered container */}
+        <div className="relative w-full max-w-4xl flex-1 flex items-center justify-center">
           {brandPoints.map((point, index) => (
             <div
               key={index}
               ref={(el) => {
                 if (el) contentRefs.current[index] = el;
               }}
-              className="absolute inset-0 flex flex-col items-center text-center"
+              className="absolute inset-0 flex flex-col items-center justify-center text-center"
             >
               {/* Icon container */}
-              <div className="mb-12">
+              <div className="mb-10">
                 <div className="w-20 h-20 rounded-full border border-[#95A0A2]/20 bg-[#95A0A2]/5 backdrop-blur-sm flex items-center justify-center">
                   <point.icon size={32} className="text-[#95A0A2]" strokeWidth={1} />
                 </div>
               </div>
 
               {/* Title */}
-              <h3 className="text-4xl md:text-5xl font-space font-extralight text-white leading-[1.1] tracking-tight mb-8 max-w-4xl">
+              <h3 className="text-3xl md:text-4xl font-space font-extralight text-white leading-[1.1] tracking-tight mb-8 max-w-3xl px-4">
                 {point.title}
               </h3>
 
               {/* Description */}
-              <p className="text-lg md:text-xl text-[#95A0A2] leading-[1.7] font-inter font-light max-w-4xl mb-12 px-4">
+              <p className="text-base md:text-lg text-[#95A0A2] leading-[1.6] font-inter font-light max-w-3xl mb-10 px-6">
                 {point.description}
               </p>
 
               {/* Counter */}
-              <div className="flex items-center justify-center gap-6 text-[#95A0A2]/30">
+              <div className="flex items-center justify-center gap-6 text-[#95A0A2]/40">
                 <div className="w-8 h-px bg-[#95A0A2]/20" />
-                <span className="text-2xl font-space font-extralight tabular-nums">
+                <span className="text-xl font-space font-extralight tabular-nums">
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <span className="text-xs font-inter tracking-[0.3em] uppercase opacity-60">
