@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Eye, Shield, Star, Gem, Heart } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,27 +13,32 @@ const BrandImportance = () => {
     {
       title: "Instant Recognition",
       description: "A strong brand creates immediate market identification, allowing consumers to recognize your products or services in seconds.",
-      number: "01"
+      number: "01",
+      icon: Eye
     },
     {
       title: "Trust & Credibility",
       description: "Well-established brands convey security and professionalism, increasing customer confidence in doing business with you.",
-      number: "02"
+      number: "02",
+      icon: Shield
     },
     {
       title: "Competitive Differentiation",
       description: "In saturated markets, a unique and memorable brand is what separates your company from competition and attracts specific customers.",
-      number: "03"
+      number: "03",
+      icon: Star
     },
     {
       title: "Superior Perceived Value",
       description: "Strong brands can charge premium prices because consumers associate quality and value with the company name.",
-      number: "04"
+      number: "04",
+      icon: Gem
     },
     {
       title: "Customer Loyalty",
       description: "A consistent and engaging brand creates lasting emotional connections, transforming customers into brand advocates.",
-      number: "05"
+      number: "05",
+      icon: Heart
     }
   ];
 
@@ -105,7 +111,7 @@ const BrandImportance = () => {
     <section 
       ref={sectionRef}
       className="relative w-full bg-black overflow-hidden"
-      style={{ height: `${brandPoints.length * 100}vh` }}
+      style={{ height: `300vh` }}
     >
       {/* Background image with dark overlay */}
       <div 
@@ -151,11 +157,16 @@ const BrandImportance = () => {
                     isLeft ? 'lg:order-1' : 'lg:order-3'
                   }`}>
                     <div className={`space-y-6 ${isLeft ? 'lg:text-left' : 'lg:text-right'}`}>
-                      {/* Number */}
-                      <div className={`text-6xl md:text-7xl font-space font-bold text-lynx-gray/30 ${
-                        isLeft ? 'lg:text-left' : 'lg:text-right'
-                      } text-center`}>
-                        {point.number}
+                      {/* Icon and Number */}
+                      <div className={`flex items-center gap-4 ${
+                        isLeft ? 'lg:justify-start' : 'lg:justify-end'
+                      } justify-center`}>
+                        <div className="p-4 rounded-full border border-lynx-gray/30 bg-lynx-gray/5">
+                          <point.icon size={32} className="text-lynx-gray" />
+                        </div>
+                        <div className="text-5xl md:text-6xl font-space font-bold text-lynx-gray/30">
+                          {point.number}
+                        </div>
                       </div>
                       
                       {/* Title */}
@@ -171,6 +182,11 @@ const BrandImportance = () => {
                       } text-center mx-auto`}>
                         {point.description}
                       </p>
+
+                      {/* Decorative line */}
+                      <div className={`w-16 h-px bg-gradient-to-r from-lynx-gray to-transparent ${
+                        isLeft ? 'lg:ml-0 lg:mr-auto' : 'lg:mr-0 lg:ml-auto'
+                      } mx-auto`}></div>
                     </div>
                   </div>
 
@@ -211,13 +227,7 @@ const BrandImportance = () => {
         })}
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-lynx-gray/60">
-        <div className="flex flex-col items-center space-y-2">
-          <span className="text-sm font-space tracking-widest uppercase">Scroll</span>
-          <div className="w-px h-12 bg-lynx-gray/30"></div>
-        </div>
-      </div>
+
     </section>
   );
 };
