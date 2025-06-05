@@ -3,7 +3,13 @@ import { MessageCircle, Mail, Instagram } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section className="py-32 px-6 bg-black relative overflow-hidden">
+    <section className="py-32 px-6 relative overflow-hidden">
+      {/* Background image with dark overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/banner3.png')" }}
+      ></div>
+      <div className="absolute inset-0 bg-black/95"></div>
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-lynx-gray/5 to-transparent"></div>
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-lynx-gray/10 to-transparent rounded-full blur-3xl"></div>
