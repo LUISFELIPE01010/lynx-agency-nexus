@@ -92,6 +92,42 @@ img {
   transition: transform 0.3s ease;
 }
 
+/* Critical CSS optimizations */
+.critical-path {
+  contain: layout style paint;
+  content-visibility: auto;
+}
+
+/* Reduce repaints and reflows */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Optimize animations for 60fps */
+@media (prefers-reduced-motion: no-preference) {
+  .smooth-animation {
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Performance critical elements */
+.performance-critical {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Prevent layout shifts */
+.prevent-shift {
+  min-height: 1px;
+  contain: layout;
+}
+
 .hover-scale:hover {
   transform: scale(1.02);
   transition: transform 0.3s ease;
