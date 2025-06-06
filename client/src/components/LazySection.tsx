@@ -31,7 +31,7 @@ const LazySection = ({ children, fallback, rootMargin = '100px' }: LazySectionPr
 
   return (
     <div ref={ref}>
-      {isVisible ? children : (fallback || <div style={{ height: '400px' }} />)}
+      {isVisible ? children : (fallback || <div className="bg-gradient-to-r from-gray-900 via-black to-gray-900 animate-pulse rounded-lg" style={{ height: '400px' }} />)}
     </div>
   );
 };

@@ -59,7 +59,7 @@ const OptimizedImage = ({
     return (
       <div 
         ref={imgRef}
-        className={`bg-[#95A0A2]/10 animate-pulse ${className}`}
+        className={`bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 animate-pulse ${className}`}
         style={{ minHeight: '200px' }}
       />
     );

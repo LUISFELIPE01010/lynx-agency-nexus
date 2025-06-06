@@ -7,6 +7,24 @@
   box-sizing: border-box;
 }
 
+/* Ensure consistent dark background */
+@layer base {
+  html {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  #root {
+    background-color: #000000;
+    min-height: 100vh;
+  }
+}
+
 /* GPU acceleration for critical elements */
 .carousel-track-improved,
 .fade-in,
