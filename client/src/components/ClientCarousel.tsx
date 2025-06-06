@@ -23,15 +23,15 @@ const ClientCarousel = () => {
     logo10
   ];
 
-  // Quadruple logos for perfect seamless infinite scroll
-  const infiniteLogos = [...logos, ...logos, ...logos, ...logos];
+  // Double logos for perfect seamless infinite scroll
+  const infiniteLogos = [...logos, ...logos];
 
   return (
     <section className="py-8 px-6 mb-16 bg-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="relative overflow-hidden">
           <div className="carousel-container">
-            <div className="carousel-track-improved">
+            <div className="carousel-track-improved" style={{ width: `${logos.length * 2 * (208 + 64)}px` }}>
               {infiniteLogos.map((logo, index) => (
                 <div
                   key={index}

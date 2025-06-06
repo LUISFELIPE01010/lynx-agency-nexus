@@ -246,8 +246,9 @@ img {
 
 .carousel-track-improved {
   display: flex;
-  animation: scroll-seamless 10s linear infinite;
+  animation: scroll-seamless 20s linear infinite;
   will-change: transform;
+  width: fit-content;
 }
 
 @keyframes scroll {
@@ -264,7 +265,7 @@ img {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-25%);
+    transform: translateX(-50%);
   }
 }
 
