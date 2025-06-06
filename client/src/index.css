@@ -215,13 +215,13 @@ img {
   .text-\[10rem\] { font-size: 5rem; }
   .text-5xl { font-size: 2.5rem; }
   .text-7xl { font-size: 3.5rem; }
-  
+
   /* Improve mobile scrolling */
   body {
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
   }
-  
+
   /* Faster animations on mobile */
   .fade-in,
   .scale-in,
@@ -246,7 +246,7 @@ img {
 
 .carousel-track-improved {
   display: flex;
-  animation: scroll-seamless 30s linear infinite;
+  animation: scroll-seamless 35s linear infinite;
   will-change: transform;
   width: fit-content;
 }
@@ -278,7 +278,7 @@ img {
   .carousel-track {
     animation-duration: 8s;
   }
-  
+
   .carousel-track-improved {
     animation-duration: 10s;
   }
@@ -291,7 +291,7 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   .carousel-track {
     animation: none !important;
   }

@@ -1,19 +1,55 @@
 import Navbar from '../components/Navbar';
-import logo1 from '@/fotos slide/1.png';
-import logo2 from '@/fotos slide/2.png';
-import logo3 from '@/fotos slide/3.png';
-import logo4 from '@/fotos slide/4.png';
-import logo5 from '@/fotos slide/5.png';
-import logo6 from '@/fotos slide/6.png';
-import logo7 from '@/fotos slide/7.png';
-import logo8 from '@/fotos slide/8.png';
-import logo9 from '@/fotos slide/9.png';
-import logo10 from '@/fotos slide/10.png';
 
 const Gallery = () => {
   const projects = [
-    logo1, logo2, logo3, logo4, logo5,
-    logo6, logo7, logo8, logo9, logo10
+    {
+      id: 1,
+      title: "Elite Business Services",
+      category: "Corporate Branding",
+      description: "Professional corporate identity featuring clean lines and sophisticated branding for premium business consultancy.",
+      image: "/bb1.jpg",
+      tags: ["Corporate", "Business", "Professional"]
+    },
+    {
+      id: 2,
+      title: "Luxury Automotive Brand",
+      category: "Luxury Brand Identity",
+      description: "High-end automotive branding with sleek design elements and premium visual identity for luxury vehicle dealership.",
+      image: "/bb2.jpg",
+      tags: ["Automotive", "Luxury", "Premium"]
+    },
+    {
+      id: 3,
+      title: "Modern Fashion Label",
+      category: "Digital Experience",
+      description: "Contemporary fashion brand identity with minimalist aesthetics and modern typography for trendy clothing line.",
+      image: "/bb3.jpg",
+      tags: ["Fashion", "Modern", "Trendy"]
+    },
+    {
+      id: 4,
+      title: "Artisan Food & Beverage",
+      category: "Corporate Rebrand",
+      description: "Authentic artisanal brand featuring warm colors and handcrafted elements for gourmet food products.",
+      image: "/bb4.jpg",
+      tags: ["Food", "Artisan", "Gourmet"]
+    },
+    {
+      id: 5,
+      title: "Tech Innovation Company",
+      category: "Healthcare Innovation",
+      description: "Cutting-edge technology brand with futuristic design elements and bold visual identity for innovation leader.",
+      image: "/bb5.jpg",
+      tags: ["Technology", "Innovation", "Future"]
+    },
+    {
+      id: 6,
+      title: "Creative Design Studio",
+      category: "Sustainability Platform",
+      description: "Dynamic creative studio branding with vibrant colors and artistic elements showcasing design excellence.",
+      image: "/bb6.jpg",
+      tags: ["Creative", "Design", "Studio"]
+    }
   ];
 
   return (
@@ -37,17 +73,28 @@ const Gallery = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div 
-                key={index}
+                key={project.id}
                 className="group relative aspect-video bg-lynx-gray/10 rounded-lg overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-500"
               >
                 <img
-                  src={project}
-                  alt={`Project ${index + 1}`}
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h3 className="text-white font-space font-semibold">Project {index + 1}</h3>
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span 
+                        key={tagIndex}
+                        className="px-2 py-1 text-xs font-space text-lynx-gray bg-white/10 rounded-full backdrop-blur-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-white font-space font-semibold text-lg mb-1">{project.title}</h3>
+                  <p className="text-lynx-gray font-inter text-sm">{project.category}</p>
                 </div>
               </div>
             ))}
