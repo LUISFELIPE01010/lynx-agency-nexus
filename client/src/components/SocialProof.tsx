@@ -1,32 +1,35 @@
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const SocialProof = () => {
+  const { t } = useLanguage();
+  
   const testimonials = [
     {
       quote: "Lynx didn't just redesign our brand—they completely transformed how we think about our market position. The strategic insights were game-changing.",
       author: "Sarah Chen",
-      position: "Dona de E-commerce",
+      position: "ecommerceOwner",
       company: "Fashion Store Online",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
     },
     {
       quote: "The level of creativity and strategic thinking exceeded all expectations. Lynx delivered a brand that truly represents our vision for the future.",
       author: "Michael Rodriguez",
-      position: "Advogado",
+      position: "lawyer",
       company: "Rodriguez Advocacia",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
     },
     {
       quote: "Working with Lynx was transformative. They understand that great design isn't just beautiful—it's strategic, purposeful, and results-driven.",
       author: "Emma Thompson",
-      position: "Dona de Restaurante",
+      position: "restaurantOwner",
       company: "Bistrô Gourmet",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
     },
     {
       quote: "From concept to execution, Lynx delivered exceptional results. Their attention to detail and commitment to excellence set them apart in the industry.",
       author: "David Park",
-      position: "Dono de Clínica",
+      position: "clinicOwner",
       company: "Clínica Wellness",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
     }
@@ -49,13 +52,13 @@ const SocialProof = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20 fade-in">
-          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Testimonials</span>
+          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('testimonialsLabel')}</span>
           <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
-            Trusted By
-            <span className="block text-lynx-gray">Visionaries</span>
+            {t('testimonialsTitle')}
+            <span className="block text-lynx-gray">{t('testimonialsTitle2')}</span>
           </h2>
           <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
-            Hear from the leaders who've transformed their brands with Lynx.
+            {t('testimonialsSubtitle')}
           </p>
         </div>
 
@@ -83,7 +86,7 @@ const SocialProof = () => {
                       </div>
                     </div>
                     <div className="text-lynx-gray font-inter text-sm">
-                      {testimonial.position} at {testimonial.company}
+                      {t(testimonial.position)} at {testimonial.company}
                     </div>
                   </div>
                 </div>

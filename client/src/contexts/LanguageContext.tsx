@@ -120,6 +120,18 @@ const translations = {
     whatsapp: 'WhatsApp',
     instagram: 'Instagram',
     
+    // Testimonials Section
+    testimonialsLabel: 'Testimonials',
+    testimonialsTitle: 'Trusted By',
+    testimonialsTitle2: 'Visionaries',
+    testimonialsSubtitle: 'Hear from the leaders who\'ve transformed their brands with Lynx.',
+    
+    // Testimonial Professions
+    ecommerceOwner: 'E-commerce Owner',
+    lawyer: 'Lawyer',
+    restaurantOwner: 'Restaurant Owner',
+    clinicOwner: 'Clinic Owner',
+    
     // Footer
     footerDescription: 'Redefining brand excellence through strategic innovation and design mastery.',
     quickLinks: 'Quick Links',
@@ -231,6 +243,18 @@ const translations = {
     email: 'Email',
     whatsapp: 'WhatsApp',
     instagram: 'Instagram',
+    
+    // Testimonials Section
+    testimonialsLabel: 'Depoimentos',
+    testimonialsTitle: 'Confiado por',
+    testimonialsTitle2: 'Visionários',
+    testimonialsSubtitle: 'Ouça dos líderes que transformaram suas marcas com a Lynx.',
+    
+    // Testimonial Professions
+    ecommerceOwner: 'Dona de E-commerce',
+    lawyer: 'Advogado',
+    restaurantOwner: 'Dona de Restaurante',
+    clinicOwner: 'Dono de Clínica',
     
     // Footer
     footerDescription: 'Redefinindo a excelência da marca através de inovação estratégica e maestria em design.',
