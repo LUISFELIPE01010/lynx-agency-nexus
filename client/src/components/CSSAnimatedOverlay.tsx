@@ -1,6 +1,6 @@
 const CSSAnimatedOverlay = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
       {/* Floating particles */}
       <div className="absolute inset-0">
         {Array.from({ length: 20 }).map((_, i) => (

@@ -35,21 +35,18 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
-      <CSSAnimatedOverlay />
-      <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <About />
-        <Services />
-        <Projects />
-        <Process />
-        <ClientCarousel />
-        <BrandImportance />
-        <SocialProof />
-        <Contact />
-        <Footer />
-      </div>
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <Navbar />
+      <Hero />
+      <About />
+      <Services />
+      <Projects />
+      <Process />
+      <ClientCarousel />
+      <BrandImportance />
+      <SocialProof />
+      <Contact />
+      <Footer />
     </div>
   );
 };

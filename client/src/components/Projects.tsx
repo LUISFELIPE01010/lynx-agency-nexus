@@ -1,5 +1,6 @@
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 import { useLanguage } from '../contexts/LanguageContext';
+import CSSAnimatedOverlay from './CSSAnimatedOverlay';
 
 const Projects = () => {
   const { t } = useLanguage();
@@ -66,8 +67,15 @@ const Projects = () => {
         backgroundRepeat: 'no-repeat'
       }}
     >
+      {/* Overlay escuro com 85% de opacidade */}
+      <div className="absolute inset-0 bg-black/85 z-10"></div>
+      
+      {/* Animated overlay apenas nesta seção */}
+      <div className="absolute inset-0 z-20">
+        <CSSAnimatedOverlay />
+      </div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-30">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('portfolioLabel')}</span>
           <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
