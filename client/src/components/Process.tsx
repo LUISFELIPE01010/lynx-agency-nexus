@@ -90,10 +90,12 @@ const Process = () => {
               <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} slide-in-${index % 2 === 0 ? 'right' : 'left'}`}>
                 <div className="relative aspect-square">
                   <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10">
-                    <div className="absolute inset-8 bg-gradient-to-br from-white/5 to-transparent rounded-xl flex items-center justify-center">
-                      <div className="text-8xl opacity-20">
-                        {step.number}
-                      </div>
+                    <div className="absolute inset-8 bg-gradient-to-br from-white/5 to-transparent rounded-xl flex items-center justify-center overflow-hidden">
+                      <img 
+                        src="/bloco1.png" 
+                        alt="Process illustration" 
+                        className="w-full h-full object-contain opacity-80"
+                      />
                     </div>
                   </div>
                   
