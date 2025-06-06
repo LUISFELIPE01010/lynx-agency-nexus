@@ -92,8 +92,8 @@ const Process = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10">
                     <div className="absolute inset-8 bg-gradient-to-br from-white/5 to-transparent rounded-xl flex items-center justify-center overflow-hidden">
                       <img 
-                        src="/bloco1.png" 
-                        alt="Process illustration" 
+                        src={`/foto${index + 1}.png`}
+                        alt={`Process ${step.number} illustration`}
                         className="w-full h-full object-contain opacity-80"
                       />
                     </div>
