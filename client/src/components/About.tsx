@@ -14,9 +14,9 @@ const CountUp = ({ target, duration = 2000, suffix = "" }: { target: number; dur
         if (entry.isIntersecting && !hasStarted) {
           setHasStarted(true);
           
-          const startTime = Date.now();
-          const animate = () => {
-            const elapsed = Date.now() - startTime;
+          const startTime = performance.now();
+          const animate = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             
             // Easing function for smooth animation
@@ -31,7 +31,10 @@ const CountUp = ({ target, duration = 2000, suffix = "" }: { target: number; dur
           requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.5 }
+      { 
+        threshold: 0.5,
+        rootMargin: '50px'
+      }
     );
 
     if (elementRef.current) {

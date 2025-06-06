@@ -24,7 +24,15 @@ const OptimizedImage = ({
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    if (priority) return;
+    if (priority) {
+      // Preload critical images
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = webpSrc || src;
+      document.head.appendChild(link);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -33,7 +41,7 @@ const OptimizedImage = ({
           observer.disconnect();
         }
       },
-      { rootMargin: '50px' }
+      { rootMargin: '100px' }
     );
 
     if (imgRef.current) {
@@ -41,7 +49,7 @@ const OptimizedImage = ({
     }
 
     return () => observer.disconnect();
-  }, [priority]);
+  }, [priority, src, webpSrc]);
 
   const handleLoad = () => {
     setIsLoaded(true);

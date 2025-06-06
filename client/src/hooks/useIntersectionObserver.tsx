@@ -61,9 +61,9 @@ export const AnimatedSection = ({
   delay?: number;
 }) => {
   const { ref, isVisible } = useIntersectionObserver();
-  
+
   const delayClass = delay > 0 ? `stagger-${Math.min(delay, 6)}` : '';
-  
+
   return (
     <div 
       ref={ref}

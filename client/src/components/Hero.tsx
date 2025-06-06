@@ -1,9 +1,10 @@
-
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ArrowDown } from 'lucide-react';
 import logoPng from '@/logop.png';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useState, useEffect } from 'react';
+import OptimizedImage from './OptimizedImage';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -20,14 +21,14 @@ const Hero = () => {
         { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'power2.out' }
       );
     }
-    
+
     if (subtitleRef.current) {
       gsap.fromTo(subtitleRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.2 }
       );
     }
-    
+
     if (arrowRef.current) {
       gsap.fromTo(arrowRef.current,
         { opacity: 0, y: 20 },
@@ -58,9 +59,9 @@ const Hero = () => {
         style={{ backgroundImage: "url('/lovable-uploads/0d403c09-120c-4221-af4a-d5006bd4513e.png')" }}
       ></div>
       <div className="absolute inset-0 bg-black/80"></div>
-      
-      
-      
+
+
+
       {/* Animated background elements */}
       <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
@@ -76,7 +77,7 @@ const Hero = () => {
               className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain opacity-90"
             />
           </div>
-          
+
           <div className="text-left max-w-4xl">
             <p 
               ref={subtitleRef}
@@ -84,14 +85,14 @@ const Hero = () => {
             >
               {t('heroSubtitle1')}
             </p>
-            
+
             <p 
               ref={subtitleRef}
               className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-inter text-white mb-8 sm:mb-16 leading-tight font-light"
             >
               {t('heroSubtitle2')}
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               <button 
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
@@ -100,7 +101,7 @@ const Hero = () => {
                 <span className="relative z-10">{t('exploreWork')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </button>
-              
+
               <a 
                 href="https://wa.me/17329276563"
                 target="_blank"
@@ -113,7 +114,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
+
       <div 
         ref={arrowRef}
         onClick={scrollToNext}
