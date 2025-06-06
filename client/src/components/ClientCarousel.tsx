@@ -31,7 +31,7 @@ const ClientCarousel = () => {
       <div className="max-w-7xl mx-auto">
         <div className="relative overflow-hidden">
           <div className="carousel-container">
-            <div className="carousel-track-improved" style={{ width: `${logos.length * 2 * (208 + 64)}px` }}>
+            <div className="carousel-track-improved">
               {infiniteLogos.map((logo, index) => (
                 <div
                   key={index}
