@@ -18,6 +18,30 @@ img {
   image-rendering: optimizeQuality;
   transform: translateZ(0);
   backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Performance improvements */
+.hover-lift:hover {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hover-lift:hover,
+  .hover-scale:hover {
+    transform: none;
+  }
+  
+  .group:hover .group-hover\:scale-110 {
+    transform: none;
+  }
 }
 
 /* Optimized Animation System */

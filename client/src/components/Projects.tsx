@@ -87,7 +87,7 @@ const Projects = () => {
           </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <AnimatedSection
               key={project.id}
@@ -130,7 +130,7 @@ const Projects = () => {
                   </p>
 
                   <div className="flex items-center gap-2 mt-4 text-white">
-                    <span className="text-sm font-space">View Project</span>
+                    <span className="text-sm font-space">{t('viewProject')}</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -151,7 +151,7 @@ const Projects = () => {
 
         <AnimatedSection animationType="fade-in" className="text-center mt-16">
           <button className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover-scale">
-            <span className="relative z-10">View All Projects</span>
+            <span className="relative z-10">{t('viewAllProjects')}</span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
           </button>
         </AnimatedSection>

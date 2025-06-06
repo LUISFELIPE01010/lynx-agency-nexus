@@ -139,7 +139,11 @@ const translations = {
     projects: 'Projects',
     contact: 'Contact',
     followUs: 'Follow Us',
-    allRightsReserved: 'All rights reserved.'
+    allRightsReserved: 'All rights reserved.',
+    
+    // Additional project text
+    viewProject: 'View Project',
+    viewAllProjects: 'View All Projects'
   },
   pt: {
     // Navigation
@@ -263,7 +267,11 @@ const translations = {
     projects: 'Projetos',
     contact: 'Contato',
     followUs: 'Siga-nos',
-    allRightsReserved: 'Todos os direitos reservados.'
+    allRightsReserved: 'Todos os direitos reservados.',
+    
+    // Additional project text
+    viewProject: 'Ver Projeto',
+    viewAllProjects: 'Ver Todos os Projetos'
   }
 };
 
