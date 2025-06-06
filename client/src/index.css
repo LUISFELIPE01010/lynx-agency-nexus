@@ -246,7 +246,7 @@ img {
 
 .carousel-track-improved {
   display: flex;
-  animation: scroll-seamless 30s linear infinite;
+  animation: scroll-seamless 15s linear infinite;
   will-change: transform;
 }
 
@@ -279,7 +279,7 @@ img {
   }
   
   .carousel-track-improved {
-    animation-duration: 20s;
+    animation-duration: 10s;
   }
 }
 

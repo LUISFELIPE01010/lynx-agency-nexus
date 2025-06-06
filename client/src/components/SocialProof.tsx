@@ -5,29 +5,29 @@ const SocialProof = () => {
     {
       quote: "Lynx didn't just redesign our brand—they completely transformed how we think about our market position. The strategic insights were game-changing.",
       author: "Sarah Chen",
-      position: "CEO",
-      company: "TechVision Corp",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=100&h=100&fit=crop&crop=face"
+      position: "Dona de E-commerce",
+      company: "Fashion Store Online",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
     },
     {
       quote: "The level of creativity and strategic thinking exceeded all expectations. Lynx delivered a brand that truly represents our vision for the future.",
       author: "Michael Rodriguez",
-      position: "Founder",
-      company: "Luxury Dynamics",
+      position: "Advogado",
+      company: "Rodriguez Advocacia",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
     },
     {
       quote: "Working with Lynx was transformative. They understand that great design isn't just beautiful—it's strategic, purposeful, and results-driven.",
       author: "Emma Thompson",
-      position: "CMO",
-      company: "Global Innovations",
+      position: "Dona de Restaurante",
+      company: "Bistrô Gourmet",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
     },
     {
       quote: "From concept to execution, Lynx delivered exceptional results. Their attention to detail and commitment to excellence set them apart in the industry.",
       author: "David Park",
-      position: "Creative Director",
-      company: "Digital Ventures",
+      position: "Dono de Clínica",
+      company: "Clínica Wellness",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
     }
   ];
