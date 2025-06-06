@@ -51,7 +51,7 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center px-6 overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background image with dark overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -62,32 +62,32 @@ const Hero = () => {
       
       
       {/* Animated background elements */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
+      <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto">
         {/* Logo and Title aligned to left */}
-        <div className="text-left mb-16">
+        <div className="text-left mb-8 sm:mb-16">
           {/* Main Logo */}
-          <div ref={logoRef} className="mb-12">
+          <div ref={logoRef} className="mb-8 sm:mb-12">
             <img 
               src="/LYNXx.png" 
               alt="Lynx Agency" 
-              className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain opacity-90"
+              className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain opacity-90"
             />
           </div>
           
           <div className="text-left max-w-4xl">
             <p 
               ref={subtitleRef}
-              className="text-2xl md:text-4xl lg:text-5xl font-inter text-lynx-gray mb-4 leading-tight font-light"
+              className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-inter text-lynx-gray mb-2 sm:mb-4 leading-tight font-light"
             >
               {t('heroSubtitle1')}
             </p>
             
             <p 
               ref={subtitleRef}
-              className="text-2xl md:text-4xl lg:text-5xl font-inter text-white mb-16 leading-tight font-light"
+              className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-inter text-white mb-8 sm:mb-16 leading-tight font-light"
             >
               {t('heroSubtitle2')}
             </p>

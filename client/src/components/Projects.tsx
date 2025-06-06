@@ -59,7 +59,7 @@ const Projects = () => {
   return (
     <section 
       id="projects" 
-      className="py-20 relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 relative overflow-hidden"
       style={{
         backgroundImage: 'url(/banner2.jpg)',
         backgroundSize: 'cover',

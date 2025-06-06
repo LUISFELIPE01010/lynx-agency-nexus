@@ -210,11 +210,13 @@ img {
 
 /* Mobile responsiveness improvements */
 @media (max-width: 768px) {
-  .text-6xl { font-size: 3rem; }
-  .text-8xl { font-size: 4rem; }
-  .text-\[10rem\] { font-size: 5rem; }
-  .text-5xl { font-size: 2.5rem; }
-  .text-7xl { font-size: 3.5rem; }
+  .text-6xl { font-size: 2.5rem; }
+  .text-8xl { font-size: 3rem; }
+  .text-\[10rem\] { font-size: 4rem; }
+  .text-5xl { font-size: 2rem; }
+  .text-7xl { font-size: 2.75rem; }
+  .text-4xl { font-size: 1.75rem; }
+  .text-3xl { font-size: 1.5rem; }
 
   /* Improve mobile scrolling */
   body {
@@ -227,7 +229,34 @@ img {
   .scale-in,
   .slide-in-left,
   .slide-in-right {
-    animation-duration: 0.15s;
+    animation-duration: 0.4s;
+  }
+
+  /* Mobile spacing */
+  section {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Mobile padding adjustments */
+  .px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .text-6xl { font-size: 2rem; }
+  .text-5xl { font-size: 1.75rem; }
+  .text-4xl { font-size: 1.5rem; }
+  .text-3xl { font-size: 1.25rem; }
+  .text-2xl { font-size: 1.125rem; }
+  
+  /* Reduce section padding even more on very small screens */
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
   }
 }
 
