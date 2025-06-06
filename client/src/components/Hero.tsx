@@ -1,9 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ArrowDown } from 'lucide-react';
 import logoPng from '@/logop.png';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useState, useEffect } from 'react';
 import OptimizedImage from './OptimizedImage';
 
 const Hero = () => {
