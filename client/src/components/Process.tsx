@@ -1,30 +1,33 @@
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Process = () => {
+  const { t } = useLanguage();
+  
   const steps = [
     {
       number: "01",
-      title: "Discovery & Strategy",
-      description: "Deep dive into your brand, market, and objectives to establish a solid strategic foundation.",
-      details: ["Brand audit", "Market research", "Stakeholder interviews", "Strategic framework"]
+      title: t('discoveryStrategy'),
+      description: t('discoveryDesc'),
+      details: [t('discoveryDetail1'), t('discoveryDetail2'), t('discoveryDetail3'), t('discoveryDetail4')]
     },
     {
       number: "02",
-      title: "Creative Development",
-      description: "Conceptual exploration and creative development aligned with your strategic goals.",
-      details: ["Creative concepts", "Design exploration", "Prototype development", "Iterative refinement"]
+      title: t('creativeDevelopment'),
+      description: t('creativeDevDesc'),
+      details: [t('creativeDetail1'), t('creativeDetail2'), t('creativeDetail3'), t('creativeDetail4')]
     },
     {
       number: "03",
-      title: "Design & Execution",
-      description: "Meticulous execution of approved concepts with attention to every detail.",
-      details: ["Visual design", "Technical development", "Quality assurance", "Performance optimization"]
+      title: t('designExecution'),
+      description: t('designExecDesc'),
+      details: [t('designDetail1'), t('designDetail2'), t('designDetail3'), t('designDetail4')]
     },
     {
       number: "04",
-      title: "Launch & Growth",
-      description: "Strategic launch planning and ongoing optimization for sustained success.",
-      details: ["Launch strategy", "Performance monitoring", "Continuous optimization", "Growth planning"]
+      title: t('launchGrowth'),
+      description: t('launchDesc'),
+      details: [t('launchDetail1'), t('launchDetail2'), t('launchDetail3'), t('launchDetail4')]
     }
   ];
 
@@ -38,13 +41,13 @@ const Process = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">
-          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Our Process</span>
+          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('ourProcess')}</span>
           <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
-            From Vision
-            <span className="block text-lynx-gray">To Reality</span>
+            {t('fromVision')}
+            <span className="block text-lynx-gray">{t('toReality')}</span>
           </h2>
           <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
-            Our proven methodology ensures every project delivers exceptional results through strategic thinking and meticulous execution.
+            {t('processSubtitle')}
           </p>
         </AnimatedSection>
 

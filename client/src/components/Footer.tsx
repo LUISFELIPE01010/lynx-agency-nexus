@@ -85,7 +85,7 @@ const Footer = () => {
               <div className="flex items-center gap-2">
                 <span className="text-lynx-gray text-xs">•</span>
                 <p className="text-lynx-gray font-inter text-sm">
-                  Global Remote
+                  {t('globalRemote')}
                 </p>
               </div>
             </div>

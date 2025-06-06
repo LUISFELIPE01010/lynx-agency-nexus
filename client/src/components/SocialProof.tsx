@@ -6,28 +6,28 @@ const SocialProof = () => {
   
   const testimonials = [
     {
-      quote: "Lynx didn't just redesign our brand—they completely transformed how we think about our market position. The strategic insights were game-changing.",
+      quote: t('testimonial1'),
       author: "Sarah Chen",
       position: "ecommerceOwner",
       company: "Fashion Store Online",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face"
     },
     {
-      quote: "The level of creativity and strategic thinking exceeded all expectations. Lynx delivered a brand that truly represents our vision for the future.",
+      quote: t('testimonial2'),
       author: "Michael Rodriguez",
       position: "lawyer",
       company: "Rodriguez Advocacia",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
     },
     {
-      quote: "Working with Lynx was transformative. They understand that great design isn't just beautiful—it's strategic, purposeful, and results-driven.",
+      quote: t('testimonial3'),
       author: "Emma Thompson",
       position: "restaurantOwner",
       company: "Bistrô Gourmet",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
     },
     {
-      quote: "From concept to execution, Lynx delivered exceptional results. Their attention to detail and commitment to excellence set them apart in the industry.",
+      quote: t('testimonial4'),
       author: "David Park",
       position: "clinicOwner",
       company: "Clínica Wellness",

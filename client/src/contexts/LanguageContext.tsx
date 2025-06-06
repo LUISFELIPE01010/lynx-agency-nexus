@@ -143,7 +143,66 @@ const translations = {
     
     // Additional project text
     viewProject: 'View Project',
-    viewAllProjects: 'View All Projects'
+    viewAllProjects: 'View All Projects',
+    
+    // Process Section
+    ourProcess: 'Our Process',
+    fromVision: 'From Vision',
+    toReality: 'To Reality',
+    processSubtitle: 'Our proven methodology ensures every project delivers exceptional results through strategic thinking and meticulous execution.',
+    
+    // Process Steps
+    discoveryStrategy: 'Discovery & Strategy',
+    discoveryDesc: 'Deep dive into your brand, market, and objectives to establish a solid strategic foundation.',
+    discoveryDetail1: 'Brand audit',
+    discoveryDetail2: 'Market research',
+    discoveryDetail3: 'Stakeholder interviews',
+    discoveryDetail4: 'Strategic framework',
+    
+    creativeDevelopment: 'Creative Development',
+    creativeDevDesc: 'Conceptual exploration and creative development aligned with your strategic goals.',
+    creativeDetail1: 'Creative concepts',
+    creativeDetail2: 'Design exploration',
+    creativeDetail3: 'Prototype development',
+    creativeDetail4: 'Iterative refinement',
+    
+    designExecution: 'Design & Execution',
+    designExecDesc: 'Meticulous execution of approved concepts with attention to every detail.',
+    designDetail1: 'Visual design',
+    designDetail2: 'Technical development',
+    designDetail3: 'Quality assurance',
+    designDetail4: 'Performance optimization',
+    
+    launchGrowth: 'Launch & Growth',
+    launchDesc: 'Strategic launch planning and ongoing optimization for sustained success.',
+    launchDetail1: 'Launch strategy',
+    launchDetail2: 'Performance monitoring',
+    launchDetail3: 'Continuous optimization',
+    launchDetail4: 'Growth planning',
+    
+    // Brand Importance Section
+    whyBrandMatters: 'Why Your Brand Matters',
+    brandPower: 'Brand Power',
+    unleashed: 'Unleashed',
+    brandPowerSubtitle: 'Discover why strategic branding is the cornerstone of business success in today\'s competitive landscape.',
+    
+    instantRecognition: 'Instant Recognition',
+    instantRecognitionDesc: 'A strong brand creates immediate market identification, allowing consumers to recognize your products or services in seconds.',
+    
+    trustCredibility: 'Trust & Credibility',
+    trustCredibilityDesc: 'Well-established brands convey security and professionalism, increasing customer confidence in doing business with you.',
+    
+    customerLoyalty: 'Customer Loyalty',
+    customerLoyaltyDesc: 'A consistent and engaging brand creates lasting emotional connections, transforming customers into brand advocates.',
+    
+    // Testimonials content
+    testimonial1: 'Lynx didn\'t just redesign our brand—they completely transformed how we think about our market position. The strategic insights were game-changing.',
+    testimonial2: 'The level of creativity and strategic thinking exceeded all expectations. Lynx delivered a brand that truly represents our vision for the future.',
+    testimonial3: 'Working with Lynx was transformative. They understand that great design isn\'t just beautiful—it\'s strategic, purposeful, and results-driven.',
+    testimonial4: 'From concept to execution, Lynx delivered exceptional results. Their attention to detail and commitment to excellence set them apart in the industry.',
+    
+    // Footer
+    globalRemote: 'Global Remote'
   },
   pt: {
     // Navigation
@@ -271,7 +330,66 @@ const translations = {
     
     // Additional project text
     viewProject: 'Ver Projeto',
-    viewAllProjects: 'Ver Todos os Projetos'
+    viewAllProjects: 'Ver Todos os Projetos',
+    
+    // Process Section
+    ourProcess: 'Nosso Processo',
+    fromVision: 'Da Visão',
+    toReality: 'À Realidade',
+    processSubtitle: 'Nossa metodologia comprovada garante que cada projeto entregue resultados excepcionais através de pensamento estratégico e execução meticulosa.',
+    
+    // Process Steps
+    discoveryStrategy: 'Descoberta & Estratégia',
+    discoveryDesc: 'Mergulho profundo na sua marca, mercado e objetivos para estabelecer uma base estratégica sólida.',
+    discoveryDetail1: 'Auditoria da marca',
+    discoveryDetail2: 'Pesquisa de mercado',
+    discoveryDetail3: 'Entrevistas com stakeholders',
+    discoveryDetail4: 'Framework estratégico',
+    
+    creativeDevelopment: 'Desenvolvimento Criativo',
+    creativeDevDesc: 'Exploração conceitual e desenvolvimento criativo alinhado com seus objetivos estratégicos.',
+    creativeDetail1: 'Conceitos criativos',
+    creativeDetail2: 'Exploração de design',
+    creativeDetail3: 'Desenvolvimento de protótipo',
+    creativeDetail4: 'Refinamento iterativo',
+    
+    designExecution: 'Design & Execução',
+    designExecDesc: 'Execução meticulosa de conceitos aprovados com atenção a cada detalhe.',
+    designDetail1: 'Design visual',
+    designDetail2: 'Desenvolvimento técnico',
+    designDetail3: 'Garantia de qualidade',
+    designDetail4: 'Otimização de performance',
+    
+    launchGrowth: 'Lançamento & Crescimento',
+    launchDesc: 'Planejamento estratégico de lançamento e otimização contínua para sucesso sustentado.',
+    launchDetail1: 'Estratégia de lançamento',
+    launchDetail2: 'Monitoramento de performance',
+    launchDetail3: 'Otimização contínua',
+    launchDetail4: 'Planejamento de crescimento',
+    
+    // Brand Importance Section
+    whyBrandMatters: 'Por Que Sua Marca Importa',
+    brandPower: 'Poder da',
+    unleashed: 'Marca',
+    brandPowerSubtitle: 'Descubra por que o branding estratégico é a pedra angular do sucesso empresarial no cenário competitivo de hoje.',
+    
+    instantRecognition: 'Reconhecimento Instantâneo',
+    instantRecognitionDesc: 'Uma marca forte cria identificação imediata no mercado, permitindo que consumidores reconheçam seus produtos ou serviços em segundos.',
+    
+    trustCredibility: 'Confiança & Credibilidade',
+    trustCredibilityDesc: 'Marcas bem estabelecidas transmitem segurança e profissionalismo, aumentando a confiança do cliente em fazer negócios com você.',
+    
+    customerLoyalty: 'Fidelidade do Cliente',
+    customerLoyaltyDesc: 'Uma marca consistente e envolvente cria conexões emocionais duradouras, transformando clientes em defensores da marca.',
+    
+    // Testimonials content
+    testimonial1: 'A Lynx não apenas redesenhou nossa marca—eles transformaram completamente como pensamos sobre nossa posição no mercado. Os insights estratégicos foram revolucionários.',
+    testimonial2: 'O nível de criatividade e pensamento estratégico superou todas as expectativas. A Lynx entregou uma marca que realmente representa nossa visão para o futuro.',
+    testimonial3: 'Trabalhar com a Lynx foi transformador. Eles entendem que um ótimo design não é apenas bonito—é estratégico, proposital e focado em resultados.',
+    testimonial4: 'Do conceito à execução, a Lynx entregou resultados excepcionais. Sua atenção aos detalhes e compromisso com a excelência os distingue na indústria.',
+    
+    // Footer
+    globalRemote: 'Remoto Global'
   }
 };
 

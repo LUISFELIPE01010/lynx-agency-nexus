@@ -1,23 +1,26 @@
 import { Eye, Shield, Heart } from 'lucide-react';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const BrandImportance = () => {
+  const { t } = useLanguage();
+  
   const brandPoints = [
     {
-      title: "Instant Recognition",
-      description: "A strong brand creates immediate market identification, allowing consumers to recognize your products or services in seconds.",
+      title: t('instantRecognition'),
+      description: t('instantRecognitionDesc'),
       number: "01",
       icon: Eye
     },
     {
-      title: "Trust & Credibility", 
-      description: "Well-established brands convey security and professionalism, increasing customer confidence in doing business with you.",
+      title: t('trustCredibility'), 
+      description: t('trustCredibilityDesc'),
       number: "02",
       icon: Shield
     },
     {
-      title: "Customer Loyalty",
-      description: "A consistent and engaging brand creates lasting emotional connections, transforming customers into brand advocates.",
+      title: t('customerLoyalty'),
+      description: t('customerLoyaltyDesc'),
       number: "03", 
       icon: Heart
     }
@@ -39,15 +42,15 @@ const BrandImportance = () => {
         {/* Header */}
         <AnimatedSection animationType="fade-in" className="text-center mb-20">
           <span className="text-[#95A0A2] font-space text-sm tracking-widest uppercase mb-4 block">
-            Why Your Brand Matters
+            {t('whyBrandMatters')}
           </span>
           <div className="w-24 h-px bg-gradient-to-r from-[#95A0A2] to-transparent mx-auto mb-8"></div>
           <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
-            Brand Power
-            <span className="block text-[#95A0A2]">Unleashed</span>
+            {t('brandPower')}
+            <span className="block text-[#95A0A2]">{t('unleashed')}</span>
           </h2>
           <p className="text-xl text-[#95A0A2] max-w-3xl mx-auto font-inter leading-relaxed">
-            Discover why strategic branding is the cornerstone of business success in today's competitive landscape.
+            {t('brandPowerSubtitle')}
           </p>
         </AnimatedSection>
 
