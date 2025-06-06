@@ -63,6 +63,7 @@ const Process = () => {
                     <div className="text-6xl font-space font-bold text-lynx-gray/30">
                       {step.number}
                     </div>
+                    <div className="w-16 h-px bg-gradient-to-r from-lynx-gray to-transparent"></div>
                   </div>
                   
                   <h3 className="text-4xl font-space font-bold text-white">
