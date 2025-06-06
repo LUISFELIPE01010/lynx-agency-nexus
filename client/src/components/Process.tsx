@@ -1,4 +1,3 @@
-
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 
 const Process = () => {
@@ -32,11 +31,11 @@ const Process = () => {
   return (
     <section className="py-32 px-6 bg-gradient-to-b from-[#95A0A2]/8 via-black to-[#95A0A2]/5 relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#95A0A2]/10 via-transparent to-transparent"></div>
-      
+
       {/* Visual elements to break up text */}
       <div className="absolute bottom-20 left-10 w-24 h-24 bg-[#95A0A2]/5 rounded-full blur-xl"></div>
       <div className="absolute top-1/2 right-1/4 w-2 h-40 bg-gradient-to-b from-[#95A0A2]/30 to-transparent"></div>
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">Our Process</span>
@@ -65,15 +64,15 @@ const Process = () => {
                     </div>
                     <div className="w-16 h-px bg-gradient-to-r from-lynx-gray to-transparent"></div>
                   </div>
-                  
+
                   <h3 className="text-4xl font-space font-bold text-white">
                     {step.title}
                   </h3>
-                  
+
                   <p className="text-xl text-lynx-gray font-inter leading-relaxed">
                     {step.description}
                   </p>
-                  
+
                   <div className="grid grid-cols-2 gap-4">
                     {step.details.map((detail, detailIndex) => (
                       <div key={detailIndex} className="flex items-center gap-3">
@@ -86,7 +85,7 @@ const Process = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} slide-in-${index % 2 === 0 ? 'right' : 'left'}`}>
                 <div className="relative aspect-square">
                   <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10">
@@ -98,7 +97,7 @@ const Process = () => {
                       />
                     </div>
                   </div>
-                  
+
                   {/* Floating animation elements */}
                   <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-full blur-xl animate-float"></div>
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tl from-white/10 to-transparent rounded-full blur-lg animate-float" style={{animationDelay: '1.5s'}}></div>
