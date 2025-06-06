@@ -62,7 +62,7 @@ const Contact = () => {
             </a>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 pt-16">
+          <div className="flex justify-center items-center gap-6 sm:gap-8 pt-16">
             <a 
               href="mailto:hello@lynxagency.com"
               className="text-center group cursor-pointer"

@@ -35,6 +35,29 @@ html {
   scroll-behavior: auto; /* Changed from smooth to auto for better control */
 }
 
+/* Fix mobile viewport issues */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Prevent mobile safari viewport jumping */
+body {
+  position: relative;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+/* Fix mobile address bar space issue */
+@supports (-webkit-touch-callout: none) {
+  html {
+    height: -webkit-fill-available;
+  }
+}
+
 /* Image optimization */
 img {
   max-width: 100%;
