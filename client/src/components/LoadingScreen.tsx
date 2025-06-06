@@ -9,7 +9,7 @@ const LoadingScreen = ({ onLoadComplete }: LoadingScreenProps) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Simulate loading progress
+    // Much faster loading progress
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
@@ -17,21 +17,21 @@ const LoadingScreen = ({ onLoadComplete }: LoadingScreenProps) => {
           setTimeout(() => {
             setIsVisible(false);
             onLoadComplete?.();
-          }, 200);
+          }, 100);
           return 100;
         }
-        return prev + Math.random() * 15;
+        return prev + Math.random() * 25;
       });
-    }, 100);
+    }, 50);
 
-    // Fallback: complete loading after 2 seconds
+    // Fallback: complete loading after 800ms
     const fallback = setTimeout(() => {
       setProgress(100);
       setTimeout(() => {
         setIsVisible(false);
         onLoadComplete?.();
-      }, 200);
-    }, 2000);
+      }, 100);
+    }, 800);
 
     return () => {
       clearInterval(interval);
@@ -45,16 +45,11 @@ const LoadingScreen = ({ onLoadComplete }: LoadingScreenProps) => {
     <div className="fixed inset-0 bg-black z-[9999] flex items-center justify-center">
       <div className="text-center">
         {/* Loading bar */}
-        <div className="w-64 h-1 bg-gray-800 rounded-full overflow-hidden mb-4">
+        <div className="w-64 h-1 bg-gray-800 rounded-full overflow-hidden">
           <div 
-            className="h-full bg-gradient-to-r from-gray-600 to-white rounded-full transition-all duration-300 ease-out"
+            className="h-full bg-gradient-to-r from-gray-600 to-white rounded-full transition-all duration-200 ease-out"
             style={{ width: `${Math.min(progress, 100)}%` }}
           />
-        </div>
-        
-        {/* Loading text */}
-        <div className="text-gray-400 text-sm font-space tracking-wider">
-          CARREGANDO
         </div>
       </div>
     </div>

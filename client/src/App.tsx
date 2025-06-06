@@ -29,10 +29,10 @@ const App = () => {
   useCriticalResourcePreload();
 
   useEffect(() => {
-    // Simulate initial loading time
+    // Minimal initial loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, []);
