@@ -10,6 +10,7 @@ import BrandImportance from '@/components/BrandImportance';
 import SocialProof from '@/components/SocialProof';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import CSSAnimatedOverlay from '@/components/CSSAnimatedOverlay';
 
 const Index = () => {
   useEffect(() => {
@@ -34,18 +35,21 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Projects />
-      <Process />
-      <ClientCarousel />
-      <BrandImportance />
-      <SocialProof />
-      <Contact />
-      <Footer />
+    <div className="min-h-screen bg-black text-white overflow-x-hidden relative">
+      <CSSAnimatedOverlay />
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <About />
+        <Services />
+        <Projects />
+        <Process />
+        <ClientCarousel />
+        <BrandImportance />
+        <SocialProof />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 };
