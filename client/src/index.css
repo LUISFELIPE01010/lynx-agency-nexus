@@ -16,12 +16,38 @@ html, body, #root {
   position: relative;
 }
 
+/* Universal mobile reset for viewport issues */
+@media screen and (max-width: 768px) {
+  * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+  }
+  
+  #root {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    position: relative !important;
+  }
+}
+
 /* Mobile specific reset */
 @media (max-width: 768px) {
   html {
     margin: 0 !important;
     padding: 0 !important;
     position: relative;
+    height: 100%;
+    overflow-x: hidden;
   }
   
   body {
@@ -29,12 +55,15 @@ html, body, #root {
     padding: 0 !important;
     position: relative;
     -webkit-text-size-adjust: 100%;
+    height: 100%;
+    overflow-x: hidden;
   }
   
   #root {
     margin: 0 !important;
     padding: 0 !important;
     position: relative;
+    height: 100%;
   }
 }
 
@@ -54,6 +83,34 @@ body {
   padding: 0;
   position: relative;
   overflow-x: hidden;
+}
+
+/* Mobile-specific fixes for white space */
+@media (max-width: 768px) {
+  html {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+  }
+  
+  /* Ensure viewport covers entire screen */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    z-index: -1;
+  }
 }
 
 /* GPU acceleration for critical elements */
@@ -348,6 +405,24 @@ img {
     width: 100% !important;
     margin: 0 !important;
     padding-top: 0 !important;
+  }
+
+  /* Prevent white space at top of mobile viewport */
+  html {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  body {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    min-height: 100vh !important;
+    position: relative !important;
+  }
+
+  #root {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
   }
 
   /* Prevent any top spacing on mobile */
