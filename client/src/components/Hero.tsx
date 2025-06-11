@@ -51,13 +51,21 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ margin: 0, padding: 0, top: 0, left: 0, right: 0 }}>
       {/* Background image with dark overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/lovable-uploads/0d403c09-120c-4221-af4a-d5006bd4513e.png')" }}
+        style={{ 
+          backgroundImage: "url('/lovable-uploads/0d403c09-120c-4221-af4a-d5006bd4513e.png')",
+          margin: 0,
+          padding: 0,
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0
+        }}
       ></div>
-      <div className="absolute inset-0 bg-black/80"></div>
+      <div className="absolute inset-0 bg-black/80" style={{ margin: 0, padding: 0 }}></div>
 
 
 
