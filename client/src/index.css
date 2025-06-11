@@ -9,6 +9,35 @@
   padding: 0;
 }
 
+/* Force remove any browser default margins/padding */
+html, body, #root {
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+}
+
+/* Mobile specific reset */
+@media (max-width: 768px) {
+  html {
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+  }
+  
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  #root {
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+  }
+}
+
 /* Mobile viewport fix */
 html {
   width: 100%;
@@ -290,16 +319,23 @@ img {
   body {
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
   }
 
   /* Fix mobile viewport and prevent white space */
-  html, body {
-    margin: 0;
-    padding: 0;
+  html, body, #root {
+    margin: 0 !important;
+    padding: 0 !important;
     width: 100%;
     height: 100%;
+    position: relative;
+  }
+
+  /* Ensure no top margin/padding anywhere */
+  * {
+    margin-top: 0 !important;
   }
 
   /* Fix mobile navbar positioning and prevent white space */
@@ -311,6 +347,7 @@ img {
     z-index: 9999 !important;
     width: 100% !important;
     margin: 0 !important;
+    padding-top: 0 !important;
   }
 
   /* Prevent any top spacing on mobile */
@@ -319,15 +356,15 @@ img {
     padding-top: 0 !important;
   }
 
-  /* Force body to start at top */
-  body, #root {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+  /* Ensure content starts below navbar with proper spacing */
+  .pt-20 {
+    padding-top: 4rem !important;
   }
 
-  /* Ensure content starts below navbar */
-  .pt-20 {
-    padding-top: 5rem !important;
+  /* Remove any potential safe area insets causing white space */
+  body {
+    padding-top: env(safe-area-inset-top, 0) !important;
+    padding-top: 0 !important;
   }
 
   /* Faster animations on mobile */
