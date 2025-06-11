@@ -62,12 +62,12 @@ const Contact = () => {
             </a>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 pt-16">
+          <div className="flex justify-center gap-6 md:grid md:grid-cols-3 md:gap-8 pt-16">
             <a 
               href="mailto:hello@lynxagency.com"
               className="text-center group cursor-pointer"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto border border-white/20 group-hover:border-white/40 transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center border border-white/20 group-hover:border-white/40 transition-all duration-300">
                 <Mail className="w-5 h-5 text-white" />
               </div>
             </a>
@@ -78,7 +78,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="text-center group cursor-pointer"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto border border-white/20 group-hover:border-white/40 transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center border border-white/20 group-hover:border-white/40 transition-all duration-300">
                 <MessageCircle className="w-5 h-5 text-white" />
               </div>
             </a>
@@ -89,7 +89,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="text-center group cursor-pointer"
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center mx-auto border border-white/20 group-hover:border-white/40 transition-all duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-full flex items-center justify-center border border-white/20 group-hover:border-white/40 transition-all duration-300">
                 <Instagram className="w-5 h-5 text-white" />
               </div>
             </a>
