@@ -53,12 +53,12 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white" style={{ marginTop: 0, paddingTop: 0 }}>
       {/* Use original navbar */}
       <Navbar />
 
       {/* Gallery Content */}
-      <div className="pt-20 px-6 py-12">
+      <div className="pt-20 px-6 py-12" style={{ marginTop: 0 }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-6xl font-space font-bold text-white mb-4">
