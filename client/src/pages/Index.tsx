@@ -35,7 +35,12 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden" style={{ marginTop: 0, paddingTop: 0 }}>
+    <div className="min-h-screen bg-black text-white overflow-x-hidden" style={{ 
+      marginTop: 0, 
+      paddingTop: 0, 
+      position: 'relative',
+      background: '#000'
+    }}>
       <Navbar />
       <Hero />
       <About />
