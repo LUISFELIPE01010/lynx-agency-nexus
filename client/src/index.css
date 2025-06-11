@@ -5,6 +5,21 @@
 /* Critical Performance optimizations */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile viewport fix */
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 /* GPU acceleration for critical elements */
@@ -270,6 +285,30 @@ img {
   body {
     -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Fix mobile viewport and prevent white space */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Fix mobile navbar positioning */
+  nav {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    position: fixed !important;
+    z-index: 9999 !important;
+  }
+
+  /* Ensure content starts below navbar */
+  .pt-20 {
+    padding-top: 5rem !important;
   }
 
   /* Faster animations on mobile */
