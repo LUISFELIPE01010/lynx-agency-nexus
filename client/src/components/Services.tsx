@@ -45,14 +45,11 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background image with dark overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/banner1.png')" }}
-      ></div>
-      <div className="absolute inset-0 bg-black/95"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lynx-gray/5 via-transparent to-transparent"></div>
+    <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-black via-[#0f1419] to-black">
+      {/* Background texture */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>
+      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">

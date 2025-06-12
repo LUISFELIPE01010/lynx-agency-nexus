@@ -32,7 +32,7 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-[#0f1419] via-[#0f1419] to-black">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#95A0A2]/10 via-transparent to-transparent"></div>
 
       {/* Visual elements to break up text */}
