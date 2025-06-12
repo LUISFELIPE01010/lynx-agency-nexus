@@ -38,11 +38,9 @@ const Process = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>
       </div>
       
-      {/* Gradiente de transição no topo - de preto para cinza escuro */}
-      <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black via-[#010101] via-[#020202] via-[#030303] via-[#040404] via-[#050505] via-[#080a0c] to-[#0f1419] z-0"></div>
       
-      {/* Gradiente de transição na parte inferior - de cinza escuro para a próxima seção */}
-      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-b from-[#0f1419] via-[#0c0f12] via-[#080a0c] via-[#050607] via-[#020304] to-black z-0"></div>
+      
+      
 
       {/* Visual elements to break up text */}
       <div className="absolute bottom-20 left-10 w-24 h-24 bg-[#95A0A2]/5 rounded-full blur-xl"></div>

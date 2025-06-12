@@ -157,9 +157,7 @@ const Projects = () => {
         </AnimatedSection>
       </div>
       
-      {/* Gradiente de transição na parte inferior - mais suave e extenso */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent via-black/30 via-black/60 to-black z-40"></div>
-    </section>
+      </section>
   );
 };
 

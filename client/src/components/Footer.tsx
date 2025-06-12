@@ -7,9 +7,10 @@ const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="py-16 px-6 bg-gradient-to-t from-gray-900 via-black to-gray-900 border-t border-lynx-gray/10 relative overflow-hidden">
-      {/* Background texture */}
-      <div className="absolute inset-0 bg-gradient-to-t from-lynx-gray/5 to-transparent"></div>
+    <footer className="py-16 px-6 bg-gradient-to-t from-black via-[#050505] to-black border-t border-lynx-gray/10 relative overflow-hidden">
+      {/* Background texture para leveza */}
+      <div className="absolute inset-0 bg-gradient-to-t from-lynx-gray/3 to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lynx-gray/2 via-transparent to-transparent"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
