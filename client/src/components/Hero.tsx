@@ -79,14 +79,7 @@ const Hero = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto pt-16 sm:pt-0">
         {/* Logo and Title aligned to left */}
         <div className="text-left mb-8 sm:mb-16">
-          {/* Main Logo */}
-          <div ref={logoRef} className="mb-6 sm:mb-8 md:mb-12">
-            <img 
-              src="/LYNXx.png" 
-              alt="Lynx Agency" 
-              className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-48 lg:h-48 object-contain opacity-90"
-            />
-          </div>
+          
 
           <div className="text-left max-w-4xl">
             <p 
