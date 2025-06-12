@@ -32,10 +32,10 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-[#0f1419] via-[#0f1419] to-black">
-      {/* Gradiente de transição suave no topo */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/60 via-[#0f1419]/80 to-transparent z-0"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#95A0A2]/10 via-transparent to-transparent"></div>
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-black via-[#030405] via-[#060708] via-[#090a0b] to-[#0f1419]">
+      {/* Gradiente de transição ultra suave no topo - múltiplos pontos para transição imperceptível */}
+      <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black via-[#010101] via-[#020202] via-[#030303] via-[#040404] via-[#050505] to-transparent z-0"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#95A0A2]/3 via-transparent to-transparent"></div>
 
       {/* Visual elements to break up text */}
       <div className="absolute bottom-20 left-10 w-24 h-24 bg-[#95A0A2]/5 rounded-full blur-xl"></div>
