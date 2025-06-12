@@ -28,8 +28,6 @@ const ClientCarousel = () => {
 
   return (
     <section className="py-8 px-6 mb-16 bg-black relative overflow-hidden">
-      {/* Gradiente de transição no topo - recebendo da seção Process */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0f1419] via-[#080a0c] via-[#050607] via-[#020304] to-black z-0"></div>
       <div className="max-w-7xl mx-auto">
         <div className="relative overflow-hidden">
           <div className="carousel-container">
