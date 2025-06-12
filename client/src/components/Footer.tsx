@@ -1,4 +1,3 @@
-
 import { Instagram, MessageCircle } from 'lucide-react';
 import logoPng from '@/logop.png';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
@@ -6,12 +5,12 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer = () => {
   const { t } = useLanguage();
-  
+
   return (
-    <footer className="py-16 px-6 bg-black border-t border-lynx-gray/10 relative overflow-hidden">
+    <footer className="py-16 px-6 bg-gradient-to-t from-gray-900 via-black to-gray-900 border-t border-lynx-gray/10 relative overflow-hidden">
       {/* Background texture */}
       <div className="absolute inset-0 bg-gradient-to-t from-lynx-gray/5 to-transparent"></div>
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Logo and Description */}
@@ -24,11 +23,11 @@ const Footer = () => {
               />
               <span className="font-space font-bold text-2xl text-white">LYNX</span>
             </div>
-            
+
             <p className="text-lynx-gray font-inter leading-relaxed max-w-xs">
               {t('footerDescription')}
             </p>
-            
+
             <div className="flex items-center gap-4">
               <a 
                 href="https://instagram.com/lynx.com.br"
@@ -50,7 +49,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           {/* Services */}
           <div>
             <h3 className="font-space font-semibold text-white mb-6">{t('services')}</h3>
@@ -65,7 +64,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          
+
           {/* Contact */}
           <div>
             <h3 className="font-space font-semibold text-white mb-6">{t('contact')}</h3>
@@ -91,7 +90,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="pt-8 border-t border-lynx-gray/10">
           <div className="flex justify-center items-center">
             <p className="text-lynx-gray text-sm font-inter">

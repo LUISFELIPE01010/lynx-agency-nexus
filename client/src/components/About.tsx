@@ -13,21 +13,21 @@ const CountUp = ({ target, duration = 2000, suffix = "" }: { target: number; dur
       ([entry]) => {
         if (entry.isIntersecting && !hasStarted) {
           setHasStarted(true);
-          
+
           const startTime = performance.now();
           const animate = (currentTime: number) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
+
             // Easing function for smooth animation
             const easeOutQuart = 1 - Math.pow(1 - progress, 4);
             setCount(Math.floor(target * easeOutQuart));
-            
+
             if (progress < 1) {
               requestAnimationFrame(animate);
             }
           };
-          
+
           requestAnimationFrame(animate);
         }
       },
@@ -53,7 +53,7 @@ const CountUp = ({ target, duration = 2000, suffix = "" }: { target: number; dur
 
 const About = () => {
   const { t } = useLanguage();
-  
+
   return (
     <section id="about" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background image with dark overlay */}
@@ -150,3 +150,4 @@ const About = () => {
 };
 
 export default About;
+`

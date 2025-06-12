@@ -40,6 +40,12 @@ const Navbar = () => {
           >
             {t('gallery')}
           </Link>
+          <button
+            onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="text-white hover:text-lynx-gray transition-colors duration-300 font-space text-xs sm:text-sm"
+          >
+            Contact
+          </button>
         </div>
         
         <div className="flex items-center gap-1 sm:gap-2">

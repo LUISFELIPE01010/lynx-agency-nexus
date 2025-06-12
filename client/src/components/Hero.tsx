@@ -65,7 +65,7 @@ const Hero = () => {
           bottom: 0
         }}
       ></div>
-      <div className="absolute inset-0 bg-black/80" style={{ margin: 0, padding: 0 }}></div>
+      <div className="absolute inset-0 bg-black/60" style={{ margin: 0, padding: 0 }}></div>
 
 
 

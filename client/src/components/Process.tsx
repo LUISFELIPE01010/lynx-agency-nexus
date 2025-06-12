@@ -3,7 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const Process = () => {
   const { t } = useLanguage();
-  
+
   const steps = [
     {
       number: "01",
@@ -32,7 +32,7 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-[#95A0A2]/8 via-black to-[#95A0A2]/5 relative overflow-hidden">
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#95A0A2]/10 via-transparent to-transparent"></div>
 
       {/* Visual elements to break up text */}

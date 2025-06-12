@@ -1,11 +1,10 @@
-
 import { Target, Sparkles, Monitor, Palette, Play, Lightbulb } from 'lucide-react';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Services = () => {
   const { t } = useLanguage();
-  
+
   const services = [
     {
       title: t('brandStrategy'),
@@ -54,7 +53,7 @@ const Services = () => {
       ></div>
       <div className="absolute inset-0 bg-black/95"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-lynx-gray/5 via-transparent to-transparent"></div>
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('servicesLabel')}</span>
@@ -66,7 +65,7 @@ const Services = () => {
             {t('servicesSubtitle')}
           </p>
         </AnimatedSection>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <AnimatedSection 
@@ -76,7 +75,7 @@ const Services = () => {
             >
               <div className="group relative p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-700 hover-lift backdrop-blur-sm">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 <div className="relative z-10">
                   <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
                     {service.icon === 'target' && <Target className="w-8 h-8 text-lynx-gray" />}
@@ -86,15 +85,15 @@ const Services = () => {
                     {service.icon === 'play' && <Play className="w-8 h-8 text-lynx-gray" />}
                     {service.icon === 'lightbulb' && <Lightbulb className="w-8 h-8 text-lynx-gray" />}
                   </div>
-                  
+
                   <h3 className="text-2xl font-space font-semibold text-white mb-4 group-hover:text-lynx-gray transition-colors duration-300">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-lynx-gray font-inter leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  
+
                   <div className="space-y-2">
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center gap-3">

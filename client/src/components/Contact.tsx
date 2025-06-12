@@ -7,7 +7,7 @@ const Contact = () => {
   const { t } = useLanguage();
   
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-[#95A0A2]/5 via-black to-black">
+    <section id="contact" className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-[#95A0A2]/5 via-black to-black">
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
