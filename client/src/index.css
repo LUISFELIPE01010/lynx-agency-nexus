@@ -92,27 +92,63 @@ body {
   /* Fix for mobile navigation spacing and white space */
   nav {
     padding-top: env(safe-area-inset-top);
-    background: rgba(0, 0, 0, 0.8) !important;
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(12px);
   }
   
   /* Force black background on all sections */
   section {
     background: #000 !important;
+    margin: 0 !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
   
-  /* Remove any potential white margins on mobile */
-  div, section, main, article {
-    background-color: inherit;
+  /* Mobile typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
   }
   
-  /* Ensure Hero section containers are transparent on mobile */
-  section div {
-    background-color: transparent !important;
+  p {
+    line-height: 1.5 !important;
+    margin-bottom: 1rem !important;
   }
   
-  /* Specifically target Hero section divs */
-  .relative.z-10 div {
-    background-color: transparent !important;
+  /* Mobile spacing fixes */
+  .space-y-6 > * + * {
+    margin-top: 2rem !important;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 3rem !important;
+  }
+  
+  /* Mobile button improvements */
+  button, a {
+    min-height: 48px !important;
+    touch-action: manipulation;
+  }
+  
+  /* Mobile container improvements */
+  .max-w-7xl {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  
+  /* Ensure animations work on mobile */
+  .animate-pulse,
+  .animate-float,
+  .hover-lift {
+    animation-duration: 2s !important;
+    animation-iteration-count: infinite !important;
+  }
+  
+  /* Mobile video optimization */
+  video {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
   }
 }
 
