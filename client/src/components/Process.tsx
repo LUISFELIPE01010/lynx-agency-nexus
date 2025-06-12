@@ -32,9 +32,12 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-black via-[#030405] via-[#060708] via-[#090a0b] to-[#0f1419]">
-      {/* Gradiente de transição ultra suave no topo - múltiplos pontos para transição imperceptível */}
-      <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black via-[#010101] via-[#020202] via-[#030303] via-[#040404] via-[#050505] to-transparent z-0"></div>
+    <section className="py-32 px-6 relative overflow-hidden bg-[#0f1419]">
+      {/* Gradiente de transição no topo - de preto para cinza escuro */}
+      <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black via-[#010101] via-[#020202] via-[#030303] via-[#040404] via-[#050505] via-[#080a0c] to-[#0f1419] z-0"></div>
+      
+      {/* Gradiente de transição na parte inferior - de cinza escuro para a próxima seção */}
+      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-b from-[#0f1419] via-[#0c0f12] via-[#080a0c] via-[#050607] via-[#020304] to-black z-0"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#95A0A2]/3 via-transparent to-transparent"></div>
 
       {/* Visual elements to break up text */}
