@@ -45,57 +45,57 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-black via-[#0f1419] to-black">
+    <section className="py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-black via-[#0f1419] to-black">
       {/* Background texture */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <AnimatedSection animationType="fade-in" className="text-center mb-20">
-          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('servicesLabel')}</span>
-          <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
+        <AnimatedSection animationType="fade-in" className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <span className="text-lynx-gray font-space text-xs sm:text-sm tracking-widest uppercase mb-3 sm:mb-4 block">{t('servicesLabel')}</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-space font-bold text-white mb-6 sm:mb-8 leading-tight px-2">
             {t('servicesTitle')}
             <span className="block text-lynx-gray">{t('servicesTitle2')}</span>
           </h2>
-          <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed px-4">
             {t('servicesSubtitle')}
           </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service, index) => (
             <AnimatedSection 
               key={index}
               animationType="scale-in"
               delay={Math.min(index + 1, 6)}
             >
-              <div className="group relative p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-700 hover-lift backdrop-blur-sm">
+              <div className="group relative p-4 sm:p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-700 hover-lift backdrop-blur-sm">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 <div className="relative z-10">
-                  <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
-                    {service.icon === 'target' && <Target className="w-8 h-8 text-lynx-gray" />}
-                    {service.icon === 'sparkles' && <Sparkles className="w-8 h-8 text-lynx-gray" />}
-                    {service.icon === 'monitor' && <Monitor className="w-8 h-8 text-lynx-gray" />}
-                    {service.icon === 'palette' && <Palette className="w-8 h-8 text-lynx-gray" />}
-                    {service.icon === 'play' && <Play className="w-8 h-8 text-lynx-gray" />}
-                    {service.icon === 'lightbulb' && <Lightbulb className="w-8 h-8 text-lynx-gray" />}
+                  <div className="mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                    {service.icon === 'target' && <Target className="w-6 h-6 sm:w-8 sm:h-8 text-lynx-gray" />}
+                    {service.icon === 'sparkles' && <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-lynx-gray" />}
+                    {service.icon === 'monitor' && <Monitor className="w-6 h-6 sm:w-8 sm:h-8 text-lynx-gray" />}
+                    {service.icon === 'palette' && <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-lynx-gray" />}
+                    {service.icon === 'play' && <Play className="w-6 h-6 sm:w-8 sm:h-8 text-lynx-gray" />}
+                    {service.icon === 'lightbulb' && <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-lynx-gray" />}
                   </div>
 
-                  <h3 className="text-2xl font-space font-semibold text-white mb-4 group-hover:text-lynx-gray transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-space font-semibold text-white mb-3 sm:mb-4 group-hover:text-lynx-gray transition-colors duration-300">
                     {service.title}
                   </h3>
 
-                  <p className="text-lynx-gray font-inter leading-relaxed mb-6">
+                  <p className="text-sm sm:text-base text-lynx-gray font-inter leading-relaxed mb-4 sm:mb-6">
                     {service.description}
                   </p>
 
                   <div className="space-y-2">
                     {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-3">
-                        <div className="w-1.5 h-1.5 bg-lynx-gray rounded-full group-hover:bg-white transition-colors duration-300"></div>
-                        <span className="text-sm text-lynx-gray font-inter group-hover:text-white transition-colors duration-300">
+                      <div key={featureIndex} className="flex items-center gap-2 sm:gap-3">
+                        <div className="w-1.5 h-1.5 bg-lynx-gray rounded-full group-hover:bg-white transition-colors duration-300 flex-shrink-0"></div>
+                        <span className="text-xs sm:text-sm text-lynx-gray font-inter group-hover:text-white transition-colors duration-300">
                           {feature}
                         </span>
                       </div>

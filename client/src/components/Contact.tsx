@@ -10,7 +10,7 @@ const Contact = () => {
   const { t } = useLanguage();
   
   return (
-    <section id="contact" className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-[#95A0A2]/5 via-black to-black">
+    <section id="contact" className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#95A0A2]/5 via-black to-black">
       {/* Animated Mesh Background */}
       <AnimatedMesh />
       <ParticleSystem particleCount={12} color="#95A0A2" speed={0.8} size={3} />
@@ -28,29 +28,29 @@ const Contact = () => {
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <AnimatedSection animationType="fade-in">
-          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('contactLabel')}</span>
-          <h2 className="text-4xl md:text-6xl font-space font-bold text-white mb-8 leading-tight">
+          <span className="text-lynx-gray font-space text-xs sm:text-sm tracking-widest uppercase mb-3 sm:mb-4 block">{t('contactLabel')}</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-space font-bold text-white mb-6 sm:mb-8 leading-tight px-2">
             {t('contactTitle')}
             <span className="block text-lynx-gray">{t('contactTitle2')}</span>
             <span className="block">{t('contactTitle3')}</span>
           </h2>
           
-          <p className="text-xl md:text-2xl text-lynx-gray mb-16 font-inter max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-lynx-gray mb-12 sm:mb-14 lg:mb-16 font-inter max-w-3xl mx-auto leading-relaxed px-4">
             {t('contactSubtitle')}
           </p>
         </AnimatedSection>
         
         <AnimatedSection animationType="scale-in" delay={1}>
-          <div className="space-y-8">
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
             <a 
               href="https://wa.me/17329276563"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden btn-glow"
+              className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden btn-glow text-sm sm:text-base"
             >
-              <span className="relative z-10 flex items-center gap-3">
-                <MessageCircle className="w-5 h-5 icon-bounce" />
+              <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 icon-bounce" />
                 {t('startConversation')}
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -60,10 +60,10 @@ const Contact = () => {
               href="https://instagram.com/lynx.com.br"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105 btn-glow"
+              className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105 btn-glow text-sm sm:text-base"
             >
-              <span className="relative z-10 flex items-center gap-3">
-                <Instagram className="w-5 h-5 icon-bounce icon-pulse" />
+              <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 icon-bounce icon-pulse" />
                 {t('followInstagram')}
               </span>
             </a>

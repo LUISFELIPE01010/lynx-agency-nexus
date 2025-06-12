@@ -60,7 +60,7 @@ const Projects = () => {
   return (
     <section 
       id="projects" 
-      className="py-16 sm:py-20 lg:py-24 relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
       style={{
         backgroundImage: 'url(/banner2.jpg)',
         backgroundSize: 'cover',
@@ -77,13 +77,13 @@ const Projects = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-30">
-        <AnimatedSection animationType="fade-in" className="text-center mb-20">
-          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('portfolioLabel')}</span>
-          <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
+        <AnimatedSection animationType="fade-in" className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <span className="text-lynx-gray font-space text-xs sm:text-sm tracking-widest uppercase mb-3 sm:mb-4 block">{t('portfolioLabel')}</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-space font-bold text-white mb-6 sm:mb-8 leading-tight px-2">
             {t('portfolioTitle')}
             <span className="block text-lynx-gray">{t('portfolioTitle2')}</span>
           </h2>
-          <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed px-4">
             {t('portfolioSubtitle')}
           </p>
         </AnimatedSection>
@@ -106,33 +106,33 @@ const Projects = () => {
               </div>
 
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                     {project.tags.map((tag, tagIndex) => (
                       <span 
                         key={tagIndex}
-                        className="px-3 py-1 text-xs font-space text-lynx-gray bg-white/10 rounded-full backdrop-blur-sm"
+                        className="px-2 sm:px-3 py-0.5 sm:py-1 text-xs font-space text-lynx-gray bg-white/10 rounded-full backdrop-blur-sm"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <h3 className="text-2xl font-space font-bold text-white mb-2">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-space font-bold text-white mb-1.5 sm:mb-2">
                     {project.title}
                   </h3>
 
-                  <p className="text-lynx-gray font-inter text-sm mb-1">
+                  <p className="text-lynx-gray font-inter text-xs sm:text-sm mb-1">
                     {project.category}
                   </p>
 
-                  <p className="text-lynx-gray font-inter text-sm leading-relaxed">
+                  <p className="text-lynx-gray font-inter text-xs sm:text-sm leading-relaxed mb-2 sm:mb-3 lg:mb-4">
                     {project.description}
                   </p>
 
-                  <div className="flex items-center gap-2 mt-4 text-white">
-                    <span className="text-sm font-space">{t('viewProject')}</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center gap-2 mt-3 sm:mt-4 text-white">
+                    <span className="text-xs sm:text-sm font-space">{t('viewProject')}</span>
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
