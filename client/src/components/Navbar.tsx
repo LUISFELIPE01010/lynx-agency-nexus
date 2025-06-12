@@ -24,7 +24,7 @@ const Navbar = () => {
       top: 0,
       paddingTop: 'env(safe-area-inset-top, 0px)'
     }}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-center text-xs sm:text-sm font-normal relative pt-[16px] pb-[16px] pl-[24px] pr-[24px] mt-[6px] mb-[6px]">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-center text-xs sm:text-sm font-normal relative pt-[16px] pb-[16px] pl-[24px] pr-[24px] mt-[18px] mb-[18px]">
         <div className="flex items-center gap-6 sm:gap-12 absolute left-1/2" style={{ transform: 'translateX(calc(-50% + 12px))' }}>
           <Link 
             to="/"
