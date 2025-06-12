@@ -104,6 +104,16 @@ body {
   div, section, main, article {
     background-color: inherit;
   }
+  
+  /* Ensure Hero section containers are transparent on mobile */
+  section div {
+    background-color: transparent !important;
+  }
+  
+  /* Specifically target Hero section divs */
+  .relative.z-10 div {
+    background-color: transparent !important;
+  }
 }
 
 /* GPU acceleration for critical elements */

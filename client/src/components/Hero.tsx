@@ -82,9 +82,9 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto">
+      <div className="relative z-10 w-full max-w-7xl mx-auto bg-transparent">
         {/* Logo and Title aligned to left */}
-        <div className="text-left mb-8 sm:mb-16">
+        <div className="text-left mb-8 sm:mb-16 bg-transparent">
           {/* Main Logo */}
           <div ref={logoRef} className="mb-8 sm:mb-12">
             <img 
@@ -94,7 +94,7 @@ const Hero = () => {
             />
           </div>
 
-          <div className="text-left max-w-4xl">
+          <div className="text-left max-w-4xl bg-transparent">
             <p 
               ref={subtitleRef}
               className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-inter text-lynx-gray mb-2 sm:mb-4 leading-tight font-light"
