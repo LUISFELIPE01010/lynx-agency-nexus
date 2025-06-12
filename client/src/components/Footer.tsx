@@ -92,7 +92,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-lynx-gray/10">
+        <div className="pt-8">
           <div className="flex justify-center items-center">
             <p className="text-lynx-gray text-sm font-inter">
               © 2025 Lynx Agency. {t('allRightsReserved')}
