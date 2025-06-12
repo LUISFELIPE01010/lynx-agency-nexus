@@ -128,8 +128,8 @@ const About = () => {
 
           <AnimatedSection animationType="slide-in-right" className="relative">
             <div className="relative aspect-square">
-              {/* Main video container with reduced size */}
-              <div className="absolute inset-16 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-2xl backdrop-blur-sm overflow-hidden hover-lift">
+              {/* Main video container with full coverage */}
+              <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-2xl backdrop-blur-sm overflow-hidden hover-lift">
                 <video 
                   src="/gifworld.mp4" 
                   className="w-full h-full object-cover opacity-100 transition-opacity duration-500"
@@ -137,21 +137,7 @@ const About = () => {
                   muted
                   loop
                   playsInline
-                  preload="none"
-                  disablePictureInPicture
-                  disableRemotePlayback
-                  controls={false}
-                  onLoadStart={(e) => {
-                    const video = e.target as HTMLVideoElement;
-                    video.playbackRate = 1;
-                  }}
-                  onCanPlay={(e) => {
-                    const video = e.target as HTMLVideoElement;
-                    video.play().catch(() => {
-                      // Fallback if autoplay fails
-                      console.log('Autoplay prevented, video will play on interaction');
-                    });
-                  }}
+                  preload="metadata"
                 />
               </div>
 

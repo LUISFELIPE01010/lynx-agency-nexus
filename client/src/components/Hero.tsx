@@ -57,7 +57,7 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ margin: 0, padding: 0, top: 0, left: 0, right: 0 }}>
       <ParticleSystem particleCount={8} color="#95A0A2" speed={0.6} size={2} />
       
       {/* Background image with dark overlay and zoom effect */}
@@ -65,10 +65,16 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat zoom-on-scroll"
         style={{ 
           backgroundImage: "url('/lovable-uploads/0d403c09-120c-4221-af4a-d5006bd4513e.png')",
+          margin: 0,
+          padding: 0,
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           ...getZoomTransform()
         }}
       ></div>
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/60" style={{ margin: 0, padding: 0 }}></div>
 
 
 
@@ -76,30 +82,37 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-16 sm:pt-0">
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
         {/* Logo and Title aligned to left */}
         <div className="text-left mb-8 sm:mb-16">
-          
+          {/* Main Logo */}
+          <div ref={logoRef} className="mb-8 sm:mb-12">
+            <img 
+              src="/LYNXx.png" 
+              alt="Lynx Agency" 
+              className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 object-contain opacity-90"
+            />
+          </div>
 
           <div className="text-left max-w-4xl">
             <p 
               ref={subtitleRef}
-              className="text-base sm:text-xl md:text-3xl lg:text-5xl font-inter text-lynx-gray mb-2 sm:mb-3 md:mb-4 leading-tight font-light"
+              className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-inter text-lynx-gray mb-2 sm:mb-4 leading-tight font-light"
             >
               {t('heroSubtitle1')}
             </p>
 
             <p 
               ref={subtitleRef}
-              className="text-base sm:text-xl md:text-3xl lg:text-5xl font-inter text-white mb-6 sm:mb-10 md:mb-16 leading-tight font-light"
+              className="text-lg sm:text-2xl md:text-4xl lg:text-5xl font-inter text-white mb-8 sm:mb-16 leading-tight font-light"
             >
               {t('heroSubtitle2')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
+            <div className="flex flex-col sm:flex-row gap-6 items-start">
               <button 
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl btn-glow text-sm sm:text-base"
+                className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl btn-glow"
               >
                 <span className="relative z-10">{t('exploreWork')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -109,7 +122,7 @@ const Hero = () => {
                 href="https://wa.me/17329276563"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105 btn-glow text-sm sm:text-base text-center"
+                className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105 btn-glow"
               >
                 {t('startProject')}
               </a>
