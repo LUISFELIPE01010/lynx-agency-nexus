@@ -10,7 +10,7 @@ const Contact = () => {
   const { t } = useLanguage();
   
   return (
-    <section id="contact" className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-[#95A0A2]/5 via-black to-black">
+    <section id="contact" className="py-20 sm:py-32 lg:py-40 px-6 sm:px-8 lg:px-12 relative overflow-hidden bg-gradient-to-b from-[#95A0A2]/5 via-black to-black">
       {/* Animated Mesh Background */}
       <AnimatedMesh />
       <ParticleSystem particleCount={12} color="#95A0A2" speed={0.8} size={3} />
@@ -28,14 +28,14 @@ const Contact = () => {
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <AnimatedSection animationType="fade-in">
-          <span className="text-lynx-gray font-space text-xs sm:text-sm tracking-widest uppercase mb-3 sm:mb-4 block">{t('contactLabel')}</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-space font-bold text-white mb-6 sm:mb-8 leading-tight px-2">
+          <span className="text-lynx-gray font-space text-sm sm:text-base tracking-widest uppercase mb-6 sm:mb-8 block">{t('contactLabel')}</span>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-space font-bold text-white mb-8 sm:mb-12 leading-tight">
             {t('contactTitle')}
             <span className="block text-lynx-gray">{t('contactTitle2')}</span>
             <span className="block">{t('contactTitle3')}</span>
           </h2>
           
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-lynx-gray mb-12 sm:mb-14 lg:mb-16 font-inter max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-lynx-gray mb-16 sm:mb-20 lg:mb-24 font-inter max-w-4xl mx-auto leading-relaxed">
             {t('contactSubtitle')}
           </p>
         </AnimatedSection>
