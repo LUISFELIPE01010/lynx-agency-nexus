@@ -74,34 +74,34 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-20 sm:pt-0">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-4 sm:pt-0">
         {/* Logo and Title aligned to left */}
-        <div className="text-left mb-12 sm:mb-20">
+        <div className="text-left mb-6 sm:mb-20">
           {/* Main Logo */}
-          <div ref={logoRef} className="mb-10 sm:mb-16">
+          <div ref={logoRef} className="mb-4 sm:mb-16">
             <img 
               src="/LYNXx.png" 
               alt="Lynx Agency" 
-              className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 object-contain opacity-90"
+              className="w-24 h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 object-contain opacity-90"
             />
           </div>
 
-          <div className="text-left max-w-5xl space-y-6 sm:space-y-8">
+          <div className="text-left max-w-5xl space-y-3 sm:space-y-8">
             <p 
               ref={subtitleRef}
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-inter text-lynx-gray leading-tight font-light"
+              className="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-inter text-lynx-gray leading-tight font-light"
             >
               {t('heroSubtitle1')}
             </p>
 
             <p 
               ref={subtitleRef}
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-inter text-white leading-tight font-light"
+              className="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-inter text-white leading-tight font-light"
             >
               {t('heroSubtitle2')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 pt-10 sm:pt-16">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 pt-6 sm:pt-16">
               <button 
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
                 className="group relative w-full sm:w-auto px-10 py-5 sm:px-12 sm:py-6 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl btn-glow text-lg sm:text-xl"

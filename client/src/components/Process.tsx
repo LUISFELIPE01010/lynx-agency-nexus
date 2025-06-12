@@ -58,13 +58,13 @@ const Process = () => {
           </p>
         </AnimatedSection>
 
-        <div className="space-y-16">
+        <div className="space-y-24 sm:space-y-16">
           {steps.map((step, index) => (
             <AnimatedSection
               key={index}
               animationType={index % 2 === 0 ? "slide-in-left" : "slide-in-right"}
               delay={Math.min(index + 1, 6)}
-              className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}
+              className={`grid lg:grid-cols-2 gap-12 sm:gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''} py-8 sm:py-0`}
             >
               <div>
                 <div className="space-y-6">

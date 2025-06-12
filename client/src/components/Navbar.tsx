@@ -25,22 +25,22 @@ const Navbar = () => {
       paddingTop: 'env(safe-area-inset-top, 0px)'
     }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4 sm:py-5 flex items-center justify-between">
-        <div className="flex items-center gap-8 sm:gap-12 flex-1 justify-center">
+        <div className="flex items-center gap-4 sm:gap-8 md:gap-12 flex-1 justify-center">
           <Link 
             to="/"
-            className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-base transition-colors duration-300"
+            className="text-white hover:text-lynx-gray menu-item font-space text-xs sm:text-sm md:text-base transition-colors duration-300"
           >
             {t('home')}
           </Link>
           <Link 
             to="/gallery"
-            className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-base transition-colors duration-300"
+            className="text-white hover:text-lynx-gray menu-item font-space text-xs sm:text-sm md:text-base transition-colors duration-300"
           >
             {t('gallery')}
           </Link>
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-base transition-colors duration-300"
+            className="text-white hover:text-lynx-gray menu-item font-space text-xs sm:text-sm md:text-base transition-colors duration-300"
           >
             Contact
           </button>

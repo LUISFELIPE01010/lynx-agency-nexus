@@ -55,22 +55,22 @@ const BrandImportance = () => {
         </AnimatedSection>
 
         {/* Brand Points Grid */}
-        <div className="space-y-24">
+        <div className="space-y-32 sm:space-y-24">
           {brandPoints.map((point, index) => {
             const isLeft = index % 2 === 0;
             return (
               <AnimatedSection 
                 key={index}
-                animationType="scale-in"
-                delay={index + 1}
-                className="group"
+                animationType="fade-in"
+                delay={Math.min(index * 0.5 + 1, 3)}
+                className="group py-8 sm:py-0"
               >
-                <div className="grid grid-cols-12 gap-8 items-center">
+                <div className="grid grid-cols-12 gap-8 sm:gap-8 items-center">
                   {/* Content side */}
                   <div className={`col-span-12 lg:col-span-5 ${
                     isLeft ? 'lg:order-1' : 'lg:order-3'
-                  }`}>
-                    <div className={`space-y-6 ${isLeft ? 'lg:text-left' : 'lg:text-right'} text-center hover:scale-105 transition-transform duration-500`}>
+                  } px-4 sm:px-0`}>
+                    <div className={`space-y-8 sm:space-y-6 ${isLeft ? 'lg:text-left' : 'lg:text-right'} text-center hover:scale-105 transition-transform duration-500`}>
                       {/* Icon and Number */}
                       <div className={`flex items-center gap-4 ${
                         isLeft ? 'lg:justify-start' : 'lg:justify-end'
