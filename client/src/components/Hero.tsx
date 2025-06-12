@@ -3,7 +3,9 @@ import { gsap } from 'gsap';
 import { ArrowDown } from 'lucide-react';
 import logoPng from '@/logop.png';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useScrollAnimations } from '@/hooks/useScrollAnimations';
 import OptimizedImage from './OptimizedImage';
+import ParticleSystem from './ParticleSystem';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -11,6 +13,10 @@ const Hero = () => {
   const logoRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
+  const { getParallaxTransform, getZoomTransform } = useScrollAnimations({
+    parallaxSpeed: 0.3,
+    zoomSpeed: 0.05
+  });
 
   useEffect(() => {
     // Fast, lightweight animations with null checks
@@ -52,9 +58,11 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ margin: 0, padding: 0, top: 0, left: 0, right: 0 }}>
-      {/* Background image with dark overlay */}
+      <ParticleSystem particleCount={8} color="#95A0A2" speed={0.6} size={2} />
+      
+      {/* Background image with dark overlay and zoom effect */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat zoom-on-scroll"
         style={{ 
           backgroundImage: "url('/lovable-uploads/0d403c09-120c-4221-af4a-d5006bd4513e.png')",
           margin: 0,
@@ -62,7 +70,8 @@ const Hero = () => {
           top: 0,
           left: 0,
           right: 0,
-          bottom: 0
+          bottom: 0,
+          ...getZoomTransform()
         }}
       ></div>
       <div className="absolute inset-0 bg-black/60" style={{ margin: 0, padding: 0 }}></div>
@@ -103,7 +112,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               <button 
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+                className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl btn-glow"
               >
                 <span className="relative z-10">{t('exploreWork')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -113,7 +122,7 @@ const Hero = () => {
                 href="https://wa.me/17329276563"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105"
+                className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105 btn-glow"
               >
                 {t('startProject')}
               </a>

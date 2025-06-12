@@ -1,4 +1,5 @@
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { ScrollAnimatedSection } from '@/hooks/useScrollAnimations';
 import { useLanguage } from '../contexts/LanguageContext';
 import CSSAnimatedOverlay from './CSSAnimatedOverlay';
 
@@ -89,12 +90,12 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
-            <AnimatedSection
+            <ScrollAnimatedSection
               key={project.id}
-              animationType="scale-in"
-              delay={Math.min(index + 1, 6)}
+              animationType="slide-up"
+              className="group relative cursor-pointer overflow-hidden rounded-2xl bg-lynx-gray/5 border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl section-transition"
             >
-              <div className="group relative cursor-pointer overflow-hidden rounded-2xl bg-lynx-gray/5 border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-300 hover-lift">
+              <div>
                 <div className="aspect-square overflow-hidden">
                 <img 
                   src={project.image}
@@ -144,8 +145,7 @@ const Projects = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </div>
-              </div>
-            </AnimatedSection>
+            </ScrollAnimatedSection>
           ))}
         </div>
 
