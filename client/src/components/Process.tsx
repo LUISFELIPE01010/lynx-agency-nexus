@@ -32,17 +32,17 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-br from-[#0f1419] via-[#121821] to-[#0a0e15]">
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-black via-[#0f1419] to-black">
+      {/* Background texture - idêntico ao Services */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>
+      </div>
+      
       {/* Gradiente de transição no topo - de preto para cinza escuro */}
       <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black via-[#010101] via-[#020202] via-[#030303] via-[#040404] via-[#050505] via-[#080a0c] to-[#0f1419] z-0"></div>
       
       {/* Gradiente de transição na parte inferior - de cinza escuro para a próxima seção */}
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-b from-[#0f1419] via-[#0c0f12] via-[#080a0c] via-[#050607] via-[#020304] to-black z-0"></div>
-      
-      {/* Gradientes sutis para tornar o fundo mais harmonioso */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#95A0A2]/8 via-transparent to-transparent"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-[#95A0A2]/5 via-transparent to-transparent"></div>
-      <div className="absolute inset-0 bg-[linear-gradient(45deg,_var(--tw-gradient-stops))] from-transparent via-[#95A0A2]/2 to-transparent opacity-30"></div>
 
       {/* Visual elements to break up text */}
       <div className="absolute bottom-20 left-10 w-24 h-24 bg-[#95A0A2]/5 rounded-full blur-xl"></div>
