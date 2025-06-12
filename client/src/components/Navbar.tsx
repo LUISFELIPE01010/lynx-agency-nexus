@@ -28,19 +28,19 @@ const Navbar = () => {
         <div className="flex items-center gap-6 sm:gap-12 absolute left-1/2" style={{ transform: 'translateX(calc(-50% + 12px))' }}>
           <Link 
             to="/"
-            className="text-white hover:text-lynx-gray transition-colors duration-300 font-space text-xs sm:text-sm"
+            className="text-white hover:text-lynx-gray menu-item font-space text-xs sm:text-sm"
           >
             {t('home')}
           </Link>
           <Link 
             to="/gallery"
-            className="text-white hover:text-lynx-gray transition-colors duration-300 font-space text-xs sm:text-sm"
+            className="text-white hover:text-lynx-gray menu-item font-space text-xs sm:text-sm"
           >
             {t('gallery')}
           </Link>
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-white hover:text-lynx-gray transition-colors duration-300 font-space text-xs sm:text-sm"
+            className="text-white hover:text-lynx-gray menu-item font-space text-xs sm:text-sm"
           >
             Contact
           </button>

@@ -1,13 +1,20 @@
 
 import { MessageCircle, Mail, Instagram } from 'lucide-react';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { ScrollAnimatedSection } from '@/hooks/useScrollAnimations';
 import { useLanguage } from '../contexts/LanguageContext';
+import AnimatedMesh from './AnimatedMesh';
+import ParticleSystem from './ParticleSystem';
 
 const Contact = () => {
   const { t } = useLanguage();
   
   return (
     <section id="contact" className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-[#95A0A2]/5 via-black to-black">
+      {/* Animated Mesh Background */}
+      <AnimatedMesh />
+      <ParticleSystem particleCount={12} color="#95A0A2" speed={0.8} size={3} />
+      
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -40,10 +47,10 @@ const Contact = () => {
               href="https://wa.me/17329276563"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden"
+              className="group relative px-8 py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden btn-glow"
             >
               <span className="relative z-10 flex items-center gap-3">
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5 icon-bounce" />
                 {t('startConversation')}
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -53,10 +60,10 @@ const Contact = () => {
               href="https://instagram.com/lynx.com.br"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105"
+              className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105 btn-glow"
             >
               <span className="relative z-10 flex items-center gap-3">
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5 icon-bounce icon-pulse" />
                 {t('followInstagram')}
               </span>
             </a>
