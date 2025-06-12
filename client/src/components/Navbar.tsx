@@ -25,7 +25,7 @@ const Navbar = () => {
       paddingTop: 'env(safe-area-inset-top, 0px)'
     }}>
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-center text-xs sm:text-sm font-normal relative">
-        <div className="flex items-center gap-6 sm:gap-12 absolute left-1/2" style={{ transform: 'translateX(calc(-50% + 6px))' }}>
+        <div className="flex items-center gap-6 sm:gap-12 absolute left-1/2" style={{ transform: 'translateX(calc(-50% + 12px))' }}>
           <Link 
             to="/"
             className="text-white hover:text-lynx-gray transition-colors duration-300 font-space text-xs sm:text-sm"
