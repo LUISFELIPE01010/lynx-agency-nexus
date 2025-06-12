@@ -45,7 +45,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-black via-[#0f1419] to-black">
+    <section className="py-20 sm:py-32 lg:py-40 px-6 sm:px-8 lg:px-12 relative overflow-hidden bg-gradient-to-b from-black via-[#0f1419] to-black">
       {/* Background texture */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>

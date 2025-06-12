@@ -60,7 +60,7 @@ const Projects = () => {
   return (
     <section 
       id="projects" 
-      className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="py-20 sm:py-32 lg:py-40 px-6 sm:px-8 lg:px-12 relative overflow-hidden"
       style={{
         backgroundImage: 'url(/banner2.jpg)',
         backgroundSize: 'cover',
@@ -77,9 +77,9 @@ const Projects = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-30">
-        <AnimatedSection animationType="fade-in" className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <span className="text-lynx-gray font-space text-xs sm:text-sm tracking-widest uppercase mb-3 sm:mb-4 block">{t('portfolioLabel')}</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-space font-bold text-white mb-6 sm:mb-8 leading-tight px-2">
+        <AnimatedSection animationType="fade-in" className="text-center mb-16 sm:mb-24 lg:mb-32">
+          <span className="text-lynx-gray font-space text-sm sm:text-base tracking-widest uppercase mb-6 sm:mb-8 block">{t('portfolioLabel')}</span>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-space font-bold text-white mb-8 sm:mb-12 leading-tight">
             {t('portfolioTitle')}
             <span className="block text-lynx-gray">{t('portfolioTitle2')}</span>
           </h2>

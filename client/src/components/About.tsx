@@ -45,7 +45,7 @@ const CountUp = ({ target, duration = 2000, suffix = "" }: { target: number; dur
   }, [target, duration, hasStarted]);
 
   return (
-    <div ref={elementRef} className="text-3xl font-space font-bold text-white">
+    <div ref={elementRef} className="text-2xl sm:text-3xl lg:text-4xl font-space font-bold text-white">
       {count}{suffix}
     </div>
   );
@@ -55,7 +55,7 @@ const About = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="about" className="py-20 sm:py-32 lg:py-40 px-6 sm:px-8 lg:px-12 relative overflow-hidden">
       {/* Background image with dark overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -68,12 +68,12 @@ const About = () => {
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-8">
+        <div className="grid lg:grid-cols-2 gap-16 sm:gap-20 lg:gap-24 items-center">
+          <div className="space-y-10 sm:space-y-12">
             <AnimatedSection animationType="slide-in-left">
-              <div className="space-y-4">
-                <span className="text-lynx-gray font-space text-sm tracking-widest uppercase">{t('aboutLabel')}</span>
-                <h2 className="text-5xl md:text-7xl font-space font-bold text-white leading-tight">
+              <div className="space-y-6 sm:space-y-8">
+                <span className="text-lynx-gray font-space text-sm sm:text-base tracking-widest uppercase">{t('aboutLabel')}</span>
+                <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-space font-bold text-white leading-tight">
                   {t('aboutTitle')}
                   <span className="block text-lynx-gray">{t('aboutTitle2')}</span>
                   <span className="block">{t('aboutTitle3')}</span>
@@ -86,7 +86,7 @@ const About = () => {
             </AnimatedSection>
 
             <AnimatedSection animationType="fade-in" delay={2}>
-              <div className="space-y-6 text-lg leading-relaxed">
+              <div className="space-y-6 sm:space-y-8 text-base sm:text-lg lg:text-xl leading-relaxed">
                 <p className="text-lynx-gray font-inter">
                   {t('aboutParagraph1')}
                 </p>
@@ -100,26 +100,26 @@ const About = () => {
             </AnimatedSection>
 
             <AnimatedSection animationType="slide-in-up" delay={3}>
-              <div className="flex flex-wrap gap-8 pt-8">
-                <div className="flex items-center gap-2 hover-scale">
-                  <span className="text-lynx-gray text-xs">•</span>
+              <div className="flex flex-wrap gap-6 sm:gap-8 lg:gap-12 pt-8 sm:pt-12">
+                <div className="flex items-center gap-3 hover-scale">
+                  <span className="text-lynx-gray text-sm">•</span>
                   <div>
                     <CountUp target={50} suffix="+" duration={2500} />
-                    <div className="text-lynx-gray text-sm font-inter">Brands Transformed</div>
+                    <div className="text-lynx-gray text-sm sm:text-base font-inter">Brands Transformed</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 hover-scale">
-                  <span className="text-lynx-gray text-xs">•</span>
+                <div className="flex items-center gap-3 hover-scale">
+                  <span className="text-lynx-gray text-sm">•</span>
                   <div>
                     <CountUp target={8} suffix="+" duration={2000} />
-                    <div className="text-lynx-gray text-sm font-inter">Years of Excellence</div>
+                    <div className="text-lynx-gray text-sm sm:text-base font-inter">Years of Excellence</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 hover-scale">
-                  <span className="text-lynx-gray text-xs">•</span>
+                <div className="flex items-center gap-3 hover-scale">
+                  <span className="text-lynx-gray text-sm">•</span>
                   <div>
                     <CountUp target={25} suffix="+" duration={2200} />
-                    <div className="text-lynx-gray text-sm font-inter">Countries Reached</div>
+                    <div className="text-lynx-gray text-sm sm:text-base font-inter">Countries Reached</div>
                   </div>
                 </div>
               </div>
