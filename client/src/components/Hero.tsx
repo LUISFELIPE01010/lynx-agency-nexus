@@ -74,37 +74,37 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-4 sm:pt-0">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-16 sm:pt-20">
         {/* Logo and Title aligned to left */}
-        <div className="text-left mb-6 sm:mb-20">
+        <div className="text-left mb-4 sm:mb-8">
           {/* Main Logo */}
-          <div ref={logoRef} className="mb-4 sm:mb-16">
+          <div ref={logoRef} className="mb-3 sm:mb-6">
             <img 
               src="/LYNXx.png" 
               alt="Lynx Agency" 
-              className="w-24 h-24 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 object-contain opacity-90"
+              className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 object-contain opacity-90"
             />
           </div>
 
-          <div className="text-left max-w-5xl space-y-3 sm:space-y-8">
+          <div className="text-left max-w-5xl space-y-2 sm:space-y-4">
             <p 
               ref={subtitleRef}
-              className="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-inter text-lynx-gray leading-tight font-light"
+              className="text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-inter text-lynx-gray leading-tight font-light"
             >
               {t('heroSubtitle1')}
             </p>
 
             <p 
               ref={subtitleRef}
-              className="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-inter text-white leading-tight font-light"
+              className="text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-inter text-white leading-tight font-light"
             >
               {t('heroSubtitle2')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 pt-6 sm:pt-16">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 pt-4 sm:pt-8">
               <button 
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group relative w-full sm:w-auto px-10 py-5 sm:px-12 sm:py-6 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl btn-glow text-lg sm:text-xl"
+                className="group relative w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-500 hover:scale-105 hover:shadow-2xl btn-glow text-base sm:text-lg"
               >
                 <span className="relative z-10">{t('exploreWork')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -114,7 +114,7 @@ const Hero = () => {
                 href="https://wa.me/17329276563"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-full sm:w-auto px-10 py-5 sm:px-12 sm:py-6 border-2 border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105 btn-glow text-lg sm:text-xl text-center"
+                className="group relative w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 border-2 border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 hover:scale-105 btn-glow text-base sm:text-lg text-center"
               >
                 {t('startProject')}
               </a>
@@ -126,7 +126,7 @@ const Hero = () => {
       <div 
         ref={arrowRef}
         onClick={scrollToNext}
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer group"
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer group"
       >
         <div className="p-4 rounded-full border border-lynx-gray/30 group-hover:border-white transition-all duration-300 group-hover:bg-white/5">
           <ArrowDown className="text-lynx-gray group-hover:text-white w-6 h-6 transition-colors duration-300" />
