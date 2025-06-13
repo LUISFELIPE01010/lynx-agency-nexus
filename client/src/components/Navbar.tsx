@@ -24,41 +24,41 @@ const Navbar = () => {
       top: 0,
       paddingTop: 'env(safe-area-inset-top, 0px)'
     }}>
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-2 sm:py-3 flex items-center justify-between">
-        <div className="flex items-center gap-4 sm:gap-8 md:gap-12 flex-1 justify-center">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-12 py-2 sm:py-3 flex items-center justify-between">
+        <div className="flex items-center gap-3 sm:gap-6 md:gap-8 flex-1 justify-center">
           <Link 
             to="/"
-            className="text-white hover:text-lynx-gray menu-item font-space text-xs sm:text-sm md:text-base transition-colors duration-300"
+            className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-sm md:text-base transition-colors duration-300 flex items-center"
           >
             {t('home')}
           </Link>
           <Link 
             to="/gallery"
-            className="text-white hover:text-lynx-gray menu-item font-space text-xs sm:text-sm md:text-base transition-colors duration-300"
+            className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-sm md:text-base transition-colors duration-300 flex items-center"
           >
             {t('gallery')}
           </Link>
           <button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-white hover:text-lynx-gray menu-item font-space text-xs sm:text-sm md:text-base transition-colors duration-300"
+            className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-sm md:text-base transition-colors duration-300 flex items-center"
           >
             Contact
           </button>
         </div>
         
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={() => setLanguage('en')}
-            className={`text-sm sm:text-base font-medium transition-colors duration-300 ${
+            className={`text-sm sm:text-base font-medium transition-colors duration-300 flex items-center ${
               language === 'en' ? 'text-white' : 'text-lynx-gray hover:text-white'
             }`}
           >
             EN
           </button>
-          <span className="text-lynx-gray text-sm sm:text-base">|</span>
+          <span className="text-lynx-gray text-sm sm:text-base flex items-center">|</span>
           <button
             onClick={() => setLanguage('pt')}
-            className={`text-sm sm:text-base font-medium transition-colors duration-300 ${
+            className={`text-sm sm:text-base font-medium transition-colors duration-300 flex items-center ${
               language === 'pt' ? 'text-white' : 'text-lynx-gray hover:text-white'
             }`}
           >
