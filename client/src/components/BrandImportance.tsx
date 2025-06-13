@@ -27,7 +27,7 @@ const BrandImportance = () => {
   ];
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-black via-[#95A0A2]/10 to-black">
+    <section className="py-32 sm:py-32 pt-48 sm:pt-32 px-6 relative overflow-hidden bg-gradient-to-b from-black via-[#95A0A2]/10 to-black">
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
