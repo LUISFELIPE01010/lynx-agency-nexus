@@ -265,6 +265,25 @@ body {
   }
 }
 
+/* Product carousel animation */
+@keyframes product-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.animate-product-scroll {
+  animation: product-scroll 40s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Mobile optimization for product carousel */
+@media (max-width: 768px) {
+  .animate-product-scroll {
+    animation: product-scroll 30s linear infinite;
+  }
+}
+
 /* Fade in animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }

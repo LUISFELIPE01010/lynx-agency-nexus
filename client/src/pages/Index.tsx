@@ -9,6 +9,7 @@ import Process from '@/components/Process';
 import ClientCarousel from '@/components/ClientCarousel';
 import BrandImportance from '@/components/BrandImportance';
 import SocialProof from '@/components/SocialProof';
+import ProductCarousel from '@/components/ProductCarousel';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import CSSAnimatedOverlay from '@/components/CSSAnimatedOverlay';
@@ -50,8 +51,9 @@ const Index = () => {
       <Projects />
       <Process />
       <ClientCarousel />
-      <BrandImportance />
+      <ProductCarousel />
       <SocialProof />
+      <BrandImportance />
       <Contact />
       <Footer />
     </div>
