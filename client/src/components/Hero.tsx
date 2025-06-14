@@ -19,26 +19,15 @@ const Hero = () => {
     zoomSpeed: 0.05
   });
 
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
-  // Optimized video loading with callback
+  // Video is already preloaded by VideoPreloader, so just ensure it plays
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      const handleCanPlayThrough = () => {
-        setVideoLoaded(true);
-        video.play().catch(() => {
-          video.muted = true;
-          video.play();
-        });
-      };
-
-      video.addEventListener('canplaythrough', handleCanPlayThrough);
-      video.load();
-
-      return () => {
-        video.removeEventListener('canplaythrough', handleCanPlayThrough);
-      };
+      // Video should be ready to play since it was preloaded
+      video.play().catch(() => {
+        video.muted = true;
+        video.play();
+      });
     }
   }, []);
 
@@ -82,7 +71,7 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
-      {/* Optimized background video with immediate loading */}
+      {/* Optimized background video - preloaded by VideoPreloader */}
       <video 
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
@@ -91,13 +80,13 @@ const Hero = () => {
         muted
         loop
         playsInline
-        preload="auto"
-        poster=""
+        preload="metadata"
         style={{ 
-          objectFit: 'cover'
+          objectFit: 'cover',
+          willChange: 'transform'
         }}
-        onCanPlay={() => {
-          // Ensure video plays immediately when ready
+        onLoadedData={() => {
+          // Video is ready to play
           if (videoRef.current) {
             videoRef.current.play();
           }
