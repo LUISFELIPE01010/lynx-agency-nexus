@@ -1,5 +1,6 @@
 import { Target, Sparkles, Monitor, Palette, Play, Lightbulb } from 'lucide-react';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { TextReveal } from '@/hooks/useTextReveal';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Services = () => {
@@ -54,10 +55,13 @@ const Services = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <AnimatedSection animationType="fade-in" className="text-center mb-12 sm:mb-16 lg:mb-20">
           <span className="text-lynx-gray font-space text-xs sm:text-sm tracking-widest uppercase mb-3 sm:mb-4 block">{t('servicesLabel')}</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-space font-bold text-white mb-6 sm:mb-8 leading-tight px-2">
+          <TextReveal 
+            as="h2" 
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-space font-bold text-white mb-6 sm:mb-8 leading-tight px-2"
+          >
             {t('servicesTitle')}
             <span className="block text-lynx-gray">{t('servicesTitle2')}</span>
-          </h2>
+          </TextReveal>
           <p className="text-base sm:text-lg lg:text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed px-4">
             {t('servicesSubtitle')}
           </p>

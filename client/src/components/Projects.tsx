@@ -1,4 +1,5 @@
 import { ScrollTriggerWrapper } from '@/hooks/useScrollTrigger';
+import { TextReveal } from '@/hooks/useTextReveal';
 import { useLanguage } from '../contexts/LanguageContext';
 import CSSAnimatedOverlay from './CSSAnimatedOverlay';
 import { Link } from 'wouter';
@@ -68,10 +69,13 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto relative z-30">
         <ScrollTriggerWrapper animationType="fade-in" className="text-center mb-16 sm:mb-24 lg:mb-32">
           <span className="text-lynx-gray font-space text-sm sm:text-base tracking-widest uppercase mb-6 sm:mb-8 block">{t('portfolioLabel')}</span>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-space font-bold text-white mb-8 sm:mb-12 leading-tight">
+          <TextReveal 
+            as="h2" 
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-space font-bold text-white mb-8 sm:mb-12 leading-tight"
+          >
             {t('portfolioTitle')}
             <span className="block text-lynx-gray">{t('portfolioTitle2')}</span>
-          </h2>
+          </TextReveal>
           <p className="text-base sm:text-lg lg:text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed px-4">
             {t('portfolioSubtitle')}
           </p>

@@ -1,5 +1,6 @@
 
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { TextReveal } from '@/hooks/useTextReveal';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Process = () => {
@@ -46,10 +47,13 @@ const Process = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <AnimatedSection animationType="fade-in" className="text-center mb-20">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('ourProcess')}</span>
-          <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
+          <TextReveal 
+            as="h2" 
+            className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight"
+          >
             {t('fromVision')}
             <span className="block text-lynx-gray">{t('toReality')}</span>
-          </h2>
+          </TextReveal>
           <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
             {t('processSubtitle')}
           </p>

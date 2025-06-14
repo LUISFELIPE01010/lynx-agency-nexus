@@ -1,5 +1,6 @@
 import { Target, Users, TrendingUp } from 'lucide-react';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { TextReveal } from '@/hooks/useTextReveal';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const BrandImportance = () => {
@@ -46,10 +47,13 @@ const BrandImportance = () => {
             Why Brand Matters
           </span>
           <div className="w-24 h-px bg-gradient-to-r from-lynx-gray to-transparent mx-auto mb-8"></div>
-          <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
+          <TextReveal 
+            as="h2" 
+            className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight"
+          >
             The Power of
             <span className="block text-lynx-gray">Strategic Branding</span>
-          </h2>
+          </TextReveal>
           <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
             Discover why professional branding is essential for business success in today's competitive landscape
           </p>
