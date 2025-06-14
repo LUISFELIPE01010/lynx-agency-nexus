@@ -106,17 +106,17 @@ const Hero = () => {
             />
           </div>
 
-          <div className="text-left max-w-6xl space-y-2 sm:space-y-3">
+          <div className="text-left max-w-5xl space-y-3 sm:space-y-4">
             <p 
               ref={subtitleRef}
-              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-space text-lynx-gray leading-none font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tighter"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-space text-lynx-gray leading-none font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
             >
               {t('heroSubtitle1')}
             </p>
 
             <p 
               ref={subtitleRef}
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-space text-white leading-none font-black hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tighter"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-space text-white leading-none font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
             >
               {t('heroSubtitle2')}
             </p>
