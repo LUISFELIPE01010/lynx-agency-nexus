@@ -87,23 +87,34 @@ const BrandImportance = () => {
                 delay={index * 0.3 + 0.2}
                 className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} transform transition-all duration-800 ease-out`}
               >
-                <div className="relative aspect-square overflow-hidden rounded-2xl">
-                  <img 
-                    src={`/bb${index + 4}.jpg`}
-                    alt={`Brand importance ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/50"></div>
+                <div className="relative p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 backdrop-blur-sm">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  {/* Overlay content */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-500 bg-black/40 backdrop-blur-sm">
-                    <div className="text-center p-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-lynx-gray/80 to-white/60 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <div className="w-8 h-8 bg-gradient-to-br from-white to-lynx-gray rounded-full"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-16 h-16 bg-gradient-to-br from-lynx-gray/30 to-white/20 rounded-full flex items-center justify-center">
+                        <div className="w-8 h-8 bg-gradient-to-br from-white/40 to-lynx-gray/40 rounded-full"></div>
                       </div>
-                      <h4 className="text-white font-space font-semibold text-lg mb-2">{point.title}</h4>
-                      <p className="text-lynx-gray text-sm">{point.description.substring(0, 50)}...</p>
+                      <div className="w-20 h-px bg-gradient-to-r from-lynx-gray to-transparent"></div>
+                    </div>
+
+                    <h4 className="text-2xl font-space font-semibold text-white mb-4">
+                      {point.title}
+                    </h4>
+
+                    <p className="text-lynx-gray font-inter text-lg leading-relaxed mb-6">
+                      {point.description}
+                    </p>
+
+                    <div className="space-y-3">
+                      {point.details.map((detail, detailIndex) => (
+                        <div key={detailIndex} className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-lynx-gray rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="text-lynx-gray font-inter text-base leading-relaxed">
+                            {detail}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
