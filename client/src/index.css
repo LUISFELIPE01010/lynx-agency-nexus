@@ -665,7 +665,7 @@ img {
 
   /* Ensure content starts below navbar with proper spacing */
   .pt-20 {
-    padding-top: 4rem !important;
+    padding-top: 3rem !important;
   }
 
   /* Remove any potential safe area insets causing white space */
@@ -684,7 +684,7 @@ img {
 
   /* Mobile spacing */
   section {
-    padding-top: 4rem !important;
+    padding-top: 2rem !important;
     padding-bottom: 4rem !important;
   }
 
