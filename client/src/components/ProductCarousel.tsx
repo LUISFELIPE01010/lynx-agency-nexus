@@ -57,20 +57,7 @@ const ProductCarousel = () => {
   const infiniteProducts = [...products, ...products, ...products];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-black relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="text-center">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-space font-bold text-white mb-6">
-            Our
-            <span className="bg-gradient-to-r from-lynx-gray to-white bg-clip-text text-transparent ml-4">
-              Portfolio
-            </span>
-          </h2>
-          <p className="text-xl text-lynx-gray font-inter max-w-2xl mx-auto">
-            Explore our latest brand creations and design innovations
-          </p>
-        </div>
-      </div>
+    <section className="py-8 sm:py-12 lg:py-16 bg-black relative overflow-hidden">
 
       <div className="relative overflow-hidden">
         <div className="flex animate-product-scroll">
