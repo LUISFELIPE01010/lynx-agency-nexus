@@ -24,7 +24,7 @@ const Navbar = () => {
       top: 0,
       paddingTop: 'env(safe-area-inset-top, 0px)'
     }}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-12 py-2 sm:py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-12 py-1 sm:py-2 flex items-center justify-between">
         <div className="flex items-center gap-3 sm:gap-6 md:gap-8 flex-1 justify-center">
           <Link 
             to="/"
