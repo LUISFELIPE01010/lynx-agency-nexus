@@ -131,7 +131,7 @@ const About = () => {
               {/* Main video container with full coverage */}
               <div className="absolute inset-2 sm:inset-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-2xl backdrop-blur-sm overflow-hidden hover-lift">
                 <video 
-                  src="/gifworld.mp4" 
+                  src="/globo.mp4" 
                   className="w-full h-full object-cover opacity-100 transition-opacity duration-500"
                   autoPlay
                   muted
