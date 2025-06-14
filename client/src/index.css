@@ -242,6 +242,10 @@ body {
   font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+.font-helvetica-neue {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 /* Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }

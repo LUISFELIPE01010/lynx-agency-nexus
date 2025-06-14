@@ -109,14 +109,14 @@ const Hero = () => {
           <div className="text-left max-w-5xl space-y-3 sm:space-y-4">
             <p 
               ref={subtitleRef}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-sf-pro text-lynx-gray leading-tight font-light hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-helvetica-neue text-lynx-gray leading-tight font-light hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default"
             >
               {t('heroSubtitle1')}
             </p>
 
             <p 
               ref={subtitleRef}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-sf-pro text-white leading-tight font-light hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-helvetica-neue text-white leading-tight font-light hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default"
             >
               {t('heroSubtitle2')}
             </p>
