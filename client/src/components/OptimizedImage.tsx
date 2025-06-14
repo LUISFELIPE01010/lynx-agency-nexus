@@ -25,15 +25,17 @@ const OptimizedImage = ({
 
   useEffect(() => {
     if (priority) {
-      // Preload critical images
+      // Preload critical images with higher priority
       const link = document.createElement('link');
       link.rel = 'preload';
       link.as = 'image';
       link.href = webpSrc || src;
+      link.fetchPriority = 'high';
       document.head.appendChild(link);
       return;
     }
 
+    // Use passive intersection observer for better performance
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -41,7 +43,10 @@ const OptimizedImage = ({
           observer.disconnect();
         }
       },
-      { rootMargin: '100px' }
+      { 
+        rootMargin: '50px',
+        threshold: 0.1
+      }
     );
 
     if (imgRef.current) {

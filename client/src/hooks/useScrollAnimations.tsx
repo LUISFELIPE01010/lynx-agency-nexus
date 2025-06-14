@@ -20,8 +20,16 @@ export const useScrollAnimations = (options: UseScrollAnimationsOptions = {}) =>
   } = options;
 
   useEffect(() => {
+    // Throttle scroll events for better performance
+    let ticking = false;
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     const observer = new IntersectionObserver(

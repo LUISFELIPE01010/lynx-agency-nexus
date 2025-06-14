@@ -87,6 +87,8 @@ const Gallery = () => {
                     alt={project.title}
                     className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
+                    decoding="async"
+                    fetchpriority="low"
                   />
                 </div>
                 
