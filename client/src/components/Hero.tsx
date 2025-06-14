@@ -19,20 +19,26 @@ const Hero = () => {
     zoomSpeed: 0.05
   });
 
-  // Force immediate video loading and playback
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  // Optimized video loading with callback
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      video.load();
-      video.currentTime = 0;
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Fallback for autoplay restrictions
+      const handleCanPlayThrough = () => {
+        setVideoLoaded(true);
+        video.play().catch(() => {
           video.muted = true;
           video.play();
         });
-      }
+      };
+
+      video.addEventListener('canplaythrough', handleCanPlayThrough);
+      video.load();
+
+      return () => {
+        video.removeEventListener('canplaythrough', handleCanPlayThrough);
+      };
     }
   }, []);
 

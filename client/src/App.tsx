@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import LoadingScreen from "./components/LoadingScreen";
+import VideoPreloader from "./components/VideoPreloader";
 import Index from "./pages/Index";
 import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
@@ -14,13 +15,22 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [videoPreloading, setVideoPreloading] = useState(true);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
   };
 
+  const handleVideoLoadingComplete = () => {
+    setVideoPreloading(false);
+  };
+
   if (isLoading) {
     return <LoadingScreen onLoadingComplete={handleLoadingComplete} />;
+  }
+
+  if (videoPreloading) {
+    return <VideoPreloader onLoadingComplete={handleVideoLoadingComplete} videoSrc="/wallp.mp4" />;
   }
 
   return (
