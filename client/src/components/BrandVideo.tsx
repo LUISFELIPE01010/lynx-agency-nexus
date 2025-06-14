@@ -1,35 +1,13 @@
-import { useRef, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const BrandVideo = () => {
   const { t } = useLanguage();
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleLoadedData = () => {
-      video.play().catch(() => {
-        video.muted = true;
-        video.play();
-      });
-    };
-
-    video.addEventListener('loadeddata', handleLoadedData);
-    video.load();
-
-    return () => {
-      video.removeEventListener('loadeddata', handleLoadedData);
-    };
-  }, []);
 
   return (
     <section className="relative bg-black">
       {/* Video container */}
       <div className="relative w-full h-screen">
         <video
-          ref={videoRef}
           className="w-full h-full object-cover"
           src="/Brand..mp4"
           autoPlay

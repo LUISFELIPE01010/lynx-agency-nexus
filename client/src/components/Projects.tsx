@@ -1,6 +1,7 @@
 import { ScrollTriggerWrapper } from '@/hooks/useScrollTrigger';
 import { useLanguage } from '../contexts/LanguageContext';
 import CSSAnimatedOverlay from './CSSAnimatedOverlay';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
   const { t } = useLanguage();
@@ -139,10 +140,13 @@ const Projects = () => {
         </div>
 
         <ScrollTriggerWrapper animationType="fade-in" className="text-center mt-20 sm:mt-24 lg:mt-32">
-          <button className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 btn-glow touch-manipulation">
+          <Link 
+            to="/gallery"
+            className="group relative inline-block px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 btn-glow touch-manipulation"
+          >
             <span className="relative z-10">{t('viewAllProjects')}</span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-          </button>
+          </Link>
         </ScrollTriggerWrapper>
       </div>
       

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 interface UseIntersectionObserverOptions {
   threshold?: number;
@@ -48,25 +48,62 @@ export const useIntersectionObserver = (
   return { ref, isVisible };
 };
 
-// Helper component for animated sections
+interface AnimatedSectionProps {
+  children: React.ReactNode;
+  animationType?: string;
+  delay?: number;
+  className?: string;
+}
+
 export const AnimatedSection = ({ 
   children, 
-  className = '', 
   animationType = 'fade-in',
-  delay = 0 
-}: {
-  children: React.ReactNode;
-  className?: string;
-  animationType?: 'fade-in' | 'fade-in-fast' | 'scale-in' | 'slide-in-left' | 'slide-in-right' | 'slide-in-up' | 'rotate-in';
-  delay?: number;
-}) => {
-  const { ref, isVisible } = useIntersectionObserver();
+  delay = 0,
+  className = ''
+}: AnimatedSectionProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
+    const [entry] = entries;
+    if (entry.isIntersecting && !isVisible) {
+      if (delay > 0) {
+        setTimeout(() => {
+          setIsVisible(true);
+        }, delay * 1000);
+      } else {
+        setIsVisible(true);
+      }
+    }
+  }, [delay, isVisible]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      handleIntersection,
+      { 
+        threshold: 0.1,
+        rootMargin: '30px' // Reduced rootMargin for better performance
+      }
+    );
+
+    const currentSection = sectionRef.current;
+    if (currentSection) {
+      observer.observe(currentSection);
+    }
+
+    return () => {
+      if (currentSection) {
+        observer.unobserve(currentSection);
+      }
+      observer.disconnect();
+    };
+  }, [handleIntersection]);
 
   const delayClass = delay > 0 ? `stagger-${Math.min(delay, 6)}` : '';
 
   return (
     <div 
-      ref={ref}
+      ref={sectionRef}
       className={`${animationType} ${delayClass} ${isVisible ? 'animate-visible' : ''} ${className}`}
     >
       {children}

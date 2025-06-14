@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 interface VideoPreloaderProps {
   onLoadingComplete: () => void;
@@ -6,61 +6,78 @@ interface VideoPreloaderProps {
 }
 
 const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) => {
-  const [loadingProgress, setLoadingProgress] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  const handleLoadingComplete = useCallback(() => {
+    onLoadingComplete();
+  }, [onLoadingComplete]);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    const video = document.createElement('video');
+    video.preload = 'metadata'; // Changed from 'auto' to 'metadata' for better performance
+    video.muted = true;
 
-    const handleProgress = () => {
-      if (video.buffered.length > 0) {
-        const bufferedEnd = video.buffered.end(video.buffered.length - 1);
-        const duration = video.duration;
-        if (duration > 0) {
-          const progress = (bufferedEnd / duration) * 100;
-          setLoadingProgress(Math.min(progress, 100));
+    let progressInterval: NodeJS.Timeout;
+    let isCompleted = false;
+
+    const handleCanPlay = () => { // Changed from 'canplaythrough' to 'canplay'
+      if (isCompleted) return;
+      isCompleted = true;
+      clearInterval(progressInterval);
+      setProgress(100);
+      setTimeout(handleLoadingComplete, 300); // Reduced timeout
+    };
+
+    const handleLoadStart = () => {
+      let currentProgress = 0;
+      progressInterval = setInterval(() => {
+        if (isCompleted) return;
+        currentProgress += Math.random() * 20; // Increased increment
+        if (currentProgress >= 85) {
+          clearInterval(progressInterval);
+          currentProgress = 85;
         }
-      }
+        setProgress(Math.min(currentProgress, 85));
+      }, 150); // Reduced interval
     };
 
-    const handleCanPlayThrough = () => {
-      setLoadingProgress(100);
-      setTimeout(() => {
-        setIsLoaded(true);
-        setTimeout(onLoadingComplete, 200);
-      }, 100);
+    const handleError = () => {
+      if (isCompleted) return;
+      isCompleted = true;
+      clearInterval(progressInterval);
+      console.warn('Video preload failed, continuing anyway');
+      handleLoadingComplete();
     };
 
-    const handleLoadedData = () => {
-      handleProgress();
-    };
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('loadstart', handleLoadStart);
+    video.addEventListener('error', handleError);
 
-    video.addEventListener('progress', handleProgress);
-    video.addEventListener('canplaythrough', handleCanPlayThrough);
-    video.addEventListener('loadeddata', handleLoadedData);
-
-    // Start loading
+    video.src = videoSrc;
     video.load();
 
+    // Fallback timeout to prevent hanging
+    const fallbackTimeout = setTimeout(() => {
+      if (!isCompleted) {
+        isCompleted = true;
+        clearInterval(progressInterval);
+        handleLoadingComplete();
+      }
+    }, 3000); // 3 second timeout
+
     return () => {
-      video.removeEventListener('progress', handleProgress);
-      video.removeEventListener('canplaythrough', handleCanPlayThrough);
-      video.removeEventListener('loadeddata', handleLoadedData);
+      isCompleted = true;
+      clearInterval(progressInterval);
+      clearTimeout(fallbackTimeout);
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('loadstart', handleLoadStart);
+      video.removeEventListener('error', handleError);
+      video.src = '';
     };
-  }, [onLoadingComplete]);
+  }, [videoSrc, handleLoadingComplete]);
 
   return (
     <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
-      <video
-        ref={videoRef}
-        src={videoSrc}
-        preload="auto"
-        muted
-        className="hidden"
-      />
-      
       <div className="text-center">
         {/* Logo */}
         <div className="mb-8">
@@ -82,22 +99,15 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
         <div className="w-64 h-1 bg-gray-800 rounded-full overflow-hidden">
           <div 
             className="h-full bg-white transition-all duration-300 ease-out"
-            style={{ width: `${loadingProgress}%` }}
+            style={{ width: `${progress}%` }}
           />
         </div>
 
         {/* Progress Percentage */}
         <div className="mt-4 text-gray-400 text-sm">
-          {Math.round(loadingProgress)}%
+          {Math.round(progress)}%
         </div>
       </div>
-
-      {/* Fade out animation */}
-      <div 
-        className={`absolute inset-0 bg-black transition-opacity duration-500 ${
-          isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
-        }`}
-      />
     </div>
   );
 };

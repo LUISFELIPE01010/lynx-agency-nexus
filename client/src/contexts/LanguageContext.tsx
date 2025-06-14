@@ -205,7 +205,10 @@ const translations = {
     brandMovementSubtitle: 'Every brand has a story. We craft narratives that resonate, inspire, and transform audiences into communities.',
     
     // Footer
-    globalRemote: 'Global Remote'
+    globalRemote: 'Global Remote',
+    
+    // Real Estate Project Category  
+    realEstateBranding: 'Real Estate Branding'
   },
   pt: {
     // Navigation
@@ -395,7 +398,10 @@ const translations = {
     brandMovementSubtitle: 'Toda marca tem uma história. Criamos narrativas que ressoam, inspiram e transformam audiências em comunidades.',
     
     // Footer
-    globalRemote: 'Remoto Global'
+    globalRemote: 'Remoto Global',
+    
+    // Real Estate Project Category
+    realEstateBranding: 'Branding Imobiliário'
   }
 };
 
