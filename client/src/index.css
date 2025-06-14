@@ -311,14 +311,14 @@ body {
   animation: scaleIn 0.8s ease-out forwards;
 }
 
-/* Hero title zoom and glow effects */
+/* Hero title zoom effects */
 .hero-title-zoom {
-  animation: heroTitleZoom 2s ease-out forwards, titleGlow 3s ease-in-out infinite;
+  animation: heroTitleZoom 2s ease-out forwards;
   transform-origin: left center;
 }
 
 .contact-title-zoom {
-  animation: contactTitleZoom 2s ease-out forwards, titleGlow 3s ease-in-out infinite;
+  animation: contactTitleZoom 2s ease-out forwards;
   transform-origin: center;
 }
 
@@ -341,18 +341,6 @@ body {
   100% { 
     transform: scale(1) translateY(0);
     opacity: 1;
-  }
-}
-
-@keyframes titleGlow {
-  0%, 100% { 
-    text-shadow: 0 0 10px rgba(149, 160, 162, 0.3);
-  }
-  50% { 
-    text-shadow: 
-      0 0 20px rgba(149, 160, 162, 0.6),
-      0 0 30px rgba(149, 160, 162, 0.4),
-      0 0 40px rgba(149, 160, 162, 0.2);
   }
 }
 

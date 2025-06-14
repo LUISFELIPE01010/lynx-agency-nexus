@@ -28,10 +28,10 @@ const Contact = () => {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <AnimatedSection animationType="fade-in" className="text-center mb-16">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('contactLabel')}</span>
-          <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight contact-title-zoom">
+          <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight contact-title-zoom hover:scale-105 transition-transform duration-300 cursor-default">
             {t('contactTitle')}
-            <span className="block text-lynx-gray">{t('contactTitle2')}</span>
-            <span className="block text-white">{t('contactTitle3')}</span>
+            <span className="block text-lynx-gray hover:scale-105 transition-transform duration-300">{t('contactTitle2')}</span>
+            <span className="block text-white hover:scale-105 transition-transform duration-300">{t('contactTitle3')}</span>
           </h2>
 
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-lynx-gray mb-16 sm:mb-20 lg:mb-24 font-inter max-w-4xl mx-auto leading-relaxed">

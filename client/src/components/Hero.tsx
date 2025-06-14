@@ -60,31 +60,21 @@ const Hero = () => {
     <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
       <ParticleSystem particleCount={6} color="#95A0A2" speed={0.4} size={1.5} />
       
-      {/* Modern animated background with waves and floating lights */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
-      
-      {/* Animated wave layers */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="wave-animation wave-1"></div>
-          <div className="wave-animation wave-2"></div>
-          <div className="wave-animation wave-3"></div>
-        </div>
-      </div>
+      {/* Background image with overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/banner3.png')" }}
+      ></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
 
-      {/* Floating light orbs */}
-      <div className="absolute inset-0">
+      {/* Floating light orbs overlaying the image */}
+      <div className="absolute inset-0 z-10">
         <div className="floating-light light-1"></div>
         <div className="floating-light light-2"></div>
         <div className="floating-light light-3"></div>
         <div className="floating-light light-4"></div>
         <div className="floating-light light-5"></div>
         <div className="floating-light light-6"></div>
-      </div>
-
-      {/* Subtle grid overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="grid-background"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-28 px-2 sm:px-0">
@@ -102,14 +92,14 @@ const Hero = () => {
           <div className="text-left max-w-5xl space-y-3 sm:space-y-4">
             <p 
               ref={subtitleRef}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-inter text-lynx-gray leading-tight font-light hero-title-zoom"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-inter text-lynx-gray leading-tight font-light hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default"
             >
               {t('heroSubtitle1')}
             </p>
 
             <p 
               ref={subtitleRef}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-inter text-white leading-tight font-light hero-title-zoom"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-inter text-white leading-tight font-light hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default"
             >
               {t('heroSubtitle2')}
             </p>
