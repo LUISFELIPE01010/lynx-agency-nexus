@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ArrowDown } from 'lucide-react';
@@ -13,10 +14,24 @@ const Hero = () => {
   const logoRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { getParallaxTransform, getZoomTransform } = useScrollAnimations({
     parallaxSpeed: 0.3,
     zoomSpeed: 0.05
   });
+
+  // Preload video immediately
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.load(); // Force immediate loading
+      video.play().catch(() => {
+        // Handle autoplay restrictions
+        video.muted = true;
+        video.play();
+      });
+    }
+  }, []);
 
   useEffect(() => {
     // Fast, lightweight animations with null checks
@@ -60,28 +75,31 @@ const Hero = () => {
     <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
       <ParticleSystem particleCount={6} color="#95A0A2" speed={0.4} size={1.5} />
       
-      {/* Background video with overlay */}
+      {/* Optimized background video */}
       <video 
-        className="absolute inset-0 w-full h-full object-cover hidden sm:block"
-        src="/back.mp4"
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/wallp.mp4"
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
-      />
-      <video 
-        className="absolute inset-0 w-full h-full object-cover block sm:hidden"
-        src="/backmobile.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
+        preload="auto"
+        poster=""
+        style={{ 
+          objectFit: 'cover',
+          willChange: 'auto'
+        }}
+        onLoadStart={() => {
+          // Ensure video starts from beginning
+          if (videoRef.current) {
+            videoRef.current.currentTime = 0;
+          }
+        }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
 
-      {/* Floating light orbs overlaying the image */}
+      {/* Floating light orbs overlaying the video */}
       <div className="absolute inset-0 z-10">
         <div className="floating-light light-1"></div>
         <div className="floating-light light-2"></div>
