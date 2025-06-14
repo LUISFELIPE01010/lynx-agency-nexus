@@ -14,18 +14,20 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
 
   useEffect(() => {
     const video = document.createElement('video');
-    video.preload = 'metadata'; // Changed from 'auto' to 'metadata' for better performance
+    video.preload = 'metadata';
     video.muted = true;
+    video.playsInline = true;
 
     let progressInterval: NodeJS.Timeout;
     let isCompleted = false;
 
-    const handleCanPlay = () => { // Changed from 'canplaythrough' to 'canplay'
+    const handleCanPlay = () => {
       if (isCompleted) return;
       isCompleted = true;
       clearInterval(progressInterval);
       setProgress(100);
-      setTimeout(handleLoadingComplete, 300); // Reduced timeout
+      // Reduced timeout for faster perceived loading
+      setTimeout(handleLoadingComplete, 200);
     };
 
     const handleLoadStart = () => {

@@ -96,7 +96,6 @@ const Projects = () => {
                   className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                   decoding="async"
-                  fetchPriority="low"
                 />
               </div>
 

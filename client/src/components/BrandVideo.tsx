@@ -22,7 +22,7 @@ const BrandVideo = () => {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
         />
 
         {/* Top gradient overlay */}
