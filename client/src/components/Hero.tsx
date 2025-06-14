@@ -94,11 +94,11 @@ const Hero = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-28 px-4 sm:px-0">
-        {/* Logo and Title - centered on mobile, left-aligned on desktop */}
-        <div className="text-center sm:text-left mb-8 sm:mb-8">
-          {/* Main Logo - centered on mobile */}
-          <div ref={logoRef} className="mb-6 sm:mb-6 flex justify-center sm:justify-start">
+      <div className="relative z-10 w-full max-w-6xl mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-28 px-2 sm:px-0">
+        {/* Logo and Title aligned to left */}
+        <div className="text-left mb-6 sm:mb-8">
+          {/* Main Logo */}
+          <div ref={logoRef} className="mb-4 sm:mb-6">
             <img 
               src="/LYNXx.png" 
               alt="Lynx Agency" 
@@ -106,7 +106,7 @@ const Hero = () => {
             />
           </div>
 
-          <div className="text-center sm:text-left max-w-5xl mx-auto sm:mx-0 space-y-4 sm:space-y-4">
+          <div className="text-left max-w-5xl space-y-3 sm:space-y-4">
             <p 
               ref={subtitleRef}
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-space text-lynx-gray leading-none font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
@@ -121,10 +121,10 @@ const Hero = () => {
               {t('heroSubtitle2')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-4 pt-6 sm:pt-6 items-center sm:items-start">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6">
               <button 
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group relative w-full sm:w-auto px-8 py-4 sm:px-8 sm:py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-300 hover:scale-105 hover:shadow-xl btn-glow text-base sm:text-base touch-manipulation"
+                className="group relative w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-300 hover:scale-105 hover:shadow-xl btn-glow text-sm sm:text-base touch-manipulation"
               >
                 <span className="relative z-10">{t('exploreWork')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -134,7 +134,7 @@ const Hero = () => {
                 href="https://wa.me/17329276563"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-full sm:w-auto px-8 py-4 sm:px-8 sm:py-4 border-2 border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-300 hover:scale-105 btn-glow text-base sm:text-base text-center touch-manipulation"
+                className="group relative w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 border-2 border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-300 hover:scale-105 btn-glow text-sm sm:text-base text-center touch-manipulation"
               >
                 {t('startProject')}
               </a>
