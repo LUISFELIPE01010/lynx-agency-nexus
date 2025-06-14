@@ -62,8 +62,8 @@ const BrandImportance = () => {
               <AnimatedSection 
                 key={index}
                 animationType="fade-in"
-                delay={Math.min(index * 0.5 + 1, 3)}
-                className="group py-8 sm:py-0"
+                delay={index * 0.4}
+                className="group py-8 sm:py-0 brand-point-fade"
               >
                 <div className="grid grid-cols-12 gap-8 sm:gap-8 items-center">
                   {/* Content side */}

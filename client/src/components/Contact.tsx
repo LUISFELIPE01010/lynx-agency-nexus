@@ -1,4 +1,3 @@
-
 import { MessageCircle, Mail, Instagram } from 'lucide-react';
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 import { ScrollAnimatedSection } from '@/hooks/useScrollAnimations';
@@ -8,13 +7,13 @@ import ParticleSystem from './ParticleSystem';
 
 const Contact = () => {
   const { t } = useLanguage();
-  
+
   return (
     <section id="contact" className="py-20 sm:py-32 lg:py-40 px-6 sm:px-8 lg:px-12 relative overflow-hidden bg-gradient-to-b from-[#95A0A2]/5 via-black to-black">
       {/* Animated Mesh Background */}
       <AnimatedMesh />
       <ParticleSystem particleCount={12} color="#95A0A2" speed={0.8} size={3} />
-      
+
       {/* Background image with overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -27,19 +26,19 @@ const Contact = () => {
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gradient-to-l from-[#95A0A2]/10 to-transparent rounded-full blur-2xl"></div>
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <AnimatedSection animationType="fade-in">
-          <span className="text-lynx-gray font-space text-sm sm:text-base tracking-widest uppercase mb-6 sm:mb-8 block">{t('contactLabel')}</span>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-space font-bold text-white mb-8 sm:mb-12 leading-tight">
+        <AnimatedSection animationType="fade-in" className="text-center mb-16">
+          <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">{t('contactLabel')}</span>
+          <h2 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight contact-title-zoom">
             {t('contactTitle')}
             <span className="block text-lynx-gray">{t('contactTitle2')}</span>
-            <span className="block">{t('contactTitle3')}</span>
+            <span className="block text-white">{t('contactTitle3')}</span>
           </h2>
-          
+
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-lynx-gray mb-16 sm:mb-20 lg:mb-24 font-inter max-w-4xl mx-auto leading-relaxed">
             {t('contactSubtitle')}
           </p>
         </AnimatedSection>
-        
+
         <AnimatedSection animationType="scale-in" delay={1}>
           <div className="space-y-6 sm:space-y-8">
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
@@ -55,7 +54,7 @@ const Contact = () => {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </a>
-            
+
             <a 
               href="https://instagram.com/lynx.com.br"
               target="_blank"
@@ -68,7 +67,7 @@ const Contact = () => {
               </span>
             </a>
           </div>
-          
+
           <div className="flex justify-center gap-6 pt-16">
             <a 
               href="mailto:hello@lynxagency.com"
@@ -78,7 +77,7 @@ const Contact = () => {
                 <Mail className="w-5 h-5 text-white" />
               </div>
             </a>
-            
+
             <a 
               href="https://wa.me/17329276563"
               target="_blank"
@@ -89,7 +88,7 @@ const Contact = () => {
                 <MessageCircle className="w-5 h-5 text-white" />
               </div>
             </a>
-            
+
             <a 
               href="https://instagram.com/lynx.com.br"
               target="_blank"

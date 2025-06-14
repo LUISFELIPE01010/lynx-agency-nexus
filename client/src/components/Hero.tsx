@@ -60,27 +60,32 @@ const Hero = () => {
     <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
       <ParticleSystem particleCount={6} color="#95A0A2" speed={0.4} size={1.5} />
       
-      {/* Background image with dark overlay and zoom effect */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat zoom-on-scroll will-change-transform"
-        style={{ 
-          backgroundImage: "url('/lovable-uploads/0d403c09-120c-4221-af4a-d5006bd4513e.png')",
-          ...getZoomTransform()
-        }}
-      ></div>
-      <div className="absolute inset-0 bg-black/60"></div>
-
-      {/* Enhanced animated background elements */}
-      <div className="absolute top-10 left-10 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-r from-lynx-gray/10 to-transparent rounded-full blur-3xl animate-float"></div>
-      <div className="absolute top-1/3 right-20 w-24 h-24 sm:w-40 sm:h-40 bg-gradient-to-l from-white/8 to-transparent rounded-full blur-2xl animate-pulse"></div>
-      <div className="absolute bottom-20 left-20 w-20 h-20 sm:w-32 sm:h-32 bg-gradient-to-r from-lynx-gray/8 to-transparent rounded-full blur-xl animate-float" style={{animationDelay: '2s'}}></div>
-      <div className="absolute top-1/2 left-1/2 w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-r from-white/6 to-transparent rounded-full blur-lg animate-pulse" style={{animationDelay: '1.5s'}}></div>
+      {/* Modern animated background with waves and floating lights */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
       
-      {/* Floating particles */}
-      <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-lynx-gray/40 rounded-full animate-floating-slow"></div>
-      <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/30 rounded-full animate-floating-fast"></div>
-      <div className="absolute bottom-1/3 left-1/5 w-1.5 h-1.5 bg-lynx-gray/50 rounded-full animate-floating-medium"></div>
-      <div className="absolute top-2/3 right-1/3 w-2.5 h-2.5 bg-white/20 rounded-full animate-floating-slow" style={{animationDelay: '3s'}}></div>
+      {/* Animated wave layers */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="wave-animation wave-1"></div>
+          <div className="wave-animation wave-2"></div>
+          <div className="wave-animation wave-3"></div>
+        </div>
+      </div>
+
+      {/* Floating light orbs */}
+      <div className="absolute inset-0">
+        <div className="floating-light light-1"></div>
+        <div className="floating-light light-2"></div>
+        <div className="floating-light light-3"></div>
+        <div className="floating-light light-4"></div>
+        <div className="floating-light light-5"></div>
+        <div className="floating-light light-6"></div>
+      </div>
+
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="grid-background"></div>
+      </div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-28 px-2 sm:px-0">
         {/* Logo and Title aligned to left */}
@@ -97,14 +102,14 @@ const Hero = () => {
           <div className="text-left max-w-5xl space-y-3 sm:space-y-4">
             <p 
               ref={subtitleRef}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-inter text-lynx-gray leading-tight font-light"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-inter text-lynx-gray leading-tight font-light hero-title-zoom"
             >
               {t('heroSubtitle1')}
             </p>
 
             <p 
               ref={subtitleRef}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-inter text-white leading-tight font-light"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-inter text-white leading-tight font-light hero-title-zoom"
             >
               {t('heroSubtitle2')}
             </p>
