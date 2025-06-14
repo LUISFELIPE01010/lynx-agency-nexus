@@ -137,10 +137,16 @@ const About = () => {
                   muted
                   loop
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   controls={false}
                   disablePictureInPicture
                   style={{ pointerEvents: 'none' }}
+                  onLoadStart={() => {
+                    const video = document.querySelector('video');
+                    if (video) {
+                      video.currentTime = 0;
+                    }
+                  }}
                 />
               </div>
 

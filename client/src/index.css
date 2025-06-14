@@ -24,6 +24,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   background: #000;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -32,6 +33,7 @@ body {
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 #root {
@@ -48,48 +50,55 @@ body {
     position: relative;
     height: 100%;
     overflow-x: hidden;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: transparent;
+    touch-action: pan-y;
   }
   
   body {
     margin: 0 !important;
     padding: 0 !important;
-    position: relative;
-    -webkit-text-size-adjust: 100%;
     height: 100%;
     overflow-x: hidden;
-    touch-action: manipulation;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
   }
   
-  #root {
-    margin: 0 !important;
-    padding: 0 !important;
-    position: relative;
-    height: 100%;
-  }
-  
-  /* Fix for mobile white space issues */
+  /* Enable smooth scrolling on mobile */
   * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Optimize animations for mobile */
+  .animate-pulse, .animate-float, .animate-spin {
+    animation-duration: 2s;
+  }
+  
+  /* Reduce motion for better performance */
+  .parallax-element {
+    transform: none !important;
+  }
+  
+  /* Touch targets */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
   }
-}
-
-/* Additional mobile optimizations */
-@media (max-width: 768px) {
+  
   /* Prevent iOS zoom on input focus */
   input, select, textarea {
     font-size: 16px !important;
   }
   
-  /* Smooth scrolling for mobile */
-  html {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+  /* Disable hover effects on mobile */
+  .hover-scale:hover,
+  .hover-lift:hover {
+    transform: none;
   }
   
-  /* Fix for mobile navigation spacing and white space */
+  /* Fix for mobile navigation spacing */
   nav {
     padding-top: env(safe-area-inset-top);
     background: rgba(0, 0, 0, 0.9) !important;
@@ -114,92 +123,131 @@ body {
     line-height: 1.5 !important;
     margin-bottom: 1rem !important;
   }
-  
-  /* Mobile spacing fixes */
-  .space-y-6 > * + * {
-    margin-top: 2rem !important;
-  }
-  
-  .space-y-8 > * + * {
-    margin-top: 3rem !important;
-  }
-  
-  /* Mobile button improvements */
-  button, a {
-    min-height: 48px !important;
-    touch-action: manipulation;
-  }
-  
-  /* Mobile container improvements */
-  .max-w-7xl {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-  }
-  
-  /* Ensure animations work on mobile */
-  .animate-pulse,
-  .animate-float,
-  .hover-lift {
-    animation-duration: 2s !important;
-    animation-iteration-count: infinite !important;
-  }
-  
-  /* Mobile video optimization */
-  video {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-    /* Optimize video loading on mobile */
-    will-change: auto;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
-  
-  /* Improve About section video container on mobile */
-  .aspect-square .absolute {
-    inset: 0.5rem !important;
-  }
-  
-  /* Better spacing for process steps on mobile */
-  .space-y-24 > * + * {
-    margin-top: 6rem !important;
-  }
-  
-  /* Improve brand importance section spacing */
-  .space-y-32 > * + * {
-    margin-top: 8rem !important;
-  }
 }
 
-/* GPU acceleration for critical elements */
-.carousel-track-improved,
-.fade-in,
-.scale-in,
-.slide-in-left,
-.hover-lift,
-.hover-scale,
-.parallax-element,
-.zoom-on-scroll,
-.animated-mesh {
+/* Performance optimizations */
+.btn-glow {
   will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
 }
 
-/* Parallax and scroll animations */
-.zoom-on-scroll {
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+.hover-scale:hover {
+  transform: scale(1.02);
 }
 
-.parallax-element {
-  transition: transform 0.3s ease-out;
+.hover-lift:hover {
+  transform: translateY(-2px);
 }
 
-/* Advanced button animations */
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom colors */
+:root {
+  --lynx-gray: #95A0A2;
+}
+
+.text-lynx-gray {
+  color: var(--lynx-gray);
+}
+
+.bg-lynx-gray {
+  background-color: var(--lynx-gray);
+}
+
+.border-lynx-gray {
+  border-color: var(--lynx-gray);
+}
+
+.hover\:text-lynx-gray:hover {
+  color: var(--lynx-gray);
+}
+
+.hover\:bg-lynx-gray:hover {
+  background-color: var(--lynx-gray);
+}
+
+.hover\:border-lynx-gray:hover {
+  border-color: var(--lynx-gray);
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.font-space {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
 .btn-glow {
   position: relative;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-glow::before {
@@ -209,66 +257,50 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: left 0.6s;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
 }
 
 .btn-glow:hover::before {
   left: 100%;
 }
 
-.btn-glow:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
-/* Icon animations */
-.icon-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.icon-bounce {
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.icon-bounce:hover {
-  transform: translateY(-4px) scale(1.1);
-}
-
-/* Floating animation for elements */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: .7; }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Smooth section transitions */
+/* Section transitions */
 .section-transition {
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Menu hover effects */
+/* Optimized images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lazy loading */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}
+
+/* Menu items */
 .menu-item {
   position: relative;
-  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .menu-item::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -1px;
   left: 0;
   width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #95A0A2, white);
+  height: 1px;
+  background-color: currentColor;
   transition: width 0.3s ease;
 }
 
@@ -276,713 +308,35 @@ body {
   width: 100%;
 }
 
-/* Animated mesh background */
-.animated-mesh {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Video optimizations */
+video {
+  object-fit: cover;
   width: 100%;
   height: 100%;
-  opacity: 0.6;
-  z-index: 1;
 }
 
-.mesh-line {
-  stroke: #95A0A2;
-  stroke-width: 0.5;
-  opacity: 0.3;
-  animation: meshPulse 4s ease-in-out infinite;
-}
-
-@keyframes meshPulse {
-  0%, 100% { opacity: 0.1; }
-  50% { opacity: 0.4; }
-}
-
-.mesh-node {
-  fill: #95A0A2;
-  opacity: 0.6;
-  animation: nodeGlow 3s ease-in-out infinite;
-}
-
-@keyframes nodeGlow {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.2); }
-}
-
-/* Particle effects */
-.particle {
-  position: absolute;
-  background: radial-gradient(circle, #95A0A2, transparent);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: particleFloat 6s linear infinite;
-}
-
-@keyframes particleFloat {
-  0% {
-    transform: translateY(100vh) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-10vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* Optimize font loading */
-@font-face {
-  font-display: swap;
-}
-
-/* Critical rendering optimizations */
-img,
-video {
-  content-visibility: auto;
-  contain-intrinsic-size: 300px 200px;
-}
-
-html {
-  scroll-behavior: auto; /* Changed from smooth to auto for better control */
-}
-
-/* Image optimization */
-img {
-  max-width: 100%;
-  height: auto;
-  image-rendering: optimizeQuality;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform;
-}
-
-/* Performance improvements */
-.hover-lift:hover {
-  transform: translateY(-4px);
-  transition: transform 0.3s ease;
-}
-
-.hover-scale:hover {
-  transform: scale(1.02);
-  transition: transform 0.3s ease;
-}
-
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-  .hover-lift:hover,
-  .hover-scale:hover {
-    transform: none;
-  }
-
-  .group:hover .group-hover\:scale-110 {
-    transform: none;
-  }
-}
-
-/* Optimized Animation System */
-.fade-in {
-  opacity: 0;
-  transform: translate3d(0, 30px, 0);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.fade-in-fast {
-  opacity: 0;
-  transform: translate3d(0, 20px, 0);
-  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.scale-in {
-  opacity: 0;
-  transform: scale3d(0.9, 0.9, 1) translate3d(0, 20px, 0);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.slide-in-left {
-  opacity: 0;
-  transform: translate3d(-40px, 0, 0);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.slide-in-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.slide-in-up {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.rotate-in {
-  opacity: 0;
-  transform: rotate(-5deg) scale(0.95);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.stagger-1 { transition-delay: 0.1s; }
-.stagger-2 { transition-delay: 0.2s; }
-.stagger-3 { transition-delay: 0.3s; }
-.stagger-4 { transition-delay: 0.4s; }
-.stagger-5 { transition-delay: 0.5s; }
-.stagger-6 { transition-delay: 0.6s; }
-
-/* Hover animations */
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.hover-scale {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-scale:hover {
-  transform: scale(1.05);
-}
-
-/* Trigger animations when visible */
-.animate-visible.fade-in,
-.animate-visible.fade-in-fast {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.animate-visible.scale-in {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-.animate-visible.slide-in-left,
-.animate-visible.slide-in-right {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.animate-visible.slide-in-up {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.animate-visible.rotate-in {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
-
-/* Floating animation for special elements */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Pulse effect for emphasis */
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
-  50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Dynamic background system */
-.bg-primary-dark {
-  background-color: #000000;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.02) 0%, transparent 50%);
-}
-
-.bg-secondary-dark {
-  background: linear-gradient(135deg, #040508 0%, #0a0b0f 100%);
-  background-image: 
-    radial-gradient(circle at 60% 30%, rgba(120, 119, 198, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
-}
-
-.bg-accent-dark {
-  background: linear-gradient(120deg, #000000 0%, #040508 50%, #000000 100%);
-  background-image: 
-    radial-gradient(ellipse at center, rgba(120, 119, 198, 0.02) 0%, transparent 70%);
-}
-
-.bg-gradient-radial {
-  background: radial-gradient(ellipse at center, rgba(120, 119, 198, 0.03) 0%, transparent 70%);
-}
-
-.bg-texture-overlay {
-  position: relative;
-}
-
-.bg-texture-overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.005) 50%, transparent 60%),
-    linear-gradient(-45deg, transparent 40%, rgba(120, 119, 198, 0.01) 50%, transparent 60%);
-  background-size: 60px 60px;
-  pointer-events: none;
-  opacity: 0.3;
-}
-
-/* Mobile responsiveness improvements */
-@media (max-width: 768px) {
-  .text-6xl { font-size: 2.5rem; }
-  .text-8xl { font-size: 3rem; }
-  .text-\[10rem\] { font-size: 4rem; }
-  .text-5xl { font-size: 2rem; }
-  .text-7xl { font-size: 2.75rem; }
-  .text-4xl { font-size: 1.75rem; }
-  .text-3xl { font-size: 1.5rem; }
-  
-  /* Navbar mobile improvements */
-  nav {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
-  }
-  
-  nav .flex {
-    align-items: center !important;
-  }
-  
-  /* Hero section mobile adjustments - make it fit in viewport */
-  .min-h-screen {
-    min-height: 100vh !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    padding-top: 0 !important;
-    overflow: hidden !important;
-  }
-  
-  /* Hero content spacing optimization */
-  .pt-20.sm\:pt-24.md\:pt-28 {
-    padding-top: 5rem !important;
-  }
-  
-  /* Logo size reduction on mobile */
-  .w-16.h-16.sm\:w-24.sm\:h-24.md\:w-28.md\:h-28.lg\:w-32.lg\:h-32 {
-    width: 3rem !important;
-    height: 3rem !important;
-  }
-  
-  /* Text size adjustments for mobile hero */
-  .text-xl.sm\:text-2xl.md\:text-3xl.lg\:text-4xl.xl\:text-5xl {
-    font-size: 1.25rem !important;
-    line-height: 1.3 !important;
-  }
-  
-  /* Button container spacing */
-  .pt-6.sm\:pt-8 {
-    padding-top: 1.5rem !important;
-  }
-  
-  /* Button size optimization */
-  .px-8.py-4.sm\:px-10.sm\:py-5 {
-    padding: 0.75rem 1.5rem !important;
-    font-size: 0.875rem !important;
-  }
-  
-  /* Margin bottom adjustments */
-  .mb-4.sm\:mb-6 {
-    margin-bottom: 1rem !important;
-  }
-  
-  .mb-6.sm\:mb-8 {
-    margin-bottom: 1.5rem !important;
-  }
-  
-  /* Space between text elements */
-  .space-y-3.sm\:space-y-4 > * + * {
-    margin-top: 0.75rem !important;
-  }
-  
-  /* Better button spacing on mobile */
-  .flex.flex-col.sm\:flex-row {
-    gap: 0.75rem !important;
-  }
-}
-
-  /* Improve mobile scrolling */
-  body {
-    -webkit-overflow-scrolling: touch;
-    overflow-x: hidden;
-    margin: 0 !important;
-    padding: 0 !important;
-    position: relative;
-  }
-
-  /* Fix mobile viewport and prevent white space */
-  html, body, #root {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-
-  /* Ensure no top margin/padding anywhere */
-  * {
-    margin-top: 0 !important;
-  }
-
-  /* Fix mobile navbar positioning and prevent white space */
-  nav {
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    position: fixed !important;
-    z-index: 9999 !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  /* Prevent white space at top of mobile viewport */
-  html {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
-
-  body {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    min-height: 100vh !important;
-    position: relative !important;
-  }
-
-  #root {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
-
-  /* Prevent any top spacing on mobile */
-  .min-h-screen {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  /* Ensure content starts below navbar with proper spacing */
-  .pt-20 {
-    padding-top: 1.5rem !important;
-  }
-
-  /* Remove any potential safe area insets causing white space */
-  body {
-    padding-top: env(safe-area-inset-top, 0) !important;
-    padding-top: 0 !important;
-  }
-
-  /* Faster animations on mobile */
-  .fade-in,
-  .scale-in,
-  .slide-in-left,
-  .slide-in-right {
-    animation-duration: 0.4s;
-  }
-
-  /* Mobile spacing */
-  section {
-    padding-top: 0.5rem !important;
-    padding-bottom: 4rem !important;
-  }
-  
-  /* Hero section specific adjustments */
-  .min-h-screen {
-    padding-top: 0 !important;
-  }
-
-  /* Mobile padding adjustments */
-  .px-6 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-/* Extra small mobile devices */
-@media (max-width: 480px) {
-  .text-6xl { font-size: 2rem; }
-  .text-5xl { font-size: 1.75rem; }
-  .text-4xl { font-size: 1.5rem; }
-  .text-3xl { font-size: 1.25rem; }
-  .text-2xl { font-size: 1.125rem; }
-
-  /* Reduce section padding even more on very small screens */
-  section {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
-  }
-}
-
-/* Client Carousel Animations */
-.carousel-container {
-  overflow: hidden;
-  position: relative;
-  mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
-}
-
-.carousel-track {
-  display: flex;
-  animation: scroll 12s linear infinite;
-  will-change: transform;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.carousel-track-improved {
-  display: flex;
-  animation: scroll 60s linear infinite;
-  will-change: transform;
-  width: fit-content;
-}
-
-
-@keyframes scroll-seamless {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-.carousel-item {
-  flex-shrink: 0;
-}
-
-/* Mobile optimizations */
-@media (max-width: 768px) {
-  .carousel-track {
-    animation-duration: 8s;
-  }
-
-  .carousel-track-improved {
-    animation-duration: 10s;
-  }
+/* Touch optimizations */
+.touch-manipulation {
+  touch-action: manipulation;
 }
 
 /* Reduce animations on mobile for better performance */
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 768px) {
   * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
   }
-
-  .carousel-track {
-    animation: none !important;
+  
+  .animate-pulse {
+    animation: none;
   }
-}
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  
+  .animate-float {
+    animation: none;
   }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  
+  .btn-glow::before,
+  .btn-glow:hover::before {
+    display: none;
   }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-/* Animated Overlay Keyframes */
-@keyframes animate-float-0 {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  25% { transform: translateY(-20px) translateX(10px); }
-  50% { transform: translateY(-10px) translateX(-5px); }
-  75% { transform: translateY(-25px) translateX(-10px); }
-}
-
-@keyframes animate-float-1 {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  33% { transform: translateY(-15px) translateX(-8px); }
-  66% { transform: translateY(-30px) translateX(12px); }
-}
-
-@keyframes animate-float-2 {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  20% { transform: translateY(-25px) translateX(15px); }
-  40% { transform: translateY(-5px) translateX(-10px); }
-  60% { transform: translateY(-20px) translateX(5px); }
-  80% { transform: translateY(-15px) translateX(-15px); }
-}
-
-@keyframes animate-float-3 {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  50% { transform: translateY(-35px) translateX(-20px); }
-}
-
-@keyframes animate-sparkle {
-  0%, 100% { opacity: 0; transform: scale(0.8) rotate(0deg); }
-  50% { opacity: 0.6; transform: scale(1.2) rotate(180deg); }
-}
-
-@keyframes animate-glow {
-  0%, 100% { opacity: 0.1; transform: scale(1) rotate(0deg); }
-  50% { opacity: 0.3; transform: scale(1.2) rotate(180deg); }
-}
-
-/* Animated Overlay Classes */
-.animate-float-0 {
-  animation: animate-float-0 infinite linear;
-}
-
-.animate-float-1 {
-  animation: animate-float-1 infinite linear;
-}
-
-.animate-float-2 {
-  animation: animate-float-2 infinite linear;
-}
-
-.animate-float-3 {
-  animation: animate-float-3 infinite linear;
-}
-
-.animate-sparkle {
-  animation: animate-sparkle infinite;
-}
-
-.animate-glow {
-  animation: animate-glow infinite ease-in-out;
 }
