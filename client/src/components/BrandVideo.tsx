@@ -25,8 +25,14 @@ const BrandVideo = () => {
           preload="auto"
         />
 
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Top gradient overlay */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10" />
+        
+        {/* Bottom gradient overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent z-10" />
+        
+        {/* Light dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/10" />
       </div>
       
       {/* Bottom gradient transition */}
