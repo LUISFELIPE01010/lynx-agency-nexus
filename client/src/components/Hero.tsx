@@ -6,7 +6,6 @@ import logoPng from '@/logop.png';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimations } from '@/hooks/useScrollAnimations';
 import OptimizedImage from './OptimizedImage';
-import ParticleSystem from './ParticleSystem';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -20,16 +19,20 @@ const Hero = () => {
     zoomSpeed: 0.05
   });
 
-  // Preload video immediately
+  // Force immediate video loading and playback
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      video.load(); // Force immediate loading
-      video.play().catch(() => {
-        // Handle autoplay restrictions
-        video.muted = true;
-        video.play();
-      });
+      video.load();
+      video.currentTime = 0;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Fallback for autoplay restrictions
+          video.muted = true;
+          video.play();
+        });
+      }
     }
   }, []);
 
@@ -73,9 +76,7 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
-      <ParticleSystem particleCount={6} color="#95A0A2" speed={0.4} size={1.5} />
-      
-      {/* Optimized background video */}
+      {/* Optimized background video with immediate loading */}
       <video 
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
@@ -87,27 +88,16 @@ const Hero = () => {
         preload="auto"
         poster=""
         style={{ 
-          objectFit: 'cover',
-          willChange: 'auto'
+          objectFit: 'cover'
         }}
-        onLoadStart={() => {
-          // Ensure video starts from beginning
+        onCanPlay={() => {
+          // Ensure video plays immediately when ready
           if (videoRef.current) {
-            videoRef.current.currentTime = 0;
+            videoRef.current.play();
           }
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
-
-      {/* Floating light orbs overlaying the video */}
-      <div className="absolute inset-0 z-10">
-        <div className="floating-light light-1"></div>
-        <div className="floating-light light-2"></div>
-        <div className="floating-light light-3"></div>
-        <div className="floating-light light-4"></div>
-        <div className="floating-light light-5"></div>
-        <div className="floating-light light-6"></div>
-      </div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-28 px-2 sm:px-0">
         {/* Logo and Title aligned to left */}
