@@ -44,18 +44,22 @@ const Navbar = () => {
           >
             {t('gallery')}
           </Link>
-          <button
+          <Link
+            to="/"
             onClick={() => {
               if (location === '/') {
                 document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
               } else {
-                window.location.href = '/#contact';
+                // Navigate to home and then scroll to contact after a brief delay
+                setTimeout(() => {
+                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
               }
             }}
             className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-sm md:text-base transition-colors duration-300 flex items-center"
           >
             Contact
-          </button>
+          </Link>
         </div>
         
         <div className="flex items-center gap-2 sm:gap-3">
