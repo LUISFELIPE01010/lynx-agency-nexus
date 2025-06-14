@@ -60,11 +60,25 @@ const Hero = () => {
     <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
       <ParticleSystem particleCount={6} color="#95A0A2" speed={0.4} size={1.5} />
       
-      {/* Background image with overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/banner3.png')" }}
-      ></div>
+      {/* Background video with overlay */}
+      <video 
+        className="absolute inset-0 w-full h-full object-cover hidden sm:block"
+        src="/back.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+      />
+      <video 
+        className="absolute inset-0 w-full h-full object-cover block sm:hidden"
+        src="/backmobile.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
 
       {/* Floating light orbs overlaying the image */}
