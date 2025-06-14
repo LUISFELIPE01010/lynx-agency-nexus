@@ -29,8 +29,8 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
       setLoadingProgress(100);
       setTimeout(() => {
         setIsLoaded(true);
-        setTimeout(onLoadingComplete, 500);
-      }, 300);
+        setTimeout(onLoadingComplete, 200);
+      }, 100);
     };
 
     const handleLoadedData = () => {
@@ -74,7 +74,7 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
         {/* Loading Text */}
         <div className="mb-6">
           <h2 className="text-white text-xl font-light mb-2">
-            Loading
+            Preparing Experience
           </h2>
         </div>
 
