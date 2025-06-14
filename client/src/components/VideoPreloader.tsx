@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
 
 interface VideoPreloaderProps {
   onLoadingComplete: () => void;
@@ -10,7 +9,6 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const { t } = useLanguage();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -51,7 +49,7 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
       video.removeEventListener('canplaythrough', handleCanPlayThrough);
       video.removeEventListener('loadeddata', handleLoadedData);
     };
-  }, [onLoadingComplete, videoSrc]);
+  }, [onLoadingComplete]);
 
   return (
     <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
@@ -76,7 +74,7 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
         {/* Loading Text */}
         <div className="mb-6">
           <h2 className="text-white text-xl font-light mb-2">
-            {t('loading') || 'Loading'}
+            Loading
           </h2>
         </div>
 

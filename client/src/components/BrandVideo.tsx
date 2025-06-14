@@ -9,8 +9,8 @@ const BrandVideo = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   
   const { isVisible } = useIntersectionObserver({
-    threshold: 0.3,
-    rootMargin: '-10% 0px -10% 0px'
+    threshold: 0.2,
+    rootMargin: '-20% 0px -20% 0px'
   });
 
   useEffect(() => {

@@ -201,6 +201,9 @@ const translations = {
     testimonial3: 'Working with Lynx was transformative. They understand that great design isn\'t just beautiful—it\'s strategic, purposeful, and results-driven.',
     testimonial4: 'From concept to execution, Lynx delivered exceptional results. Their attention to detail and commitment to excellence set them apart in the industry.',
     
+    // Brand Video Section
+    brandMovementSubtitle: 'Every brand has a story. We craft narratives that resonate, inspire, and transform audiences into communities.',
+    
     // Footer
     globalRemote: 'Global Remote'
   },
@@ -387,6 +390,9 @@ const translations = {
     testimonial2: 'O nível de criatividade e pensamento estratégico superou todas as expectativas. A Lynx entregou uma marca que realmente representa nossa visão para o futuro.',
     testimonial3: 'Trabalhar com a Lynx foi transformador. Eles entendem que um ótimo design não é apenas bonito—é estratégico, proposital e focado em resultados.',
     testimonial4: 'Do conceito à execução, a Lynx entregou resultados excepcionais. Sua atenção aos detalhes e compromisso com a excelência os distingue na indústria.',
+    
+    // Brand Video Section
+    brandMovementSubtitle: 'Toda marca tem uma história. Criamos narrativas que ressoam, inspiram e transformam audiências em comunidades.',
     
     // Footer
     globalRemote: 'Remoto Global'
