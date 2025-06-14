@@ -46,26 +46,35 @@ const BrandVideo = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Calculate scale based on scroll progress
-  const scale = 0.3 + (scrollProgress * 0.7); // Starts at 30%, grows to 100%
-  const opacity = Math.min(1, scrollProgress * 2); // Fade in effect
+  // Calculate scale and opacity based on scroll progress
+  const videoScale = 0.6 + (scrollProgress * 0.4); // Starts at 60%, grows to 100%
+  const videoOpacity = Math.min(1, scrollProgress * 1.5); // Video appears quickly
+  
+  // Text appears only after video is fully visible (after 70% scroll)
+  const textOpacity = scrollProgress > 0.7 ? (scrollProgress - 0.7) / 0.3 : 0;
+  const textTransform = scrollProgress > 0.7 ? 0 : 30;
 
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-black"
-      style={{ position: 'sticky', top: 0 }}
+      className="relative h-screen overflow-hidden"
+      style={{ 
+        position: 'sticky', 
+        top: 0,
+        background: 'linear-gradient(to bottom, #000000, #1a1a1a)'
+      }}
     >
       {/* Video Container with Dynamic Scaling */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center">
         <div 
-          className="relative overflow-hidden rounded-lg"
+          className="relative overflow-hidden"
           style={{ 
-            transform: `scale(${scale})`,
-            transition: 'transform 0.1s ease-out',
-            width: '90%',
-            height: '80%',
-            opacity: opacity
+            transform: `scale(${videoScale})`,
+            transition: 'transform 0.2s ease-out',
+            width: '100%',
+            height: '100%',
+            opacity: videoOpacity,
+            borderRadius: scrollProgress > 0.3 ? '0px' : '20px'
           }}
         >
           <video
@@ -79,21 +88,21 @@ const BrandVideo = () => {
             preload="auto"
             style={{ 
               objectFit: 'cover',
-              filter: 'brightness(0.8) contrast(1.1)'
+              filter: 'brightness(0.9) contrast(1.1)'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30" />
         </div>
       </div>
 
-      {/* Text Overlay */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20">
+      {/* Text Overlay - Appears after video is fully visible */}
+      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-20">
         <h2 
           className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-space font-bold text-center leading-tight"
           style={{ 
-            opacity: Math.max(0, scrollProgress - 0.3),
-            transform: `translateY(${Math.max(0, (1 - scrollProgress) * 50)}px)`,
-            transition: 'opacity 0.3s ease-out, transform 0.3s ease-out'
+            opacity: textOpacity,
+            transform: `translateY(${textTransform}px)`,
+            transition: 'opacity 0.5s ease-out, transform 0.5s ease-out'
           }}
         >
           More than brands,<br />
