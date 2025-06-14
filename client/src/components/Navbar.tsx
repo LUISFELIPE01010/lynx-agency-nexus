@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,12 +27,20 @@ const Navbar = () => {
     }}>
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-12 py-1 sm:py-2 flex items-center justify-between">
         <div className="flex items-center gap-3 sm:gap-6 md:gap-8 flex-1 justify-center">
-          <Link 
-            to="/"
+          <button
+            onClick={() => {
+              if (location.pathname === '/') {
+                // Se estamos na página inicial, rola para o topo (primeira seção)
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                // Se estamos em outra página, navega para a página inicial
+                window.location.href = '/';
+              }
+            }}
             className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-sm md:text-base transition-colors duration-300 flex items-center"
           >
             {t('home')}
-          </Link>
+          </button>
           <Link 
             to="/gallery"
             className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-sm md:text-base transition-colors duration-300 flex items-center"
@@ -39,7 +48,15 @@ const Navbar = () => {
             {t('gallery')}
           </Link>
           <button
-            onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => {
+              if (location.pathname === '/') {
+                // Se estamos na página inicial, rola para a seção de contato
+                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                // Se estamos em outra página, navega para a página inicial e depois para contato
+                window.location.href = '/#contact';
+              }
+            }}
             className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-sm md:text-base transition-colors duration-300 flex items-center"
           >
             Contact

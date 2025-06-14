@@ -57,24 +57,24 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start px-6 sm:px-8 lg:px-12 overflow-hidden">
-      <ParticleSystem particleCount={8} color="#95A0A2" speed={0.6} size={2} />
+    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
+      <ParticleSystem particleCount={6} color="#95A0A2" speed={0.4} size={1.5} />
       
       {/* Background image with dark overlay and zoom effect */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat zoom-on-scroll"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat zoom-on-scroll will-change-transform"
         style={{ 
           backgroundImage: "url('/lovable-uploads/0d403c09-120c-4221-af4a-d5006bd4513e.png')",
           ...getZoomTransform()
         }}
       ></div>
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Animated background elements */}
-      <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
+      {/* Animated background elements - reduced for mobile performance */}
+      <div className="hidden sm:block absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
+      <div className="hidden sm:block absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-20 sm:pt-24 md:pt-28">
+      <div className="relative z-10 w-full max-w-6xl mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-28 px-2 sm:px-0">
         {/* Logo and Title aligned to left */}
         <div className="text-left mb-6 sm:mb-8">
           {/* Main Logo */}
