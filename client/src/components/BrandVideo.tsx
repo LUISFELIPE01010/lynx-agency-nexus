@@ -10,6 +10,9 @@ const BrandVideo = () => {
 
   return (
     <section className="relative bg-black">
+      {/* Top gradient transition */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10"></div>
+      
       {/* Video container */}
       <div className="relative w-full h-screen">
         <video
@@ -25,6 +28,9 @@ const BrandVideo = () => {
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/30" />
       </div>
+      
+      {/* Bottom gradient transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent z-10"></div>
 
       {/* Text section below video */}
       <div className="bg-black py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">

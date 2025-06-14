@@ -1,5 +1,4 @@
-import { Link } from 'wouter';
-import { ArrowLeft, Home } from 'lucide-react';
+import Navbar from '@/components/Navbar';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Gallery = () => {
@@ -8,132 +7,113 @@ const Gallery = () => {
   const projects = [
     {
       id: 1,
-      title: "Identidade Visual Corporativa",
-      description: "Desenvolvimento completo de identidade visual para empresa de tecnologia",
-      image: "/fotos-slide/1.png",
-      category: "Branding"
+      title: "Elite Business Services",
+      category: "Corporate Branding",
+      description: "Professional corporate identity featuring clean lines and sophisticated branding for premium business consultancy.",
+      image: "/bb1.jpg",
+      tags: ["Corporate", "Business", "Professional"]
     },
     {
       id: 2,
-      title: "Campanha Publicitária Digital",
-      description: "Criação de campanha multiplataforma para lançamento de produto",
-      image: "/fotos-slide/2.png",
-      category: "Marketing Digital"
+      title: "Luxury Automotive Brand",
+      category: "Luxury Brand Identity",
+      description: "High-end automotive branding with sleek design elements and premium visual identity for luxury vehicle dealership.",
+      image: "/bb2.jpg",
+      tags: ["Automotive", "Luxury", "Premium"]
     },
     {
       id: 3,
-      title: "Website Responsivo",
-      description: "Design e desenvolvimento de site institucional moderno",
-      image: "/fotos-slide/3.png",
-      category: "Web Design"
+      title: "Modern Fashion Label",
+      category: "Digital Experience",
+      description: "Contemporary fashion brand identity with minimalist aesthetics and modern typography for trendy clothing line.",
+      image: "/bb3.jpg",
+      tags: ["Fashion", "Modern", "Trendy"]
     },
     {
       id: 4,
-      title: "Embalagem Premium",
-      description: "Design de embalagem para linha premium de cosméticos",
-      image: "/fotos-slide/4.png",
-      category: "Design de Produto"
+      title: "Artisan Food & Beverage",
+      category: "Corporate Rebrand",
+      description: "Authentic artisanal brand featuring warm colors and handcrafted elements for gourmet food products.",
+      image: "/bb4.jpg",
+      tags: ["Food", "Artisan", "Gourmet"]
     },
     {
       id: 5,
-      title: "Aplicativo Mobile",
-      description: "Interface e experiência de usuário para app de delivery",
-      image: "/fotos-slide/5.png",
-      category: "UX/UI Design"
+      title: "Tech Innovation Company",
+      category: "Healthcare Innovation",
+      description: "Cutting-edge technology brand with futuristic design elements and bold visual identity for innovation leader.",
+      image: "/bb5.jpg",
+      tags: ["Technology", "Innovation", "Future"]
     },
     {
       id: 6,
-      title: "Material Impresso",
-      description: "Catálogo institucional e materiais promocionais",
-      image: "/fotos-slide/6.png",
-      category: "Design Gráfico"
-    },
-    {
-      id: 7,
-      title: "E-commerce Completo",
-      description: "Loja virtual com sistema de pagamento integrado",
-      image: "/fotos-slide/7.png",
-      category: "E-commerce"
-    },
-    {
-      id: 8,
-      title: "Rebranding Corporativo",
-      description: "Renovação completa da identidade visual empresarial",
-      image: "/fotos-slide/8.png",
-      category: "Rebranding"
-    },
-    {
-      id: 9,
-      title: "Campanha Social Media",
-      description: "Estratégia e conteúdo para redes sociais",
-      image: "/fotos-slide/9.png",
-      category: "Social Media"
-    },
-    {
-      id: 10,
-      title: "Dashboard Analytics",
-      description: "Interface de administração com visualização de dados",
-      image: "/fotos-slide/10.png",
-      category: "Dashboard"
+      title: "Premium Real Estate",
+      category: "Real Estate Branding",
+      description: "Sophisticated real estate brand with elegant design elements and luxury positioning for high-end properties.",
+      image: "/bb6.jpg",
+      tags: ["Real Estate", "Luxury", "Premium"]
     }
   ];
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Header com navegação */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <button
-            onClick={() => window.history.back()}
-            className="flex items-center gap-2 text-lynx-gray hover:text-white transition-colors duration-200"
-          >
-            <ArrowLeft size={20} />
-            <span>Voltar</span>
-          </button>
+      <Navbar />
 
-          <h1 className="text-2xl font-space font-bold">Portfolio</h1>
-
-          <Link
-            to="/"
-            className="flex items-center gap-2 px-4 py-2 bg-lynx-gray/10 hover:bg-lynx-gray/20 rounded-lg text-lynx-gray hover:text-white transition-all duration-200 border border-lynx-gray/20 hover:border-lynx-gray/40"
-          >
-            <Home size={18} />
-            <span>Home</span>
-          </Link>
+      {/* Portfolio Header */}
+      <div className="pt-32 pb-16 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
+            Portfolio
+            <span className="block text-lynx-gray">Showcase</span>
+          </h1>
+          <p className="text-lg text-lynx-gray max-w-3xl mx-auto leading-relaxed">
+            Explore our curated collection of premium brand identities and innovative design solutions
+          </p>
         </div>
-      </header>
+      </div>
 
-      {/* Portfolio */}
-      <main className="pt-20 pb-12">
+      {/* Portfolio Grid */}
+      <main className="pb-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-gray-900/50 rounded-lg overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 border border-gray-800/50 hover:border-lynx-gray/30"
+                className="group relative cursor-pointer overflow-hidden rounded-2xl bg-lynx-gray/5 border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl"
               >
-                <div className="relative aspect-video overflow-hidden">
+                <div className="aspect-square overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-black/70 text-white text-xs rounded-full">
+                </div>
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="mb-2">
+                    <span className="inline-block px-3 py-1 bg-lynx-gray/20 backdrop-blur-sm text-xs font-space tracking-wider rounded-full border border-lynx-gray/30">
                       {project.category}
                     </span>
                   </div>
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="text-xl font-space font-semibold mb-2 text-white group-hover:text-lynx-gray transition-colors">
+                  <h3 className="text-xl font-space font-bold mb-2 leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-sm text-gray-300 leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {project.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-1 bg-white/10 backdrop-blur-sm text-xs rounded border border-white/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
