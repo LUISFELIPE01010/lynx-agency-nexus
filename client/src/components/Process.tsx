@@ -63,8 +63,8 @@ const Process = () => {
             <AnimatedSection
               key={index}
               animationType={index % 2 === 0 ? "slide-in-left" : "slide-in-right"}
-              delay={index * 0.3}
-              className={`grid lg:grid-cols-2 gap-12 sm:gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''} py-8 sm:py-0 process-step-fade transform transition-all duration-700 ease-out`}
+              delay={index * 0.2}
+              className={`grid lg:grid-cols-2 gap-12 sm:gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''} py-8 sm:py-0 process-step-fade transform transition-all duration-800 ease-out`}
             >
               <div>
                 <div className="space-y-6">

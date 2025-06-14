@@ -4,7 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const BrandImportance = () => {
   const { t } = useLanguage();
-  
+
   const brandPoints = [
     {
       title: t('instantRecognition'),

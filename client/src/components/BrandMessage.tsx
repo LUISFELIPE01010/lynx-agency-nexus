@@ -43,10 +43,10 @@ const BrandMessage = () => {
         
         {/* Subtitle */}
         <p 
-          className={`mt-6 text-lg sm:text-xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-500 ${
+          className={`mt-6 text-lg sm:text-xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed transition-all duration-1200 delay-700 ${
             isVisible 
               ? 'opacity-100 translate-y-0' 
-              : 'opacity-0 translate-y-4'
+              : 'opacity-0 translate-y-8'
           }`}
         >
           {t('brandMovementSubtitle') || 'Every brand has a story. We craft narratives that resonate, inspire, and transform audiences into communities.'}

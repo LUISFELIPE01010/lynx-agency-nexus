@@ -1,4 +1,5 @@
 import Navbar from '../components/Navbar';
+import { Link } from 'react-router-dom';
 
 const Gallery = () => {
   const projects = [
@@ -61,6 +62,17 @@ const Gallery = () => {
       <div className="pt-20 px-6 py-12" style={{ marginTop: 0 }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
+            <div className="mb-6">
+              <Link 
+                to="/" 
+                className="inline-flex items-center gap-2 text-lynx-gray hover:text-white transition-colors duration-300 font-inter"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Home
+              </Link>
+            </div>
             <h2 className="text-4xl md:text-6xl font-space font-bold text-white mb-4">
               Project Gallery
             </h2>
