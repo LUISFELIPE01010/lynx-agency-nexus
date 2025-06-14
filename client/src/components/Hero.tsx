@@ -126,7 +126,7 @@ const Hero = () => {
       <div 
         ref={arrowRef}
         onClick={scrollToNext}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer group"
+        className="absolute bottom-16 left-1/2 transform -translate-x-1/2 cursor-pointer group"
       >
         <div className="p-4 rounded-full border border-lynx-gray/30 group-hover:border-white transition-all duration-300 group-hover:bg-white/5">
           <ArrowDown className="text-lynx-gray group-hover:text-white w-6 h-6 transition-colors duration-300" />
