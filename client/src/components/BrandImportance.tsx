@@ -87,12 +87,23 @@ const BrandImportance = () => {
                 delay={index * 0.3 + 0.2}
                 className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} transform transition-all duration-800 ease-out`}
               >
-                <div className="relative aspect-square">
-                  <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10">
-                    <div className="absolute inset-8 bg-gradient-to-br from-white/5 to-transparent rounded-xl flex items-center justify-center overflow-hidden">
-                      <div className="w-24 h-24 bg-gradient-to-br from-lynx-gray/30 to-white/20 rounded-full flex items-center justify-center">
-                        <div className="w-12 h-12 bg-gradient-to-br from-white/40 to-lynx-gray/40 rounded-full"></div>
+                <div className="relative aspect-square overflow-hidden rounded-2xl">
+                  <img 
+                    src={`/bb${index + 4}.jpg`}
+                    alt={`Brand importance ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/50"></div>
+                  
+                  {/* Overlay content */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-500 bg-black/40 backdrop-blur-sm">
+                    <div className="text-center p-6">
+                      <div className="w-16 h-16 bg-gradient-to-br from-lynx-gray/80 to-white/60 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div className="w-8 h-8 bg-gradient-to-br from-white to-lynx-gray rounded-full"></div>
                       </div>
+                      <h4 className="text-white font-space font-semibold text-lg mb-2">{point.title}</h4>
+                      <p className="text-lynx-gray text-sm">{point.description.substring(0, 50)}...</p>
                     </div>
                   </div>
 

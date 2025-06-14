@@ -65,12 +65,7 @@ const Services = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <AnimatedSection 
-              key={index}
-              animationType="scale-in"
-              delay={Math.min(index + 1, 6)}
-            >
-              <div className="group relative p-4 sm:p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-700 hover-lift backdrop-blur-sm">
+            <div key={index} className="group relative p-4 sm:p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-lynx-gray/5 to-transparent border border-lynx-gray/10 hover:border-lynx-gray/30 transition-all duration-700 hover:scale-105 backdrop-blur-sm">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 <div className="relative z-10">
@@ -105,7 +100,6 @@ const Services = () => {
 
                 </div>
               </div>
-            </AnimatedSection>
           ))}
         </div>
       </div>
