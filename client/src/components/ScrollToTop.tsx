@@ -1,7 +1,23 @@
-
-import { ArrowUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronUp } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ScrollToTop = () => {
+  const { t } = useLanguage();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsVisible(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -9,13 +25,18 @@ const ScrollToTop = () => {
     });
   };
 
+  if (!isVisible) {
+    return null;
+  }
+
   return (
     <button
-      onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-50 p-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 group"
-      aria-label="Scroll to top"
-    >
-      <ArrowUp className="w-5 h-5 text-white group-hover:text-lynx-gray transition-colors duration-300" />
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 z-50 p-3 bg-white text-black rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300 hover:scale-110"
+        aria-label={t('backToTop')}
+        title={t('backToTop')}
+      >
+      <ChevronUp className="w-6 h-6" />
     </button>
   );
 };

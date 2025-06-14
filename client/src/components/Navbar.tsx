@@ -58,10 +58,10 @@ const Navbar = () => {
             }}
             className="text-white hover:text-lynx-gray menu-item font-space text-sm sm:text-sm md:text-base transition-colors duration-300 flex items-center"
           >
-            Contact
+            {t('contact')}
           </Link>
         </div>
-        
+
         <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={() => setLanguage('en')}

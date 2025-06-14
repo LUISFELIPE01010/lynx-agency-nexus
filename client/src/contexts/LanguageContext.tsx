@@ -208,7 +208,28 @@ const translations = {
     globalRemote: 'Global Remote',
     
     // Real Estate Project Category  
-    realEstateBranding: 'Real Estate Branding'
+    realEstateBranding: 'Real Estate Branding',
+    
+    // Additional UI elements
+    loading: 'Loading...',
+    learnMore: 'Learn More',
+    getStarted: 'Get Started',
+    readMore: 'Read More',
+    backToTop: 'Back to Top',
+    menu: 'Menu',
+    close: 'Close',
+    
+    // Error messages
+    pageNotFound: 'Page Not Found',
+    errorOccurred: 'An error occurred',
+    
+    // Common actions
+    submit: 'Submit',
+    cancel: 'Cancel',
+    save: 'Save',
+    edit: 'Edit',
+    delete: 'Delete',
+    confirm: 'Confirm'
   },
   pt: {
     // Navigation
@@ -401,7 +422,28 @@ const translations = {
     globalRemote: 'Remoto Global',
     
     // Real Estate Project Category
-    realEstateBranding: 'Branding Imobiliário'
+    realEstateBranding: 'Branding Imobiliário',
+    
+    // Additional UI elements
+    loading: 'Carregando...',
+    learnMore: 'Saiba Mais',
+    getStarted: 'Começar',
+    readMore: 'Ler Mais',
+    backToTop: 'Voltar ao Topo',
+    menu: 'Menu',
+    close: 'Fechar',
+    
+    // Error messages
+    pageNotFound: 'Página Não Encontrada',
+    errorOccurred: 'Ocorreu um erro',
+    
+    // Common actions
+    submit: 'Enviar',
+    cancel: 'Cancelar',
+    save: 'Salvar',
+    edit: 'Editar',
+    delete: 'Excluir',
+    confirm: 'Confirmar'
   }
 };
 
