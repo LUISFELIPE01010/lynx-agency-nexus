@@ -51,9 +51,9 @@ const Index = () => {
       <Projects />
       <Process />
       <ClientCarousel />
-      <ProductCarousel />
       <SocialProof />
       <BrandImportance />
+      <ProductCarousel />
       <Contact />
       <Footer />
     </div>
