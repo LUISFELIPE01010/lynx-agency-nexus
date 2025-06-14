@@ -25,8 +25,8 @@ const Navbar = () => {
       top: 0,
       paddingTop: 'env(safe-area-inset-top, 0px)'
     }}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-12 py-1 sm:py-2 flex items-center justify-between">
-        <div className="flex items-center gap-3 sm:gap-6 md:gap-8 flex-1 justify-center ml-8 sm:ml-12 md:ml-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-2 sm:py-2 flex items-center justify-between">
+        <div className="flex items-center gap-4 sm:gap-6 md:gap-8 flex-1 justify-center sm:ml-12 md:ml-16">
           <Link
             to="/"
             onClick={() => {
@@ -62,7 +62,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
           <button
             onClick={() => setLanguage('en')}
             className={`text-sm sm:text-base font-medium transition-colors duration-300 flex items-center ${
