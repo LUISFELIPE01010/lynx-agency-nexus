@@ -1,7 +1,7 @@
 import { ScrollTriggerWrapper } from '@/hooks/useScrollTrigger';
 import { useLanguage } from '../contexts/LanguageContext';
 import CSSAnimatedOverlay from './CSSAnimatedOverlay';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 
 const Projects = () => {
   const { t } = useLanguage();
