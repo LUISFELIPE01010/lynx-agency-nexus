@@ -70,9 +70,17 @@ const Hero = () => {
       ></div>
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Animated background elements - reduced for mobile performance */}
-      <div className="hidden sm:block absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
-      <div className="hidden sm:block absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
+      {/* Enhanced animated background elements */}
+      <div className="absolute top-10 left-10 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-r from-lynx-gray/10 to-transparent rounded-full blur-3xl animate-float"></div>
+      <div className="absolute top-1/3 right-20 w-24 h-24 sm:w-40 sm:h-40 bg-gradient-to-l from-white/8 to-transparent rounded-full blur-2xl animate-pulse"></div>
+      <div className="absolute bottom-20 left-20 w-20 h-20 sm:w-32 sm:h-32 bg-gradient-to-r from-lynx-gray/8 to-transparent rounded-full blur-xl animate-float" style={{animationDelay: '2s'}}></div>
+      <div className="absolute top-1/2 left-1/2 w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-r from-white/6 to-transparent rounded-full blur-lg animate-pulse" style={{animationDelay: '1.5s'}}></div>
+      
+      {/* Floating particles */}
+      <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-lynx-gray/40 rounded-full animate-floating-slow"></div>
+      <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-white/30 rounded-full animate-floating-fast"></div>
+      <div className="absolute bottom-1/3 left-1/5 w-1.5 h-1.5 bg-lynx-gray/50 rounded-full animate-floating-medium"></div>
+      <div className="absolute top-2/3 right-1/3 w-2.5 h-2.5 bg-white/20 rounded-full animate-floating-slow" style={{animationDelay: '3s'}}></div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-28 px-2 sm:px-0">
         {/* Logo and Title aligned to left */}

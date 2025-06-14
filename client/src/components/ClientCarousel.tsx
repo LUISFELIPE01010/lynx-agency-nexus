@@ -27,25 +27,38 @@ const ClientCarousel = () => {
   const infiniteLogos = [...logos, ...logos];
 
   return (
-    <section className="py-8 px-6 mb-16 bg-black relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-12 sm:py-16 lg:py-20 bg-black relative overflow-hidden">
+      <div className="w-full">
         <div className="relative overflow-hidden">
-          <div className="carousel-container">
-            <div className="carousel-track-improved">
-              {infiniteLogos.map((logo, index) => (
-                <div
-                  key={index}
-                  className="carousel-item flex-shrink-0 w-52 h-36 md:w-64 md:h-44 mx-8 flex items-center justify-center"
-                >
-                  <img
-                    src={logo}
-                    alt={`Client logo ${(index % logos.length) + 1}`}
-                    className="max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="flex animate-scroll">
+            {/* First set of logos */}
+            {logos.map((logo, index) => (
+              <div
+                key={`first-${index}`}
+                className="flex-shrink-0 w-40 h-24 sm:w-48 sm:h-28 md:w-56 md:h-32 lg:w-64 lg:h-36 mx-4 sm:mx-6 lg:mx-8 flex items-center justify-center"
+              >
+                <img
+                  src={logo}
+                  alt={`Client logo ${index + 1}`}
+                  className="max-w-full max-h-full object-contain opacity-50 hover:opacity-80 transition-opacity duration-500 filter grayscale hover:grayscale-0"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+            {/* Second set for seamless loop */}
+            {logos.map((logo, index) => (
+              <div
+                key={`second-${index}`}
+                className="flex-shrink-0 w-40 h-24 sm:w-48 sm:h-28 md:w-56 md:h-32 lg:w-64 lg:h-36 mx-4 sm:mx-6 lg:mx-8 flex items-center justify-center"
+              >
+                <img
+                  src={logo}
+                  alt={`Client logo ${index + 1}`}
+                  className="max-w-full max-h-full object-contain opacity-50 hover:opacity-80 transition-opacity duration-500 filter grayscale hover:grayscale-0"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

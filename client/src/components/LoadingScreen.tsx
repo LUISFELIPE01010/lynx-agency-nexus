@@ -46,7 +46,7 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
       </div>
       
       <p className="text-white/80 text-sm font-space">
-        Carregando... {Math.round(progress)}%
+        {Math.round(progress)}%
       </p>
     </div>
   );
