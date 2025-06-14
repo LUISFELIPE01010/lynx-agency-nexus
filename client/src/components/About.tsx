@@ -1,5 +1,5 @@
 import logoPng from '@/logop.png';
-import { AnimatedSection } from '@/hooks/useIntersectionObserver';
+import { ScrollTriggerWrapper } from '@/hooks/useScrollTrigger';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useState, useEffect, useRef } from 'react';
 
@@ -70,7 +70,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 sm:gap-20 lg:gap-24 items-center">
           <div className="space-y-10 sm:space-y-12">
-            <AnimatedSection animationType="slide-in-left">
+            <ScrollTriggerWrapper animationType="slide-in-left">
               <div className="space-y-6 sm:space-y-8">
                 <span className="text-lynx-gray font-space text-sm sm:text-base tracking-widest uppercase">{t('aboutLabel')}</span>
                 <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-space font-bold text-white leading-tight">
@@ -79,13 +79,13 @@ const About = () => {
                   <span className="block">{t('aboutTitle3')}</span>
                 </h2>
               </div>
-            </AnimatedSection>
+            </ScrollTriggerWrapper>
 
-            <AnimatedSection animationType="fade-in" delay={1}>
+            <ScrollTriggerWrapper animationType="fade-in" delay={2}>
               <div className="w-24 h-px bg-gradient-to-r from-lynx-gray to-transparent"></div>
-            </AnimatedSection>
+            </ScrollTriggerWrapper>
 
-            <AnimatedSection animationType="fade-in" delay={2}>
+            <ScrollTriggerWrapper animationType="fade-in" delay={4}>
               <div className="space-y-6 sm:space-y-8 text-base sm:text-lg lg:text-xl leading-relaxed">
                 <p className="text-lynx-gray font-inter">
                   {t('aboutParagraph1')}
@@ -97,9 +97,9 @@ const About = () => {
                   {t('aboutParagraph3')}
                 </p>
               </div>
-            </AnimatedSection>
+            </ScrollTriggerWrapper>
 
-            <AnimatedSection animationType="slide-in-up" delay={3}>
+            <ScrollTriggerWrapper animationType="slide-in-up" delay={6}>
               <div className="flex flex-wrap gap-6 sm:gap-8 lg:gap-12 pt-8 sm:pt-12">
                 <div className="flex items-center gap-3 hover-scale">
                   <span className="text-lynx-gray text-sm">•</span>
@@ -123,10 +123,10 @@ const About = () => {
                   </div>
                 </div>
               </div>
-            </AnimatedSection>
+            </ScrollTriggerWrapper>
           </div>
 
-          <AnimatedSection animationType="slide-in-right" className="relative">
+          <ScrollTriggerWrapper animationType="slide-in-right" className="relative">
             <div className="relative aspect-square">
               {/* Main video container with full coverage */}
               <div className="absolute inset-2 sm:inset-12 bg-gradient-to-br from-lynx-gray/20 to-transparent rounded-2xl backdrop-blur-sm overflow-hidden hover-lift">
@@ -154,7 +154,7 @@ const About = () => {
               <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-full blur-xl animate-float"></div>
               <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-gradient-to-tl from-white/10 to-transparent rounded-full blur-lg animate-float" style={{animationDelay: '1.5s'}}></div>
             </div>
-          </AnimatedSection>
+          </ScrollTriggerWrapper>
         </div>
       </div>
     </section>

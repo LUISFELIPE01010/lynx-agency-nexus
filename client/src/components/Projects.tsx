@@ -1,5 +1,4 @@
-import { AnimatedSection } from '@/hooks/useIntersectionObserver';
-import { ScrollAnimatedSection } from '@/hooks/useScrollAnimations';
+import { ScrollTriggerWrapper } from '@/hooks/useScrollTrigger';
 import { useLanguage } from '../contexts/LanguageContext';
 import CSSAnimatedOverlay from './CSSAnimatedOverlay';
 
@@ -49,35 +48,24 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: "Creative Design Studio",
-      category: t('sustainabilityPlatform'),
-      description: "Dynamic creative studio branding with vibrant colors and artistic elements showcasing design excellence.",
+      title: "Premium Real Estate",
+      category: t('realEstateBranding'),
+      description: "Sophisticated real estate brand with elegant design elements and luxury positioning for high-end properties.",
       image: "/bb6.jpg",
-      tags: ["Creative", "Design", "Studio"]
+      tags: ["Real Estate", "Luxury", "Premium"]
     }
   ];
 
   return (
-    <section 
-      id="projects" 
-      className="py-20 sm:py-32 lg:py-40 px-6 sm:px-8 lg:px-12 relative overflow-hidden"
-      style={{
-        backgroundImage: 'url(/banner2.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      {/* Overlay escuro com 85% de opacidade */}
-      <div className="absolute inset-0 bg-black/85 z-10"></div>
-      
-      {/* Animated overlay apenas nesta seção */}
-      <div className="absolute inset-0 z-20">
+    <section id="projects" className="py-20 sm:py-32 lg:py-40 px-6 sm:px-8 lg:px-12 relative overflow-hidden bg-black">
+      {/* Background with animated overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/5 to-black"></div>
+      <div className="absolute inset-0 opacity-30">
         <CSSAnimatedOverlay />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-30">
-        <AnimatedSection animationType="fade-in" className="text-center mb-16 sm:mb-24 lg:mb-32">
+        <ScrollTriggerWrapper animationType="fade-in" className="text-center mb-16 sm:mb-24 lg:mb-32">
           <span className="text-lynx-gray font-space text-sm sm:text-base tracking-widest uppercase mb-6 sm:mb-8 block">{t('portfolioLabel')}</span>
           <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-space font-bold text-white mb-8 sm:mb-12 leading-tight">
             {t('portfolioTitle')}
@@ -86,11 +74,11 @@ const Projects = () => {
           <p className="text-base sm:text-lg lg:text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed px-4">
             {t('portfolioSubtitle')}
           </p>
-        </AnimatedSection>
+        </ScrollTriggerWrapper>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
-            <AnimatedSection
+            <ScrollTriggerWrapper
               key={project.id}
               animationType="scale-in"
               delay={Math.min(index + 1, 6)}
@@ -146,16 +134,16 @@ const Projects = () => {
                 </svg>
               </div>
               </div>
-            </AnimatedSection>
+            </ScrollTriggerWrapper>
           ))}
         </div>
 
-        <AnimatedSection animationType="fade-in" className="text-center mt-20 sm:mt-24 lg:mt-32">
+        <ScrollTriggerWrapper animationType="fade-in" className="text-center mt-20 sm:mt-24 lg:mt-32">
           <button className="group relative px-8 py-4 border border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-500 btn-glow touch-manipulation">
             <span className="relative z-10">{t('viewAllProjects')}</span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
           </button>
-        </AnimatedSection>
+        </ScrollTriggerWrapper>
       </div>
       
       </section>
