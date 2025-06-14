@@ -1,3 +1,4 @@
+
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -33,14 +34,10 @@ const Process = () => {
 
   return (
     <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-black via-[#0f1419] to-black">
-      {/* Background texture - idêntico ao Services */}
+      {/* Background texture */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-lynx-gray via-transparent to-transparent"></div>
       </div>
-      
-      
-      
-      
 
       {/* Visual elements to break up text */}
       <div className="absolute bottom-20 left-10 w-24 h-24 bg-[#95A0A2]/5 rounded-full blur-xl"></div>
@@ -60,13 +57,12 @@ const Process = () => {
 
         <div className="space-y-24 sm:space-y-16">
           {steps.map((step, index) => (
-            <AnimatedSection
-              key={index}
-              animationType={index % 2 === 0 ? "slide-in-left" : "slide-in-right"}
-              delay={index * 0.2}
-              className={`grid lg:grid-cols-2 gap-12 sm:gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''} py-8 sm:py-0 process-step-fade transform transition-all duration-800 ease-out`}
-            >
-              <div>
+            <div key={index} className={`grid lg:grid-cols-2 gap-12 sm:gap-16 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''} py-8 sm:py-0`}>
+              <AnimatedSection
+                animationType="slide-in-left"
+                delay={index * 0.2}
+                className="transform transition-all duration-800 ease-out"
+              >
                 <div className="space-y-6">
                   <div className="flex items-center gap-6">
                     <div className="text-6xl font-space font-bold text-lynx-gray/30">
@@ -94,9 +90,13 @@ const Process = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </AnimatedSection>
 
-              <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} slide-in-${index % 2 === 0 ? 'right' : 'left'}`}>
+              <AnimatedSection
+                animationType="slide-in-right"
+                delay={index * 0.2 + 0.3}
+                className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} transform transition-all duration-800 ease-out`}
+              >
                 <div className="relative aspect-square">
                   <div className="absolute inset-0 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-2xl backdrop-blur-sm border border-lynx-gray/10">
                     <div className="absolute inset-8 bg-gradient-to-br from-white/5 to-transparent rounded-xl flex items-center justify-center overflow-hidden">
@@ -112,8 +112,8 @@ const Process = () => {
                   <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-lynx-gray/10 to-transparent rounded-full blur-xl animate-float"></div>
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tl from-white/10 to-transparent rounded-full blur-lg animate-float" style={{animationDelay: '1.5s'}}></div>
                 </div>
-              </div>
-            </AnimatedSection>
+              </AnimatedSection>
+            </div>
           ))}
         </div>
       </div>

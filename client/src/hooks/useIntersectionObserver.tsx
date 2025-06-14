@@ -1,33 +1,20 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
 
-interface UseIntersectionObserverOptions {
-  threshold?: number;
-  rootMargin?: string;
-  triggerOnce?: boolean;
-}
+import { useState, useRef, useEffect, useCallback } from 'react';
 
-export const useIntersectionObserver = (
-  options: UseIntersectionObserverOptions = {}
-) => {
-  const {
-    threshold = 0.1,
-    rootMargin = '0px 0px -50px 0px',
-    triggerOnce = true,
-  } = options;
-
+export const useIntersectionObserver = (options = {}) => {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const [hasTriggered, setHasTriggered] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  const { threshold = 0.1, rootMargin = '30px', triggerOnce = false } = options;
 
   useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && (!triggerOnce || !hasTriggered)) {
           setIsVisible(true);
           if (triggerOnce) {
-            observer.unobserve(element);
+            setHasTriggered(true);
           }
         } else if (!triggerOnce) {
           setIsVisible(false);
@@ -36,16 +23,18 @@ export const useIntersectionObserver = (
       { threshold, rootMargin }
     );
 
-    observer.observe(element);
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
 
     return () => {
-      if (element) {
-        observer.unobserve(element);
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
       }
     };
-  }, [threshold, rootMargin, triggerOnce]);
+  }, [threshold, rootMargin, triggerOnce, hasTriggered]);
 
-  return { ref, isVisible };
+  return { isVisible, elementRef };
 };
 
 interface AnimatedSectionProps {
@@ -82,7 +71,7 @@ export const AnimatedSection = ({
       handleIntersection,
       { 
         threshold: 0.1,
-        rootMargin: '30px' // Reduced rootMargin for better performance
+        rootMargin: '50px'
       }
     );
 
@@ -99,12 +88,29 @@ export const AnimatedSection = ({
     };
   }, [handleIntersection]);
 
-  const delayClass = delay > 0 ? `stagger-${Math.min(delay, 6)}` : '';
+  const getAnimationClasses = () => {
+    const baseClasses = `transition-all duration-800 ease-out ${className}`;
+    
+    switch (animationType) {
+      case 'fade-in':
+        return `${baseClasses} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
+      case 'slide-in-left':
+        return `${baseClasses} ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`;
+      case 'slide-in-right':
+        return `${baseClasses} ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`;
+      case 'slide-in-up':
+        return `${baseClasses} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`;
+      case 'scale-in':
+        return `${baseClasses} ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`;
+      default:
+        return baseClasses;
+    }
+  };
 
   return (
     <div 
       ref={sectionRef}
-      className={`${animationType} ${delayClass} ${isVisible ? 'animate-visible' : ''} ${className}`}
+      className={getAnimationClasses()}
     >
       {children}
     </div>
