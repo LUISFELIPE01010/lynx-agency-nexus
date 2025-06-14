@@ -33,12 +33,12 @@ const BrandVideo = () => {
 
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const sectionHeight = sectionRef.current.offsetHeight;
       
-      // Calculate scroll progress for the entire section journey
-      const totalScrollDistance = windowHeight + sectionHeight;
-      const scrolled = windowHeight - rect.top;
-      const progress = Math.max(0, Math.min(1, scrolled / totalScrollDistance));
+      // Calculate progress based on how much the section has been scrolled through
+      // When section top reaches 0 (fully in view), start the animation
+      const scrolledPastTop = Math.max(0, -rect.top);
+      const maxScroll = windowHeight * 0.8; // Allow 80% of screen height for animation
+      const progress = Math.max(0, Math.min(1, scrolledPastTop / maxScroll));
       
       setScrollProgress(progress);
     };
@@ -49,37 +49,36 @@ const BrandVideo = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Video scaling: starts small, grows to full size, then stays fixed
-  const videoScale = scrollProgress < 0.5 
-    ? 0.6 + (scrollProgress * 0.8) // 0.6 to 1.0 in first half
-    : 1.0; // Fixed at 1.0 after 50%
+  // Video scaling: grows from small to full size
+  const videoScale = 0.7 + (scrollProgress * 0.3); // 0.7 to 1.0
+  const videoOpacity = Math.min(1, scrollProgress * 2);
 
-  const videoOpacity = Math.min(1, scrollProgress * 2); // Quick fade in
-
-  // Text reveal: starts after video is fully scaled (after 60% progress)
-  const textStartProgress = 0.6;
+  // Text reveal: starts after video animation (after 70% progress)
+  const textStartProgress = 0.7;
   const textProgress = scrollProgress > textStartProgress 
     ? (scrollProgress - textStartProgress) / (1 - textStartProgress)
     : 0;
 
-  const textOpacity = Math.min(1, textProgress * 1.5);
-  const textTransform = Math.max(0, (1 - textProgress) * 50);
+  const textOpacity = Math.min(1, textProgress * 2);
+  const textTransform = Math.max(0, (1 - textProgress) * 60);
 
   // Background overlay that appears with text
-  const overlayOpacity = Math.min(0.4, textProgress * 0.4);
+  const overlayOpacity = Math.min(0.5, textProgress * 0.5);
 
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[200vh] overflow-hidden" // Increased height for scroll effect
+      className="relative h-screen overflow-hidden"
       style={{ 
-        background: 'linear-gradient(to bottom, #000000, #1a1a1a)'
+        background: 'linear-gradient(to bottom, #000000, #1a1a1a)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 10
       }}
     >
-      {/* Sticky video container */}
+      {/* Video container */}
       <div 
-        className="sticky top-0 w-full h-screen flex items-center justify-center"
-        style={{ zIndex: 10 }}
+        className="absolute inset-0 w-full h-full flex items-center justify-center"
       >
         <div 
           className="relative overflow-hidden w-full h-full"
@@ -143,6 +142,12 @@ const BrandVideo = () => {
           </div>
         </div>
       </div>
+      
+      {/* Invisible spacer to create scroll distance */}
+      <div 
+        className="absolute top-full w-full"
+        style={{ height: '100vh' }}
+      />
     </section>
   );
 };
