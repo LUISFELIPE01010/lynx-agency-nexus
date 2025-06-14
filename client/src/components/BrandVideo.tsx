@@ -1,4 +1,3 @@
-
 import { useRef, useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -34,59 +33,44 @@ const BrandVideo = () => {
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Calculate progress based on how much the section has been scrolled through
-      // When section top reaches 0 (fully in view), start the animation
-      const scrolledPastTop = Math.max(0, -rect.top);
-      const maxScroll = windowHeight * 0.8; // Allow 80% of screen height for animation
-      const progress = Math.max(0, Math.min(1, scrolledPastTop / maxScroll));
+      // Calculate scroll progress for the sticky effect
+      const scrollStart = 0;
+      const scrollEnd = windowHeight * 1.5; // Extended scroll distance
+      const currentScroll = Math.max(0, -rect.top);
+      const progress = Math.max(0, Math.min(1, currentScroll / scrollEnd));
       
       setScrollProgress(progress);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Video scaling: grows from small to full size
-  const videoScale = 0.7 + (scrollProgress * 0.3); // 0.7 to 1.0
-  const videoOpacity = Math.min(1, scrollProgress * 2);
-
-  // Text reveal: starts after video animation (after 70% progress)
-  const textStartProgress = 0.7;
-  const textProgress = scrollProgress > textStartProgress 
-    ? (scrollProgress - textStartProgress) / (1 - textStartProgress)
-    : 0;
-
-  const textOpacity = Math.min(1, textProgress * 2);
-  const textTransform = Math.max(0, (1 - textProgress) * 60);
-
-  // Background overlay that appears with text
-  const overlayOpacity = Math.min(0.5, textProgress * 0.5);
+  // Animation phases based on scroll progress
+  const videoOpacity = Math.min(1, scrollProgress * 3); // Video fades in quickly
+  const textOpacity = scrollProgress > 0.6 ? Math.min(1, (scrollProgress - 0.6) * 2.5) : 0; // Text appears later
+  const textTransform = Math.max(0, (1 - scrollProgress) * 80); // Text slides up
 
   return (
-    <section 
-      ref={sectionRef}
-      className="relative h-screen overflow-hidden"
-      style={{ 
-        background: 'linear-gradient(to bottom, #000000, #1a1a1a)',
-        position: 'sticky',
-        top: 0,
-        zIndex: 10
-      }}
-    >
-      {/* Video container */}
-      <div 
-        className="absolute inset-0 w-full h-full flex items-center justify-center"
+    <>
+      <section 
+        ref={sectionRef}
+        className="relative h-screen overflow-hidden"
+        style={{ 
+          position: 'sticky', 
+          top: 0,
+          zIndex: 10
+        }}
       >
+        {/* Video Background with reveal effect */}
         <div 
-          className="relative overflow-hidden w-full h-full"
+          className="absolute inset-0 w-full h-full"
           style={{ 
-            transform: `scale(${videoScale})`,
-            transition: scrollProgress < 0.5 ? 'transform 0.1s ease-out' : 'none',
             opacity: videoOpacity,
-            borderRadius: scrollProgress < 0.3 ? '20px' : '0px'
+            transform: `scale(${1 + (1 - videoOpacity) * 0.1})`,
+            transition: scrollProgress === 0 ? 'none' : 'opacity 0.1s ease-out, transform 0.1s ease-out'
           }}
         >
           <video
@@ -100,28 +84,23 @@ const BrandVideo = () => {
             preload="auto"
             style={{ 
               objectFit: 'cover',
-              filter: 'brightness(0.9) contrast(1.1)'
+              filter: 'brightness(0.7) contrast(1.1)'
             }}
           />
-          
-          {/* Progressive dark overlay for text readability */}
-          <div 
-            className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/60"
-            style={{ opacity: overlayOpacity }}
-          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
         </div>
 
-        {/* Text overlay that appears over the fixed video */}
+        {/* Text overlay that appears over the video */}
         <div 
-          className="absolute inset-0 flex items-center justify-center z-20 px-4 sm:px-6 lg:px-8"
+          className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 lg:px-8"
           style={{ 
             opacity: textOpacity,
             transform: `translateY(${textTransform}px)`,
-            transition: 'opacity 0.8s ease-out, transform 0.8s ease-out'
+            transition: scrollProgress < 0.6 ? 'none' : 'opacity 0.2s ease-out, transform 0.2s ease-out'
           }}
         >
           <div className="text-center max-w-4xl">
-            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-space font-bold leading-tight tracking-wide">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white leading-tight tracking-wide">
               <span className="block opacity-90 hover:opacity-100 transition-opacity duration-300">
                 More than brands,
               </span>
@@ -130,25 +109,33 @@ const BrandVideo = () => {
               </span>
             </h2>
             
-            {/* Decorative line */}
+            {/* Decorative Line */}
             <div 
-              className="mt-6 sm:mt-8 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-white to-transparent"
+              className="mt-8 mx-auto w-24 h-px bg-gradient-to-r from-transparent via-white to-transparent"
               style={{ 
                 opacity: textOpacity * 0.6,
-                transform: `scaleX(${textProgress})`,
-                transition: 'opacity 1s ease-out, transform 1s ease-out'
+                transform: `scaleX(${textOpacity})`,
+                transition: 'opacity 0.5s ease-out, transform 0.5s ease-out'
               }}
             />
+            
+            {/* Subtitle */}
+            <p 
+              className="mt-6 text-lg sm:text-xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed"
+              style={{ 
+                opacity: textOpacity * 0.8,
+                transition: 'opacity 0.3s ease-out 0.2s'
+              }}
+            >
+              {t('brandMovementSubtitle') || 'Every brand has a story. We craft narratives that resonate, inspire, and transform audiences into communities.'}
+            </p>
           </div>
         </div>
-      </div>
+      </section>
       
-      {/* Invisible spacer to create scroll distance */}
-      <div 
-        className="absolute top-full w-full"
-        style={{ height: '100vh' }}
-      />
-    </section>
+      {/* Spacer to create scrollable distance */}
+      <div className="h-screen" />
+    </>
   );
 };
 
