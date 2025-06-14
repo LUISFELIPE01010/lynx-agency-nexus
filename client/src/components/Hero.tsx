@@ -57,7 +57,7 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center px-6 sm:px-8 lg:px-12 overflow-hidden">
+    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start px-6 sm:px-8 lg:px-12 overflow-hidden">
       <ParticleSystem particleCount={8} color="#95A0A2" speed={0.6} size={2} />
       
       {/* Background image with dark overlay and zoom effect */}
@@ -74,7 +74,7 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-lynx-gray/5 to-transparent rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-l from-white/5 to-transparent rounded-full blur-2xl animate-pulse delay-1000"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto pt-8 sm:pt-10 md:pt-12">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pt-20 sm:pt-24 md:pt-28">
         {/* Logo and Title aligned to left */}
         <div className="text-left mb-6 sm:mb-8">
           {/* Main Logo */}
@@ -126,7 +126,7 @@ const Hero = () => {
       <div 
         ref={arrowRef}
         onClick={scrollToNext}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer group"
+        className="absolute bottom-16 left-1/2 transform -translate-x-1/2 cursor-pointer group"
       >
         <div className="p-4 rounded-full border border-lynx-gray/30 group-hover:border-white transition-all duration-300 group-hover:bg-white/5">
           <ArrowDown className="text-lynx-gray group-hover:text-white w-6 h-6 transition-colors duration-300" />
