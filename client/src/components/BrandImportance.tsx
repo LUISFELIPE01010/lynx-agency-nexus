@@ -62,8 +62,8 @@ const BrandImportance = () => {
               <AnimatedSection 
                 key={index}
                 animationType={isLeft ? "slide-in-left" : "slide-in-right"}
-                delay={index * 0.3}
-                className="group py-8 sm:py-0 brand-point-fade"
+                delay={index * 0.4}
+                className="group py-8 sm:py-0 brand-point-fade transform transition-all duration-800 ease-out"
               >
                 <div className="grid grid-cols-12 gap-8 sm:gap-8 items-center">
                   {/* Content side */}

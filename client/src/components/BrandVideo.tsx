@@ -1,7 +1,12 @@
 import { useLanguage } from '../contexts/LanguageContext';
+import { useScrollTrigger } from '../hooks/useScrollTrigger';
 
 const BrandVideo = () => {
   const { t } = useLanguage();
+  const { elementRef, isVisible } = useScrollTrigger({
+    threshold: 0.3,
+    triggerOnce: true
+  });
 
   return (
     <section className="relative bg-black">
@@ -24,7 +29,12 @@ const BrandVideo = () => {
       {/* Text section below video */}
       <div className="bg-black py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-space font-bold text-white leading-tight tracking-wide">
+          <h2 
+            ref={elementRef}
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-space font-bold text-white leading-tight tracking-wide transition-opacity duration-1000 ease-out ${
+              isVisible ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
             <span className="block mb-2 sm:mb-4">
               More than brands,
             </span>
