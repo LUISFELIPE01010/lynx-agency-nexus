@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -54,7 +56,7 @@ body {
     overflow-x: hidden;
     touch-action: pan-y;
   }
-  
+
   body {
     margin: 0 !important;
     padding: 0 !important;
@@ -63,22 +65,22 @@ body {
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
   }
-  
+
   /* Enable smooth scrolling on mobile */
   * {
     -webkit-overflow-scrolling: touch;
   }
-  
+
   /* Optimize animations for mobile */
   .animate-pulse, .animate-float, .animate-spin {
     animation-duration: 2s;
   }
-  
+
   /* Reduce motion for better performance */
   .parallax-element {
     transform: none !important;
   }
-  
+
   /* Touch targets */
   button, a, [role="button"] {
     min-height: 44px;
@@ -88,25 +90,25 @@ body {
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
   }
-  
+
   /* Prevent iOS zoom on input focus */
   input, select, textarea {
     font-size: 16px !important;
   }
-  
+
   /* Disable hover effects on mobile */
   .hover-scale:hover,
   .hover-lift:hover {
     transform: none;
   }
-  
+
   /* Fix for mobile navigation spacing */
   nav {
     padding-top: env(safe-area-inset-top);
     background: rgba(0, 0, 0, 0.9) !important;
     backdrop-filter: blur(12px);
   }
-  
+
   /* Force black background on all sections */
   section {
     background: #000 !important;
@@ -114,13 +116,13 @@ body {
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
   }
-  
+
   /* Mobile typography improvements */
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.2 !important;
     margin-bottom: 1rem !important;
   }
-  
+
   p {
     line-height: 1.5 !important;
     margin-bottom: 1rem !important;
@@ -234,6 +236,10 @@ body {
 
 .font-inter {
   font-family: 'Inter', sans-serif;
+}
+
+.font-sf-pro {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Animations */
@@ -828,16 +834,16 @@ video {
   .animate-pulse {
     animation: none;
   }
-  
+
   .animate-float {
     animation: none;
   }
-  
+
   .btn-glow::before,
   .btn-glow:hover::before {
     display: none;
   }
-  
+
   /* Keep fade animations but make them faster */
   .animate-fade-in,
   .animate-slide-in-left,
