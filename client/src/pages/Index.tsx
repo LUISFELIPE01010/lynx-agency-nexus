@@ -48,6 +48,7 @@ const Index = () => {
       <About />
       <Services />
       <BrandVideo />
+      <BrandMessage />
       <Projects />
       <Process />
       <ClientCarousel />
