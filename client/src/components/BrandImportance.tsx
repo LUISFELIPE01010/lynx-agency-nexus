@@ -5,7 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const BrandImportance = () => {
   const { t } = useLanguage();
-  
+
   const brandPoints = [
     {
       title: "Brand Recognition",
@@ -63,7 +63,7 @@ const BrandImportance = () => {
         <div className="relative">
           {/* Connecting Line - Desktop */}
           <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-lynx-gray/30 to-transparent"></div>
-          
+
           {/* Mobile Connecting Line */}
           <div className="lg:hidden absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-lynx-gray/30 to-transparent"></div>
 
@@ -80,12 +80,12 @@ const BrandImportance = () => {
                   <div className={`grid lg:grid-cols-12 gap-8 items-center ${
                     !isLeft ? 'lg:grid-flow-col-dense' : ''
                   }`}>
-                    
+
                     {/* Content */}
                     <div className={`lg:col-span-5 ${
                       isLeft ? 'lg:pr-16' : 'lg:pl-16 lg:col-start-8'
                     } relative z-10`}>
-                      
+
                       {/* Mobile Icon */}
                       <div className="lg:hidden absolute -left-12 top-0 w-8 h-8 bg-black rounded-full border border-lynx-gray/30 flex items-center justify-center">
                         <point.icon size={16} className={point.iconColor} />
@@ -101,9 +101,14 @@ const BrandImportance = () => {
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-3xl md:text-4xl font-space font-bold text-white leading-tight">
+                        <TextReveal 
+                          as="h2" 
+                          className="text-3xl md:text-4xl font-space font-bold text-white leading-tight"
+                          animationType="scale"
+                          staggerDelay={0.12}
+                        >
                           {point.title}
-                        </h3>
+                        </TextReveal>
 
                         {/* Description */}
                         <p className="text-lg text-lynx-gray font-inter leading-relaxed">
@@ -120,7 +125,7 @@ const BrandImportance = () => {
                         <div className="relative">
                           {/* Connection dot */}
                           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-lynx-gray rounded-full"></div>
-                          
+
                           {/* Icon container */}
                           <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${point.color} backdrop-blur-sm border border-lynx-gray/20 flex items-center justify-center relative z-10`}>
                             <point.icon size={32} className={point.iconColor} />

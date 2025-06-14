@@ -1,4 +1,3 @@
-
 import { AnimatedSection } from '@/hooks/useIntersectionObserver';
 import { TextReveal } from '@/hooks/useTextReveal';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -75,9 +74,14 @@ const Process = () => {
                     <div className="w-16 h-px bg-gradient-to-r from-lynx-gray to-transparent"></div>
                   </div>
 
-                  <h3 className="text-4xl font-space font-bold text-white">
+                  <TextReveal 
+                    as="h2" 
+                    className="text-3xl sm:text-4xl lg:text-5xl font-light text-white text-center mb-4"
+                    animationType="blur"
+                    staggerDelay={0.1}
+                  >
                     {step.title}
-                  </h3>
+                  </TextReveal>
 
                   <p className="text-xl text-lynx-gray font-inter leading-relaxed">
                     {step.description}

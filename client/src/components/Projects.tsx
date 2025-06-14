@@ -6,7 +6,7 @@ import { Link } from 'wouter';
 
 const Projects = () => {
   const { t } = useLanguage();
-  
+
   const projects = [
     {
       id: 1,
@@ -111,9 +111,14 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-space font-bold text-white mb-1.5 sm:mb-2">
+                  <TextReveal 
+                    as="h2" 
+                    className="text-lg sm:text-xl lg:text-2xl font-space font-bold text-white mb-1.5 sm:mb-2"
+                    animationType="slide-up"
+                    staggerDelay={0.06}
+                  >
                     {project.title}
-                  </h3>
+                  </TextReveal>
 
                   <p className="text-lynx-gray font-inter text-xs sm:text-sm mb-1">
                     {project.category}
@@ -153,7 +158,7 @@ const Projects = () => {
           </Link>
         </ScrollTriggerWrapper>
       </div>
-      
+
       </section>
   );
 };
