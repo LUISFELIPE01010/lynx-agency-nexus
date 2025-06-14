@@ -80,7 +80,7 @@ export const useTextReveal = (options: UseTextRevealOptions = {}) => {
 // Component wrapper for easy use
 interface TextRevealProps {
   children: React.ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span' | 'p';
   className?: string;
   threshold?: number;
   rootMargin?: string;
@@ -95,13 +95,13 @@ export const TextReveal = ({
 }: TextRevealProps) => {
   const { elementRef, style } = useTextReveal({ threshold, rootMargin });
 
-  return (
-    <Component 
-      ref={elementRef as any} 
-      className={className}
-      style={style}
-    >
-      {children}
-    </Component>
+  return React.createElement(
+    Component,
+    {
+      ref: elementRef,
+      className,
+      style,
+    },
+    children
   );
 };
