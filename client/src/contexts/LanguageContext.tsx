@@ -202,6 +202,8 @@ const translations = {
     testimonial4: 'From concept to execution, Lynx delivered exceptional results. Their attention to detail and commitment to excellence set them apart in the industry.',
     
     // Brand Video Section
+    brandVideoTitle1: 'More than brands,',
+    brandVideoTitle2: 'we create movements.',
     brandMovementSubtitle: 'Every brand has a story. We craft narratives that resonate, inspire, and transform audiences into communities.',
     
     // Footer
@@ -416,6 +418,8 @@ const translations = {
     testimonial4: 'Do conceito à execução, a Lynx entregou resultados excepcionais. Sua atenção aos detalhes e compromisso com a excelência os distingue na indústria.',
     
     // Brand Video Section
+    brandVideoTitle1: 'Mais que marcas,',
+    brandVideoTitle2: 'criamos movimentos.',
     brandMovementSubtitle: 'Toda marca tem uma história. Criamos narrativas que ressoam, inspiram e transformam audiências em comunidades.',
     
     // Footer

@@ -48,10 +48,10 @@ const BrandVideo = () => {
             }`}
           >
             <span className="block mb-2 sm:mb-4">
-              More than brands,
+              {t('brandVideoTitle1')}
             </span>
             <span className="block text-lynx-gray">
-              we create movements.
+              {t('brandVideoTitle2')}
             </span>
           </h2>
 
