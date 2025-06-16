@@ -14,20 +14,43 @@ const Hero = () => {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const { getParallaxTransform, getZoomTransform } = useScrollAnimations({
     parallaxSpeed: 0.3,
     zoomSpeed: 0.05
   });
 
-  // Video is already preloaded by VideoPreloader, so just ensure it plays
+  // Optimized video loading and playback
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      // Video should be ready to play since it was preloaded
-      video.play().catch(() => {
-        video.muted = true;
-        video.play();
+      // Set up video for fastest loading
+      video.preload = 'metadata';
+      video.muted = true;
+      video.playsInline = true;
+      
+      // Load video data in background
+      video.load();
+      
+      // Play when metadata is loaded
+      const handleCanPlay = () => {
+        setVideoLoaded(true);
+        video.play().catch(() => {
+          // Fallback: ensure muted and try again
+          video.muted = true;
+          video.play();
+        });
+      };
+      
+      video.addEventListener('canplay', handleCanPlay);
+      video.addEventListener('loadedmetadata', () => {
+        // Optimize for performance
+        video.currentTime = 0;
       });
+      
+      return () => {
+        video.removeEventListener('canplay', handleCanPlay);
+      };
     }
   }, []);
 
@@ -71,27 +94,44 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
-      {/* Optimized background video - preloaded by VideoPreloader */}
+      {/* Optimized background video with lazy loading */}
       <video 
         ref={videoRef}
-        className="absolute w-full h-full object-cover"
+        className={`absolute w-full h-full object-cover transition-opacity duration-500 ${
+          videoLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
         src="/wallp.mp4"
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
+        poster="/hero-poster.jpg"
         style={{ 
           objectFit: 'cover',
-          willChange: 'transform'
+          willChange: 'transform',
+          WebkitTransform: 'translateZ(0)',
+          transform: 'translateZ(0)'
         }}
         onLoadedData={() => {
-          // Video is ready to play
-          if (videoRef.current) {
-            videoRef.current.play();
-          }
+          setVideoLoaded(true);
+        }}
+        onError={() => {
+          // Fallback to poster image if video fails
+          console.log('Video failed to load, using poster');
         }}
       />
+      
+      {/* Fallback background image while video loads */}
+      {!videoLoaded && (
+        <div 
+          className="absolute w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/hero-poster.jpg)',
+            filter: 'blur(0.5px)'
+          }}
+        />
+      )}
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
 
       {/* Main content container - responsive and centered */}
@@ -103,7 +143,7 @@ const Hero = () => {
             <img 
               src="/LYNXx.png" 
               alt="Lynx Agency" 
-              className="w-12 h-12 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 object-contain opacity-90"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36 object-contain opacity-90 max-w-full h-auto"
             />
           </div>
 
