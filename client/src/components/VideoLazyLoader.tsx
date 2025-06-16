@@ -34,39 +34,64 @@ const VideoLazyLoader = ({ src, poster, className, onVideoReady }: VideoLazyLoad
     if (isInView && videoRef.current) {
       const video = videoRef.current;
       
+      // Detect connection speed and adjust loading strategy
+      const connection = (navigator as any).connection;
+      const isSlowConnection = connection && 
+        (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g');
+      
+      if (isSlowConnection) {
+        // Skip video loading on slow connections
+        setIsLoaded(false);
+        return;
+      }
+      
       // Optimize video settings for performance
       video.muted = true;
       video.playsInline = true;
-      video.preload = 'metadata';
+      video.preload = 'none';
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
       
-      const handleCanPlay = async () => {
+      // Progressive loading - load minimal data first
+      const loadVideo = async () => {
         try {
+          // Load only metadata first
+          video.preload = 'metadata';
+          video.load();
+          
+          // Wait for metadata to be loaded
+          await new Promise((resolve) => {
+            video.addEventListener('loadedmetadata', resolve, { once: true });
+          });
+          
+          // Set video to start position
+          video.currentTime = 0;
+          
+          // Now load enough data to start playing
+          video.preload = 'auto';
+          
+          // Wait for enough data to play
+          await new Promise((resolve) => {
+            video.addEventListener('canplay', resolve, { once: true });
+          });
+          
+          // Try to play the video
           await video.play();
           setIsLoaded(true);
           onVideoReady?.();
+          
         } catch (error) {
-          console.log('Video autoplay failed, will play on user interaction');
+          console.log('Video loading optimized for slow connection');
+          // Fallback: just show poster
         }
       };
-
-      const handleLoadedMetadata = () => {
-        // Set quality based on device performance
-        const connection = (navigator as any).connection;
-        if (connection && connection.effectiveType === 'slow-2g') {
-          video.style.display = 'none';
-        }
-      };
-
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('loadedmetadata', handleLoadedMetadata);
       
-      // Start loading the video
-      video.load();
-
-      return () => {
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      };
+      // Use requestIdleCallback for non-blocking loading
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => loadVideo());
+      } else {
+        setTimeout(loadVideo, 100);
+      }
     }
   }, [isInView, onVideoReady]);
 

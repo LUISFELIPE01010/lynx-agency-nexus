@@ -6,6 +6,7 @@ import logoPng from '@/logop.png';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimations } from '@/hooks/useScrollAnimations';
 import OptimizedImage from './OptimizedImage';
+import OptimizedVideoBackground from './OptimizedVideoBackground';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -13,46 +14,10 @@ const Hero = () => {
   const logoRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
   const { getParallaxTransform, getZoomTransform } = useScrollAnimations({
     parallaxSpeed: 0.3,
     zoomSpeed: 0.05
   });
-
-  // Optimized video loading and playback
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      // Set up video for fastest loading
-      video.preload = 'metadata';
-      video.muted = true;
-      video.playsInline = true;
-      
-      // Load video data in background
-      video.load();
-      
-      // Play when metadata is loaded
-      const handleCanPlay = () => {
-        setVideoLoaded(true);
-        video.play().catch(() => {
-          // Fallback: ensure muted and try again
-          video.muted = true;
-          video.play();
-        });
-      };
-      
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('loadedmetadata', () => {
-        // Optimize for performance
-        video.currentTime = 0;
-      });
-      
-      return () => {
-        video.removeEventListener('canplay', handleCanPlay);
-      };
-    }
-  }, []);
 
   useEffect(() => {
     // Fast, lightweight animations with null checks
@@ -94,44 +59,12 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
-      {/* Optimized background video with lazy loading */}
-      <video 
-        ref={videoRef}
-        className={`absolute w-full h-full object-cover transition-opacity duration-500 ${
-          videoLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
-        src="/wallp.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="none"
-        poster="/hero-poster.jpg"
-        style={{ 
-          objectFit: 'cover',
-          willChange: 'transform',
-          WebkitTransform: 'translateZ(0)',
-          transform: 'translateZ(0)'
-        }}
-        onLoadedData={() => {
-          setVideoLoaded(true);
-        }}
-        onError={() => {
-          // Fallback to poster image if video fails
-          console.log('Video failed to load, using poster');
-        }}
+      {/* Optimized video background with smart loading */}
+      <OptimizedVideoBackground
+        videoSrc="/wallp.mp4"
+        posterSrc="/hero-poster.jpg"
+        className="absolute w-full h-full"
       />
-      
-      {/* Fallback background image while video loads */}
-      {!videoLoaded && (
-        <div 
-          className="absolute w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/hero-poster.jpg)',
-            filter: 'blur(0.5px)'
-          }}
-        />
-      )}
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
 
       {/* Main content container - responsive and centered */}
