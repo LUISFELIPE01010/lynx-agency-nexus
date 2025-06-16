@@ -74,7 +74,7 @@ const Hero = () => {
       {/* Optimized background video - preloaded by VideoPreloader */}
       <video 
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute w-full h-[120%] object-cover"
         src="/wallp.mp4"
         autoPlay
         muted
@@ -83,7 +83,8 @@ const Hero = () => {
         preload="metadata"
         style={{ 
           objectFit: 'cover',
-          willChange: 'transform'
+          willChange: 'transform',
+          top: '-10%'
         }}
         onLoadedData={() => {
           // Video is ready to play
@@ -95,7 +96,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
 
       {/* Main content container - left aligned with more compact spacing */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-start text-left min-h-[75vh] py-8 pt-16 sm:pt-18 md:pt-20">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-start text-left min-h-[70vh] py-8 pt-12 sm:pt-14 md:pt-16">
         {/* Logo and Title - left aligned layout */}
         <div className="flex flex-col items-start justify-center space-y-4 sm:space-y-6 md:space-y-8">
           {/* Main Logo - smaller responsive sizes */}
