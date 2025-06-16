@@ -34,20 +34,19 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: t('premiumSauces'),
-      category: t('corporateRebrand'),
-      description: t('premiumSaucesDesc'),
+      title: t('momusSnackBar'),
+      category: t('snackBarBranding'),
+      description: t('momusSnackBarDesc'),
       image: "/bb4.jpg",
-      tags: ["Food", "Sauces", "Premium"]
+      tags: ["Food", "Snackbar", "Urban"]
     },
-
     {
-      id: 6,
-      title: "Premium Real Estate",
-      category: t('realEstateBranding'),
-      description: t('premiumRealEstateDesc'),
+      id: 5,
+      title: t('saucesBranding'),
+      category: t('sauceBranding'),
+      description: t('saucesBrandingDesc'),
       image: "/bb6.jpg",
-      tags: ["Real Estate", "Luxury", "Premium"]
+      tags: ["Food", "Sauces", "Premium"]
     },
     {
       id: 7,

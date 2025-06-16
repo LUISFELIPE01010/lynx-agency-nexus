@@ -96,12 +96,13 @@ const translations = {
     techStartupBranding: 'Agricultural Services',
     luxuryBrandIdentity: 'Eyewear Brand',
     digitalExperienceProject: 'Architecture Design',
-    corporateRebrand: 'Sauce Brand',
-    healthcareInnovation: 'Healthcare Innovation',
-    sustainabilityPlatform: 'Sustainability Platform',
+    snackBarBranding: 'Snack Bar Branding',
+    sauceBranding: 'Sauce Branding',
     realEstateBranding: 'Real Estate Branding',
     barbershopBranding: 'Barbershop Branding',
-    consultingBranding: 'Consulting Services',
+    constructionBranding: 'Construction Branding',
+    jewelryBranding: 'Jewelry Branding',
+    sportsbranding: 'Sports Branding',
     
     // Project Titles
     eliteBusinessServices: 'Elite Business Services',

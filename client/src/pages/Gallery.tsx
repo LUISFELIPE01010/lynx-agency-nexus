@@ -9,10 +9,10 @@ const Gallery = () => {
     {
       id: 1,
       title: t('eliteBusinessServices'),
-      category: t('corporateRebrand'),
+      category: t('techStartupBranding'),
       description: t('eliteBusinessDesc'),
       image: "/bb1.jpg",
-      tags: [t('corporate'), t('business'), t('professional')]
+      tags: ['corporate', 'business', 'professional']
     },
     {
       id: 2,
@@ -32,15 +32,22 @@ const Gallery = () => {
     },
     {
       id: 4,
-      title: t('premiumSauces'),
-      category: t('corporateRebrand'),
-      description: t('premiumSaucesDesc'),
+      title: t('momusSnackBar'),
+      category: t('snackBarBranding'),
+      description: t('momusSnackBarDesc'),
       image: "/bb4.jpg",
+      tags: ['food', 'snackbar', 'urban']
+    },
+    {
+      id: 5,
+      title: t('saucesBranding'),
+      category: t('sauceBranding'),
+      description: t('saucesBrandingDesc'),
+      image: "/bb5.jpg",
       tags: ['food', 'sauces', 'premium']
     },
-
     {
-      id: 4,
+      id: 6,
       title: t('premiumRealEstate'),
       category: t('realEstateBranding'),
       description: t('premiumRealEstateDesc'),
@@ -48,36 +55,36 @@ const Gallery = () => {
       tags: ['real estate', 'luxury', 'premium']
     },
     {
-      id: 5,
+      id: 7,
       title: t('modernBarbershop'),
       category: t('barbershopBranding'),
       description: t('modernBarbershopDesc'),
-      image: "/bb7.jpg",
-      tags: ["barbershop", "modern", "grooming"]
-    },
-    {
-      id: 6,
-      title: t('sustainabilityConsulting'),
-      category: t('sustainabilityPlatform'),
-      description: t('sustainabilityConsultingDesc'),
-      image: "/bb8.jpg",
-      tags: ["sustainability", "consulting", "environment"]
-    },
-    {
-      id: 7,
-      title: t('healthcareInnovation'),
-      category: t('healthcareInnovation'),
-      description: t('healthcareInnovationDesc'),
-      image: "/bb9.jpg",
-      tags: ["healthcare", "innovation", "technology"]
+      image: "/nova1.png",
+      tags: ['barbershop', 'modern', 'grooming']
     },
     {
       id: 8,
-      title: t('corporateServices'),
-      category: t('consultingBranding'),
-      description: t('corporateServicesDesc'),
-      image: "/bb10.jpg",
-      tags: ["corporate", "services", "professional"]
+      title: t('constructionCompany'),
+      category: t('constructionBranding'),
+      description: t('constructionCompanyDesc'),
+      image: "/nova2.png",
+      tags: ['construction', 'industrial', 'professional']
+    },
+    {
+      id: 9,
+      title: t('luxuryJewelry'),
+      category: t('jewelryBranding'),
+      description: t('luxuryJewelryDesc'),
+      image: "/nova3.png",
+      tags: ['jewelry', 'luxury', 'elegant']
+    },
+    {
+      id: 10,
+      title: t('sportsWear'),
+      category: t('sportsbranding'),
+      description: t('sportsWearDesc'),
+      image: "/nova4.png",
+      tags: ['sports', 'athletic', 'performance']
     }
   ];
 
