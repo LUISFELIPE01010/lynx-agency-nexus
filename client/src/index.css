@@ -292,6 +292,7 @@ body {
   animation: scroll 60s linear infinite;
   width: max-content;
   will-change: transform;
+  contain: layout style paint;
 }
 
 /* Mobile optimization for carousel */

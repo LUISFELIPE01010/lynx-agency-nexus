@@ -42,6 +42,9 @@ const ClientCarousel = () => {
                   alt={`Client logo ${index + 1}`}
                   className="max-w-full max-h-full object-contain opacity-50 hover:opacity-80 transition-opacity duration-500 filter grayscale hover:grayscale-0"
                   loading="lazy"
+                  decoding="async"
+                  width="256"
+                  height="144"
                 />
               </div>
             ))}
@@ -56,6 +59,9 @@ const ClientCarousel = () => {
                   alt={`Client logo ${index + 1}`}
                   className="max-w-full max-h-full object-contain opacity-50 hover:opacity-80 transition-opacity duration-500 filter grayscale hover:grayscale-0"
                   loading="lazy"
+                  decoding="async"
+                  width="256"
+                  height="144"
                 />
               </div>
             ))}

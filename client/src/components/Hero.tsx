@@ -175,7 +175,6 @@ const Hero = () => {
           }
         }}
         onError={(e) => {
-          console.log('Video loading error, using fallback');
           setVideoLoaded(false);
         }}
       />
