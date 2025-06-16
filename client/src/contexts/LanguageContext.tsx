@@ -101,12 +101,15 @@ const translations = {
     sustainabilityPlatform: 'Sustainability Platform',
     
     // Project Descriptions
-    quantumDynamicsDesc: 'Complete brand identity and digital platform for a cutting-edge quantum computing company.',
-    meridianLuxuryDesc: 'Sophisticated brand ecosystem for a premium lifestyle and hospitality group.',
-    neuralNetworksDesc: 'Immersive web platform showcasing AI capabilities through interactive storytelling.',
-    atlasVenturesDesc: 'Strategic repositioning and visual transformation for a global investment firm.',
-    synapseHealthDesc: 'Brand identity and digital ecosystem for next-generation healthcare solutions.',
-    carbonZeroDesc: 'Comprehensive brand strategy for a leading carbon offset technology platform.',
+    eliteBusinessDesc: 'Comprehensive brand strategy and digital transformation for agricultural services, enhancing their market position and operational efficiency.',
+    luxuryAutomotiveDesc: 'Premium brand identity and showroom experience for a luxury automotive dealership, elevating customer engagement and brand prestige.',
+    modernFashionDesc: 'Innovative architectural branding project featuring modern residential design concepts and visual identity systems.',
+    artisanFoodDesc: 'Complete brand development for premium sauce company, including packaging design and market positioning strategy.',
+    premiumRealEstateDesc: 'Luxury real estate brand transformation focusing on high-end property marketing and client experience enhancement.',
+    modernBarbershopDesc: 'Contemporary barbershop rebrand featuring modern aesthetics and elevated customer service experience.',
+    sustainabilityPlatformDesc: 'Environmental consulting brand focused on sustainable business practices and green technology solutions.',
+    healthcareInnovationDesc: 'Medical technology brand development emphasizing innovation in patient care and healthcare solutions.',
+    corporateServicesDesc: 'Professional services rebrand targeting corporate clients with emphasis on reliability and expertise.',
     
     // Contact Section
     contactLabel: 'Contact',
@@ -378,12 +381,15 @@ const translations = {
     sustainabilityPlatform: 'Plataforma de Sustentabilidade',
     
     // Project Descriptions
-    quantumDynamicsDesc: 'Identidade de marca completa e plataforma digital para uma empresa de computação quântica de ponta.',
-    meridianLuxuryDesc: 'Ecossistema de marca sofisticado para um grupo premium de estilo de vida e hospitalidade.',
-    neuralNetworksDesc: 'Plataforma web imersiva mostrando capacidades de IA através de narrativa interativa.',
-    atlasVenturesDesc: 'Reposicionamento estratégico e transformação visual para uma empresa global de investimentos.',
-    synapseHealthDesc: 'Identidade de marca e ecossistema digital para soluções de saúde de próxima geração.',
-    carbonZeroDesc: 'Estratégia de marca abrangente para uma plataforma líder de tecnologia de compensação de carbono.',
+    eliteBusinessDesc: 'Estratégia de marca abrangente e transformação digital para serviços agrícolas, aprimorando sua posição no mercado e eficiência operacional.',
+    luxuryAutomotiveDesc: 'Identidade de marca premium e experiência de showroom para concessionária de automóveis de luxo, elevando o engajamento do cliente e prestígio da marca.',
+    modernFashionDesc: 'Projeto inovador de branding arquitetônico apresentando conceitos de design residencial moderno e sistemas de identidade visual.',
+    artisanFoodDesc: 'Desenvolvimento completo de marca para empresa de molhos premium, incluindo design de embalagem e estratégia de posicionamento no mercado.',
+    premiumRealEstateDesc: 'Transformação de marca imobiliária de luxo focando em marketing de propriedades de alto padrão e aprimoramento da experiência do cliente.',
+    modernBarbershopDesc: 'Rebrand contemporâneo de barbearia apresentando estética moderna e experiência elevada de atendimento ao cliente.',
+    sustainabilityPlatformDesc: 'Marca de consultoria ambiental focada em práticas empresariais sustentáveis e soluções de tecnologia verde.',
+    healthcareInnovationDesc: 'Desenvolvimento de marca de tecnologia médica enfatizando inovação no cuidado ao paciente e soluções de saúde.',
+    corporateServicesDesc: 'Rebrand de serviços profissionais direcionado a clientes corporativos com ênfase em confiabilidade e expertise.',
     
     // Contact Section
     contactLabel: 'Contato',
