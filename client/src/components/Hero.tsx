@@ -199,23 +199,23 @@ const Hero = () => {
           <div className="text-left w-full max-w-none lg:max-w-5xl space-y-4 sm:space-y-6 md:space-y-8">
             <p 
               ref={subtitleRef}
-              className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-space text-lynx-gray leading-tight font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
+              className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-space text-lynx-gray leading-tight font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
             >
               {t('heroSubtitle1')}
             </p>
 
             <p 
               ref={subtitleRef}
-              className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-space text-white leading-tight font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
+              className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-space text-white leading-tight font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
             >
               {t('heroSubtitle2')}
             </p>
 
             {/* Buttons - fully responsive */}
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-8 sm:pt-10 md:pt-12 justify-start items-stretch sm:items-start w-full max-w-md sm:max-w-lg lg:max-w-xl">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6 sm:pt-8 md:pt-10 justify-start items-stretch sm:items-start w-full max-w-sm sm:max-w-md lg:max-w-lg">
               <button 
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group relative w-full sm:flex-1 min-w-0 px-6 py-4 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-300 hover:scale-105 hover:shadow-xl btn-glow text-sm sm:text-base md:text-lg touch-manipulation"
+                className="group relative w-full sm:flex-1 min-w-0 px-5 py-3 sm:px-6 sm:py-3 md:px-7 md:py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-300 hover:scale-105 hover:shadow-xl btn-glow text-xs sm:text-sm md:text-base touch-manipulation"
               >
                 <span className="relative z-10">{t('exploreWork')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -225,7 +225,7 @@ const Hero = () => {
                 href="https://wa.me/17329276563"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-full sm:flex-1 min-w-0 px-6 py-4 sm:px-8 sm:py-4 md:px-10 md:py-5 border-2 border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-300 hover:scale-105 btn-glow text-sm sm:text-base md:text-lg text-center touch-manipulation"
+                className="group relative w-full sm:flex-1 min-w-0 px-5 py-3 sm:px-6 sm:py-3 md:px-7 md:py-4 border-2 border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-300 hover:scale-105 btn-glow text-xs sm:text-sm md:text-base text-center touch-manipulation"
               >
                 {t('startProject')}
               </a>

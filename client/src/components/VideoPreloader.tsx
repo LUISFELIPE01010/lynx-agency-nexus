@@ -39,8 +39,9 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
     extraVideo.src = videoSrc;
 
     const checkVideoReady = () => {
-      if (heroVideo.readyState >= 3) { // HAVE_FUTURE_DATA
+      if (heroVideo.readyState >= 4) { // HAVE_ENOUGH_DATA - garante que pode reproduzir completamente
         videoReady = true;
+        console.log('Hero video ready for playback');
         tryComplete();
       }
     };
@@ -49,6 +50,7 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
       if (videoReady && minTimeReached && currentProgress >= 100 && !isCompleted) {
         isCompleted = true;
         clearInterval(progressInterval);
+        console.log('Preloader completing - video ready and time reached');
         // Força o vídeo do Hero a começar do início
         heroVideo.currentTime = 0;
         setTimeout(() => {
@@ -57,10 +59,17 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
       }
     };
 
-    // Event listeners para o vídeo do Hero
+    // Event listeners mais abrangentes para o vídeo do Hero
     heroVideo.addEventListener('canplaythrough', checkVideoReady);
     heroVideo.addEventListener('loadeddata', checkVideoReady);
     heroVideo.addEventListener('canplay', checkVideoReady);
+    heroVideo.addEventListener('loadedmetadata', () => {
+      console.log('Hero video metadata loaded');
+      // Se os metadados estão carregados e temos dados suficientes
+      if (heroVideo.readyState >= 3) {
+        checkVideoReady();
+      }
+    });
     
     // Inicia o carregamento
     heroVideo.load();
@@ -75,12 +84,28 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
     // Timer para tempo máximo (fallback)
     const maxTimeTimer = setTimeout(() => {
       if (!isCompleted) {
+        console.log('Max time reached - forcing completion');
         videoReady = true;
         minTimeReached = true;
         currentProgress = 100;
         tryComplete();
       }
     }, maxDuration);
+
+    // Adiciona listener para erro de carregamento
+    const handleVideoError = (e: any) => {
+      console.warn('Video loading error:', e);
+      // Em caso de erro, continua após tempo mínimo
+      setTimeout(() => {
+        if (!isCompleted) {
+          videoReady = true;
+          tryComplete();
+        }
+      }, minDuration);
+    };
+
+    heroVideo.addEventListener('error', handleVideoError);
+    extraVideo.addEventListener('error', handleVideoError);
 
     // Progresso visual
     const baseIncrement = 100 / (minDuration / intervalTime);
@@ -105,6 +130,9 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
       heroVideo.removeEventListener('canplaythrough', checkVideoReady);
       heroVideo.removeEventListener('loadeddata', checkVideoReady);
       heroVideo.removeEventListener('canplay', checkVideoReady);
+      heroVideo.removeEventListener('loadedmetadata', checkVideoReady);
+      heroVideo.removeEventListener('error', handleVideoError);
+      extraVideo.removeEventListener('error', handleVideoError);
       heroVideo.src = '';
       extraVideo.src = '';
     };
