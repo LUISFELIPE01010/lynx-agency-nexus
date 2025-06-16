@@ -343,7 +343,43 @@ body {
 /* Hero title zoom effects */
 .hero-title-zoom {
   animation: heroTitleZoom 2s ease-out forwards;
-  transform-origin: left center;
+  transform-origin: center center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .hero-title-zoom {
+    line-height: 1.1;
+    word-break: break-word;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .hero-title-zoom {
+    line-height: 1.2;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .hero-title-zoom {
+    line-height: 1.3;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .hero-title-zoom {
+    line-height: 1.4;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .hero-title-zoom {
+    line-height: 1.5;
+  }
 }
 
 .contact-title-zoom {

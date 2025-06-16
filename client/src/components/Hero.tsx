@@ -70,7 +70,7 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-start px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
+    <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
       {/* Optimized background video - preloaded by VideoPreloader */}
       <video 
         ref={videoRef}
@@ -94,37 +94,40 @@ const Hero = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto pt-16 sm:pt-20 md:pt-24 lg:pt-28 px-2 sm:px-0">
-        {/* Logo and Title aligned to left */}
-        <div className="text-left mb-6 sm:mb-8">
-          {/* Main Logo */}
-          <div ref={logoRef} className="mb-4 sm:mb-6">
+      {/* Main content container - responsively centered */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-center text-center min-h-screen py-20">
+        {/* Logo and Title - centered layout */}
+        <div className="flex flex-col items-center justify-center space-y-6 sm:space-y-8 md:space-y-10">
+          {/* Main Logo - responsive sizes */}
+          <div ref={logoRef} className="flex justify-center">
             <img 
               src="/LYNXx.png" 
               alt="Lynx Agency" 
-              className="w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain opacity-90"
+              className="w-20 h-20 xs:w-24 xs:h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 xl:w-40 xl:h-40 object-contain opacity-90"
             />
           </div>
 
-          <div className="text-left max-w-5xl space-y-3 sm:space-y-4">
+          {/* Title and subtitle - responsive typography */}
+          <div className="text-center max-w-5xl mx-auto space-y-4 sm:space-y-6 px-2">
             <p 
               ref={subtitleRef}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-space text-lynx-gray leading-none font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-space text-lynx-gray leading-tight font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
             >
               {t('heroSubtitle1')}
             </p>
 
             <p 
               ref={subtitleRef}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-space text-white leading-none font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-space text-white leading-tight font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
             >
               {t('heroSubtitle2')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6">
+            {/* Buttons - responsive layout */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-8 sm:pt-10 md:pt-12 justify-center items-center w-full max-w-md sm:max-w-2xl mx-auto">
               <button 
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group relative w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-300 hover:scale-105 hover:shadow-xl btn-glow text-sm sm:text-base touch-manipulation"
+                className="group relative w-full sm:w-auto min-w-[200px] px-8 py-4 sm:px-10 sm:py-5 bg-white text-black font-space font-semibold rounded-lg hover:bg-lynx-gray transition-all duration-300 hover:scale-105 hover:shadow-xl btn-glow text-base sm:text-lg touch-manipulation"
               >
                 <span className="relative z-10">{t('exploreWork')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-lynx-gray rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -134,7 +137,7 @@ const Hero = () => {
                 href="https://wa.me/17329276563"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 border-2 border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-300 hover:scale-105 btn-glow text-sm sm:text-base text-center touch-manipulation"
+                className="group relative w-full sm:w-auto min-w-[200px] px-8 py-4 sm:px-10 sm:py-5 border-2 border-lynx-gray text-lynx-gray font-space font-semibold rounded-lg hover:border-white hover:text-white transition-all duration-300 hover:scale-105 btn-glow text-base sm:text-lg text-center touch-manipulation"
               >
                 {t('startProject')}
               </a>
@@ -143,13 +146,14 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Scroll arrow - always centered */}
       <div 
         ref={arrowRef}
         onClick={scrollToNext}
-        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer group"
+        className="absolute bottom-8 sm:bottom-12 md:bottom-16 lg:bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer group z-20"
       >
-        <div className="p-4 rounded-full border border-lynx-gray/30 group-hover:border-white transition-all duration-300 group-hover:bg-white/5">
-          <ArrowDown className="text-lynx-gray group-hover:text-white w-6 h-6 transition-colors duration-300" />
+        <div className="p-3 sm:p-4 rounded-full border border-lynx-gray/30 group-hover:border-white transition-all duration-300 group-hover:bg-white/5">
+          <ArrowDown className="text-lynx-gray group-hover:text-white w-5 h-5 sm:w-6 sm:h-6 transition-colors duration-300" />
         </div>
       </div>
     </section>
