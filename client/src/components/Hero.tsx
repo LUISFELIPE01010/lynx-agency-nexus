@@ -133,7 +133,7 @@ const Hero = () => {
         className={`absolute w-full h-full object-cover transition-opacity duration-300 ${
           videoLoaded ? 'opacity-100' : 'opacity-80'
         }`}
-        src="/wallp.mp4"
+        src="/fundonew.mp4"
         autoPlay
         muted
         loop
