@@ -105,21 +105,21 @@ const About = () => {
                   <span className="text-lynx-gray text-sm">•</span>
                   <div>
                     <CountUp target={50} suffix="+" duration={2500} />
-                    <div className="text-lynx-gray text-sm sm:text-base font-inter">Brands Transformed</div>
+                    <div className="text-lynx-gray text-sm sm:text-base font-inter">{t('brandsTransformed')}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 hover-scale">
                   <span className="text-lynx-gray text-sm">•</span>
                   <div>
                     <CountUp target={8} suffix="+" duration={2000} />
-                    <div className="text-lynx-gray text-sm sm:text-base font-inter">Years of Excellence</div>
+                    <div className="text-lynx-gray text-sm sm:text-base font-inter">{t('yearsExcellence')}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 hover-scale">
                   <span className="text-lynx-gray text-sm">•</span>
                   <div>
                     <CountUp target={25} suffix="+" duration={2200} />
-                    <div className="text-lynx-gray text-sm sm:text-base font-inter">Countries Reached</div>
+                    <div className="text-lynx-gray text-sm sm:text-base font-inter">{t('countriesReached')}</div>
                   </div>
                 </div>
               </div>

@@ -186,6 +186,11 @@ const translations = {
     unleashed: 'Unleashed',
     brandPowerSubtitle: 'Discover why strategic branding is the cornerstone of business success in today\'s competitive landscape.',
     
+    // About Section Stats
+    brandsTransformed: 'Brands Transformed',
+    yearsExcellence: 'Years of Excellence', 
+    countriesReached: 'Countries Reached',
+
     instantRecognition: 'Instant Recognition',
     instantRecognitionDesc: 'A strong brand creates immediate market identification, allowing consumers to recognize your products or services in seconds.',
     
@@ -420,6 +425,11 @@ const translations = {
     unleashed: 'Marca',
     brandPowerSubtitle: 'Descubra por que o branding estratégico é a pedra angular do sucesso empresarial no cenário competitivo de hoje.',
     
+    // About Section Stats
+    brandsTransformed: 'Marcas Transformadas',
+    yearsExcellence: 'Anos de Excelência',
+    countriesReached: 'Países Alcançados',
+
     instantRecognition: 'Reconhecimento Instantâneo',
     instantRecognitionDesc: 'Uma marca forte cria identificação imediata no mercado, permitindo que consumidores reconheçam seus produtos ou serviços em segundos.',
     
