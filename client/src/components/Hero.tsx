@@ -96,7 +96,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
 
       {/* Main content container - left aligned with more compact spacing */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-start text-left min-h-[70vh] py-8 pt-6 sm:pt-8 md:pt-10">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-start text-left min-h-[60vh] py-4 pt-6 sm:pt-8 md:pt-10">
         {/* Logo and Title - left aligned layout */}
         <div className="flex flex-col items-start justify-center space-y-4 sm:space-y-6 md:space-y-8">
           {/* Main Logo - smaller responsive sizes */}
