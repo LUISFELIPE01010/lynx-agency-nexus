@@ -95,7 +95,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
 
       {/* Main content container - left aligned with more compact spacing */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-start text-left min-h-[85vh] py-16">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-start text-left min-h-[75vh] py-8 pt-20 sm:pt-24 md:pt-28">
         {/* Logo and Title - left aligned layout */}
         <div className="flex flex-col items-start justify-center space-y-4 sm:space-y-6 md:space-y-8">
           {/* Main Logo - smaller responsive sizes */}
@@ -150,7 +150,7 @@ const Hero = () => {
       <div 
         ref={arrowRef}
         onClick={scrollToNext}
-        className="absolute bottom-6 sm:bottom-8 md:bottom-10 lg:bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer group z-20"
+        className="absolute bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer group z-20"
       >
         <div className="p-3 sm:p-4 rounded-full border border-lynx-gray/30 group-hover:border-white transition-all duration-300 group-hover:bg-white/5">
           <ArrowDown className="text-lynx-gray group-hover:text-white w-5 h-5 sm:w-6 sm:h-6 transition-colors duration-300" />
