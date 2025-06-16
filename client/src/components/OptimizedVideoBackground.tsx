@@ -16,27 +16,8 @@ const OptimizedVideoBackground = ({
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
 
   useEffect(() => {
-    // Check device capabilities and connection
-    const isHighPerformanceDevice = () => {
-      const connection = (navigator as any).connection;
-      if (connection) {
-        return !['slow-2g', '2g'].includes(connection.effectiveType);
-      }
-      // Assume decent connection if no info available
-      return true;
-    };
-
-    // Check if device supports efficient video playback
-    const supportsHardwareAcceleration = () => {
-      const canvas = document.createElement('canvas');
-      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      return !!gl;
-    };
-
-    // Load video only if conditions are favorable
-    if (isHighPerformanceDevice() && supportsHardwareAcceleration()) {
-      setShouldLoadVideo(true);
-    }
+    // Load video immediately for better user experience
+    setShouldLoadVideo(true);
   }, []);
 
   useEffect(() => {

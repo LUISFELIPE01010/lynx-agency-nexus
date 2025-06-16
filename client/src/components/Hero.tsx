@@ -61,8 +61,8 @@ const Hero = () => {
     <section ref={heroRef} className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
       {/* Optimized video background with smart loading */}
       <OptimizedVideoBackground
-        videoSrc="/wallp.mp4"
-        posterSrc="/hero-poster.jpg"
+        videoSrc="/fundoprin.mp4"
+        posterSrc="/LYNXx.png"
         className="absolute w-full h-full"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
