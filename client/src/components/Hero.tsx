@@ -20,34 +20,28 @@ const Hero = () => {
     zoomSpeed: 0.05
   });
 
-  // Optimized video loading with immediate playback
+  // Optimized video loading with immediate playback and aggressive preloading
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      // Configure for immediate autoplay
+      // Configure for immediate autoplay with aggressive preloading
       video.muted = true;
       video.playsInline = true;
       video.loop = true;
       video.preload = 'auto';
+      video.defaultMuted = true;
       
-      // Optimize video quality based on connection
-      const connection = (navigator as any).connection;
-      if (connection) {
-        if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
-          video.preload = 'metadata';
-        }
-      }
-      
-      // Start loading immediately
+      // Force video to start loading immediately
       video.load();
+      
+      // Set initial opacity to prevent gray flash
+      setVideoLoaded(true);
       
       // Multiple event handlers for reliability
       const handleCanPlay = async () => {
         try {
-          setVideoLoaded(true);
           await video.play();
         } catch (error) {
-          // Retry with explicit mute
           video.muted = true;
           try {
             await video.play();
@@ -58,31 +52,45 @@ const Hero = () => {
       };
       
       const handleLoadedData = () => {
-        setVideoLoaded(true);
         video.play().catch(() => {
           video.muted = true;
           video.play();
         });
       };
       
-      // Add multiple event listeners for maximum compatibility
+      const handleLoadStart = () => {
+        // Ensure video starts from beginning
+        video.currentTime = 0;
+      };
+      
+      // Add event listeners
       video.addEventListener('canplay', handleCanPlay);
       video.addEventListener('loadeddata', handleLoadedData);
+      video.addEventListener('loadstart', handleLoadStart);
       video.addEventListener('loadedmetadata', () => {
         video.currentTime = 0;
       });
       
-      // Force play attempt after short delay
-      const forcePlayTimeout = setTimeout(() => {
+      // Immediate play attempt
+      const immediatePlayTimeout = setTimeout(() => {
+        if (video.readyState >= 1) {
+          handleCanPlay();
+        }
+      }, 50);
+      
+      // Secondary attempt
+      const secondaryPlayTimeout = setTimeout(() => {
         if (video.readyState >= 2) {
           handleCanPlay();
         }
-      }, 100);
+      }, 200);
       
       return () => {
-        clearTimeout(forcePlayTimeout);
+        clearTimeout(immediatePlayTimeout);
+        clearTimeout(secondaryPlayTimeout);
         video.removeEventListener('canplay', handleCanPlay);
         video.removeEventListener('loadeddata', handleLoadedData);
+        video.removeEventListener('loadstart', handleLoadStart);
       };
     }
   }, []);
@@ -133,9 +141,7 @@ const Hero = () => {
       {/* Ultra-optimized background video */}
       <video 
         ref={videoRef}
-        className={`absolute w-full h-full object-cover transition-opacity duration-500 ${
-          videoLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
+        className="absolute w-full h-full object-cover opacity-100"
         src="/fundonew.mp4"
         autoPlay
         muted
@@ -144,11 +150,11 @@ const Hero = () => {
         preload="auto"
         disablePictureInPicture
         controls={false}
-        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3C/svg%3E"
+        poster="/LYNXx.png"
         style={{ 
           objectFit: 'cover',
           objectPosition: 'center',
-          willChange: 'auto',
+          willChange: 'transform',
           WebkitTransform: 'translate3d(0,0,0)',
           transform: 'translate3d(0,0,0)',
           WebkitBackfaceVisibility: 'hidden',
@@ -162,6 +168,12 @@ const Hero = () => {
         }}
         onCanPlay={() => {
           setVideoLoaded(true);
+        }}
+        onLoadStart={() => {
+          // Força o vídeo a começar do início
+          if (videoRef.current) {
+            videoRef.current.currentTime = 0;
+          }
         }}
         onError={(e) => {
           console.log('Video loading error, using fallback');
