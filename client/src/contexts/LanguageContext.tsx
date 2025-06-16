@@ -262,7 +262,7 @@ const translations = {
     // Gallery Page
     portfolioLabel: 'Portfolio',
     portfolioShowcase: 'Portfolio Showcase',
-    explorePortfolio: 'Explore our curated collection of premium brand identities and innovative design solutions',
+    exploreCollection: 'Explore our collection',
   },
   pt: {
     // Navigation
@@ -509,7 +509,7 @@ const translations = {
     // Gallery Page
     portfolioLabel: 'Portfólio',
     portfolioShowcase: 'Mostruário do Portfólio',
-    explorePortfolio: 'Explore nossa coleção curada de identidades de marca premium e soluções de design inovadoras',
+    exploreCollection: 'Explore nossa coleção',
   }
 };
 

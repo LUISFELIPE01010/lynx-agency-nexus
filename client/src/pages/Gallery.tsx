@@ -91,7 +91,7 @@ const Gallery = () => {
             <span className="block text-lynx-gray">{t('portfolioShowcase')}</span>
           </h1>
           <p className="text-lg text-lynx-gray max-w-3xl mx-auto leading-relaxed">
-            {t('explorePortfolio')}
+            {t('exploreCollection')}
           </p>
         </div>
       </div>
