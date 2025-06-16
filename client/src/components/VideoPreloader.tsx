@@ -13,67 +13,43 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
   }, [onLoadingComplete]);
 
   useEffect(() => {
-    const video = document.createElement('video');
-    video.preload = 'metadata';
-    video.muted = true;
-    video.playsInline = true;
+    const totalDuration = 4000; // 4 segundos
+    const intervalTime = 50; // Atualiza a cada 50ms
+    const increment = 100 / (totalDuration / intervalTime);
 
     let progressInterval: NodeJS.Timeout;
     let isCompleted = false;
 
-    const handleCanPlay = () => {
+    const handleLoadingComplete = () => {
       if (isCompleted) return;
       isCompleted = true;
       clearInterval(progressInterval);
       setProgress(100);
-      // Reduced timeout for faster perceived loading
       setTimeout(handleLoadingComplete, 200);
     };
 
-    const handleLoadStart = () => {
-      let currentProgress = 0;
-      progressInterval = setInterval(() => {
-        if (isCompleted) return;
-        currentProgress += Math.random() * 20; // Increased increment
-        if (currentProgress >= 85) {
-          clearInterval(progressInterval);
-          currentProgress = 85;
-        }
-        setProgress(Math.min(currentProgress, 85));
-      }, 150); // Reduced interval
-    };
-
-    const handleError = () => {
-      if (isCompleted) return;
-      isCompleted = true;
-      clearInterval(progressInterval);
-      console.warn('Video preload failed, continuing anyway');
-      handleLoadingComplete();
-    };
-
-    video.addEventListener('canplay', handleCanPlay);
-    video.addEventListener('loadstart', handleLoadStart);
-    video.addEventListener('error', handleError);
-
+    // Inicia o carregamento do vídeo em segundo plano
+    const video = document.createElement('video');
+    video.preload = 'auto';
+    video.muted = true;
+    video.playsInline = true;
     video.src = videoSrc;
     video.load();
 
-    // Fallback timeout to prevent hanging
-    const fallbackTimeout = setTimeout(() => {
-      if (!isCompleted) {
-        isCompleted = true;
-        clearInterval(progressInterval);
-        handleLoadingComplete();
-      }
-    }, 3000); // 3 second timeout
+    // Progresso com duração fixa de 4 segundos
+    progressInterval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          handleLoadingComplete();
+          return 100;
+        }
+        return Math.min(prev + increment, 100);
+      });
+    }, intervalTime);
 
     return () => {
       isCompleted = true;
       clearInterval(progressInterval);
-      clearTimeout(fallbackTimeout);
-      video.removeEventListener('canplay', handleCanPlay);
-      video.removeEventListener('loadstart', handleLoadStart);
-      video.removeEventListener('error', handleError);
       video.src = '';
     };
   }, [videoSrc, handleLoadingComplete]);
