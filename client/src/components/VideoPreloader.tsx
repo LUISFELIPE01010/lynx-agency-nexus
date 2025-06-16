@@ -13,42 +13,100 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
   }, [onLoadingComplete]);
 
   useEffect(() => {
-    const totalDuration = 3000; // 3 segundos
+    const minDuration = 2000; // Mínimo de 2 segundos
+    const maxDuration = 4000; // Máximo de 4 segundos
     const intervalTime = 50; // Atualiza a cada 50ms
-    const increment = 100 / (totalDuration / intervalTime);
-
+    
     let progressInterval: NodeJS.Timeout;
     let isCompleted = false;
+    let videoReady = false;
+    let minTimeReached = false;
+    let currentProgress = 0;
 
-    // Inicia o carregamento do vídeo em segundo plano
-    const video = document.createElement('video');
-    video.preload = 'auto';
-    video.muted = true;
-    video.playsInline = true;
-    video.src = videoSrc;
-    video.load();
+    // Carrega o vídeo do Hero em segundo plano
+    const heroVideo = document.createElement('video');
+    heroVideo.preload = 'auto';
+    heroVideo.muted = true;
+    heroVideo.playsInline = true;
+    heroVideo.loop = true;
+    heroVideo.src = '/fundonew.mp4'; // Vídeo do Hero
+    
+    // Também carrega o vídeo passado como prop
+    const extraVideo = document.createElement('video');
+    extraVideo.preload = 'auto';
+    extraVideo.muted = true;
+    extraVideo.playsInline = true;
+    extraVideo.src = videoSrc;
 
-    // Progresso com duração fixa de 3 segundos
+    const checkVideoReady = () => {
+      if (heroVideo.readyState >= 3) { // HAVE_FUTURE_DATA
+        videoReady = true;
+        tryComplete();
+      }
+    };
+
+    const tryComplete = () => {
+      if (videoReady && minTimeReached && currentProgress >= 100 && !isCompleted) {
+        isCompleted = true;
+        clearInterval(progressInterval);
+        // Força o vídeo do Hero a começar do início
+        heroVideo.currentTime = 0;
+        setTimeout(() => {
+          handleLoadingComplete();
+        }, 200);
+      }
+    };
+
+    // Event listeners para o vídeo do Hero
+    heroVideo.addEventListener('canplaythrough', checkVideoReady);
+    heroVideo.addEventListener('loadeddata', checkVideoReady);
+    heroVideo.addEventListener('canplay', checkVideoReady);
+    
+    // Inicia o carregamento
+    heroVideo.load();
+    extraVideo.load();
+
+    // Timer para tempo mínimo
+    const minTimeTimer = setTimeout(() => {
+      minTimeReached = true;
+      tryComplete();
+    }, minDuration);
+
+    // Timer para tempo máximo (fallback)
+    const maxTimeTimer = setTimeout(() => {
+      if (!isCompleted) {
+        videoReady = true;
+        minTimeReached = true;
+        currentProgress = 100;
+        tryComplete();
+      }
+    }, maxDuration);
+
+    // Progresso visual
+    const baseIncrement = 100 / (minDuration / intervalTime);
+    
     progressInterval = setInterval(() => {
       setProgress(prev => {
-        if (prev >= 100) {
-          if (!isCompleted) {
-            isCompleted = true;
-            clearInterval(progressInterval);
-            setTimeout(() => {
-              handleLoadingComplete();
-            }, 200);
-          }
-          return 100;
+        currentProgress = Math.min(prev + baseIncrement, 100);
+        
+        if (currentProgress >= 100) {
+          tryComplete();
         }
-        return Math.min(prev + increment, 100);
+        
+        return currentProgress;
       });
     }, intervalTime);
 
     return () => {
       isCompleted = true;
       clearInterval(progressInterval);
-      video.src = '';
+      clearTimeout(minTimeTimer);
+      clearTimeout(maxTimeTimer);
+      heroVideo.removeEventListener('canplaythrough', checkVideoReady);
+      heroVideo.removeEventListener('loadeddata', checkVideoReady);
+      heroVideo.removeEventListener('canplay', checkVideoReady);
+      heroVideo.src = '';
+      extraVideo.src = '';
     };
   }, [videoSrc, handleLoadingComplete]);
 
