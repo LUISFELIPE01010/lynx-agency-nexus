@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollTrigger } from '../hooks/useScrollTrigger';
+import LazyVideo from './LazyVideo';
 
 const BrandVideo = () => {
   const { t } = useLanguage();
@@ -15,14 +16,13 @@ const BrandVideo = () => {
       
       {/* Video container */}
       <div className="relative w-full h-screen">
-        <video
+        <LazyVideo
           className="w-full h-full object-cover"
           src="/Brand..mp4"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
         />
 
         {/* Top gradient overlay */}
