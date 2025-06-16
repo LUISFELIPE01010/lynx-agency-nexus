@@ -88,7 +88,6 @@ const Gallery = () => {
       <div className="pt-32 pb-16 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
-            {t('portfolioLabel')}
             <span className="block text-lynx-gray">{t('portfolioShowcase')}</span>
           </h1>
           <p className="text-lg text-lynx-gray max-w-3xl mx-auto leading-relaxed">
