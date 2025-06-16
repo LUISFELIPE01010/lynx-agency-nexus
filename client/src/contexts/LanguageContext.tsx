@@ -244,7 +244,37 @@ const translations = {
     // Product Carousel Section
     ourClients: 'Our Clients',
     trustedByLeaders: 'Trusted by Industry Leaders',
-    clientsSubtitle: 'We\'ve had the privilege of working with amazing companies and individuals who trust us with their brand vision.'
+    clientsSubtitle: 'We\'ve had the privilege of working with amazing companies and individuals who trust us with their brand vision.',
+    
+    // Gallery Page
+    portfolioShowcase: 'Portfolio Showcase',
+    explorePortfolio: 'Explore our curated collection of premium brand identities and innovative design solutions',
+    
+    // Project titles and categories - keeping original names but making categories translatable
+    eliteBusinessServices: 'Elite Business Services',
+    luxuryAutomotiveBrand: 'Luxury Automotive Brand',
+    modernFashionLabel: 'Modern Fashion Label',
+    artisanFoodBeverage: 'Artisan Food & Beverage',
+    techInnovationCompany: 'Tech Innovation Company',
+    premiumRealEstate: 'Premium Real Estate',
+    
+    // Project tags
+    corporate: 'Corporate',
+    business: 'Business',
+    professional: 'Professional',
+    automotive: 'Automotive',
+    luxury: 'Luxury',
+    premium: 'Premium',
+    fashion: 'Fashion',
+    modern: 'Modern',
+    trendy: 'Trendy',
+    food: 'Food',
+    artisan: 'Artisan',
+    gourmet: 'Gourmet',
+    technology: 'Technology',
+    innovation: 'Innovation',
+    future: 'Future',
+    realEstate: 'Real Estate'
   },
   pt: {
     // Navigation
@@ -473,7 +503,37 @@ const translations = {
     // Product Carousel Section
     ourClients: 'Nossos Clientes',
     trustedByLeaders: 'Confiado por Líderes da Indústria',
-    clientsSubtitle: 'Tivemos o privilégio de trabalhar com empresas e indivíduos incríveis que confiam em nós com sua visão de marca.'
+    clientsSubtitle: 'Tivemos o privilégio de trabalhar com empresas e indivíduos incríveis que confiam em nós com sua visão de marca.',
+    
+    // Gallery Page
+    portfolioShowcase: 'Mostruário do Portfólio',
+    explorePortfolio: 'Explore nossa coleção curada de identidades de marca premium e soluções de design inovadoras',
+    
+    // Project titles and categories - keeping original names but translating categories
+    eliteBusinessServices: 'Elite Business Services',
+    luxuryAutomotiveBrand: 'Luxury Automotive Brand',
+    modernFashionLabel: 'Modern Fashion Label',
+    artisanFoodBeverage: 'Artisan Food & Beverage',
+    techInnovationCompany: 'Tech Innovation Company',
+    premiumRealEstate: 'Premium Real Estate',
+    
+    // Project tags
+    corporate: 'Corporativo',
+    business: 'Negócios',
+    professional: 'Profissional',
+    automotive: 'Automotivo',
+    luxury: 'Luxo',
+    premium: 'Premium',
+    fashion: 'Moda',
+    modern: 'Moderno',
+    trendy: 'Tendência',
+    food: 'Alimentação',
+    artisan: 'Artesanal',
+    gourmet: 'Gourmet',
+    technology: 'Tecnologia',
+    innovation: 'Inovação',
+    future: 'Futuro',
+    realEstate: 'Imobiliário'
   }
 };
 

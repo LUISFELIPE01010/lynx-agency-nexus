@@ -1,3 +1,4 @@
+
 import Navbar from '@/components/Navbar';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -7,51 +8,51 @@ const Gallery = () => {
   const projects = [
     {
       id: 1,
-      title: "Elite Business Services",
-      category: "Corporate Branding",
-      description: "Professional corporate identity featuring clean lines and sophisticated branding for premium business consultancy.",
+      title: t('eliteBusinessServices'),
+      category: t('corporateRebrand'),
+      description: t('eliteBusinessDesc'),
       image: "/bb1.jpg",
-      tags: ["Corporate", "Business", "Professional"]
+      tags: [t('corporate'), t('business'), t('professional')]
     },
     {
       id: 2,
-      title: "Luxury Automotive Brand",
-      category: "Luxury Brand Identity",
-      description: "High-end automotive branding with sleek design elements and premium visual identity for luxury vehicle dealership.",
+      title: t('luxuryAutomotiveBrand'),
+      category: t('luxuryBrandIdentity'),
+      description: t('luxuryAutomotiveDesc'),
       image: "/bb2.jpg",
-      tags: ["Automotive", "Luxury", "Premium"]
+      tags: [t('automotive'), t('luxury'), t('premium')]
     },
     {
       id: 3,
-      title: "Modern Fashion Label",
-      category: "Digital Experience",
-      description: "Contemporary fashion brand identity with minimalist aesthetics and modern typography for trendy clothing line.",
+      title: t('modernFashionLabel'),
+      category: t('digitalExperienceProject'),
+      description: t('modernFashionDesc'),
       image: "/bb3.jpg",
-      tags: ["Fashion", "Modern", "Trendy"]
+      tags: [t('fashion'), t('modern'), t('trendy')]
     },
     {
       id: 4,
-      title: "Artisan Food & Beverage",
-      category: "Corporate Rebrand",
-      description: "Authentic artisanal brand featuring warm colors and handcrafted elements for gourmet food products.",
+      title: t('artisanFoodBeverage'),
+      category: t('corporateRebrand'),
+      description: t('artisanFoodDesc'),
       image: "/bb4.jpg",
-      tags: ["Food", "Artisan", "Gourmet"]
+      tags: [t('food'), t('artisan'), t('gourmet')]
     },
     {
       id: 5,
-      title: "Tech Innovation Company",
-      category: "Healthcare Innovation",
-      description: "Cutting-edge technology brand with futuristic design elements and bold visual identity for innovation leader.",
+      title: t('techInnovationCompany'),
+      category: t('healthcareInnovation'),
+      description: t('techInnovationDesc'),
       image: "/bb5.jpg",
-      tags: ["Technology", "Innovation", "Future"]
+      tags: [t('technology'), t('innovation'), t('future')]
     },
     {
       id: 6,
-      title: "Premium Real Estate",
-      category: "Real Estate Branding",
-      description: "Sophisticated real estate brand with elegant design elements and luxury positioning for high-end properties.",
+      title: t('premiumRealEstate'),
+      category: t('realEstateBranding'),
+      description: t('premiumRealEstateDesc'),
       image: "/bb6.jpg",
-      tags: ["Real Estate", "Luxury", "Premium"]
+      tags: [t('realEstate'), t('luxury'), t('premium')]
     }
   ];
 
@@ -63,11 +64,11 @@ const Gallery = () => {
       <div className="pt-32 pb-16 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight">
-            Portfolio
-            <span className="block text-lynx-gray">Showcase</span>
+            {t('portfolioLabel')}
+            <span className="block text-lynx-gray">{t('portfolioShowcase')}</span>
           </h1>
           <p className="text-lg text-lynx-gray max-w-3xl mx-auto leading-relaxed">
-            Explore our curated collection of premium brand identities and innovative design solutions
+            {t('explorePortfolio')}
           </p>
         </div>
       </div>
