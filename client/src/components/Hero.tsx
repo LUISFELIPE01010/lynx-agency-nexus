@@ -150,7 +150,6 @@ const Hero = () => {
         preload="auto"
         disablePictureInPicture
         controls={false}
-        poster="/LYNXx.png"
         style={{ 
           objectFit: 'cover',
           objectPosition: 'center',
