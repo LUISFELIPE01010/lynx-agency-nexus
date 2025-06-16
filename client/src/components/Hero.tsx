@@ -20,36 +20,69 @@ const Hero = () => {
     zoomSpeed: 0.05
   });
 
-  // Optimized video loading and playback
+  // Optimized video loading with immediate playback
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      // Set up video for fastest loading
-      video.preload = 'metadata';
+      // Configure for immediate autoplay
       video.muted = true;
       video.playsInline = true;
+      video.loop = true;
+      video.preload = 'auto';
       
-      // Load video data in background
+      // Optimize video quality based on connection
+      const connection = (navigator as any).connection;
+      if (connection) {
+        if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+          video.preload = 'metadata';
+        }
+      }
+      
+      // Start loading immediately
       video.load();
       
-      // Play when metadata is loaded
-      const handleCanPlay = () => {
+      // Multiple event handlers for reliability
+      const handleCanPlay = async () => {
+        try {
+          setVideoLoaded(true);
+          await video.play();
+        } catch (error) {
+          // Retry with explicit mute
+          video.muted = true;
+          try {
+            await video.play();
+          } catch (retryError) {
+            console.log('Video autoplay blocked, will play on user interaction');
+          }
+        }
+      };
+      
+      const handleLoadedData = () => {
         setVideoLoaded(true);
         video.play().catch(() => {
-          // Fallback: ensure muted and try again
           video.muted = true;
           video.play();
         });
       };
       
+      // Add multiple event listeners for maximum compatibility
       video.addEventListener('canplay', handleCanPlay);
+      video.addEventListener('loadeddata', handleLoadedData);
       video.addEventListener('loadedmetadata', () => {
-        // Optimize for performance
         video.currentTime = 0;
       });
       
+      // Force play attempt after short delay
+      const forcePlayTimeout = setTimeout(() => {
+        if (video.readyState >= 2) {
+          handleCanPlay();
+        }
+      }, 100);
+      
       return () => {
+        clearTimeout(forcePlayTimeout);
         video.removeEventListener('canplay', handleCanPlay);
+        video.removeEventListener('loadeddata', handleLoadedData);
       };
     }
   }, []);
@@ -94,45 +127,45 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
-      {/* Optimized background video with lazy loading */}
+      {/* Ultra-optimized background video */}
       <video 
         ref={videoRef}
-        className={`absolute w-full h-full object-cover transition-opacity duration-500 ${
-          videoLoaded ? 'opacity-100' : 'opacity-0'
+        className={`absolute w-full h-full object-cover transition-opacity duration-300 ${
+          videoLoaded ? 'opacity-100' : 'opacity-80'
         }`}
         src="/wallp.mp4"
         autoPlay
         muted
         loop
         playsInline
-        preload="none"
-        poster="/hero-poster.jpg"
+        preload="auto"
+        disablePictureInPicture
+        controls={false}
         style={{ 
           objectFit: 'cover',
-          willChange: 'transform',
-          WebkitTransform: 'translateZ(0)',
-          transform: 'translateZ(0)'
+          objectPosition: 'center',
+          willChange: 'auto',
+          WebkitTransform: 'translate3d(0,0,0)',
+          transform: 'translate3d(0,0,0)',
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden',
+          WebkitPerspective: 1000,
+          perspective: 1000
         }}
         onLoadedData={() => {
           setVideoLoaded(true);
         }}
-        onError={() => {
-          // Fallback to poster image if video fails
-          console.log('Video failed to load, using poster');
+        onCanPlay={() => {
+          setVideoLoaded(true);
+        }}
+        onError={(e) => {
+          console.log('Video loading error, using fallback');
+          setVideoLoaded(false);
         }}
       />
       
-      {/* Fallback background image while video loads */}
-      {!videoLoaded && (
-        <div 
-          className="absolute w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/hero-poster.jpg)',
-            filter: 'blur(0.5px)'
-          }}
-        />
-      )}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90"></div>
+      {/* Optimized gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90 pointer-events-none"></div>
 
       {/* Main content container - responsive and centered */}
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-start text-left py-8 sm:py-12 md:py-16 lg:py-20">
