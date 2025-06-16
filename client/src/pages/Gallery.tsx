@@ -43,19 +43,11 @@ const Gallery = () => {
       title: t('saucesBranding'),
       category: t('sauceBranding'),
       description: t('saucesBrandingDesc'),
-      image: "/bb5.jpg",
+      image: "/bb6.jpg",
       tags: ['food', 'sauces', 'premium']
     },
     {
       id: 6,
-      title: t('premiumRealEstate'),
-      category: t('realEstateBranding'),
-      description: t('premiumRealEstateDesc'),
-      image: "/bb6.jpg",
-      tags: ['real estate', 'luxury', 'premium']
-    },
-    {
-      id: 7,
       title: t('modernBarbershop'),
       category: t('barbershopBranding'),
       description: t('modernBarbershopDesc'),
@@ -63,7 +55,7 @@ const Gallery = () => {
       tags: ['barbershop', 'modern', 'grooming']
     },
     {
-      id: 8,
+      id: 7,
       title: t('constructionCompany'),
       category: t('constructionBranding'),
       description: t('constructionCompanyDesc'),
@@ -71,7 +63,7 @@ const Gallery = () => {
       tags: ['construction', 'industrial', 'professional']
     },
     {
-      id: 9,
+      id: 8,
       title: t('luxuryJewelry'),
       category: t('jewelryBranding'),
       description: t('luxuryJewelryDesc'),
@@ -79,7 +71,7 @@ const Gallery = () => {
       tags: ['jewelry', 'luxury', 'elegant']
     },
     {
-      id: 10,
+      id: 9,
       title: t('sportsWear'),
       category: t('sportsbranding'),
       description: t('sportsWearDesc'),

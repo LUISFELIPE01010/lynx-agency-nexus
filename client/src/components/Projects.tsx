@@ -49,7 +49,7 @@ const Projects = () => {
       tags: ["Food", "Sauces", "Premium"]
     },
     {
-      id: 7,
+      id: 6,
       title: t('modernBarbershop'),
       category: t('barbershopBranding'),
       description: t('modernBarbershopDesc'),
@@ -57,7 +57,7 @@ const Projects = () => {
       tags: ["Barbershop", "Modern", "Grooming"]
     },
     {
-      id: 8,
+      id: 7,
       title: t('constructionCompany'),
       category: t('constructionBranding'),
       description: t('constructionCompanyDesc'),
@@ -65,7 +65,7 @@ const Projects = () => {
       tags: ["Construction", "Industrial", "Professional"]
     },
     {
-      id: 9,
+      id: 8,
       title: t('luxuryJewelry'),
       category: t('jewelryBranding'),
       description: t('luxuryJewelryDesc'),
@@ -73,7 +73,7 @@ const Projects = () => {
       tags: ["Jewelry", "Luxury", "Elegant"]
     },
     {
-      id: 10,
+      id: 9,
       title: t('sportsWear'),
       category: t('sportsbranding'),
       description: t('sportsWearDesc'),
