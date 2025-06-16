@@ -50,6 +50,38 @@ const ProductCarousel = () => {
       description: "Future ready",
       image: "/bb6.jpg",
       color: "from-indigo-400 to-purple-500"
+    },
+    {
+      id: 7,
+      title: "BARBER",
+      subtitle: "Modern Grooming",
+      description: "Premium barbershop",
+      image: "/nova1.png",
+      color: "from-amber-400 to-orange-500"
+    },
+    {
+      id: 8,
+      title: "BUILD",
+      subtitle: "Construction Pro",
+      description: "Industrial excellence",
+      image: "/nova2.png",
+      color: "from-slate-400 to-gray-600"
+    },
+    {
+      id: 9,
+      title: "GEMS",
+      subtitle: "Luxury Jewelry",
+      description: "Elegant craftsmanship",
+      image: "/nova3.png",
+      color: "from-yellow-400 to-amber-500"
+    },
+    {
+      id: 10,
+      title: "SPORT",
+      subtitle: "Athletic Wear",
+      description: "Performance gear",
+      image: "/nova4.png",
+      color: "from-red-400 to-pink-500"
     }
   ];
 

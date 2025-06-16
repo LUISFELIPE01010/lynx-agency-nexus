@@ -220,6 +220,24 @@ const translations = {
     // Real Estate Project Category  
     realEstateBranding: 'Real Estate Branding',
     
+    // New Portfolio Projects
+    modernBarbershop: 'Modern Barbershop',
+    constructionCompany: 'Construction Company', 
+    luxuryJewelry: 'Luxury Jewelry',
+    sportsWear: 'Sports Wear',
+    
+    // New Project Categories
+    barbershopBranding: 'Barbershop Branding',
+    constructionBranding: 'Construction Branding',
+    jewelryBranding: 'Jewelry Branding', 
+    sportsbranding: 'Sports Branding',
+    
+    // New Project Descriptions
+    modernBarbershopDesc: 'Contemporary barbershop brand identity featuring bold typography and premium grooming aesthetics for the modern gentleman.',
+    constructionCompanyDesc: 'Professional construction company branding with strong industrial elements and trustworthy design for reliable building solutions.',
+    luxuryJewelryDesc: 'Elegant jewelry brand identity with sophisticated design elements and premium aesthetics for exclusive luxury pieces.',
+    sportsWearDesc: 'Dynamic sports brand identity with energetic design elements and athletic aesthetics for performance-driven activewear.',
+    
     // Additional UI elements
     loading: 'Loading...',
     learnMore: 'Learn More',
@@ -478,6 +496,24 @@ const translations = {
     
     // Real Estate Project Category
     realEstateBranding: 'Branding Imobiliário',
+    
+    // New Portfolio Projects
+    modernBarbershop: 'Barbearia Moderna',
+    constructionCompany: 'Construtora',
+    luxuryJewelry: 'Joias de Luxo',
+    sportsWear: 'Marca Esportiva',
+    
+    // New Project Categories
+    barbershopBranding: 'Branding para Barbearia',
+    constructionBranding: 'Branding para Construtora',
+    jewelryBranding: 'Branding para Joias',
+    sportsbranding: 'Branding Esportivo',
+    
+    // New Project Descriptions
+    modernBarbershopDesc: 'Identidade de marca contemporânea para barbearia com tipografia ousada e estética premium de cuidados masculinos para o cavalheiro moderno.',
+    constructionCompanyDesc: 'Branding profissional para construtora com elementos industriais fortes e design confiável para soluções de construção seguras.',
+    luxuryJewelryDesc: 'Identidade elegante para marca de joias com elementos de design sofisticados e estética premium para peças de luxo exclusivas.',
+    sportsWearDesc: 'Identidade dinâmica para marca esportiva com elementos de design energéticos e estética atlética para roupas de alto desempenho.',
     
     // Additional UI elements
     loading: 'Carregando...',

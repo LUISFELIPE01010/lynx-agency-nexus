@@ -53,6 +53,38 @@ const Gallery = () => {
       description: t('premiumRealEstateDesc'),
       image: "/bb6.jpg",
       tags: [t('realEstate'), t('luxury'), t('premium')]
+    },
+    {
+      id: 7,
+      title: t('modernBarbershop'),
+      category: t('barbershopBranding'),
+      description: t('modernBarbershopDesc'),
+      image: "/nova1.png",
+      tags: ["Barbershop", "Modern", "Grooming"]
+    },
+    {
+      id: 8,
+      title: t('constructionCompany'),
+      category: t('constructionBranding'),
+      description: t('constructionCompanyDesc'),
+      image: "/nova2.png",
+      tags: ["Construction", "Industrial", "Professional"]
+    },
+    {
+      id: 9,
+      title: t('luxuryJewelry'),
+      category: t('jewelryBranding'),
+      description: t('luxuryJewelryDesc'),
+      image: "/nova3.png",
+      tags: ["Jewelry", "Luxury", "Elegant"]
+    },
+    {
+      id: 10,
+      title: t('sportsWear'),
+      category: t('sportsbranding'),
+      description: t('sportsWearDesc'),
+      image: "/nova4.png",
+      tags: ["Sports", "Athletic", "Performance"]
     }
   ];
 
