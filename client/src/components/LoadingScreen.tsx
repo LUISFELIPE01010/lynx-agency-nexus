@@ -8,6 +8,10 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const totalDuration = 4000; // 4 segundos
+    const intervalTime = 50; // Atualiza a cada 50ms
+    const increment = 100 / (totalDuration / intervalTime);
+
     const progressInterval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
@@ -17,9 +21,9 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
           }, 300);
           return 100;
         }
-        return prev + 2;
+        return Math.min(prev + increment, 100);
       });
-    }, 30);
+    }, intervalTime);
 
     return () => clearInterval(progressInterval);
   }, [onLoadingComplete]);
