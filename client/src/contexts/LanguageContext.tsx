@@ -191,6 +191,9 @@ const translations = {
     yearsExcellence: 'Years of Excellence', 
     countriesReached: 'Countries Reached',
 
+    brandRecognition: 'Brand Recognition',
+    brandRecognitionDesc: 'A strong brand creates instant recognition in the marketplace, making your business memorable and easily identifiable among competitors.',
+    
     instantRecognition: 'Instant Recognition',
     instantRecognitionDesc: 'A strong brand creates immediate market identification, allowing consumers to recognize your products or services in seconds.',
     
@@ -430,6 +433,9 @@ const translations = {
     yearsExcellence: 'Anos de Excelência',
     countriesReached: 'Países Alcançados',
 
+    brandRecognition: 'Reconhecimento de Marca',
+    brandRecognitionDesc: 'Uma marca forte cria reconhecimento instantâneo no mercado, tornando seu negócio memorável e facilmente identificável entre os concorrentes.',
+    
     instantRecognition: 'Reconhecimento Instantâneo',
     instantRecognitionDesc: 'Uma marca forte cria identificação imediata no mercado, permitindo que consumidores reconheçam seus produtos ou serviços em segundos.',
     
