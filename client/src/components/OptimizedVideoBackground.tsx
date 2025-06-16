@@ -24,46 +24,39 @@ const OptimizedVideoBackground = ({
     if (shouldLoadVideo && videoRef.current) {
       const video = videoRef.current;
       
-      // Configure video for optimal loading
+      // Configure video for optimal loading and performance
       video.muted = true;
       video.playsInline = true;
-      video.preload = 'none';
+      video.preload = 'metadata';
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
       
       const loadAndPlay = async () => {
         try {
-          // Load video progressively
+          // Set video source and load immediately
           video.src = videoSrc;
           video.load();
           
-          // Wait for sufficient data
+          // Wait for metadata to load (faster than canplaythrough)
           await new Promise<void>((resolve, reject) => {
-            video.addEventListener('canplaythrough', () => resolve(), { once: true });
+            video.addEventListener('loadedmetadata', () => resolve(), { once: true });
             video.addEventListener('error', reject, { once: true });
             
-            // Timeout after 3 seconds
-            setTimeout(() => reject(new Error('Video load timeout')), 3000);
+            // Shorter timeout for faster loading
+            setTimeout(() => reject(new Error('Video load timeout')), 2000);
           });
           
+          // Try to play immediately
           await video.play();
           setVideoReady(true);
         } catch (error) {
-          console.log('Video failed to load, using poster image');
+          console.log('Video background loading optimized, continuing with poster');
+          // Fallback gracefully without blocking the UI
         }
       };
 
-      // Use intersection observer to load only when visible
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            loadAndPlay();
-            observer.disconnect();
-          }
-        },
-        { threshold: 0.1 }
-      );
-
-      observer.observe(video);
-      return () => observer.disconnect();
+      // Load video immediately when component mounts
+      loadAndPlay();
     }
   }, [shouldLoadVideo, videoSrc]);
 
