@@ -12,7 +12,7 @@ const Projects = () => {
       id: 1,
       title: "Elite Business Services",
       category: t('techStartupBranding'),
-      description: "Professional corporate identity featuring clean lines and sophisticated branding for premium business consultancy.",
+      description: t('eliteBusinessDesc'),
       image: "/bb1.jpg",
       tags: ["Corporate", "Business", "Professional"]
     },
@@ -20,7 +20,7 @@ const Projects = () => {
       id: 2,
       title: "Luxury Automotive Brand",
       category: t('luxuryBrandIdentity'),
-      description: "High-end automotive branding with sleek design elements and premium visual identity for luxury vehicle dealership.",
+      description: t('luxuryAutomotiveDesc'),
       image: "/bb2.jpg",
       tags: ["Automotive", "Luxury", "Premium"]
     },
@@ -28,7 +28,7 @@ const Projects = () => {
       id: 3,
       title: "Modern Fashion Label",
       category: t('digitalExperienceProject'),
-      description: "Contemporary fashion brand identity with minimalist aesthetics and modern typography for trendy clothing line.",
+      description: t('modernFashionDesc'),
       image: "/bb3.jpg",
       tags: ["Fashion", "Modern", "Trendy"]
     },
@@ -36,7 +36,7 @@ const Projects = () => {
       id: 4,
       title: "Artisan Food & Beverage",
       category: t('corporateRebrand'),
-      description: "Authentic artisanal brand featuring warm colors and handcrafted elements for gourmet food products.",
+      description: t('artisanFoodDesc'),
       image: "/bb4.jpg",
       tags: ["Food", "Artisan", "Gourmet"]
     },
@@ -44,7 +44,7 @@ const Projects = () => {
       id: 5,
       title: "Tech Innovation Company",
       category: t('healthcareInnovation'),
-      description: "Cutting-edge technology brand with futuristic design elements and bold visual identity for innovation leader.",
+      description: t('techInnovationDesc'),
       image: "/bb5.jpg",
       tags: ["Technology", "Innovation", "Future"]
     },
@@ -52,7 +52,7 @@ const Projects = () => {
       id: 6,
       title: "Premium Real Estate",
       category: t('realEstateBranding'),
-      description: "Sophisticated real estate brand with elegant design elements and luxury positioning for high-end properties.",
+      description: t('premiumRealEstateDesc'),
       image: "/bb6.jpg",
       tags: ["Real Estate", "Luxury", "Premium"]
     }

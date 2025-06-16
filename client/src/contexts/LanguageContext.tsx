@@ -182,18 +182,26 @@ const translations = {
     
     // Brand Importance Section
     whyBrandMatters: 'Why Your Brand Matters',
-    brandPower: 'Brand Power',
-    unleashed: 'Unleashed',
-    brandPowerSubtitle: 'Discover why strategic branding is the cornerstone of business success in today\'s competitive landscape.',
+    brandPower: 'The Power of',
+    unleashed: 'Strategic Branding',
+    brandPowerSubtitle: 'Discover why professional branding is essential for business success in today\'s competitive landscape',
     
-    instantRecognition: 'Instant Recognition',
-    instantRecognitionDesc: 'A strong brand creates immediate market identification, allowing consumers to recognize your products or services in seconds.',
+    brandRecognition: 'Brand Recognition',
+    brandRecognitionDesc: 'A strong brand creates instant recognition in the marketplace, making your business memorable and easily identifiable among competitors.',
     
     trustCredibility: 'Trust & Credibility',
-    trustCredibilityDesc: 'Well-established brands convey security and professionalism, increasing customer confidence in doing business with you.',
+    trustCredibilityDesc: 'Professional branding builds trust with customers, establishing credibility that converts prospects into loyal clients who believe in your value.',
     
-    customerLoyalty: 'Customer Loyalty',
-    customerLoyaltyDesc: 'A consistent and engaging brand creates lasting emotional connections, transforming customers into brand advocates.',
+    businessGrowth: 'Business Growth',
+    businessGrowthDesc: 'Effective branding drives business growth by creating emotional connections, commanding premium pricing, and fostering customer loyalty.',
+    
+    // Portfolio project descriptions
+    eliteBusinessDesc: 'Professional corporate identity featuring clean lines and sophisticated branding for premium business consultancy.',
+    luxuryAutomotiveDesc: 'High-end automotive branding with sleek design elements and premium visual identity for luxury vehicle dealership.',
+    modernFashionDesc: 'Contemporary fashion brand identity with minimalist aesthetics and modern typography for trendy clothing line.',
+    artisanFoodDesc: 'Authentic artisanal brand featuring warm colors and handcrafted elements for gourmet food products.',
+    techInnovationDesc: 'Cutting-edge technology brand with futuristic design elements and bold visual identity for innovation leader.',
+    premiumRealEstateDesc: 'Sophisticated real estate brand with elegant design elements and luxury positioning for high-end properties.',
     
     // Testimonials content
     testimonial1: 'Lynx didn\'t just redesign our brand—they completely transformed how we think about our market position. The strategic insights were game-changing.',
@@ -231,7 +239,12 @@ const translations = {
     save: 'Save',
     edit: 'Edit',
     delete: 'Delete',
-    confirm: 'Confirm'
+    confirm: 'Confirm',
+    
+    // Product Carousel Section
+    ourClients: 'Our Clients',
+    trustedByLeaders: 'Trusted by Industry Leaders',
+    clientsSubtitle: 'We\'ve had the privilege of working with amazing companies and individuals who trust us with their brand vision.'
   },
   pt: {
     // Navigation
@@ -398,18 +411,26 @@ const translations = {
     
     // Brand Importance Section
     whyBrandMatters: 'Por Que Sua Marca Importa',
-    brandPower: 'Poder da',
-    unleashed: 'Marca',
-    brandPowerSubtitle: 'Descubra por que o branding estratégico é a pedra angular do sucesso empresarial no cenário competitivo de hoje.',
+    brandPower: 'O Poder do',
+    unleashed: 'Branding Estratégico',
+    brandPowerSubtitle: 'Descubra por que o branding profissional é essencial para o sucesso empresarial no cenário competitivo de hoje',
     
-    instantRecognition: 'Reconhecimento Instantâneo',
-    instantRecognitionDesc: 'Uma marca forte cria identificação imediata no mercado, permitindo que consumidores reconheçam seus produtos ou serviços em segundos.',
+    brandRecognition: 'Reconhecimento da Marca',
+    brandRecognitionDesc: 'Uma marca forte cria reconhecimento instantâneo no mercado, tornando seu negócio memorável e facilmente identificável entre os concorrentes.',
     
     trustCredibility: 'Confiança & Credibilidade',
-    trustCredibilityDesc: 'Marcas bem estabelecidas transmitem segurança e profissionalismo, aumentando a confiança do cliente em fazer negócios com você.',
+    trustCredibilityDesc: 'Branding profissional constrói confiança com clientes, estabelecendo credibilidade que converte prospects em clientes fiéis que acreditam no seu valor.',
     
-    customerLoyalty: 'Fidelidade do Cliente',
-    customerLoyaltyDesc: 'Uma marca consistente e envolvente cria conexões emocionais duradouras, transformando clientes em defensores da marca.',
+    businessGrowth: 'Crescimento do Negócio',
+    businessGrowthDesc: 'Branding eficaz impulsiona o crescimento dos negócios criando conexões emocionais, comandando preços premium e fomentando a fidelidade do cliente.',
+    
+    // Portfolio project descriptions
+    eliteBusinessDesc: 'Identidade corporativa profissional com linhas limpas e branding sofisticado para consultoria empresarial premium.',
+    luxuryAutomotiveDesc: 'Branding automotivo de alto padrão com elementos de design elegante e identidade visual premium para concessionária de veículos de luxo.',
+    modernFashionDesc: 'Identidade de marca de moda contemporânea com estética minimalista e tipografia moderna para linha de roupas trendy.',
+    artisanFoodDesc: 'Marca artesanal autêntica com cores quentes e elementos artesanais para produtos gourmet.',
+    techInnovationDesc: 'Marca de tecnologia de ponta com elementos de design futurista e identidade visual ousada para líder em inovação.',
+    premiumRealEstateDesc: 'Marca imobiliária sofisticada com elementos de design elegante e posicionamento de luxo para propriedades de alto padrão.',
     
     // Testimonials content
     testimonial1: 'A Lynx não apenas redesenhou nossa marca—eles transformaram completamente como pensamos sobre nossa posição no mercado. Os insights estratégicos foram revolucionários.',
@@ -447,7 +468,12 @@ const translations = {
     save: 'Salvar',
     edit: 'Editar',
     delete: 'Excluir',
-    confirm: 'Confirmar'
+    confirm: 'Confirmar',
+    
+    // Product Carousel Section
+    ourClients: 'Nossos Clientes',
+    trustedByLeaders: 'Confiado por Líderes da Indústria',
+    clientsSubtitle: 'Tivemos o privilégio de trabalhar com empresas e indivíduos incríveis que confiam em nós com sua visão de marca.'
   }
 };
 

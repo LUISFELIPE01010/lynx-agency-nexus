@@ -8,24 +8,24 @@ const BrandImportance = () => {
 
   const brandPoints = [
     {
-      title: "Brand Recognition",
-      description: "A strong brand creates instant recognition in the marketplace, making your business memorable and easily identifiable among competitors.",
+      title: t('brandRecognition'),
+      description: t('brandRecognitionDesc'),
       number: "01",
       icon: Target,
       color: "from-blue-500/20 to-purple-500/20",
       iconColor: "text-blue-400"
     },
     {
-      title: "Trust & Credibility", 
-      description: "Professional branding builds trust with customers, establishing credibility that converts prospects into loyal clients who believe in your value.",
+      title: t('trustCredibility'), 
+      description: t('trustCredibilityDesc'),
       number: "02",
       icon: Users,
       color: "from-green-500/20 to-teal-500/20",
       iconColor: "text-green-400"
     },
     {
-      title: "Business Growth",
-      description: "Effective branding drives business growth by creating emotional connections, commanding premium pricing, and fostering customer loyalty.",
+      title: t('businessGrowth'),
+      description: t('businessGrowthDesc'),
       number: "03", 
       icon: TrendingUp,
       color: "from-orange-500/20 to-red-500/20",
@@ -44,18 +44,18 @@ const BrandImportance = () => {
         {/* Header */}
         <AnimatedSection animationType="fade-in" className="text-center mb-20">
           <span className="text-lynx-gray font-space text-sm tracking-widest uppercase mb-4 block">
-            Why Brand Matters
+            {t('whyBrandMatters')}
           </span>
           <div className="w-24 h-px bg-gradient-to-r from-lynx-gray to-transparent mx-auto mb-8"></div>
           <TextReveal 
             as="h2" 
             className="text-5xl md:text-7xl font-space font-bold text-white mb-8 leading-tight"
           >
-            The Power of
-            <span className="block text-lynx-gray">Strategic Branding</span>
+            {t('brandPower')}
+            <span className="block text-lynx-gray">{t('unleashed')}</span>
           </TextReveal>
           <p className="text-xl text-lynx-gray max-w-3xl mx-auto font-inter leading-relaxed">
-            Discover why professional branding is essential for business success in today's competitive landscape
+            {t('brandPowerSubtitle')}
           </p>
         </AnimatedSection>
 
