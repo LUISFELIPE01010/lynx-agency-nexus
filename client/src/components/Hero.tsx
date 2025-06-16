@@ -126,12 +126,15 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y">
+    <section ref={heroRef} className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y bg-black">
+      {/* Black background fallback - always visible */}
+      <div className="absolute inset-0 bg-black"></div>
+      
       {/* Ultra-optimized background video */}
       <video 
         ref={videoRef}
-        className={`absolute w-full h-full object-cover transition-opacity duration-300 ${
-          videoLoaded ? 'opacity-100' : 'opacity-80'
+        className={`absolute w-full h-full object-cover transition-opacity duration-500 ${
+          videoLoaded ? 'opacity-100' : 'opacity-0'
         }`}
         src="/fundonew.mp4"
         autoPlay
@@ -141,6 +144,7 @@ const Hero = () => {
         preload="auto"
         disablePictureInPicture
         controls={false}
+        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23000000'/%3E%3C/svg%3E"
         style={{ 
           objectFit: 'cover',
           objectPosition: 'center',
@@ -150,7 +154,8 @@ const Hero = () => {
           WebkitBackfaceVisibility: 'hidden',
           backfaceVisibility: 'hidden',
           WebkitPerspective: 1000,
-          perspective: 1000
+          perspective: 1000,
+          backgroundColor: '#000000'
         }}
         onLoadedData={() => {
           setVideoLoaded(true);
