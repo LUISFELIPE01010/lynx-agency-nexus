@@ -93,42 +93,23 @@ const translations = {
     portfolioSubtitle: 'Discover how we\'ve helped visionary brands transform their presence and accelerate their growth through strategic design.',
     
     // Project Categories
-    techStartupBranding: 'Agricultural Services',
-    luxuryBrandIdentity: 'Eyewear Brand',
-    digitalExperienceProject: 'Architecture Design',
-    corporateRebrand: 'Sauce Brand',
+    techStartupBranding: 'Tech Startup Branding',
+    luxuryBrandIdentity: 'Luxury Brand Identity',
+    digitalExperienceProject: 'Digital Experience',
+    corporateRebrand: 'Corporate Rebrand',
     healthcareInnovation: 'Healthcare Innovation',
     sustainabilityPlatform: 'Sustainability Platform',
-    realEstateBranding: 'Real Estate Branding',
-    barbershopBranding: 'Barbershop Branding',
-    consultingBranding: 'Consulting Services',
-    
-    // Project Titles
-    eliteBusinessServices: 'Elite Business Services',
-    boltinEyewear: 'Boltin Eyewear',
-    modernArchitecture: 'Modern Architecture',
-    premiumSauces: 'Premium Sauces',
-    premiumRealEstate: 'Premium Real Estate',
-    modernBarbershop: 'Modern Barbershop',
-    sustainabilityConsulting: 'Sustainability Consulting',
-    healthcareInnovation: 'Healthcare Innovation',
-    corporateServices: 'Corporate Services',
     
     // Project Descriptions
     eliteBusinessDesc: 'Comprehensive brand strategy and digital transformation for agricultural services, enhancing their market position and operational efficiency.',
-    boltinEyewearDesc: 'Premium eyewear brand identity featuring sophisticated design elements and luxury positioning for high-end optical boutique.',
-    modernArchitectureDesc: 'Innovative architectural branding project featuring modern residential design concepts and visual identity systems.',
-    premiumSaucesDesc: 'Complete brand development for premium sauce company, including packaging design and market positioning strategy.',
+    luxuryAutomotiveDesc: 'Premium brand identity and showroom experience for a luxury automotive dealership, elevating customer engagement and brand prestige.',
+    modernFashionDesc: 'Innovative architectural branding project featuring modern residential design concepts and visual identity systems.',
+    artisanFoodDesc: 'Complete brand development for premium sauce company, including packaging design and market positioning strategy.',
     premiumRealEstateDesc: 'Luxury real estate brand transformation focusing on high-end property marketing and client experience enhancement.',
     modernBarbershopDesc: 'Contemporary barbershop rebrand featuring modern aesthetics and elevated customer service experience.',
-    sustainabilityConsultingDesc: 'Environmental consulting brand focused on sustainable business practices and green technology solutions.',
+    sustainabilityPlatformDesc: 'Environmental consulting brand focused on sustainable business practices and green technology solutions.',
     healthcareInnovationDesc: 'Medical technology brand development emphasizing innovation in patient care and healthcare solutions.',
     corporateServicesDesc: 'Professional services rebrand targeting corporate clients with emphasis on reliability and expertise.',
-    
-    // Brand Video Section
-    brandVideoTitle1: 'More than brands,',
-    brandVideoTitle2: 'we create movements.',
-    brandMovementSubtitle: 'Every brand has a story. We craft narratives that resonate, inspire, and transform audiences into communities.',
     
     // Contact Section
     contactLabel: 'Contact',
@@ -141,6 +122,31 @@ const translations = {
     email: 'Email',
     whatsapp: 'WhatsApp',
     instagram: 'Instagram',
+    
+    // Testimonials Section
+    testimonialsLabel: 'Testimonials',
+    testimonialsTitle: 'Trusted By',
+    testimonialsTitle2: 'Visionaries',
+    testimonialsSubtitle: 'Hear from the leaders who\'ve transformed their brands with Lynx.',
+    
+    // Testimonial Professions
+    ecommerceOwner: 'E-commerce Owner',
+    lawyer: 'Lawyer',
+    restaurantOwner: 'Restaurant Owner',
+    clinicOwner: 'Clinic Owner',
+    
+    // Footer
+    footerDescription: 'Redefining brand excellence through strategic innovation and design mastery.',
+    quickLinks: 'Quick Links',
+    services: 'Services',
+    projects: 'Projects',
+    contact: 'Contact',
+    followUs: 'Follow Us',
+    allRightsReserved: 'All rights reserved.',
+    
+    // Additional project text
+    viewProject: 'View Project',
+    viewAllProjects: 'View All Projects',
     
     // Process Section
     ourProcess: 'Our Process',
@@ -179,21 +185,20 @@ const translations = {
     
     // Brand Importance Section
     whyBrandMatters: 'Why Your Brand Matters',
-    brandPower: 'Brand Power',
-    unleashed: 'Unleashed',
-    brandPowerSubtitle: 'Discover why strategic branding is the cornerstone of business success in today\'s competitive landscape.',
+    brandPower: 'The Power of',
+    unleashed: 'Strategic Branding',
+    brandPowerSubtitle: 'Discover why professional branding is essential for business success in today\'s competitive landscape',
     
-    instantRecognition: 'Instant Recognition',
-    instantRecognitionDesc: 'A strong brand creates immediate market identification, allowing consumers to recognize your products or services in seconds.',
+    brandRecognition: 'Brand Recognition',
+    brandRecognitionDesc: 'A strong brand creates instant recognition in the marketplace, making your business memorable and easily identifiable among competitors.',
     
     trustCredibility: 'Trust & Credibility',
-    trustCredibilityDesc: 'Well-established brands convey security and professionalism, increasing customer confidence in doing business with you.',
-    
-    customerLoyalty: 'Customer Loyalty',
-    customerLoyaltyDesc: 'A consistent and engaging brand creates lasting emotional connections, transforming customers into brand advocates.',
+    trustCredibilityDesc: 'Professional branding builds trust with customers, establishing credibility that converts prospects into loyal clients who believe in your value.',
     
     businessGrowth: 'Business Growth',
     businessGrowthDesc: 'Effective branding drives business growth by creating emotional connections, commanding premium pricing, and fostering customer loyalty.',
+    
+
     
     // Testimonials content
     testimonial1: 'Lynx didn\'t just redesign our brand—they completely transformed how we think about our market position. The strategic insights were game-changing.',
@@ -201,33 +206,36 @@ const translations = {
     testimonial3: 'Working with Lynx was transformative. They understand that great design isn\'t just beautiful—it\'s strategic, purposeful, and results-driven.',
     testimonial4: 'From concept to execution, Lynx delivered exceptional results. Their attention to detail and commitment to excellence set them apart in the industry.',
     
+    // Brand Video Section
+    brandVideoTitle1: 'More than brands,',
+    brandVideoTitle2: 'we create movements.',
+    brandMovementSubtitle: 'Every brand has a story. We craft narratives that resonate, inspire, and transform audiences into communities.',
+    
     // Footer
-    footerDescription: 'Redefining brand excellence through strategic innovation and design mastery.',
-    quickLinks: 'Quick Links',
-    services: 'Services',
-    projects: 'Projects',
-    contact: 'Contact',
-    followUs: 'Follow Us',
-    allRightsReserved: 'All rights reserved.',
     globalRemote: 'Global Remote',
     
-    // Additional project text
-    viewProject: 'View Project',
-    viewAllProjects: 'View All Projects',
+    // Real Estate Project Category  
+    realEstateBranding: 'Real Estate Branding',
     
-    // Testimonials Section
-    testimonialsLabel: 'Testimonials',
-    testimonialsTitle: 'Trusted By',
-    testimonialsTitle2: 'Visionaries',
-    testimonialsSubtitle: 'Hear from the leaders who\'ve transformed their brands with Lynx.',
+    // New Portfolio Projects
+    modernBarbershop: 'Modern Barbershop',
+    constructionCompany: 'Construction Company', 
+    luxuryJewelry: 'Luxury Jewelry',
+    sportsWear: 'Sports Wear',
     
-    // Testimonial Professions
-    ecommerceOwner: 'E-commerce Owner',
-    lawyer: 'Lawyer',
-    restaurantOwner: 'Restaurant Owner',
-    clinicOwner: 'Clinic Owner',
+    // New Project Categories
+    barbershopBranding: 'Barbershop Branding',
+    constructionBranding: 'Construction Branding',
+    jewelryBranding: 'Jewelry Branding', 
+    sportsbranding: 'Sports Branding',
     
-    // Common UI elements
+    // New Project Descriptions
+    modernBarbershopDesc: 'Contemporary barbershop brand identity featuring bold typography and premium grooming aesthetics for the modern gentleman.',
+    constructionCompanyDesc: 'Professional construction company branding with strong industrial elements and trustworthy design for reliable building solutions.',
+    luxuryJewelryDesc: 'Elegant jewelry brand identity with sophisticated design elements and premium aesthetics for exclusive luxury pieces.',
+    sportsWearDesc: 'Dynamic sports brand identity with energetic design elements and athletic aesthetics for performance-driven activewear.',
+    
+    // Additional UI elements
     loading: 'Loading...',
     learnMore: 'Learn More',
     getStarted: 'Get Started',
@@ -246,7 +254,42 @@ const translations = {
     save: 'Save',
     edit: 'Edit',
     delete: 'Delete',
-    confirm: 'Confirm'
+    confirm: 'Confirm',
+    
+    // Product Carousel Section
+    ourClients: 'Our Clients',
+    trustedByLeaders: 'Trusted by Industry Leaders',
+    clientsSubtitle: 'We\'ve had the privilege of working with amazing companies and individuals who trust us with their brand vision.',
+    
+    // Gallery Page
+    portfolioShowcase: 'Portfolio Showcase',
+    explorePortfolio: 'Explore our curated collection of premium brand identities and innovative design solutions',
+    
+    // Project titles and categories - keeping original names but making categories translatable
+    eliteBusinessServices: 'Elite Business Services',
+    luxuryAutomotiveBrand: 'Luxury Automotive Brand',
+    modernFashionLabel: 'Modern Fashion Label',
+    artisanFoodBeverage: 'Artisan Food & Beverage',
+    techInnovationCompany: 'Tech Innovation Company',
+    premiumRealEstate: 'Premium Real Estate',
+    
+    // Project tags
+    corporate: 'Corporate',
+    business: 'Business',
+    professional: 'Professional',
+    automotive: 'Automotive',
+    luxury: 'Luxury',
+    premium: 'Premium',
+    fashion: 'Fashion',
+    modern: 'Modern',
+    trendy: 'Trendy',
+    food: 'Food',
+    artisan: 'Artisan',
+    gourmet: 'Gourmet',
+    technology: 'Technology',
+    innovation: 'Innovation',
+    future: 'Future',
+    realEstate: 'Real Estate'
   },
   pt: {
     // Navigation
@@ -324,42 +367,23 @@ const translations = {
     portfolioSubtitle: 'Descubra como ajudamos marcas visionárias a transformar sua presença e acelerar seu crescimento através de design estratégico.',
     
     // Project Categories
-    techStartupBranding: 'Serviços Agrícolas',
-    luxuryBrandIdentity: 'Marca de Óculos',
-    digitalExperienceProject: 'Design de Arquitetura',
-    corporateRebrand: 'Marca de Molhos',
+    techStartupBranding: 'Branding para Startup de Tech',
+    luxuryBrandIdentity: 'Identidade de Marca de Luxo',
+    digitalExperienceProject: 'Experiência Digital',
+    corporateRebrand: 'Rebranding Corporativo',
     healthcareInnovation: 'Inovação em Saúde',
     sustainabilityPlatform: 'Plataforma de Sustentabilidade',
-    realEstateBranding: 'Branding Imobiliário',
-    barbershopBranding: 'Branding de Barbearia',
-    consultingBranding: 'Serviços de Consultoria',
-    
-    // Project Titles
-    eliteBusinessServices: 'Elite Business Services',
-    boltinEyewear: 'Boltin Eyewear',
-    modernArchitecture: 'Arquitetura Moderna',
-    premiumSauces: 'Molhos Premium',
-    premiumRealEstate: 'Imobiliária Premium',
-    modernBarbershop: 'Barbearia Moderna',
-    sustainabilityConsulting: 'Consultoria em Sustentabilidade',
-    healthcareInnovation: 'Inovação em Saúde',
-    corporateServices: 'Serviços Corporativos',
     
     // Project Descriptions
     eliteBusinessDesc: 'Estratégia de marca abrangente e transformação digital para serviços agrícolas, aprimorando sua posição no mercado e eficiência operacional.',
-    boltinEyewearDesc: 'Identidade de marca premium para óculos apresentando elementos de design sofisticados e posicionamento de luxo para boutique óptica de alto padrão.',
-    modernArchitectureDesc: 'Projeto inovador de branding arquitetônico apresentando conceitos de design residencial moderno e sistemas de identidade visual.',
-    premiumSaucesDesc: 'Desenvolvimento completo de marca para empresa de molhos premium, incluindo design de embalagem e estratégia de posicionamento no mercado.',
+    luxuryAutomotiveDesc: 'Identidade de marca premium e experiência de showroom para concessionária de automóveis de luxo, elevando o engajamento do cliente e prestígio da marca.',
+    modernFashionDesc: 'Projeto inovador de branding arquitetônico apresentando conceitos de design residencial moderno e sistemas de identidade visual.',
+    artisanFoodDesc: 'Desenvolvimento completo de marca para empresa de molhos premium, incluindo design de embalagem e estratégia de posicionamento no mercado.',
     premiumRealEstateDesc: 'Transformação de marca imobiliária de luxo focando em marketing de propriedades de alto padrão e aprimoramento da experiência do cliente.',
     modernBarbershopDesc: 'Rebrand contemporâneo de barbearia apresentando estética moderna e experiência elevada de atendimento ao cliente.',
-    sustainabilityConsultingDesc: 'Marca de consultoria ambiental focada em práticas empresariais sustentáveis e soluções de tecnologia verde.',
+    sustainabilityPlatformDesc: 'Marca de consultoria ambiental focada em práticas empresariais sustentáveis e soluções de tecnologia verde.',
     healthcareInnovationDesc: 'Desenvolvimento de marca de tecnologia médica enfatizando inovação no cuidado ao paciente e soluções de saúde.',
     corporateServicesDesc: 'Rebrand de serviços profissionais direcionado a clientes corporativos com ênfase em confiabilidade e expertise.',
-    
-    // Brand Video Section
-    brandVideoTitle1: 'Mais que marcas,',
-    brandVideoTitle2: 'criamos movimentos.',
-    brandMovementSubtitle: 'Toda marca tem uma história. Criamos narrativas que ressoam, inspiram e transformam audiências em comunidades.',
     
     // Contact Section
     contactLabel: 'Contato',
@@ -373,6 +397,31 @@ const translations = {
     whatsapp: 'WhatsApp',
     instagram: 'Instagram',
     
+    // Testimonials Section
+    testimonialsLabel: 'Depoimentos',
+    testimonialsTitle: 'Confiado por',
+    testimonialsTitle2: 'Visionários',
+    testimonialsSubtitle: 'Ouça dos líderes que transformaram suas marcas com a Lynx.',
+    
+    // Testimonial Professions
+    ecommerceOwner: 'Dona de E-commerce',
+    lawyer: 'Advogado',
+    restaurantOwner: 'Dona de Restaurante',
+    clinicOwner: 'Dono de Clínica',
+    
+    // Footer
+    footerDescription: 'Redefinindo a excelência da marca através de inovação estratégica e maestria em design.',
+    quickLinks: 'Links Rápidos',
+    services: 'Serviços',
+    projects: 'Projetos',
+    contact: 'Contato',
+    followUs: 'Siga-nos',
+    allRightsReserved: 'Todos os direitos reservados.',
+    
+    // Additional project text
+    viewProject: 'Ver Projeto',
+    viewAllProjects: 'Ver Todos os Projetos',
+    
     // Process Section
     ourProcess: 'Nosso Processo',
     fromVision: 'Da Visão',
@@ -380,9 +429,9 @@ const translations = {
     processSubtitle: 'Nossa metodologia comprovada garante que cada projeto entregue resultados excepcionais através de pensamento estratégico e execução meticulosa.',
     
     // Process Steps
-    discoveryStrategy: 'Descoberta e Estratégia',
-    discoveryDesc: 'Mergulho profundo em sua marca, mercado e objetivos para estabelecer uma base estratégica sólida.',
-    discoveryDetail1: 'Auditoria de marca',
+    discoveryStrategy: 'Descoberta & Estratégia',
+    discoveryDesc: 'Mergulho profundo na sua marca, mercado e objetivos para estabelecer uma base estratégica sólida.',
+    discoveryDetail1: 'Auditoria da marca',
     discoveryDetail2: 'Pesquisa de mercado',
     discoveryDetail3: 'Entrevistas com stakeholders',
     discoveryDetail4: 'Framework estratégico',
@@ -394,14 +443,14 @@ const translations = {
     creativeDetail3: 'Desenvolvimento de protótipo',
     creativeDetail4: 'Refinamento iterativo',
     
-    designExecution: 'Design e Execução',
+    designExecution: 'Design & Execução',
     designExecDesc: 'Execução meticulosa de conceitos aprovados com atenção a cada detalhe.',
     designDetail1: 'Design visual',
     designDetail2: 'Desenvolvimento técnico',
     designDetail3: 'Garantia de qualidade',
     designDetail4: 'Otimização de performance',
     
-    launchGrowth: 'Lançamento e Crescimento',
+    launchGrowth: 'Lançamento & Crescimento',
     launchDesc: 'Planejamento estratégico de lançamento e otimização contínua para sucesso sustentado.',
     launchDetail1: 'Estratégia de lançamento',
     launchDetail2: 'Monitoramento de performance',
@@ -410,21 +459,26 @@ const translations = {
     
     // Brand Importance Section
     whyBrandMatters: 'Por Que Sua Marca Importa',
-    brandPower: 'Poder da',
-    unleashed: 'Marca',
-    brandPowerSubtitle: 'Descubra por que o branding estratégico é a pedra angular do sucesso empresarial no cenário competitivo de hoje.',
+    brandPower: 'O Poder do',
+    unleashed: 'Branding Estratégico',
+    brandPowerSubtitle: 'Descubra por que o branding profissional é essencial para o sucesso empresarial no cenário competitivo de hoje',
     
-    instantRecognition: 'Reconhecimento Instantâneo',
-    instantRecognitionDesc: 'Uma marca forte cria identificação imediata no mercado, permitindo que consumidores reconheçam seus produtos ou serviços em segundos.',
+    brandRecognition: 'Reconhecimento da Marca',
+    brandRecognitionDesc: 'Uma marca forte cria reconhecimento instantâneo no mercado, tornando seu negócio memorável e facilmente identificável entre os concorrentes.',
     
     trustCredibility: 'Confiança & Credibilidade',
-    trustCredibilityDesc: 'Marcas bem estabelecidas transmitem segurança e profissionalismo, aumentando a confiança do cliente em fazer negócios com você.',
+    trustCredibilityDesc: 'Branding profissional constrói confiança com clientes, estabelecendo credibilidade que converte prospects em clientes fiéis que acreditam no seu valor.',
     
-    customerLoyalty: 'Fidelidade do Cliente',
-    customerLoyaltyDesc: 'Uma marca consistente e envolvente cria conexões emocionais duradouras, transformando clientes em defensores da marca.',
+    businessGrowth: 'Crescimento do Negócio',
+    businessGrowthDesc: 'Branding eficaz impulsiona o crescimento dos negócios criando conexões emocionais, comandando preços premium e fomentando a fidelidade do cliente.',
     
-    businessGrowth: 'Crescimento dos Negócios',
-    businessGrowthDesc: 'Branding eficaz impulsiona o crescimento dos negócios criando conexões emocionais, comandando preços premium e fomentando fidelidade do cliente.',
+    // Portfolio project descriptions
+    eliteBusinessDesc: 'Identidade corporativa profissional com linhas limpas e branding sofisticado para consultoria empresarial premium.',
+    luxuryAutomotiveDesc: 'Branding automotivo de alto padrão com elementos de design elegante e identidade visual premium para concessionária de veículos de luxo.',
+    modernFashionDesc: 'Identidade de marca de moda contemporânea com estética minimalista e tipografia moderna para linha de roupas trendy.',
+    artisanFoodDesc: 'Marca artesanal autêntica com cores quentes e elementos artesanais para produtos gourmet.',
+    techInnovationDesc: 'Marca de tecnologia de ponta com elementos de design futurista e identidade visual ousada para líder em inovação.',
+    premiumRealEstateDesc: 'Marca imobiliária sofisticada com elementos de design elegante e posicionamento de luxo para propriedades de alto padrão.',
     
     // Testimonials content
     testimonial1: 'A Lynx não apenas redesenhou nossa marca—eles transformaram completamente como pensamos sobre nossa posição no mercado. Os insights estratégicos foram revolucionários.',
@@ -432,33 +486,36 @@ const translations = {
     testimonial3: 'Trabalhar com a Lynx foi transformador. Eles entendem que um ótimo design não é apenas bonito—é estratégico, proposital e focado em resultados.',
     testimonial4: 'Do conceito à execução, a Lynx entregou resultados excepcionais. Sua atenção aos detalhes e compromisso com a excelência os distingue na indústria.',
     
+    // Brand Video Section
+    brandVideoTitle1: 'Mais que marcas,',
+    brandVideoTitle2: 'criamos movimentos.',
+    brandMovementSubtitle: 'Toda marca tem uma história. Criamos narrativas que ressoam, inspiram e transformam audiências em comunidades.',
+    
     // Footer
-    footerDescription: 'Redefinindo a excelência da marca através de inovação estratégica e maestria em design.',
-    quickLinks: 'Links Rápidos',
-    services: 'Serviços',
-    projects: 'Projetos',
-    contact: 'Contato',
-    followUs: 'Siga-nos',
-    allRightsReserved: 'Todos os direitos reservados.',
     globalRemote: 'Remoto Global',
     
-    // Additional project text
-    viewProject: 'Ver Projeto',
-    viewAllProjects: 'Ver Todos os Projetos',
+    // Real Estate Project Category
+    realEstateBranding: 'Branding Imobiliário',
     
-    // Testimonials Section
-    testimonialsLabel: 'Depoimentos',
-    testimonialsTitle: 'Confiança de',
-    testimonialsTitle2: 'Visionários',
-    testimonialsSubtitle: 'Ouça dos líderes que transformaram suas marcas com a Lynx.',
+    // New Portfolio Projects
+    modernBarbershop: 'Barbearia Moderna',
+    constructionCompany: 'Construtora',
+    luxuryJewelry: 'Joias de Luxo',
+    sportsWear: 'Marca Esportiva',
     
-    // Testimonial Professions
-    ecommerceOwner: 'Proprietário de E-commerce',
-    lawyer: 'Advogado',
-    restaurantOwner: 'Proprietário de Restaurante',
-    clinicOwner: 'Proprietário de Clínica',
+    // New Project Categories
+    barbershopBranding: 'Branding para Barbearia',
+    constructionBranding: 'Branding para Construtora',
+    jewelryBranding: 'Branding para Joias',
+    sportsbranding: 'Branding Esportivo',
     
-    // Common UI elements
+    // New Project Descriptions
+    modernBarbershopDesc: 'Identidade de marca contemporânea para barbearia com tipografia ousada e estética premium de cuidados masculinos para o cavalheiro moderno.',
+    constructionCompanyDesc: 'Branding profissional para construtora com elementos industriais fortes e design confiável para soluções de construção seguras.',
+    luxuryJewelryDesc: 'Identidade elegante para marca de joias com elementos de design sofisticados e estética premium para peças de luxo exclusivas.',
+    sportsWearDesc: 'Identidade dinâmica para marca esportiva com elementos de design energéticos e estética atlética para roupas de alto desempenho.',
+    
+    // Additional UI elements
     loading: 'Carregando...',
     learnMore: 'Saiba Mais',
     getStarted: 'Começar',
@@ -477,7 +534,42 @@ const translations = {
     save: 'Salvar',
     edit: 'Editar',
     delete: 'Excluir',
-    confirm: 'Confirmar'
+    confirm: 'Confirmar',
+    
+    // Product Carousel Section
+    ourClients: 'Nossos Clientes',
+    trustedByLeaders: 'Confiado por Líderes da Indústria',
+    clientsSubtitle: 'Tivemos o privilégio de trabalhar com empresas e indivíduos incríveis que confiam em nós com sua visão de marca.',
+    
+    // Gallery Page
+    portfolioShowcase: 'Mostruário do Portfólio',
+    explorePortfolio: 'Explore nossa coleção curada de identidades de marca premium e soluções de design inovadoras',
+    
+    // Project titles and categories - keeping original names but translating categories
+    eliteBusinessServices: 'Elite Business Services',
+    luxuryAutomotiveBrand: 'Luxury Automotive Brand',
+    modernFashionLabel: 'Modern Fashion Label',
+    artisanFoodBeverage: 'Artisan Food & Beverage',
+    techInnovationCompany: 'Tech Innovation Company',
+    premiumRealEstate: 'Premium Real Estate',
+    
+    // Project tags
+    corporate: 'Corporativo',
+    business: 'Negócios',
+    professional: 'Profissional',
+    automotive: 'Automotivo',
+    luxury: 'Luxo',
+    premium: 'Premium',
+    fashion: 'Moda',
+    modern: 'Moderno',
+    trendy: 'Tendência',
+    food: 'Alimentação',
+    artisan: 'Artesanal',
+    gourmet: 'Gourmet',
+    technology: 'Tecnologia',
+    innovation: 'Inovação',
+    future: 'Futuro',
+    realEstate: 'Imobiliário'
   }
 };
 

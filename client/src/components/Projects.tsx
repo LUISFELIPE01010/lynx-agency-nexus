@@ -10,44 +10,37 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Elite Business Services",
+      title: t('eliteBusinessServices'),
       category: t('techStartupBranding'),
       description: t('eliteBusinessDesc'),
       image: "/bb1.jpg",
-      tags: ["Corporate", "Business", "Professional"]
+      tags: ["Agriculture", "Business", "Professional"]
     },
     {
       id: 2,
-      title: "Luxury Automotive Brand",
+      title: t('boltinEyewear'),
       category: t('luxuryBrandIdentity'),
-      description: t('luxuryAutomotiveDesc'),
+      description: t('boltinEyewearDesc'),
       image: "/bb2.jpg",
-      tags: ["Automotive", "Luxury", "Premium"]
+      tags: ["Eyewear", "Luxury", "Premium"]
     },
     {
       id: 3,
-      title: "Modern Fashion Label",
+      title: t('modernArchitecture'),
       category: t('digitalExperienceProject'),
-      description: t('modernFashionDesc'),
+      description: t('modernArchitectureDesc'),
       image: "/bb3.jpg",
-      tags: ["Fashion", "Modern", "Trendy"]
+      tags: ["Architecture", "Modern", "Design"]
     },
     {
       id: 4,
-      title: "Artisan Food & Beverage",
+      title: t('premiumSauces'),
       category: t('corporateRebrand'),
-      description: t('artisanFoodDesc'),
+      description: t('premiumSaucesDesc'),
       image: "/bb4.jpg",
-      tags: ["Food", "Artisan", "Gourmet"]
+      tags: ["Food", "Sauces", "Premium"]
     },
-    {
-      id: 5,
-      title: "Tech Innovation Company",
-      category: t('healthcareInnovation'),
-      description: t('techInnovationDesc'),
-      image: "/bb5.jpg",
-      tags: ["Technology", "Innovation", "Future"]
-    },
+
     {
       id: 6,
       title: "Premium Real Estate",
