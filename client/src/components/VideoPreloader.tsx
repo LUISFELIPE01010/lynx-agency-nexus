@@ -13,20 +13,12 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
   }, [onLoadingComplete]);
 
   useEffect(() => {
-    const totalDuration = 4000; // 4 segundos
+    const totalDuration = 3000; // 3 segundos
     const intervalTime = 50; // Atualiza a cada 50ms
     const increment = 100 / (totalDuration / intervalTime);
 
     let progressInterval: NodeJS.Timeout;
     let isCompleted = false;
-
-    const handleLoadingComplete = () => {
-      if (isCompleted) return;
-      isCompleted = true;
-      clearInterval(progressInterval);
-      setProgress(100);
-      setTimeout(handleLoadingComplete, 200);
-    };
 
     // Inicia o carregamento do vídeo em segundo plano
     const video = document.createElement('video');
@@ -36,11 +28,17 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
     video.src = videoSrc;
     video.load();
 
-    // Progresso com duração fixa de 4 segundos
+    // Progresso com duração fixa de 3 segundos
     progressInterval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
-          handleLoadingComplete();
+          if (!isCompleted) {
+            isCompleted = true;
+            clearInterval(progressInterval);
+            setTimeout(() => {
+              handleLoadingComplete();
+            }, 200);
+          }
           return 100;
         }
         return Math.min(prev + increment, 100);
