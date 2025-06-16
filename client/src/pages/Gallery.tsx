@@ -16,75 +16,68 @@ const Gallery = () => {
     },
     {
       id: 2,
-      title: t('luxuryAutomotiveBrand'),
+      title: t('boltinEyewear'),
       category: t('luxuryBrandIdentity'),
-      description: t('luxuryAutomotiveDesc'),
+      description: t('boltinEyewearDesc'),
       image: "/bb2.jpg",
-      tags: [t('automotive'), t('luxury'), t('premium')]
+      tags: ['eyewear', 'luxury', 'premium']
     },
     {
       id: 3,
-      title: t('modernFashionLabel'),
+      title: t('modernArchitecture'),
       category: t('digitalExperienceProject'),
-      description: t('modernFashionDesc'),
+      description: t('modernArchitectureDesc'),
       image: "/bb3.jpg",
-      tags: [t('fashion'), t('modern'), t('trendy')]
+      tags: ['architecture', 'modern', 'design']
     },
     {
       id: 4,
-      title: t('artisanFoodBeverage'),
+      title: t('premiumSauces'),
       category: t('corporateRebrand'),
-      description: t('artisanFoodDesc'),
+      description: t('premiumSaucesDesc'),
       image: "/bb4.jpg",
-      tags: [t('food'), t('artisan'), t('gourmet')]
+      tags: ['food', 'sauces', 'premium']
     },
+
     {
-      id: 5,
-      title: t('techInnovationCompany'),
-      category: t('healthcareInnovation'),
-      description: t('techInnovationDesc'),
-      image: "/bb5.jpg",
-      tags: [t('technology'), t('innovation'), t('future')]
-    },
-    {
-      id: 6,
+      id: 4,
       title: t('premiumRealEstate'),
       category: t('realEstateBranding'),
       description: t('premiumRealEstateDesc'),
       image: "/bb6.jpg",
-      tags: [t('realEstate'), t('luxury'), t('premium')]
+      tags: ['real estate', 'luxury', 'premium']
     },
     {
-      id: 7,
+      id: 5,
       title: t('modernBarbershop'),
       category: t('barbershopBranding'),
       description: t('modernBarbershopDesc'),
-      image: "/nova1.png",
-      tags: ["Barbershop", "Modern", "Grooming"]
+      image: "/bb7.jpg",
+      tags: ["barbershop", "modern", "grooming"]
+    },
+    {
+      id: 6,
+      title: t('sustainabilityConsulting'),
+      category: t('sustainabilityPlatform'),
+      description: t('sustainabilityConsultingDesc'),
+      image: "/bb8.jpg",
+      tags: ["sustainability", "consulting", "environment"]
+    },
+    {
+      id: 7,
+      title: t('healthcareInnovation'),
+      category: t('healthcareInnovation'),
+      description: t('healthcareInnovationDesc'),
+      image: "/bb9.jpg",
+      tags: ["healthcare", "innovation", "technology"]
     },
     {
       id: 8,
-      title: t('constructionCompany'),
-      category: t('constructionBranding'),
-      description: t('constructionCompanyDesc'),
-      image: "/nova2.png",
-      tags: ["Construction", "Industrial", "Professional"]
-    },
-    {
-      id: 9,
-      title: t('luxuryJewelry'),
-      category: t('jewelryBranding'),
-      description: t('luxuryJewelryDesc'),
-      image: "/nova3.png",
-      tags: ["Jewelry", "Luxury", "Elegant"]
-    },
-    {
-      id: 10,
-      title: t('sportsWear'),
-      category: t('sportsbranding'),
-      description: t('sportsWearDesc'),
-      image: "/nova4.png",
-      tags: ["Sports", "Athletic", "Performance"]
+      title: t('corporateServices'),
+      category: t('consultingBranding'),
+      description: t('corporateServicesDesc'),
+      image: "/bb10.jpg",
+      tags: ["corporate", "services", "professional"]
     }
   ];
 
