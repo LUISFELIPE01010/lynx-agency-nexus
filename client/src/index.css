@@ -343,7 +343,7 @@ body {
 /* Hero title zoom effects */
 .hero-title-zoom {
   animation: heroTitleZoom 2s ease-out forwards;
-  transform-origin: center center;
+  transform-origin: left center;
 }
 
 /* Extra small devices (phones, 600px and down) */
