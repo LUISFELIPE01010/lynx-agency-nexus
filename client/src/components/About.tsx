@@ -137,7 +137,7 @@ const About = () => {
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="auto"
                   controls={false}
                   disablePictureInPicture
                   style={{ pointerEvents: 'none' }}
