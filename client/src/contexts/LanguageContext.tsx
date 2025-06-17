@@ -260,7 +260,7 @@ const translations = {
     confirm: 'Confirm',
 
     // Gallery Page
-    portfolioLabel: 'Portfolio',
+    galleryLabel: 'Portfolio',
     portfolioShowcase: 'Portfolio Showcase',
     exploreCollection: 'Explore our collection',
   },
@@ -334,7 +334,7 @@ const translations = {
     brandConsultingFeature4: 'Otimização de Mercado',
 
     // Projects Section
-    portfolioLabel: 'Portfólio',
+    projectsLabel: 'Portfólio',
     portfolioTitle: 'Trabalhos',
     portfolioTitle2: 'Selecionados',
     portfolioSubtitle: 'Descubra como ajudamos marcas visionárias a transformar sua presença e acelerar seu crescimento através de design estratégico.',
@@ -507,7 +507,7 @@ const translations = {
     confirm: 'Confirmar',
 
     // Gallery Page
-    portfolioLabel: 'Portfólio',
+    galleryLabel: 'Portfólio',
     portfolioShowcase: 'Mostruário do Portfólio',
     exploreCollection: 'Explore nossa coleção',
   }

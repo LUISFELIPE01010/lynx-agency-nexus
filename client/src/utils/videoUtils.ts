@@ -1,6 +1,6 @@
 // Utility functions for mobile video autoplay compatibility
 
-export const enableMobileVideoAutoplay = (videoElement: HTMLVideoElement): void => {
+export const enableMobileVideoAutoplay = (videoElement: HTMLVideoElement): (() => void) => {
   // Essential mobile video attributes
   videoElement.muted = true;
   videoElement.playsInline = true;
@@ -74,7 +74,7 @@ export const setupMobileVideoCompatibility = (): void => {
 // Check if device is mobile
 export const isMobileDevice = (): boolean => {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
-         (navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+         ('maxTouchPoints' in navigator && navigator.maxTouchPoints > 2);
 };
 
 // Force video play with all mobile compatibility fixes
