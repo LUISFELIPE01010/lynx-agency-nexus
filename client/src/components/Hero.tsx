@@ -13,30 +13,43 @@ const Hero = () => {
   const arrowRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isSafari, setIsSafari] = useState(false);
   const { getParallaxTransform, getZoomTransform } = useScrollAnimations({
     parallaxSpeed: 0.3,
     zoomSpeed: 0.05
   });
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.muted = true;
-    video.playsInline = true;
-
-    const playVideo = () => {
-      video.play().catch(() => {
-        // Se autoplay falhar, espera o primeiro toque do usuário para tentar dar play de novo
-        const onTouchStart = () => {
-          video.play();
-          window.removeEventListener('touchstart', onTouchStart);
-        };
-        window.addEventListener('touchstart', onTouchStart);
-      });
+    // Detecta se é Safari
+    const detectSafari = () => {
+      const userAgent = navigator.userAgent;
+      const isSafariBrowser = /Safari/.test(userAgent) && !/Chrome/.test(userAgent) && !/Chromium/.test(userAgent);
+      setIsSafari(isSafariBrowser);
     };
 
-    playVideo();
+    detectSafari();
+
+    // Só executa lógica do vídeo se não for Safari
+    if (!isSafari) {
+      const video = videoRef.current;
+      if (!video) return;
+
+      video.muted = true;
+      video.playsInline = true;
+
+      const playVideo = () => {
+        video.play().catch(() => {
+          // Se autoplay falhar, espera o primeiro toque do usuário para tentar dar play de novo
+          const onTouchStart = () => {
+            video.play();
+            window.removeEventListener('touchstart', onTouchStart);
+          };
+          window.addEventListener('touchstart', onTouchStart);
+        });
+      };
+
+      playVideo();
+    }
 
     // Animações GSAP
     if (logoRef.current) {
@@ -79,7 +92,7 @@ const Hero = () => {
     return () => {
       window.removeEventListener('touchstart', () => {});
     };
-  }, []);
+  }, [isSafari]);
 
   const scrollToNext = () => {
     const nextSection = document.querySelector('#about');
@@ -90,31 +103,52 @@ const Hero = () => {
     <section ref={heroRef} className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y bg-black">
       <div className="absolute inset-0 bg-black"></div>
 
-      <video 
-        ref={videoRef}
-        className="absolute w-full h-full object-cover opacity-100"
-        src="/fundonew.mp4"
-        autoPlay
-        muted
-        playsInline
-        loop
-        preload="auto"
-        disablePictureInPicture
-        onLoadedMetadata={() => { console.log('Hero video metadata loaded'); }}
-        onCanPlay={() => { console.log('Hero video ready for playback'); setVideoLoaded(true); }}
-        style={{ 
-          objectFit: 'cover',
-          objectPosition: 'center',
-          willChange: 'transform',
-          WebkitTransform: 'translate3d(0,0,0)',
-          transform: 'translate3d(0,0,0)',
-          WebkitBackfaceVisibility: 'hidden',
-          backfaceVisibility: 'hidden',
-          WebkitPerspective: 1000,
-          perspective: 1000,
-          backgroundColor: '#000000'
-        }}
-      />
+      {isSafari ? (
+        <img 
+          className="absolute w-full h-full object-cover opacity-100"
+          src="/safari.gif"
+          alt="Safari Background Animation"
+          style={{ 
+            objectFit: 'cover',
+            objectPosition: 'center',
+            willChange: 'transform',
+            WebkitTransform: 'translate3d(0,0,0)',
+            transform: 'translate3d(0,0,0)',
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden',
+            WebkitPerspective: 1000,
+            perspective: 1000,
+            backgroundColor: '#000000'
+          }}
+          onLoad={() => { console.log('Safari GIF loaded'); setVideoLoaded(true); }}
+        />
+      ) : (
+        <video 
+          ref={videoRef}
+          className="absolute w-full h-full object-cover opacity-100"
+          src="/fundonew.mp4"
+          autoPlay
+          muted
+          playsInline
+          loop
+          preload="auto"
+          disablePictureInPicture
+          onLoadedMetadata={() => { console.log('Hero video metadata loaded'); }}
+          onCanPlay={() => { console.log('Hero video ready for playback'); setVideoLoaded(true); }}
+          style={{ 
+            objectFit: 'cover',
+            objectPosition: 'center',
+            willChange: 'transform',
+            WebkitTransform: 'translate3d(0,0,0)',
+            transform: 'translate3d(0,0,0)',
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden',
+            WebkitPerspective: 1000,
+            perspective: 1000,
+            backgroundColor: '#000000'
+          }}
+        />
+      )}
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90 pointer-events-none"></div>
 
