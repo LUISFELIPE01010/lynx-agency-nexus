@@ -8,10 +8,10 @@ const Services = () => {
 
   const services = [
     {
-      title: t('brandStrategy'),
-      description: t('brandStrategyDesc'),
+      title: t('crmAutomation'),
+      description: t('crmAutomationDesc'),
       icon: "target",
-      features: [t('brandStrategyFeature1'), t('brandStrategyFeature2'), t('brandStrategyFeature3'), t('brandStrategyFeature4')]
+      features: [t('crmAutomationFeature1'), t('crmAutomationFeature2'), t('crmAutomationFeature3'), t('crmAutomationFeature4')]
     },
     {
       title: t('visualIdentity'),

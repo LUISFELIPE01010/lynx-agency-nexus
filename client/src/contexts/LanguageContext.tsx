@@ -44,6 +44,13 @@ const translations = {
     servicesSubtitle: 'From strategic foundation to creative execution, we deliver end-to-end solutions that transform brands and accelerate growth.',
 
     // Service Items
+    crmAutomation: 'Automação de CRM',
+    crmAutomationDesc: 'Configuração inteligente de gestão de relacionamento com clientes para otimizar comunicação, nutrir leads e automatizar fluxos de trabalho para maior eficiência e performance de vendas.',
+    crmAutomationFeature1: 'Fluxos Automatizados',
+    crmAutomationFeature2: 'Sequências de Nutrição de Leads',
+    crmAutomationFeature3: 'Otimização de Pipeline de Vendas',
+    crmAutomationFeature4: 'Integração e Configuração de CRM',
+    
     brandStrategy: 'Brand Positioning',
     brandStrategyDesc: 'Strategic market positioning and brand architecture that establishes your unique value proposition and competitive advantage.',
     brandStrategyFeature1: 'Market Analysis',
@@ -291,6 +298,13 @@ const translations = {
     servicesSubtitle: 'Desde a base estratégica até a execução criativa, entregamos soluções completas que transformam marcas e aceleram o crescimento.',
 
     // Service Items
+    crmAutomation: 'CRM Automation',
+    crmAutomationDesc: 'Smart customer relationship management setup to streamline communication, nurture leads, and automate workflows for increased efficiency and sales performance.',
+    crmAutomationFeature1: 'Automated Workflows',
+    crmAutomationFeature2: 'Lead Nurturing Sequences',
+    crmAutomationFeature3: 'Sales Pipeline Optimization',
+    crmAutomationFeature4: 'CRM Integration & Setup',
+    
     brandStrategy: 'Posicionamento de Marca',
     brandStrategyDesc: 'Posicionamento estratégico de mercado e arquitetura de marca que estabelece sua proposta de valor única e vantagem competitiva.',
     brandStrategyFeature1: 'Análise de Mercado',
