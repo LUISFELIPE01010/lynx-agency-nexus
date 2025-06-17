@@ -153,8 +153,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90 pointer-events-none"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-start items-start text-left pt-4 sm:pt-6 md:pt-8 lg:pt-12 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
-        <div className="flex flex-col items-start justify-start space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16 w-full">
-          <div ref={logoRef} className="flex justify-start w-full pt-2 sm:pt-4 md:pt-6">
+        <div className="flex flex-col items-start justify-start space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24 w-full">
+          <div ref={logoRef} className="flex justify-start w-full pt-1 sm:pt-2 md:pt-3">
             <img 
               src="/LYNXx.png" 
               alt="Lynx Agency" 
@@ -162,7 +162,7 @@ const Hero = () => {
             />
           </div>
 
-          <div className="text-left w-full max-w-none lg:max-w-5xl space-y-4 sm:space-y-6 md:space-y-8 mt-4 sm:mt-6 md:mt-8">
+          <div className="text-left w-full max-w-none lg:max-w-5xl space-y-4 sm:space-y-6 md:space-y-8">
             <p 
               ref={subtitleRef1}
               className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-space text-lynx-gray leading-tight font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
