@@ -86,7 +86,7 @@ const OptimizedVideo = ({
       className={className}
       src={shouldLoad ? src : undefined}
       autoPlay={shouldLoad && autoPlay}
-      muted={muted}
+      muted
       loop={loop}
       playsInline={playsInline}
       preload={shouldLoad ? preload : 'none'}

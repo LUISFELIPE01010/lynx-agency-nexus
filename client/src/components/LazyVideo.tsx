@@ -68,7 +68,7 @@ const LazyVideo = ({
       src={shouldLoad ? src : undefined}
       poster={poster}
       autoPlay={shouldLoad && autoPlay}
-      muted={muted}
+      muted
       loop={loop}
       playsInline={playsInline}
       preload={shouldLoad ? 'metadata' : 'none'}
