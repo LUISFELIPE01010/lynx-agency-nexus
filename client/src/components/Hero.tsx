@@ -152,17 +152,17 @@ const Hero = () => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90 pointer-events-none"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-start text-left py-8 sm:py-12 md:py-16 lg:py-20">
-        <div className="flex flex-col items-start justify-center space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12 w-full">
-          <div ref={logoRef} className="flex justify-start w-full">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-start items-start text-left pt-4 sm:pt-6 md:pt-8 lg:pt-12 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
+        <div className="flex flex-col items-start justify-start space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-16 w-full">
+          <div ref={logoRef} className="flex justify-start w-full pt-2 sm:pt-4 md:pt-6">
             <img 
               src="/LYNXx.png" 
               alt="Lynx Agency" 
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36 object-contain opacity-90 max-w-full h-auto"
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 object-contain opacity-90 max-w-full h-auto"
             />
           </div>
 
-          <div className="text-left w-full max-w-none lg:max-w-5xl space-y-4 sm:space-y-6 md:space-y-8">
+          <div className="text-left w-full max-w-none lg:max-w-5xl space-y-4 sm:space-y-6 md:space-y-8 mt-4 sm:mt-6 md:mt-8">
             <p 
               ref={subtitleRef1}
               className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-space text-lynx-gray leading-tight font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
