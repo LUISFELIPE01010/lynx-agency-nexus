@@ -145,9 +145,9 @@ const Hero = () => {
         src="/fundonew.mp4"
         autoPlay
         muted
-        loop
         playsInline
-        preload="metadata"
+        loop
+        preload="auto"
         disablePictureInPicture
         controls={false}
         style={{ 
