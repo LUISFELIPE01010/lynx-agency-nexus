@@ -82,7 +82,6 @@ const Hero = () => {
         src="/fundonew.mp4"
         autoPlay
         muted
-        defaultMuted
         playsInline
         loop
         preload="auto"
@@ -166,4 +165,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
