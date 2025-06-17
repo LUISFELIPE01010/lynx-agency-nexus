@@ -19,10 +19,10 @@ const BrandVideo = () => {
         <LazyVideo
           className="w-full h-full object-cover"
           src="/Brand..mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
+          autoPlay={true}
+          muted={true}
+          loop={true}
+          playsInline={true}
           preload="auto"
         />
 

@@ -54,13 +54,13 @@ const VideoLazyLoader = ({ src, poster, className, onVideoReady }: VideoLazyLoad
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
         src={isInView ? src : undefined}
-        autoPlay
-        muted
-        loop
-        playsInline
+        autoPlay={true}
+        muted={true}
+        loop={true}
+        playsInline={true}
         preload="auto"
         controls={false}
-        disablePictureInPicture
+        disablePictureInPicture={true}
         poster={poster}
         style={{
           objectFit: 'cover',

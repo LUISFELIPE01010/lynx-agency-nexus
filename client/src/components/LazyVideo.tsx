@@ -68,7 +68,7 @@ const LazyVideo = ({
       src={shouldLoad ? src : undefined}
       poster={poster}
       autoPlay={shouldLoad && autoPlay}
-      muted
+      muted={true}
       loop={loop}
       playsInline={playsInline}
       preload={shouldLoad ? 'auto' : 'none'}
@@ -76,7 +76,7 @@ const LazyVideo = ({
       onCanPlay={onCanPlay}
       onError={onError}
       style={videoStyle}
-      disablePictureInPicture
+      disablePictureInPicture={true}
       controls={false}
     />
   );

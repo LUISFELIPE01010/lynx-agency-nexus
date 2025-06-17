@@ -133,13 +133,13 @@ const About = () => {
                 <video 
                   src="/globo.mp4" 
                   className="w-full h-full object-cover opacity-100 transition-opacity duration-500"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                  autoPlay={true}
+                  muted={true}
+                  loop={true}
+                  playsInline={true}
                   preload="auto"
                   controls={false}
-                  disablePictureInPicture
+                  disablePictureInPicture={true}
                   style={{ pointerEvents: 'none' }}
                 />
               </div>
