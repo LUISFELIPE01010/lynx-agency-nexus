@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ArrowDown } from 'lucide-react';
@@ -11,7 +10,8 @@ const Hero = () => {
   const { t } = useLanguage();
   const heroRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const subtitleRef1 = useRef<HTMLParagraphElement>(null);
+  const subtitleRef2 = useRef<HTMLParagraphElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -20,10 +20,7 @@ const Hero = () => {
     zoomSpeed: 0.05
   });
 
-  
-
   useEffect(() => {
-    // Force video play to overcome mobile autoplay restrictions
     if (videoRef.current) {
       const playPromise = videoRef.current.play();
       if (playPromise !== undefined) {
@@ -33,7 +30,6 @@ const Hero = () => {
       }
     }
 
-    // Fast, lightweight animations with null checks
     if (logoRef.current) {
       gsap.fromTo(logoRef.current,
         { opacity: 0, scale: 0.8, y: 30 },
@@ -41,10 +37,17 @@ const Hero = () => {
       );
     }
 
-    if (subtitleRef.current) {
-      gsap.fromTo(subtitleRef.current,
+    if (subtitleRef1.current) {
+      gsap.fromTo(subtitleRef1.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.2 }
+      );
+    }
+
+    if (subtitleRef2.current) {
+      gsap.fromTo(subtitleRef2.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.4 }
       );
     }
 
@@ -54,7 +57,6 @@ const Hero = () => {
         { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', delay: 0.4 }
       );
 
-      // Subtle floating animation for arrow
       gsap.to(arrowRef.current, {
         y: -8,
         duration: 1.5,
@@ -63,9 +65,6 @@ const Hero = () => {
         repeat: -1,
       });
     }
-
-    // Cleanup function for animations only
-    return () => {};
   }, []);
 
   const scrollToNext = () => {
@@ -75,28 +74,21 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 xl:px-12 overflow-hidden touch-pan-y bg-black">
-      {/* Black background fallback - always visible */}
       <div className="absolute inset-0 bg-black"></div>
-      
-      {/* Ultra-optimized background video */}
+
       <video 
         ref={videoRef}
         className="absolute w-full h-full object-cover opacity-100"
         src="/fundonew.mp4"
-        autoPlay={true}
-        muted={true}
-        defaultMuted={true}
-        playsInline={true}
-        loop={true}
+        autoPlay
+        muted
+        defaultMuted
+        playsInline
+        loop
         preload="auto"
-        disablePictureInPicture={true}
-        onLoadedMetadata={() => {
-          console.log('Hero video metadata loaded');
-        }}
-        onCanPlay={() => {
-          console.log('Hero video ready for playback');
-          setVideoLoaded(true);
-        }}
+        disablePictureInPicture
+        onLoadedMetadata={() => { console.log('Hero video metadata loaded'); }}
+        onCanPlay={() => { console.log('Hero video ready for playback'); setVideoLoaded(true); }}
         style={{ 
           objectFit: 'cover',
           objectPosition: 'center',
@@ -110,15 +102,11 @@ const Hero = () => {
           backgroundColor: '#000000'
         }}
       />
-      
-      {/* Optimized gradient overlay */}
+
       <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#95A0A2]/15 to-black/90 pointer-events-none"></div>
 
-      {/* Main content container - responsive and centered */}
       <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col justify-center items-start text-left py-8 sm:py-12 md:py-16 lg:py-20">
-        {/* Logo and Title - responsive layout */}
         <div className="flex flex-col items-start justify-center space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12 w-full">
-          {/* Main Logo - fully responsive sizes */}
           <div ref={logoRef} className="flex justify-start w-full">
             <img 
               src="/LYNXx.png" 
@@ -127,23 +115,21 @@ const Hero = () => {
             />
           </div>
 
-          {/* Title and subtitle - fully responsive */}
           <div className="text-left w-full max-w-none lg:max-w-5xl space-y-4 sm:space-y-6 md:space-y-8">
             <p 
-              ref={subtitleRef}
+              ref={subtitleRef1}
               className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-space text-lynx-gray leading-tight font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
             >
               {t('heroSubtitle1')}
             </p>
 
             <p 
-              ref={subtitleRef}
+              ref={subtitleRef2}
               className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-space text-white leading-tight font-bold hero-title-zoom hover:scale-105 transition-transform duration-300 cursor-default tracking-tight"
             >
               {t('heroSubtitle2')}
             </p>
 
-            {/* Buttons - fully responsive */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-6 sm:pt-8 md:pt-10 justify-start items-stretch sm:items-start w-full max-w-sm sm:max-w-md lg:max-w-lg">
               <button 
                 onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
@@ -166,7 +152,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll arrow - fully responsive positioning */}
       <div 
         ref={arrowRef}
         onClick={scrollToNext}
@@ -181,3 +166,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
