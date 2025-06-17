@@ -53,6 +53,38 @@ const Hero = () => {
         repeat: -1,
       });
     }
+
+    // Mobile video autoplay fix
+    const handleVideoPlay = async () => {
+      if (videoRef.current) {
+        try {
+          // Force play on mobile devices
+          await videoRef.current.play();
+          setVideoLoaded(true);
+          console.log('Hero video ready for playback');
+        } catch (error) {
+          console.log('Video autoplay prevented, user interaction required');
+        }
+      }
+    };
+
+    const handleUserInteraction = () => {
+      if (videoRef.current && videoRef.current.paused) {
+        videoRef.current.play().catch(console.log);
+      }
+    };
+
+    // Try to play video immediately
+    handleVideoPlay();
+
+    // Add event listeners for user interaction
+    document.addEventListener('touchstart', handleUserInteraction, { once: true });
+    document.addEventListener('click', handleUserInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener('touchstart', handleUserInteraction);
+      document.removeEventListener('click', handleUserInteraction);
+    };
   }, []);
 
   const scrollToNext = () => {
@@ -70,13 +102,23 @@ const Hero = () => {
         ref={videoRef}
         className="absolute w-full h-full object-cover opacity-100"
         src="/fundonew.mp4"
-        autoPlay={true}
-        muted={true}
-        playsInline={true}
-        loop={true}
-        preload="auto"
-        disablePictureInPicture={true}
+        autoPlay
+        muted
+        playsInline
+        loop
+        preload="metadata"
+        disablePictureInPicture
         controls={false}
+        onLoadedMetadata={() => {
+          console.log('Hero video metadata loaded');
+          if (videoRef.current) {
+            videoRef.current.play().catch(e => console.log('Mobile autoplay requires user interaction'));
+          }
+        }}
+        onCanPlay={() => {
+          console.log('Hero video ready for playback');
+          setVideoLoaded(true);
+        }}
         style={{ 
           objectFit: 'cover',
           objectPosition: 'center',

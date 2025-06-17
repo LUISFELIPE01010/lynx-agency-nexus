@@ -55,6 +55,39 @@ const LazyVideo = ({
     return () => observer.disconnect();
   }, [priority, shouldLoad]);
 
+  // Mobile autoplay fix
+  useEffect(() => {
+    if (!shouldLoad || !autoPlay) return;
+
+    const handleVideoPlay = async () => {
+      if (videoRef.current) {
+        try {
+          await videoRef.current.play();
+        } catch (error) {
+          console.log('Video autoplay prevented, user interaction required');
+        }
+      }
+    };
+
+    const handleUserInteraction = () => {
+      if (videoRef.current && videoRef.current.paused) {
+        videoRef.current.play().catch(console.log);
+      }
+    };
+
+    // Try to play video immediately
+    handleVideoPlay();
+
+    // Add event listeners for user interaction
+    document.addEventListener('touchstart', handleUserInteraction, { once: true });
+    document.addEventListener('click', handleUserInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener('touchstart', handleUserInteraction);
+      document.removeEventListener('click', handleUserInteraction);
+    };
+  }, [shouldLoad, autoPlay]);
+
   const videoStyle: React.CSSProperties = {
     ...style,
     transform: 'translate3d(0,0,0)',
@@ -71,9 +104,14 @@ const LazyVideo = ({
       muted={true}
       loop={loop}
       playsInline={playsInline}
-      preload={shouldLoad ? 'auto' : 'none'}
+      preload={shouldLoad ? 'metadata' : 'none'}
       onLoadedData={onLoadedData}
       onCanPlay={onCanPlay}
+      onLoadedMetadata={() => {
+        if (videoRef.current && autoPlay) {
+          videoRef.current.play().catch(e => console.log('Mobile autoplay requires user interaction'));
+        }
+      }}
       onError={onError}
       style={videoStyle}
       disablePictureInPicture={true}
