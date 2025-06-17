@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ArrowDown } from 'lucide-react';
-import logoPng from '@/logop.png';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimations } from '@/hooks/useScrollAnimations';
-import OptimizedImage from './OptimizedImage';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -21,15 +19,26 @@ const Hero = () => {
   });
 
   useEffect(() => {
-    if (videoRef.current) {
-      const playPromise = videoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.log('Autoplay prevented on mobile:', error);
-        });
-      }
-    }
+    const video = videoRef.current;
+    if (!video) return;
 
+    video.muted = true;
+    video.playsInline = true;
+
+    const playVideo = () => {
+      video.play().catch(() => {
+        // Se autoplay falhar, espera o primeiro toque do usuário para tentar dar play de novo
+        const onTouchStart = () => {
+          video.play();
+          window.removeEventListener('touchstart', onTouchStart);
+        };
+        window.addEventListener('touchstart', onTouchStart);
+      });
+    };
+
+    playVideo();
+
+    // Animações GSAP
     if (logoRef.current) {
       gsap.fromTo(logoRef.current,
         { opacity: 0, scale: 0.8, y: 30 },
@@ -65,6 +74,11 @@ const Hero = () => {
         repeat: -1,
       });
     }
+
+    // Cleanup no event listener para toque
+    return () => {
+      window.removeEventListener('touchstart', () => {});
+    };
   }, []);
 
   const scrollToNext = () => {
