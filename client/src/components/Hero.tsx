@@ -54,37 +54,8 @@ const Hero = () => {
       });
     }
 
-    // Mobile video autoplay fix
-    const handleVideoPlay = async () => {
-      if (videoRef.current) {
-        try {
-          // Force play on mobile devices
-          await videoRef.current.play();
-          setVideoLoaded(true);
-          console.log('Hero video ready for playback');
-        } catch (error) {
-          console.log('Video autoplay prevented, user interaction required');
-        }
-      }
-    };
-
-    const handleUserInteraction = () => {
-      if (videoRef.current && videoRef.current.paused) {
-        videoRef.current.play().catch(console.log);
-      }
-    };
-
-    // Try to play video immediately
-    handleVideoPlay();
-
-    // Add event listeners for user interaction
-    document.addEventListener('touchstart', handleUserInteraction, { once: true });
-    document.addEventListener('click', handleUserInteraction, { once: true });
-
-    return () => {
-      document.removeEventListener('touchstart', handleUserInteraction);
-      document.removeEventListener('click', handleUserInteraction);
-    };
+    // Cleanup function for animations only
+    return () => {};
   }, []);
 
   const scrollToNext = () => {
@@ -106,14 +77,11 @@ const Hero = () => {
         muted={true}
         playsInline={true}
         loop={true}
-        preload="metadata"
+        preload="auto"
         disablePictureInPicture={true}
         controls={false}
         onLoadedMetadata={() => {
           console.log('Hero video metadata loaded');
-          if (videoRef.current) {
-            videoRef.current.play().catch(e => console.log('Mobile autoplay requires user interaction'));
-          }
         }}
         onCanPlay={() => {
           console.log('Hero video ready for playback');

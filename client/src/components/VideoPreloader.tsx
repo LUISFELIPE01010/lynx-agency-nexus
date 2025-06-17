@@ -16,7 +16,7 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
     const minDuration = 2000; // Mínimo de 2 segundos
     const maxDuration = 4000; // Máximo de 4 segundos
     const intervalTime = 50; // Atualiza a cada 50ms
-    
+
     let progressInterval: NodeJS.Timeout;
     let isCompleted = false;
     let videoReady = false;
@@ -30,7 +30,7 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
     heroVideo.playsInline = true;
     heroVideo.loop = true;
     heroVideo.src = '/fundonew.mp4'; // Vídeo do Hero
-    
+
     // Também carrega o vídeo passado como prop
     const extraVideo = document.createElement('video');
     extraVideo.preload = 'auto';
@@ -70,7 +70,7 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
         checkVideoReady();
       }
     });
-    
+
     // Inicia o carregamento
     heroVideo.load();
     extraVideo.load();
@@ -109,15 +109,15 @@ const VideoPreloader = ({ onLoadingComplete, videoSrc }: VideoPreloaderProps) =>
 
     // Progresso visual
     const baseIncrement = 100 / (minDuration / intervalTime);
-    
+
     progressInterval = setInterval(() => {
       setProgress(prev => {
         currentProgress = Math.min(prev + baseIncrement, 100);
-        
+
         if (currentProgress >= 100) {
           tryComplete();
         }
-        
+
         return currentProgress;
       });
     }, intervalTime);
