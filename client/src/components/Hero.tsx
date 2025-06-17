@@ -23,6 +23,16 @@ const Hero = () => {
   
 
   useEffect(() => {
+    // Force video play to overcome mobile autoplay restrictions
+    if (videoRef.current) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log('Autoplay prevented on mobile:', error);
+        });
+      }
+    }
+
     // Fast, lightweight animations with null checks
     if (logoRef.current) {
       gsap.fromTo(logoRef.current,
@@ -75,11 +85,11 @@ const Hero = () => {
         src="/fundonew.mp4"
         autoPlay={true}
         muted={true}
+        defaultMuted={true}
         playsInline={true}
         loop={true}
         preload="auto"
         disablePictureInPicture={true}
-        controls={false}
         onLoadedMetadata={() => {
           console.log('Hero video metadata loaded');
         }}
