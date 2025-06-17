@@ -102,12 +102,12 @@ const Hero = () => {
         ref={videoRef}
         className="absolute w-full h-full object-cover opacity-100"
         src="/fundonew.mp4"
-        autoPlay
-        muted
-        playsInline
-        loop
+        autoPlay={true}
+        muted={true}
+        playsInline={true}
+        loop={true}
         preload="metadata"
-        disablePictureInPicture
+        disablePictureInPicture={true}
         controls={false}
         onLoadedMetadata={() => {
           console.log('Hero video metadata loaded');
