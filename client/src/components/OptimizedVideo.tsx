@@ -23,7 +23,7 @@ const OptimizedVideo = ({
   muted = true,
   loop = false,
   playsInline = true,
-  preload = 'metadata',
+  preload = 'auto',
   poster,
   priority = false,
   onLoadedData,
@@ -89,7 +89,7 @@ const OptimizedVideo = ({
       muted
       loop={loop}
       playsInline={playsInline}
-      preload={shouldLoad ? preload : 'none'}
+      preload={shouldLoad ? 'auto' : 'none'}
       poster={poster}
       onLoadedData={handleLoadedData}
       onCanPlay={handleCanPlay}

@@ -141,12 +141,6 @@ const About = () => {
                   controls={false}
                   disablePictureInPicture
                   style={{ pointerEvents: 'none' }}
-                  onLoadStart={() => {
-                    const video = document.querySelector('video');
-                    if (video) {
-                      video.currentTime = 0;
-                    }
-                  }}
                 />
               </div>
 

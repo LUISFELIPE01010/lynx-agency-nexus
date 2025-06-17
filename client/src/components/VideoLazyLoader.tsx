@@ -31,42 +31,9 @@ const VideoLazyLoader = ({ src, poster, className, onVideoReady }: VideoLazyLoad
   }, []);
 
   useEffect(() => {
-    if (isInView && videoRef.current) {
-      const video = videoRef.current;
-      
-      // Optimize video settings for performance
-      video.muted = true;
-      video.playsInline = true;
-      video.preload = 'metadata';
-      
-      const handleCanPlay = async () => {
-        try {
-          await video.play();
-          setIsLoaded(true);
-          onVideoReady?.();
-        } catch (error) {
-          console.log('Video autoplay failed, will play on user interaction');
-        }
-      };
-
-      const handleLoadedMetadata = () => {
-        // Set quality based on device performance
-        const connection = (navigator as any).connection;
-        if (connection && connection.effectiveType === 'slow-2g') {
-          video.style.display = 'none';
-        }
-      };
-
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('loadedmetadata', handleLoadedMetadata);
-      
-      // Start loading the video
-      video.load();
-
-      return () => {
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      };
+    if (isInView) {
+      setIsLoaded(true);
+      onVideoReady?.();
     }
   }, [isInView, onVideoReady]);
 
@@ -91,6 +58,9 @@ const VideoLazyLoader = ({ src, poster, className, onVideoReady }: VideoLazyLoad
         muted
         loop
         playsInline
+        preload="auto"
+        controls={false}
+        disablePictureInPicture
         poster={poster}
         style={{
           objectFit: 'cover',

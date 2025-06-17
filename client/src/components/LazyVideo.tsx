@@ -71,7 +71,7 @@ const LazyVideo = ({
       muted
       loop={loop}
       playsInline={playsInline}
-      preload={shouldLoad ? 'metadata' : 'none'}
+      preload={shouldLoad ? 'auto' : 'none'}
       onLoadedData={onLoadedData}
       onCanPlay={onCanPlay}
       onError={onError}

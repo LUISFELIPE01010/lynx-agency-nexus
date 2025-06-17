@@ -20,80 +20,7 @@ const Hero = () => {
     zoomSpeed: 0.05
   });
 
-  // Optimized video loading with immediate playback and aggressive preloading
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      // Configure for immediate autoplay with aggressive preloading
-      video.muted = true;
-      video.playsInline = true;
-      video.loop = true;
-      video.preload = 'auto';
-      video.defaultMuted = true;
-      
-      // Force video to start loading immediately
-      video.load();
-      
-      // Set initial opacity to prevent gray flash
-      setVideoLoaded(true);
-      
-      // Multiple event handlers for reliability
-      const handleCanPlay = async () => {
-        try {
-          await video.play();
-        } catch (error) {
-          video.muted = true;
-          try {
-            await video.play();
-          } catch (retryError) {
-            console.log('Video autoplay blocked, will play on user interaction');
-          }
-        }
-      };
-      
-      const handleLoadedData = () => {
-        video.play().catch(() => {
-          video.muted = true;
-          video.play();
-        });
-      };
-      
-      const handleLoadStart = () => {
-        // Ensure video starts from beginning
-        video.currentTime = 0;
-      };
-      
-      // Add event listeners
-      video.addEventListener('canplay', handleCanPlay);
-      video.addEventListener('loadeddata', handleLoadedData);
-      video.addEventListener('loadstart', handleLoadStart);
-      video.addEventListener('loadedmetadata', () => {
-        video.currentTime = 0;
-      });
-      
-      // Immediate play attempt
-      const immediatePlayTimeout = setTimeout(() => {
-        if (video.readyState >= 1) {
-          handleCanPlay();
-        }
-      }, 50);
-      
-      // Secondary attempt
-      const secondaryPlayTimeout = setTimeout(() => {
-        if (video.readyState >= 2) {
-          handleCanPlay();
-        }
-      }, 200);
-      
-      return () => {
-        clearTimeout(immediatePlayTimeout);
-        clearTimeout(secondaryPlayTimeout);
-        video.removeEventListener('canplay', handleCanPlay);
-        video.removeEventListener('loadeddata', handleLoadedData);
-        video.removeEventListener('loadstart', handleLoadStart);
-      };
-    }
-  }, []);
+  
 
   useEffect(() => {
     // Fast, lightweight animations with null checks
@@ -161,21 +88,6 @@ const Hero = () => {
           WebkitPerspective: 1000,
           perspective: 1000,
           backgroundColor: '#000000'
-        }}
-        onLoadedData={() => {
-          setVideoLoaded(true);
-        }}
-        onCanPlay={() => {
-          setVideoLoaded(true);
-        }}
-        onLoadStart={() => {
-          // Força o vídeo a começar do início
-          if (videoRef.current) {
-            videoRef.current.currentTime = 0;
-          }
-        }}
-        onError={(e) => {
-          setVideoLoaded(false);
         }}
       />
       
